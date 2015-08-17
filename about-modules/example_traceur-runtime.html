@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Traceur-Runtime</title>
+  </head>
+  <body>
+
+    <script src="/jspm_packages/github/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"></script>
+    <script src="es5_module.js"></script>
+
+    <script>
+      var Test = System.get("es6_module.js").Test;
+      var test = new Test();
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,18 @@
+{
+  "name": "e2e-angular-buch",
+  "version": "0.0.1",
+  "description": "e2e tests to ensure that all examples are still working",
+  "scripts": {
+    "prestart": "webdriver-manager update",
+    "start": "webdriver-manager start",
+    "test": "protractor protractor.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Angular2Buch/code"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "protractor": "^2.1.0"
+  }
+}

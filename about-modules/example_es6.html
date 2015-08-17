@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ES6 Modul mit System.import</title>
+  </head>
+  <body>
+
+    <script src="/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
+    <script src="/jspm_packages/es6-module-loader.js"></script>
+
+    <script>
+      System.import('es6_module').then(function(module) {
+        var test = new module.Test();
+      });
+    </script>
+
+  </body>
+</html>

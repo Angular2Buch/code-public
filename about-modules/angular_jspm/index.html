@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 Quickstart (jspm / SystemJS / TypeScript)</title>
+
+    <script src='/jspm_packages/system.js'></script>
+    <script src="/config.js"></script>
+    <script>
+
+      System.config({
+        paths: {
+          app: 'about-modules/angular_jspm/app' // change this!
+        },
+        "packages": {
+          "app": {
+            "defaultExtension": "ts"
+          }
+        }
+      });
+    </script>
+  </head>
+  <body>
+
+    <my-app></my-app>
+    <script>
+      System.import('zone.js');
+      System.import('reflect-metadata');
+      System.import('es6-shim');
+
+      System.import('app');
+    </script>
+
+  </body>
+</html>
