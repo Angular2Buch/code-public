@@ -93,7 +93,7 @@ npm install -g traceur
 traceur --sourcemap --out es5_module.js es6_module.js --experimental
 ```
 
-Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `traceur-runtime.js`. eingefügt werden. Der Sinn dieser **Traceur-Runtime** besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object `$traceurRuntime` sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig. 
+Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `traceur-runtime.js`. eingefügt werden. Der Sinn dieser **Traceur-Runtime** besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object `$traceurRuntime` sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.
 
 ```javascript
 <script src="/jspm_packages/github/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"></script>
@@ -103,7 +103,7 @@ Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `t
   var Test = System.get("es6_module.js").Test;
   var test = new Test();
 </script>
-``` 
+```
 > [example_traceur-runtime.html](example_traceur-runtime.html)
 
 Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular2 benötigt die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)". Mehr dazu im Abschnitt "Angular2 mit Gulp bauen".
@@ -113,7 +113,7 @@ Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwen
 ## 4. SystemJS
 
 In ***Zeile 2*** sieht man die Verwendung von [SystemJS](https://github.com/systemjs/systemjs).
-SystemJS lädt die in TypeScript entwickelte Komponente app 
+SystemJS lädt die in TypeScript entwickelte Komponente app
 
 SystemJS ist ein "universaler Module-Loader" und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von **CommonJS** können Module verwendet werden, welche ursprünglich für [Browserify](http://browserify.org/) gedacht waren. Ebenso lassen sich **AMD**-Module verwenden, welche üblicherweise über [require.js](http://requirejs.org/) geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten **ES6 Module** Loader Polyfills unterstützt.
 
@@ -138,7 +138,7 @@ SystemJS lädt in dieser Version immer auch den bereits vorgestellten "ES6 Modul
 <a name="jspm"></a>
 ## 5. jspm
 
-jspm ist ein Paketmanager, welcher **indirekt** in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der [npm](npmjs.com)-registry oder direkt aus Github Repositorien stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von [bower](http://bower.io). Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels [SystemJS](https://github.com/systemjs/systemjs) ausgelegt. 
+jspm ist ein Paketmanager, welcher **indirekt** in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der [npm](npmjs.com)-registry oder direkt aus Github Repositorien stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von [bower](http://bower.io). Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels [SystemJS](https://github.com/systemjs/systemjs) ausgelegt.
 
 Mit folgendem Befehlen lässt sich beispielsweise die aktuellste Version jQuery von dessen Github-Repository herunter zu laden:
 
@@ -149,7 +149,7 @@ jspm install jquery
 
 Wird `jspm install` auf ein leeres Verzeichnis angewendet, so erscheint der Assistent welcher auch durch `jspm init` gestartet werden kann. Obwohl man jquery angefordert hat, wird zusätzlich SystemJS sowie dessen Abhängigkeiten herunter geladen.  Es wird durch `jspm init` eine Datei namens package.json angelegt. Unter dem Prefix "jspm" können alle gewünschten Abhängigkeiten eingetragen werden. Wie bei npm lassen sich per `jspm install` bzw. `jspm update` später erneut alle Dateien herunter laden. Weiterhin wird eine Datei names `config.js` angelegt, über die unter anderem die zu verwendenden Pfade konfiguriert werden.
 
-Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird! 
+Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird!
 
 
 <a name="angular2bauen"></a>
@@ -201,10 +201,10 @@ Bei der Datei `angular2.sfx.dev.js` handelt es sich um ein ES5-kompatibles Bundl
     <my-app></my-app>
   </body>
 </html>
-``` 
+```
 > [example_es5.html](example_es5.html)
 
-Die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular2](https://www.npmjs.com/package/angular2) wieder: 
+Die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular2](https://www.npmjs.com/package/angular2) wieder:
 
 
 | Build-Verzeichnis                  | Verzeichnis im [NPM-Paket](https://www.npmjs.com/package/angular2) | JavaScript-Version | Modul-Format                       | Erklärung                                                                                                  |
@@ -275,7 +275,7 @@ class MyAppComponent {
 }
 
 bootstrap(MyAppComponent);
-``` 
+```
 > [app.ts](angular_jspm/app.ts)
 
 Wenn man dann noch die Abhängigkeiten auf
@@ -332,6 +332,3 @@ Die Anleitung zu dem Laden per JSPM basiert zum Teil auf folgendem Gist:
 ## 8. Fazit
 
 Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. AngularJS verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Die Lösung bestand dann darin, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular2 Anwendung integrieren lassen.
-
-<hr>
-*Stand: 2015-08-04*
