@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Angular2Buch 📐</title>
+  <title>Angular2Buch</title>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
-  <link rel="stylesheet" href="/github-markdown.css">
+  <link rel="stylesheet" href="/_css/github-markdown.css">
+  <link rel="stylesheet" href="/_css/highlight.github.min.css">
   <style>
     body {
         margin: 0;
@@ -41,11 +42,11 @@
 <p><a name="einleitung"></a></p>
 <h2 id="1-einleitung">1. Einleitung</h2>
 <p>Google liefert mit dem &quot;<a href="https://angular.io/docs/js/latest/quickstart.html">5 Min Quickstart</a>&quot; einen ersten Einstieg in die Entwicklung mit Angular2. In dem Quickstart wird unter anderem beschrieben, wie man eine einfache Komponente erstellt. Zum Einsatz kommt der Transpiler TypeScript von Microsoft, welcher eine Datei Namens <code>app.js</code> erzeugt. Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen:</p>
-<pre><code class="lang-javascript">&lt;!-- Zeile 1 --&gt;&lt;script src=&quot;https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js&quot;&gt;&lt;/script&gt;
-&lt;!-- Zeile 2 --&gt;&lt;script src=&quot;https://jspm.io/system@0.16.js&quot;&gt;&lt;/script&gt;
-&lt;!-- Zeile 3 --&gt;&lt;script src=&quot;https://code.angularjs.org/2.0.0-alpha.28/angular2.dev.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-javascript">&lt;!-- Zeile <span class="hljs-number">1</span> --&gt;<span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Zeile 2 --&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://jspm.io/system@0.16.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-comment">&lt;!-- Zeile 3 --&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.angularjs.org/2.0.0-alpha.28/angular2.dev.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-&lt;!-- Zeile 4 --&gt;&lt;script&gt;System.import(&#39;app&#39;);&lt;/script&gt;
+<span class="hljs-comment">&lt;!-- Zeile 4 --&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'app'</span>);</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></span>
 </code></pre>
 <p>Hinter diesen vier Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular. Das Angular-Team setzt durch die Auswahl dieser Technologien massiv auf die Entwicklung mittels ECMAScript 6. Eigentlich wird ECMAScript 6 (kurz &quot;ES6&quot;) derzeit noch von keinem Browser vollständig unterstützt. Doch durch die gelungene Auswahl an bestehenden Frameworks ist dennoch möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ES6 zu entwickeln. Die notwendige Tools sollen in diesem Artikel intensiv betrachtet werden.</p>
 <p>Das vollständige &quot;5 Min Quickstart&quot; Beispiel finden Sie <a href="angular_quickstart-alpha28/index.html">hier</a>. Alle gezeigten Befehle setzen voraus, dass Node.js auf dem Entwicklungsrecher installiert ist.</p>
@@ -59,9 +60,9 @@
 <li>das spezielle Script Tag <code>&lt;script type=&quot;module&quot;&gt;</code> in dem man ES6 Code-schreiben kann.</li>
 </ul>
 <p>Folgendes ES6 Modul:</p>
-<pre><code class="lang-javascript">export class Test {
+<pre><code class="lang-javascript"><span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Test</span> </span>{
   constructor() {
-    document.body.innerText = &#39;This is a Constructor!&#39;;
+    <span class="hljs-built_in">document</span>.body.innerText = <span class="hljs-string">'This is a Constructor!'</span>;
   }
 }
 </code></pre>
@@ -69,27 +70,27 @@
 <p><a href="es6_module.js">es6_module.js</a></p>
 </blockquote>
 <p>...kann mithilfe des ES6 Module Loader Polyfill geladen und sofort ausgeführt werden:</p>
-<pre><code class="lang-javascript">&lt;script src=&quot;/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;/jspm_packages/es6-module-loader.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/jspm_packages/es6-module-loader.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-&lt;script&gt;
-  System.import(&#39;es6_module&#39;).then(function(module) {
-    var test = new module.Test();
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+  System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'es6_module'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(module)</span> </span>{
+    <span class="hljs-keyword">var</span> test = <span class="hljs-keyword">new</span> module.Test();
   });
-&lt;/script&gt;
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></span>
 </code></pre>
 <blockquote>
 <p><a href="example_es6.html">example_es6.html</a></p>
 </blockquote>
 <p>Für die Verwendung von ES6 Features (wie z.B. einer Klasse) benötigt man einen Transpiler, welcher ECMAScript 6 in ECMAScript 5 umwandelt, damit der Code in jedem Browser ausführbar ist. Der Polyfill verwendet standardmäßig den Transpiler Traceur, welcher von Google entwickelt wird. Die Umwandlung des Quellcodes geschieht direkt im Browser, sogar eine &quot;SourceMap&quot; steht für ein komfortables Debugging zur Verfügung. Das Script <code>traceur.js</code> wird automatisch vom Polyfill nachgeladen, sofern es nicht bereits vorhanden ist. Aufgrund der verwendeten Ordnerstruktur würde es im vorliegenden Fall zu einem Fehler 404 (Not Found) kommen. Mit dem ersten Script-Tag wird dem Fehler 404 entgegen gewirkt, indem die benötigte Datei vorab eingebunden wird und das Nachladen nicht mehr notwendig ist.</p>
 <p>Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags <code>&lt;script type=&quot;module&quot;&gt;</code> kann man hingegen die ES6 Features sicher verwenden, da der Browser aufgrund des unbekannten Typs den Inhalt ignoriert. Das Transpiling geschieht erneut zur Laufzeit.</p>
-<pre><code class="lang-javascript">&lt;script src=&quot;/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;/jspm_packages/es6-module-loader.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/jspm_packages/es6-module-loader.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-&lt;script type=&quot;module&quot;&gt;
-  import {Test} from &#39;es6_module&#39;;
-  var test = new Test();
-&lt;/script&gt;
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"module"</span>&gt;</span><span class="javascript">
+  <span class="hljs-keyword">import</span> {Test} <span class="hljs-keyword">from</span> <span class="hljs-string">'es6_module'</span>;
+  <span class="hljs-keyword">var</span> test = <span class="hljs-keyword">new</span> Test();
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></span>
 </code></pre>
 <blockquote>
 <p><a href="example_es6_import.html">example_es6_import.html</a></p>
@@ -98,15 +99,15 @@
 <h2 id="3-traceur-traceur-runtime">3. Traceur &amp; Traceur runtime</h2>
 <p>Das Transpiling von ES6 zur Laufzeit ist im produktiven Einsatz nicht sehr effizient. Es bietet sich an, den Code zwar in ES6 zu entwickeln, aber die Umwandlung stets vorab durchzuführen. Zu Traceur gehört ein Kommandozeilen-Script, welches das Transpiling durchführt. Folgende Befehle erzeugen eine Datei mit dem Namen <code>es5_module.js</code>:</p>
 <pre><code>npm install -g traceur
-traceur --sourcemap --out es5_module.js es6_module.js --experimental
+traceur --sourcemap --out es5_module<span class="hljs-class">.js</span> es6_module<span class="hljs-class">.js</span> --experimental
 </code></pre><p>Um die generierte Datei verwenden zu können, muss eine passende Datei Namens <code>traceur-runtime.js</code>. eingefügt werden. Der Sinn dieser <strong>Traceur-Runtime</strong> besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object <code>$traceurRuntime</code> sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.</p>
-<pre><code class="lang-javascript">&lt;script src=&quot;/jspm_packages/github/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js&quot;&gt;&lt;/script&gt;
-&lt;script src=&quot;es5_module.js&quot;&gt;&lt;/script&gt;
+<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"/jspm_packages/github/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"es5_module.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-&lt;script&gt;
-  var Test = System.get(&quot;es6_module.js&quot;).Test;
-  var test = new Test();
-&lt;/script&gt;
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+  <span class="hljs-keyword">var</span> Test = System.<span class="hljs-keyword">get</span>(<span class="hljs-string">"es6_module.js"</span>).Test;
+  <span class="hljs-keyword">var</span> test = <span class="hljs-keyword">new</span> Test();
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></span>
 </code></pre>
 <blockquote>
 <p><a href="example_traceur-runtime.html">example_traceur-runtime.html</a></p>
@@ -117,14 +118,14 @@ traceur --sourcemap --out es5_module.js es6_module.js --experimental
 <p>In <strong><em>Zeile 2</em></strong> sieht man die Verwendung von <a href="https://github.com/systemjs/systemjs">SystemJS</a>.<br>SystemJS lädt die in TypeScript entwickelte Komponente app</p>
 <p>SystemJS ist ein &quot;universaler Module-Loader&quot; und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von <strong>CommonJS</strong> können Module verwendet werden, welche ursprünglich für <a href="http://browserify.org/">Browserify</a> gedacht waren. Ebenso lassen sich <strong>AMD</strong>-Module verwenden, welche üblicherweise über <a href="http://requirejs.org/">require.js</a> geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten <strong>ES6 Module</strong> Loader Polyfills unterstützt.</p>
 <p>Das bekannte Framework jQuery (als AMD-Modul verwendbar) lässt sich z.B. wie folgt einbinden:</p>
-<pre><code class="lang-js">&lt;script src=&#39;/jspm_packages/system.js&#39;&gt;&lt;/script&gt;
-&lt;script src=&#39;/config.js&#39;&gt;&lt;/script&gt;
+<pre><code class="lang-js">&lt;script src=<span class="hljs-string">'/jspm_packages/system.js'</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'/config.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-&lt;script&gt;
-  System.import(&#39;jquery&#39;).then(function($) {
-    $(&quot;body&quot;).text(&#39;Hello World!&#39;);
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+  System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'jquery'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">($)</span> </span>{
+    $(<span class="hljs-string">"body"</span>).text(<span class="hljs-string">'Hello World!'</span>);
   });
-&lt;/script&gt;
+</span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span></span>
 </code></pre>
 <blockquote>
 <p><a href="example_systemjs_jquery.html">example_systemjs_jquery.html</a></p>
@@ -134,49 +135,49 @@ traceur --sourcemap --out es5_module.js es6_module.js --experimental
 <h2 id="5-jspm">5. jspm</h2>
 <p>jspm ist ein Paketmanager, welcher <strong>indirekt</strong> in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der <a href="npmjs.com">npm</a>-registry oder direkt aus Github Repositorien stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von <a href="http://bower.io">bower</a>. Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels <a href="https://github.com/systemjs/systemjs">SystemJS</a> ausgelegt.</p>
 <p>Mit folgendem Befehlen lässt sich beispielsweise die aktuellste Version jQuery von dessen Github-Repository herunter zu laden:</p>
-<pre><code>npm install -g jspm
-jspm install jquery
+<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm
+jspm <span class="hljs-keyword">install</span> jquery</span>
 </code></pre><p>Wird <code>jspm install</code> auf ein leeres Verzeichnis angewendet, so erscheint der Assistent welcher auch durch <code>jspm init</code> gestartet werden kann. Obwohl man jquery angefordert hat, wird zusätzlich SystemJS sowie dessen Abhängigkeiten herunter geladen.  Es wird durch <code>jspm init</code> eine Datei namens package.json angelegt. Unter dem Prefix &quot;jspm&quot; können alle gewünschten Abhängigkeiten eingetragen werden. Wie bei npm lassen sich per <code>jspm install</code> bzw. <code>jspm update</code> später erneut alle Dateien herunter laden. Weiterhin wird eine Datei names <code>config.js</code> angelegt, über die unter anderem die zu verwendenden Pfade konfiguriert werden.</p>
 <p>Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird!</p>
 <p><a name="angular2bauen"></a></p>
 <h2 id="6-angular2-mit-gulp-bauen">6. Angular2 mit Gulp bauen</h2>
 <p>In <strong><em>Zeile 3</em></strong> sieht man ein vorbereitetes Bundle mit dem Namen <code>angular2.dev.js</code>. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools <a href="https://github.com/gulpjs/gulp">Gulp</a> vereinfacht wurden. Nachdem Angular2 vom <a href="https://github.com/angular/angular">Github-Repository</a> herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  </p>
-<pre><code>npm install
-npm install -g gulp
-gulp build
+<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span>
+npm <span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> gulp
+gulp <span class="hljs-keyword">build</span></span>
 </code></pre><p>Es werden eine Reihe von Dateien im Ordner &#39;dist&#39; erzeugt. Das die Datei <code>angular2.dev.js</code> befindet sich im Ordner <code>dist/js/bundle</code>. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf <a href="https://code.angularjs.org/">code.angularjs.org</a>.</p>
 <p>Ganz konkret handelt es sich bei <code>angular2.dev.js</code> um ein ES5-kompatibles Bundle, welches mit dem <a href="https://www.npmjs.com/package/systemjs-builder">SystemJS Build Tool</a> erstellt wurde (siehe <a href="https://github.com/angular/angular/blob/master/tools/build/bundle.js#L13">hier</a> und <a href="https://github.com/angular/angular/blob/705d3aacff4005483f8ecbff5fc2d484b3e38cf5/gulpfile.js#L671">hier</a>). SystemJS verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es würde sich eigentlich anbieten, dass Angular2-Bundle direkt mit der notwendige Runtime zusammen auszuliefern. Entsprechend der Kommentare aus <a href="https://github.com/angular/angular/issues/2829">#2829</a> wird aber bereits daran gearbeitet, Traceur komplett aus dem Build zu entfernen. Dies ist auch deswegen konsequent, da die Quelltexte bereits alle auf TypeScript umgestellt wurden (siehe <a href="https://github.com/angular/angular/issues/2335">#2335</a>).</p>
 <p>Bei der Datei <code>angular2.sfx.dev.js</code> handelt es sich um ein ES5-kompatibles Bundle, welches ein <a href="https://github.com/systemjs/builder#self-executing-sfx-bundles">Self-Executing bundle</a> ist. In dieser Datei ist die Traceur Runtime bereits enthalten. Ebenso wird Angular wird über das globale Objekt <code>window.ng</code> verfügbar gemacht.  Damit spricht man ES5-Entwickler an, die weder SystemJS noch den ES6 Module Loader Polyfill verwenden wollen. Im folgenden ein Beispiel für die Verwendung:</p>
-<pre><code class="lang-html">&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Angular 2 Quickstart (ES5)&lt;/title&gt;
-    &lt;script src=&quot;https://code.angularjs.org/2.0.0-alpha.34/angular2.sfx.dev.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Angular 2 Quickstart (ES5)<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.angularjs.org/2.0.0-alpha.34/angular2.sfx.dev.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
 
-      var angular = ng;
+      <span class="hljs-keyword">var</span> angular = ng;
 
-      var app = function() {
-        this.name = &quot;Alice&quot;;
+      <span class="hljs-keyword">var</span> app = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
+        <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"Alice"</span>;
       };
 
       app.annotations = [
-        new angular.ComponentAnnotation({
-          selector: &#39;my-app&#39;
+        <span class="hljs-keyword">new</span> angular.ComponentAnnotation({
+          selector: <span class="hljs-string">'my-app'</span>
         }),
-        new angular.ViewAnnotation({
-          template: &#39;&lt;h1&gt;Hello {{ name }}&lt;/h1&gt;&#39;
+        <span class="hljs-keyword">new</span> angular.ViewAnnotation({
+          template: <span class="hljs-string">'&lt;h1&gt;Hello {{ name }}&lt;/h1&gt;'</span>
         })
       ];
 
-      document.addEventListener(&#39;DOMContentLoaded&#39;, function() {
+      <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
         angular.bootstrap(app);
       });
-    &lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;my-app&gt;&lt;/my-app&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">my-app</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">my-app</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
 <blockquote>
 <p><a href="example_es5.html">example_es5.html</a></p>
@@ -235,27 +236,27 @@ gulp build
 <h2 id="7-angular2-mit-jspm-laden">7. Angular2 mit jspm laden</h2>
 <p>Mit jspm und SystemJs gibt es einen sehr komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular2 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser und transpiliert den eigenen TypeScript-Code. In diesem Szenario muss TypeScript nicht mehr über die Kommandozeile verwendet werden.  </p>
 <p>Zunächst muss man die neueste Beta-Version von jspm verwenden (aktuell <a href="https://github.com/jspm/jspm-cli/releases/tag/0.16.0-beta.3">0.16.0-beta.3</a>). So erhält man die komplett erneuerte Version von SystemJS (aktuell <a href="https://github.com/systemjs/systemjs/releases">SystemJS 0.18.x</a>). Ab SystemJS 0.1.7 gibt es wichtige <a href="https://github.com/systemjs/systemjs/releases/tag/0.17.0">Änderungen</a>, durch die das folgende Beispiel funktioniert. Die größte Änderungen bestehen darin, dass der ES6 Module Loader Polyfill (<code>es6-module-loader.js</code>) nicht mehr verwendet wird und direkter Support für TypeScript hinzugekommen ist.</p>
-<pre><code>npm install -g jspm@beta
-jspm install typescript
-jspm install angular2
-jspm install reflect-metadata zone.js es6-shim
+<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm@beta
+jspm <span class="hljs-keyword">install</span> typescript
+jspm <span class="hljs-keyword">install</span> angular2
+jspm <span class="hljs-keyword">install</span> reflect-metadata zone.js es6-shim</span>
 </code></pre><p>Die neu erstelle Datei <code>config.js</code> muss angepasst werden, damit TypeScript als Transpiler verwendet wird:</p>
 <pre><code class="lang-javascript">System.config({
-  &quot;baseURL&quot;: &quot;/&quot;,
-  &quot;defaultJSExtensions&quot;: true,
-  &quot;transpiler&quot;: &quot;typescript&quot;,
-  &quot;typescriptOptions&quot;: {
-    &quot;module&quot;: &quot;commonjs&quot;,
-    &quot;emitDecoratorMetadata&quot;: true
+  <span class="hljs-string">"baseURL"</span>: <span class="hljs-string">"/"</span>,
+  <span class="hljs-string">"defaultJSExtensions"</span>: <span class="hljs-literal">true</span>,
+  <span class="hljs-string">"transpiler"</span>: <span class="hljs-string">"typescript"</span>,
+  <span class="hljs-string">"typescriptOptions"</span>: {
+    <span class="hljs-string">"module"</span>: <span class="hljs-string">"commonjs"</span>,
+    <span class="hljs-string">"emitDecoratorMetadata"</span>: <span class="hljs-literal">true</span>
   },
-  &quot;paths&quot;: {
-    /* [...] */
+  <span class="hljs-string">"paths"</span>: {
+    <span class="hljs-comment">/* [...] */</span>
   }
 });
 
 System.config({
-  &quot;map&quot;: {
-    /* [...] */
+  <span class="hljs-string">"map"</span>: {
+    <span class="hljs-comment">/* [...] */</span>
   }
 });
 </code></pre>
@@ -263,18 +264,18 @@ System.config({
 <p><a href="../..config.js">config.js</a></p>
 </blockquote>
 <p>Die TypeScript-Datei aus dem  <a href="https://angular.io/docs/js/latest/quickstart.html">5 Min Quickstart</a> kann unverändert wiederverwendet werden:</p>
-<pre><code class="lang-javascript">import { Component, View, bootstrap } from &#39;angular2/angular2&#39;;
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> { Component, View, bootstrap } <span class="hljs-keyword">from</span> <span class="hljs-string">'angular2/angular2'</span>;
 
 @Component({
-  selector: &#39;my-app&#39;
+  selector: <span class="hljs-string">'my-app'</span>
 })
 @View({
-  template: &#39;&lt;h1&gt;Hello {{name}}&lt;/h1&gt;&#39;
+  template: <span class="hljs-string">'&lt;h1&gt;Hello {{name}}&lt;/h1&gt;'</span>
 })
-class MyAppComponent {
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyAppComponent</span> </span>{
   name: string;
   constructor() {
-    this.name = &#39;Alice&#39;;
+    <span class="hljs-keyword">this</span>.name = <span class="hljs-string">'Alice'</span>;
   }
 }
 
@@ -290,40 +291,40 @@ bootstrap(MyAppComponent);
 <li>es6-shim (Polyfill für <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/Global_Objects/Array/fill">Array.fill</a> bereithält)</li>
 </ul>
 <p>manuell angibt, funtioniert das Beispiel wie folgt:</p>
-<pre><code class="lang-html">&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;Angular 2 Quickstart (jspm / SystemJS / TypeScript)&lt;/title&gt;
+<pre><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Angular 2 Quickstart (jspm / SystemJS / TypeScript)<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
 
-    &lt;script src=&#39;/jspm_packages/system.js&#39;&gt;&lt;/script&gt;
-    &lt;script src=&quot;/config.js&quot;&gt;&lt;/script&gt;
-    &lt;script&gt;
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'/jspm_packages/system.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/config.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
 
       System.config({
         paths: {
-          app: &#39;about-modules/angular_jspm/app&#39; // change this!
+          app: <span class="hljs-string">'about-modules/angular_jspm/app'</span> <span class="hljs-comment">// change this!</span>
         },
-        &quot;packages&quot;: {
-          &quot;app&quot;: {
-            &quot;defaultExtension&quot;: &quot;ts&quot;
+        <span class="hljs-string">"packages"</span>: {
+          <span class="hljs-string">"app"</span>: {
+            <span class="hljs-string">"defaultExtension"</span>: <span class="hljs-string">"ts"</span>
           }
         }
       });
-    &lt;/script&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">body</span>&gt;</span>
 
-    &lt;my-app&gt;&lt;/my-app&gt;
-    &lt;script&gt;
-      System.import(&#39;zone.js&#39;);
-      System.import(&#39;reflect-metadata&#39;);
-      System.import(&#39;es6-shim&#39;);
+    <span class="hljs-tag">&lt;<span class="hljs-title">my-app</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">my-app</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
+      System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'zone.js'</span>);
+      System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'reflect-metadata'</span>);
+      System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'es6-shim'</span>);
 
-      System.import(&#39;app&#39;);
-    &lt;/script&gt;
+      System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'app'</span>);
+    </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
-  &lt;/body&gt;
-&lt;/html&gt;
+  <span class="hljs-tag">&lt;/<span class="hljs-title">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">html</span>&gt;</span>
 </code></pre>
 <p><a href="angular_jspm\index.html">index.html</a></p>
 <p>Die Anleitung zu dem Laden per JSPM basiert zum Teil auf folgendem Gist:<br><a href="https://gist.github.com/robwormald/429e01c6d802767441ec">Angular2 + JSPM cheat sheet</a></p>
@@ -331,7 +332,7 @@ bootstrap(MyAppComponent);
 <h2 id="8-fazit">8. Fazit</h2>
 <p>Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. AngularJS verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Die Lösung bestand dann darin, AngularJS mittels &quot;Shims&quot; in das gewählte Format zu pressen. Nun legt sich Angular fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular2 Anwendung integrieren lassen.</p>
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-08-19T07:09:22.412Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-08-19T17:10:16.363Z</small>
     </article>
 
     <span id="forkongithub">
