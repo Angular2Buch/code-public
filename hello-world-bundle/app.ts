@@ -1,3 +1,5 @@
+/// <reference path="../lib/angular-latest-bundle/typings/angular2/angular2"/>
+
 import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
 
 // Component Annotation

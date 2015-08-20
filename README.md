@@ -6,9 +6,10 @@ Quelltexte, Snippets, mal schauen...
 ## Beispiele
 
 * [Text: about-modules](about-modules)
-* [Beispiel: hello-world](hello-world)
-* [Beispiel: reddit-clone](reddit-clone)
-* [Beispiel: shopping-list](shopping-list)
+* [Beispiel hello-world - mit Bundle](hello-world-bundle) - zeigt, wie das Bundle angular2.dev.js verwendet wird
+* [TODO Beispiel hello-world](hello-world) - zeigt, wie einzelne Module von Angular2 verwendet werden
+* [Beispiel reddit-clone](reddit-clone)
+* [Beispiel shopping-list](shopping-list)
 
 ## Externe Ressourcen
 
