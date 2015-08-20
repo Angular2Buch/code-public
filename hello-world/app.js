@@ -1,4 +1,3 @@
-/// <reference path="./typings/angular2/angular2"/>
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") return Reflect.decorate(decorators, target, key, desc);
     switch (arguments.length) {
@@ -21,11 +20,12 @@ var HelloWorld = (function () {
             selector: 'hello-world'
         }),
         angular2_1.View({
-            directives: [angular2_1.For],
-            template: "\n  <div>\n      <h2>Unser Buch</h2>\n      <span>{{ name }}</span>\n      <h2>Autoren</h2>\n      <ul>\n        <li *for=\"#author of authors\">{{ author }}</li>\n      </ul>\n  </div>"
+            directives: [angular2_1.NgFor],
+            template: "\n  <div>\n      <h2>Unser Buch</h2>\n      <span>{{ name }}</span>\n      <h2>Autoren</h2>\n      <ul>\n        <li *ng-for=\"#author of authors\">{{ author }}</li>\n      </ul>\n  </div>"
         }), 
         __metadata('design:paramtypes', [])
     ], HelloWorld);
     return HelloWorld;
 })();
 angular2_1.bootstrap(HelloWorld);
+//# sourceMappingURL=app.js.map

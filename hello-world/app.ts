@@ -1,11 +1,4 @@
-/// <reference path="./typings/angular2/angular2"/>
-
-import {
-  Component,
-  View,
-  For,
-  bootstrap
-} from 'angular2/angular2';
+import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
 
 // Component Annotation
 @Component({
@@ -14,14 +7,14 @@ import {
 })
 // View Annotation
 @View({
-  directives: [For],
+  directives: [NgFor],
   template: `
   <div>
       <h2>Unser Buch</h2>
       <span>{{ name }}</span>
       <h2>Autoren</h2>
       <ul>
-        <li *for="#author of authors">{{ author }}</li>
+        <li *ng-for="#author of authors">{{ author }}</li>
       </ul>
   </div>`
 })
