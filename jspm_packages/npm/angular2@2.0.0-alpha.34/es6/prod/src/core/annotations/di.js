@@ -1,0 +1,4 @@
+/* */ 
+"format cjs";
+export { Query as QueryAnnotation, ViewQuery as ViewQueryAnnotation, Attribute as AttributeAnnotation } from '../annotations_impl/di';
+//# sourceMappingURL=di.js.map

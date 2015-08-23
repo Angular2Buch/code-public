@@ -7,7 +7,7 @@ Quelltexte, Snippets, mal schauen...
 
 * [Text: about-modules](about-modules)
 * [Beispiel hello-world - mit Bundle](hello-world-bundle) - zeigt, wie das Bundle angular2.dev.js verwendet wird
-* [Beispiel hello-world](hello-world) - zeigt, wie einzelne Module von Angular2 verwendet werden
+* [Beispiel hello-world](hello-world) - zeigt, wie Angular per System.js geladen wird
 * [Beispiel reddit-clone](reddit-clone)
 * [Beispiel shopping-list](shopping-list)
 

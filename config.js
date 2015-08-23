@@ -1,21 +1,20 @@
 System.config({
-  "baseURL": "/",
-  "defaultJSExtensions": true,
-  "transpiler": "typescript",
-  "typescriptOptions": {
+  baseURL: "/",
+  defaultJSExtensions: true,
+  transpiler: "typescript",
+  typescriptOptions: {
     "module": "commonjs",
     "emitDecoratorMetadata": true
   },
-  "paths": {
+  paths: {
     "github:*": "jspm_packages/github/*",
     "npm:*": "jspm_packages/npm/*"
-  }
-});
+  },
 
-System.config({
-  "map": {
+  map: {
     "angular2": "npm:angular2@2.0.0-alpha.34",
     "es6-shim": "github:es-shims/es6-shim@0.33.0",
+    "jquery": "github:components/jquery@2.1.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.0",
     "traceur": "github:jmcriffey/bower-traceur@0.0.88",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88",

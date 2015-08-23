@@ -1,0 +1,21 @@
+import { DomProtoView } from './view/proto_view';
+import { TemplateCloner } from './template_cloner';
+export declare const NG_BINDING_CLASS_SELECTOR: string;
+export declare const NG_BINDING_CLASS: string;
+export declare const EVENT_TARGET_SEPARATOR: string;
+export declare const NG_CONTENT_ELEMENT_NAME: string;
+export declare const NG_SHADOW_ROOT_ELEMENT_NAME: string;
+export declare function camelCaseToDashCase(input: string): string;
+export declare function dashCaseToCamelCase(input: string): string;
+export declare function queryBoundElements(templateContent: Node, isSingleElementChild: boolean): Element[];
+export declare class ClonedProtoView {
+    original: DomProtoView;
+    fragments: Node[][];
+    boundElements: Element[];
+    boundTextNodes: Node[];
+    constructor(original: DomProtoView, fragments: Node[][], boundElements: Element[], boundTextNodes: Node[]);
+}
+export declare function cloneAndQueryProtoView(templateCloner: TemplateCloner, pv: DomProtoView, importIntoDocument: boolean): ClonedProtoView;
+export declare function isElementWithTag(node: Node, elementName: string): boolean;
+export declare function queryBoundTextNodeIndices(parentNode: Node, boundTextNodes: Map<Node, any>, resultCallback: Function): void;
+export declare function prependAll(parentNode: Node, nodes: Node[]): void;
