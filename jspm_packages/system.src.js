@@ -1,5 +1,5 @@
 /*
- * SystemJS v0.18.9
+ * SystemJS v0.18.11
  */
 (function() {
 function bootstrap() {(function(__global) {
@@ -1039,7 +1039,8 @@ SystemLoader.prototype = new LoaderProto();
       };
       xhr.open("GET", url, true);
 
-      xhr.setRequestHeader('Accept', 'application/x-es-module */*');
+      if (xhr.setRequestHeader)
+        xhr.setRequestHeader('Accept', 'application/x-es-module */*');
 
       if (doTimeout)
         setTimeout(function() {
@@ -1199,6 +1200,8 @@ var __exec;
   // this may lead to some global module execution differences (eg var not defining onto global)
   if (isWorker || isBrowser && window.chrome && window.chrome.extension) {
     __exec = function(load) {
+      if (load.metadata.integrity)
+        throw new Error('Subresource integrity checking is not supported in Web Workers or Chrome Extensions.');
       try {
         preExec(this);
         new Function(getSource(load)).call(__global);
@@ -1229,6 +1232,12 @@ var __exec;
         e = addToError(_e, 'Evaluating ' + load.address);
       }
       preExec(this);
+
+      if (load.metadata.integrity)
+        script.setAttribute('integrity', load.metadata.integrity);
+      if (load.metadata.nonce)
+        script.setAttribute('nonce', load.metadata.nonce);
+
       head.appendChild(script);
       head.removeChild(script);
       postExec();
@@ -1242,6 +1251,8 @@ var __exec;
     var vmModule = 'vm';
     var vm = require(vmModule);
     __exec = function(load) {
+      if (load.metadata.integrity)
+        throw new Error('Subresource integrity checking is unavailable in Node.');
       try {
         preExec(this);
         vm.runInThisContext(getSource(load));
@@ -1466,6 +1477,9 @@ SystemJSLoader.prototype.config = function(cfg) {
   if (cfg.defaultJSExtensions)
     this.defaultJSExtensions = cfg.defaultJSExtensions;
 
+  if (cfg.pluginFirst)
+    this.pluginFirst = cfg.pluginFirst;
+
   if (cfg.paths) {
     for (var p in cfg.paths)
       this.paths[p] = cfg.paths[p];
@@ -1576,6 +1590,9 @@ SystemJSLoader.prototype.config = function(cfg) {
 
   function webWorkerImport(loader, load) {
     return new Promise(function(resolve, reject) {
+      if (load.metadata.integrity)
+        reject(new Error('Subresource integrity checking is not supported in web workers.'));
+
       try {
         importScripts(load.address);
       }
@@ -1640,6 +1657,10 @@ SystemJSLoader.prototype.config = function(cfg) {
         curSystem = __global.System;
         __global.System = loader;
         s.src = load.address;
+
+        if (load.metadata.integrity)
+          s.setAttribute('integrity', load.metadata.integrity);
+
         head.appendChild(s);
 
         function cleanup() {
@@ -2150,7 +2171,7 @@ SystemJSLoader.prototype.config = function(cfg) {
         load.metadata.deps = load.metadata.deps || [];
 
         // run detection for register format
-        if (load.metadata.format == 'register' || !load.metadata.format && load.source.match(registerRegEx))
+        if (load.metadata.format == 'register' || load.metadata.bundle || !load.metadata.format && load.source.match(registerRegEx))
           load.metadata.format = 'register';
         return source;
       });
@@ -2188,7 +2209,8 @@ SystemJSLoader.prototype.config = function(cfg) {
         anonRegister = null;
         calledRegister = false;
 
-        __exec.call(loader, load);
+        if (typeof __exec != 'undefined')
+          __exec.call(loader, load);
 
         if (!calledRegister && !load.metadata.registered)
           throw new TypeError(load.name + ' detected as System.register but didn\'t execute.');
@@ -2278,6 +2300,10 @@ SystemJSLoader.prototype.config = function(cfg) {
           loader._loadedTranspiler = loader._loadedTranspiler || false;
           if (loader.pluginLoader)
             loader.pluginLoader._loadedTranspiler = loader._loadedTranspiler || false;
+
+          // builder support
+          if (loader.builder)
+            load.metadata.originalSource = load.source;
 
           // defined in es6-module-loader/src/transpile.js
           return transpile.call(loader, load)
@@ -2417,23 +2443,13 @@ hook('instantiate', function(instantiate) {
         }
         
         var exportName = load.metadata.exports;
-        var retrieveGlobal = loader.get('@@global-helpers').prepareGlobal(module.id, exportName, globals);
 
         if (exportName)
           load.source += '\n' + __globalName + '["' + exportName + '"] = ' + exportName + ';';
 
-        // disable module detection
-        var define = __global.define;
-        var cRequire = __global.require;
-        
-        __global.define = undefined;
-        __global.module = undefined;
-        __global.exports = undefined;
+        var retrieveGlobal = loader.get('@@global-helpers').prepareGlobal(module.id, exportName, globals);
 
         __exec.call(loader, load);
-
-        __global.require = cRequire;
-        __global.define = define;
 
         return retrieveGlobal();
       }
@@ -2480,6 +2496,14 @@ hookConstructor(function(constructor) {
 
     loader.set('@@global-helpers', loader.newModule({
       prepareGlobal: function(moduleName, exportName, globals) {
+        // disable module detection
+        var curDefine = __global.define;
+        
+        __global.define = undefined;
+        __global.exports = undefined;
+        if (__global.module && __global.module.exports)
+          __global.module = undefined;
+
         // set globals
         var oldGlobals;
         if (globals) {
@@ -2534,6 +2558,7 @@ hookConstructor(function(constructor) {
             for (var g in oldGlobals)
               __global[g] = oldGlobals[g];
           }
+          __global.define = curDefine;
 
           return globalValue;
         };
@@ -2831,13 +2856,13 @@ hookConstructor(function(constructor) {
       }
       // named define
       else {
-        // if it has no dependencies and we don't have any other
-        // defines, then let this be an anonymous define
+        // if we don't have any other defines, 
+        // then let this be an anonymous define
         // this is just to support single modules of the form:
         // define('jquery')
         // still loading anonymously
         // because it is done widely enough to be useful
-        if (deps.length == 0 && !lastModule.anonDefine && !lastModule.isBundle) {
+        if (!lastModule.anonDefine && !lastModule.isBundle) {
           lastModule.anonDefine = define;
         }
         // otherwise its a bundle only
@@ -3227,7 +3252,7 @@ hook('normalize', function(normalize) {
         // defaultExtension & defaultJSExtension
         // if we have meta for this package, don't do defaultExtensions
         var defaultExtension = '';
-        if (!pkg.meta || !pkg.meta[normalized.substr(pkgName.length + 1)]) {
+        if (!pkg.meta || !(pkg.meta[normalized.substr(pkgName.length + 1)] || pkg.meta['./' + normalized.substr(pkgName.length + 1)])) {
           // apply defaultExtension
 
           if ('defaultExtension' in pkg) {
@@ -3305,19 +3330,26 @@ hook('normalize', function(normalize) {
             var bestDepth = 0;
             var wildcardIndex;
             for (var module in pkg.meta) {
+              // allow meta to start with ./ for flexibility
+              var dotRel = module.substr(0, 2) == './' ? './' : '';
+              if (dotRel)
+                module = module.substr(2);
+
               wildcardIndex = module.indexOf('*');
               if (wildcardIndex === -1)
                 continue;
+
               if (module.substr(0, wildcardIndex) === load.name.substr(0, wildcardIndex)
                   && module.substr(wildcardIndex + 1) === load.name.substr(load.name.length - module.length + wildcardIndex + 1)) {
                 var depth = module.split('/').length;
                 if (depth > bestDepth)
                   bestDetph = depth;
-                extendMeta(meta, pkg.meta[module], bestDepth != depth);
+                extendMeta(meta, pkg.meta[dotRel + module], bestDepth != depth);
               }
             }
             // exact meta
-            var exactMeta = pkg.meta[load.name.substr(pkgName.length + 1)];
+            var metaName = load.name.substr(pkgName.length + 1);
+            var exactMeta = pkg.meta[metaName] || pkg.meta['./' + metaName];
             if (exactMeta)
               extendMeta(meta, exactMeta);
 
@@ -3350,29 +3382,56 @@ hook('normalize', function(normalize) {
   function normalizePlugin(normalize, name, parentName, sync) {
     var loader = this;
     // if parent is a plugin, normalize against the parent plugin argument only
-    var parentPluginIndex;
-    if (parentName && (parentPluginIndex = parentName.indexOf('!')) != -1)
-      parentName = parentName.substr(0, parentPluginIndex);
+    if (parentName) {
+      var parentPluginIndex;
+      if (loader.pluginFirst) {
+        if ((parentPluginIndex = parentName.lastIndexOf('!')) != -1)
+          parentName = parentName.substr(parentPluginIndex + 1);
+      }
+      else {
+        if ((parentPluginIndex = parentName.indexOf('!')) != -1)
+          parentName = parentName.substr(0, parentPluginIndex);
+      }
+    }
 
     // if this is a plugin, normalize the plugin name and the argument
     var pluginIndex = name.lastIndexOf('!');
     if (pluginIndex != -1) {
-      var argumentName = name.substr(0, pluginIndex);
-      var pluginName = name.substr(pluginIndex + 1) || argumentName.substr(argumentName.lastIndexOf('.') + 1);
+      var argumentName;
+      var pluginName;
+
+      if (loader.pluginFirst) {
+        argumentName = name.substr(pluginIndex + 1);
+        pluginName = name.substr(0, pluginIndex);
+      }
+      else {
+        argumentName = name.substr(0, pluginIndex);
+        pluginName = name.substr(pluginIndex + 1) || argumentName.substr(argumentName.lastIndexOf('.') + 1);
+      }
 
       // note if normalize will add a default js extension
       // if so, remove for backwards compat
       // this is strange and sucks, but will be deprecated
       var defaultExtension = loader.defaultJSExtensions && argumentName.substr(argumentName.length - 3, 3) != '.js';
 
+      // put name back together after parts have been normalized
+      function normalizePluginParts(argumentName, pluginName) {
+        if (defaultExtension && argumentName.substr(argumentName.length - 3, 3) == '.js')
+          argumentName = argumentName.substr(0, argumentName.length - 3);
+
+        if (loader.pluginFirst) {
+          return pluginName + '!' + argumentName;
+        }
+        else {
+          return argumentName + '!' + pluginName;
+        }
+      }
+
       if (sync) {
         argumentName = loader.normalizeSync(argumentName, parentName);
         pluginName = loader.normalizeSync(pluginName, parentName);
 
-        if (defaultExtension && argumentName.substr(argumentName.length - 3, 3) == '.js')
-          argumentName = argumentName.substr(0, argumentName.length - 3);
-
-        return argumentName + '!' + pluginName;
+        return normalizePluginParts(argumentName, pluginName);
       }
       else {
         return Promise.all([
@@ -3380,10 +3439,7 @@ hook('normalize', function(normalize) {
           loader.normalize(pluginName, parentName)
         ])
         .then(function(normalized) {
-          argumentName = normalized[0];
-          if (defaultExtension && argumentName.substr(argumentName.length - 3, 3) == '.js')
-            argumentName = argumentName.substr(0, argumentName.length - 3);
-          return argumentName + '!' + normalized[1];
+          return normalizePluginParts(normalized[0], normalized[1]);
         });
       }
     }
@@ -3412,10 +3468,18 @@ hook('normalize', function(normalize) {
       var name = load.name;
 
       // plugin syntax
-      var pluginSyntaxIndex = name.lastIndexOf('!');
-      if (pluginSyntaxIndex != -1) {
-        load.metadata.loader = name.substr(pluginSyntaxIndex + 1);
-        load.name = name.substr(0, pluginSyntaxIndex);
+      var pluginSyntaxIndex;
+      if (loader.pluginFirst) {
+        if ((pluginSyntaxIndex = name.indexOf('!')) != -1) {
+          load.metadata.loader = name.substr(0, pluginSyntaxIndex);
+          load.name = name.substr(pluginSyntaxIndex + 1);
+        }
+      }
+      else {
+        if ((pluginSyntaxIndex = name.lastIndexOf('!')) != -1) {
+          load.metadata.loader = name.substr(pluginSyntaxIndex + 1);
+          load.name = name.substr(0, pluginSyntaxIndex);
+        }
       }
 
       return locate.call(loader, load)
@@ -3436,7 +3500,6 @@ hook('normalize', function(normalize) {
         .then(function(loaderModule) {
           // store the plugin module itself on the metadata
           load.metadata.loaderModule = loaderModule;
-          load.metadata.loaderArgument = name;
 
           load.address = address;
           if (loaderModule.locate)
@@ -3749,7 +3812,7 @@ hook('normalize', function(normalize) {
   hook('fetch', function(fetch) {
     return function(load) {
       var loader = this;
-      if (loader.trace)
+      if (loader.trace || loader.builder)
         return fetch.call(loader, load);
       
       // if already defined, no need to load a bundle

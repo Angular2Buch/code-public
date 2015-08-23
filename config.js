@@ -12,7 +12,7 @@ System.config({
   },
 
   map: {
-    "angular2": "npm:angular2@2.0.0-alpha.34",
+    "angular2": "npm:angular2@2.0.0-alpha.35",
     "es6-shim": "github:es-shims/es6-shim@0.33.0",
     "jquery": "github:components/jquery@2.1.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.0",
