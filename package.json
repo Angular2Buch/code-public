@@ -34,11 +34,11 @@
     "directories": {},
     "dependencies": {
       "angular2": "npm:angular2@^2.0.0-alpha.35",
-      "es6-shim": "github:es-shims/es6-shim@^0.33.0",
+      "es6-shim": "github:es-shims/es6-shim@^0.33.1",
       "jquery": "github:components/jquery@^2.1.4",
       "reflect-metadata": "npm:reflect-metadata@^0.1.0",
       "typescript": "npm:typescript@^1.5.3",
-      "zone.js": "npm:zone.js@^0.5.2"
+      "zone.js": "npm:zone.js@^0.5.3"
     },
     "devDependencies": {
       "traceur": "github:jmcriffey/bower-traceur@0.0.88",

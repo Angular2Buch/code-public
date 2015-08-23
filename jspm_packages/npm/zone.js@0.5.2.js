@@ -1,1 +1,0 @@
-module.exports = require("npm:zone.js@0.5.2/lib/zone");
