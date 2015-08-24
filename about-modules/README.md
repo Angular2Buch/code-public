@@ -3,20 +3,26 @@
 
 ### Inhalt
 1. [Einleitung](#einleitung)
-2. [ES6 Module Loader Polyfill](#es6module)
-3. [Traceur & Traceur runtime](#traceur)
-4. [SystemJS](#systemjs)
-5. [jspm](#jspm)
-6. [Angular2 mit Gulp bauen](#angular2bauen)
-7. [Angular2 mit jspm laden](#angular2jspm)
-8. [Fazit](#fazit)
+2. [Hello World](#hello)
+3. [ES6 Module Loader Polyfill](#es6module)
+4. [Traceur & Traceur runtime](#traceur)
+5. [SystemJS](#systemjs)
+6. [jspm](#jspm)
+7. [Angular2 mit Gulp bauen](#angular2bauen)
+8. [Angular2 mit jspm laden](#angular2jspm)
+9. [Fazit](#fazit)
 
 <hr>
 
 <a name="einleitung"></a>
 ## 1. Einleitung
 
-Google liefert mit dem "[5 Min Quickstart](https://angular.io/docs/js/latest/quickstart.html)" einen ersten Einstieg in die Entwicklung mit Angular2. In dem Quickstart wird unter anderem beschrieben, wie man eine einfache Komponente erstellt. Zum Einsatz kommt der Transpiler TypeScript von Microsoft, welcher eine Datei Namens `app.js` erzeugt. Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen:
+Angular2 ist ein mutiges Stück Software. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein völlig neues Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten, was für viel Aufregung gesorgt hat. Statt Controller setzt man nun Komponenten ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. Neben diesen hervorstechenden Neuerung soll in diesem Artikel auf ein paar unscheinbarere Änderungen eingegangen werden. Diese betreffen das Management von Abhängigkeiten. Sowohl beim Laden von JavaScript-Dateien als auch die Dependency Injection war in Angular 1 nicht optimal gelöst. Der erste Teil dieser Reihe beleuchtet das Laden von modularem JavaScript-Code. In der nächsten Ausgabe wird anschließend auf das DI von Angular2 eingegangen.
+
+<a name="hello"></a>
+## 2. Hello World
+
+Die Entwicklung von Angular findet auf Github statt, so dass man die spannende Neuentwicklung direkt verfolgen kann. Auf der neuen Website unter **angular.io** findet man kurzen [5 Minuten Schnellstart](https://angular.io/docs/js/latest/quickstart.html) in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher eine Datei Namens `app.js` erzeugt. Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen:
 
 ```javascript
 <!-- Zeile 1 --><script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
@@ -26,13 +32,13 @@ Google liefert mit dem "[5 Min Quickstart](https://angular.io/docs/js/latest/qui
 <!-- Zeile 4 --><script>System.import('app');</script>
 ```
 
-Hinter diesen vier Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular. Das Angular-Team setzt durch die Auswahl dieser Technologien massiv auf die Entwicklung mittels ECMAScript 6. Eigentlich wird ECMAScript 6 (kurz "ES6") derzeit noch von keinem Browser vollständig unterstützt. Doch durch die gelungene Auswahl an bestehenden Frameworks ist dennoch möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ES6 zu entwickeln. Die notwendige Tools sollen in diesem Artikel intensiv betrachtet werden.
+Hinter diesen vier Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular. Das Angular-Team setzt durch die Auswahl dieser Technologien massiv auf die Entwicklung mittels ECMAScript 6. Eigentlich wird ECMAScript 6 (kurz "ES6") derzeit noch von keinem Browser vollständig unterstützt. Doch durch die Auswahl an neuen Frameworks ist dennoch möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ES6 zu entwickeln. Die notwendige Tools sollen in diesem Artikel intensiv betrachtet werden.
 
 Das vollständige "5 Min Quickstart" Beispiel finden Sie [hier](angular_quickstart-alpha28/index.html). Alle gezeigten Befehle setzen voraus, dass Node.js auf dem Entwicklungsrecher installiert ist.
 
 
 <a name="es6module"></a>
-## 2. ES6 Module Loader Polyfill
+## 3. ES6 Module Loader Polyfill
 
 In der Webwelt steht der Begriff "Poylfill" für ein Software, welche fehlende JavaScrip-Funktionalitäten im Browser zur Verfügung stellt. In der Vergangenheit ging es bei Polyfills häufig darum, standardisierte Funkionen in alten Internet-Explorer Versionen nachzurüsten. Es können aber auch mithilfe von Polyfills Funktionen hinzugefügt werden, die gerade erst definiert wurden und daher noch von keinem Browser vollständig unterstützt werden.
 
@@ -84,7 +90,7 @@ Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Scrip
 
 
 <a name="traceur"></a>
-## 3. Traceur & Traceur runtime
+## 4. Traceur & Traceur runtime
 
 Das Transpiling von ES6 zur Laufzeit ist im produktiven Einsatz nicht sehr effizient. Es bietet sich an, den Code zwar in ES6 zu entwickeln, aber die Umwandlung stets vorab durchzuführen. Zu Traceur gehört ein Kommandozeilen-Script, welches das Transpiling durchführt. Folgende Befehle erzeugen eine Datei mit dem Namen `es5_module.js`:
 
@@ -110,7 +116,7 @@ Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwen
 
 
 <a name="systemjs"></a>
-## 4. SystemJS
+## 5. SystemJS
 
 In ***Zeile 2*** sieht man die Verwendung von [SystemJS](https://github.com/systemjs/systemjs).
 SystemJS lädt die in TypeScript entwickelte Komponente app
@@ -136,7 +142,7 @@ SystemJS lädt in dieser Version immer auch den bereits vorgestellten "ES6 Modul
 
 
 <a name="jspm"></a>
-## 5. jspm
+## 6. jspm
 
 jspm ist ein Paketmanager, welcher **indirekt** in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der [npm](npmjs.com)-registry oder direkt aus Github Repositorien stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von [bower](http://bower.io). Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels [SystemJS](https://github.com/systemjs/systemjs) ausgelegt.
 
@@ -153,7 +159,7 @@ Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunte
 
 
 <a name="angular2bauen"></a>
-## 6. Angular2 mit Gulp bauen
+## 7. Angular2 mit Gulp bauen
 
 In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp](https://github.com/gulpjs/gulp) vereinfacht wurden. Nachdem Angular2 vom [Github-Repository](https://github.com/angular/angular) herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
 
@@ -219,7 +225,7 @@ Die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular2](https
 -------
 
 <a name="angular2jspm"></a>
-## 7. Angular2 mit jspm laden
+## 8. Angular2 mit jspm laden
 
 Mit jspm und SystemJs gibt es einen sehr komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular2 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser und transpiliert den eigenen TypeScript-Code. In diesem Szenario muss TypeScript nicht mehr über die Kommandozeile verwendet werden.  
 
@@ -329,6 +335,6 @@ Die Anleitung zu dem Laden per JSPM basiert zum Teil auf folgendem Gist:
 
 
 <a name="fazit"></a>
-## 8. Fazit
+## 9. Fazit
 
 Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. AngularJS verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Die Lösung bestand dann darin, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular2 Anwendung integrieren lassen.
