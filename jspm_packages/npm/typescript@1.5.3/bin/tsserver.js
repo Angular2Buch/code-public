@@ -38850,7 +38850,7 @@
   (function(ts) {
     var server;
     (function(server) {
-      var nodeproto = require("./E:/Angular2Buch/code/_debugger");
+      var nodeproto = require("../../../../../build/Angular2Buch/code/_debugger");
       var readline = require("readline");
       var path = require("path");
       var fs = require("fs");
