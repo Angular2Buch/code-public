@@ -11,6 +11,16 @@ System.config({
     "npm:*": "jspm_packages/npm/*"
   },
 
+  meta: {
+    "angular2/angular2": {
+      "deps": [
+        "zone.js",
+        "reflect-metadata",
+        "es6-shim"
+      ]
+    }
+  },
+
   map: {
     "angular2": "npm:angular2@2.0.0-alpha.35",
     "es6-shim": "github:es-shims/es6-shim@0.33.1",

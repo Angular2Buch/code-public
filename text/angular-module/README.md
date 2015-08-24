@@ -303,7 +303,7 @@ manuell angibt, funtioniert das Beispiel wie folgt:
 
       System.config({
         paths: {
-          app: 'about-modules/angular_jspm/app' // change this!
+          app: 'text/angular-module/angular_jspm/app' // change this!
         },
         "packages": {
           "app": {

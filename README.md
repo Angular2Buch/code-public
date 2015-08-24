@@ -13,11 +13,14 @@ $ npm start
 
 ## Beispiele
 
-* [Text: about-modules](about-modules)
-* [Beispiel hello-world - mit Bundle](hello-world-bundle) - zeigt, wie das Bundle angular2.dev.js verwendet wird
-* [Beispiel hello-world](hello-world) - zeigt, wie Angular per System.js geladen wird
-* [Beispiel reddit-clone](reddit-clone)
-* [Beispiel shopping-list](shopping-list)
+* [hello-world - mit Bundle](source/hello-world-bundle) - zeigt, wie das Bundle angular2.dev.js verwendet wird
+* [hello-world](source/hello-world) - zeigt, wie Angular per System.js geladen wird
+* [reddit-clone](reddit-clone)
+* [shopping-list](shopping-list)
+
+## Texte
+
+* [about-modules](text/about-modules)
 
 ## Externe Ressourcen
 
