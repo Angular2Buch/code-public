@@ -7,6 +7,7 @@ Quelltexte, Snippets, mal schauen...
 
 ```cmd
 $ npm install
+$ npm run-script build
 $ npm start
 ```
 
