@@ -1,5 +1,5 @@
 import { Component, View } from 'angular2/angular2';
-import Article from 'Article';
+import Article from 'imports/Article';
 
 @Component({
   selector: 'reddit-article',

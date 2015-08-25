@@ -11,6 +11,9 @@
   </head>
   <body>
     <reddit></reddit>
-    <script>System.import('source/reddit-clone/app');</script>
+    <script>
+      System.config({ map: { "imports": 'source/reddit-clone/imports' }});
+      System.import('source/reddit-clone/app');
+    </script>
   </body>
 </html>

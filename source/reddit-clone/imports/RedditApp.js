@@ -10,8 +10,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var Article_1 = require('Article');
-var RedditArticle_1 = require('RedditArticle');
+var Article_1 = require('imports/Article');
+var RedditArticle_1 = require('imports/RedditArticle');
 var RedditApp = (function () {
     function RedditApp() {
         this.articles = [
@@ -31,7 +31,7 @@ var RedditApp = (function () {
         }),
         angular2_1.View({
             directives: [RedditArticle_1.default, angular2_1.NgFor],
-            template: "\n    <section class=\"new-link\">\n      <div class=\"control-group\">\n        <div><label for=\"title\">Title:</label></div>\n        <div><input name=\"title\" #newtitle></div>\n      </div>\n      <div class=\"control-group\">\n        <div><label for=\"link\">Link:</label></div>\n        <div><input name=\"link\" #newlink/></div>\n      </div>\n\n      <button (click)=\"addArticle(newtitle, newlink)\">Submit link</button>\n    </section>\n\n    <reddit-article\n      *ng-for=\"#article of articles | orderBy: articles\"\n      [article]=\"article\">\n    </reddit-article>\n  "
+            template: "\n    <section class=\"new-link\">\n      <div class=\"control-group\">\n        <div><label for=\"title\">Title:</label></div>\n        <div><input name=\"title\" #newtitle></div>\n      </div>\n      <div class=\"control-group\">\n        <div><label for=\"link\">Link:</label></div>\n        <div><input name=\"link\" #newlink/></div>\n      </div>\n\n      <button (click)=\"addArticle(newtitle, newlink)\">Submit link</button>\n    </section>\n\n    <reddit-article\n      *ng-for=\"#article of articles\"\n      [article]=\"article\">\n    </reddit-article>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], RedditApp);

@@ -1,6 +1,6 @@
 import { Component, View, NgFor } from 'angular2/angular2';
-import Article from 'Article';
-import RedditArticle from 'RedditArticle';
+import Article from 'imports/Article';
+import RedditArticle from 'imports/RedditArticle';
 
 @Component({
   selector: 'reddit'
@@ -22,7 +22,7 @@ import RedditArticle from 'RedditArticle';
     </section>
 
     <reddit-article
-      *ng-for="#article of articles | orderBy: articles"
+      *ng-for="#article of articles"
       [article]="article">
     </reddit-article>
   `
