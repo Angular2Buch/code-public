@@ -14,11 +14,7 @@
         "newLine": "LF"
     },
     "files": [
-        "./app.ts",
-        "./typings/angular2/angular2.d.ts",
-        "./typings/es6-promise/es6-promise.d.ts",
-        "./typings/lodash/lodash.d.ts",
-        "./typings/rx/rx-lite.d.ts",
-        "./typings/rx/rx.d.ts"
+      "./app.ts",
+      "../../lib/angular-latest-typings/angular2/angular2.d.ts"
     ]
 }

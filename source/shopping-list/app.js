@@ -10,7 +10,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
-var _ = require('lodash');
 var Item = (function () {
     function Item(name, quantity, checked) {
         this.name = name;
@@ -52,13 +51,21 @@ var ShoppingApp = (function () {
         this.items.push(new Item(name, quantity, false));
     };
     ShoppingApp.prototype.checkAll = function () {
-        _.each(this.items, function (item) { item.checked = true; });
+        for (var _i = 0, _a = this.items; _i < _a.length; _i++) {
+            var item = _a[_i];
+            item.checked = true;
+        }
     };
     ShoppingApp.prototype.uncheckAll = function () {
-        _.each(this.items, function (item) { item.checked = false; });
+        for (var _i = 0, _a = this.items; _i < _a.length; _i++) {
+            var item = _a[_i];
+            item.checked = false;
+        }
     };
     ShoppingApp.prototype.deleteChecked = function () {
-        _.remove(this.items, function (item) { return item.checked; });
+        this.items = this.items.filter(function (item) {
+            return !item.checked;
+        });
     };
     ShoppingApp = __decorate([
         angular2_1.Component({

@@ -16,7 +16,15 @@ $ npm start
 * [hello-world - mit Bundle](source/hello-world-bundle) - zeigt, wie das Bundle angular2.dev.js verwendet wird
 * [hello-world](source/hello-world) - zeigt, wie Angular per System.js geladen wird
 * [reddit-clone](source/reddit-clone)
-* [shopping-list](shopping-list)
+* [shopping-list](source/shopping-list)
+
+Beispiele neu Transpilieren
+
+```cmd
+$ npm install -g typescript
+$ cd [source/folder]
+$ tsc --watch
+```
 
 ## Texte
 

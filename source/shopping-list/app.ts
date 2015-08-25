@@ -1,5 +1,4 @@
 import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
-import _ = require('lodash');
 
 /**
 * Item class - data holder for shopping list items
@@ -15,7 +14,6 @@ class Item {
     this.checked  = checked;
   }
 }
-
 
 
 /**
@@ -35,7 +33,6 @@ class ShoppingItem {
     thisItem.checked = !thisItem.checked;
   }
 }
-
 
 
 /**
@@ -69,20 +66,25 @@ class ShoppingApp {
 
   /** check all items in list */
   checkAll() {
-    _.each(this.items, item => { item.checked = true });
+    for (var item of this.items) {
+      item.checked = true
+    }
   }
 
   /** uncheck all items in list */
   uncheckAll() {
-    _.each(this.items, item => { item.checked = false });
+    for (var item of this.items) {
+      item.checked = false
+    }
   }
 
   /** delete all checked items in list */
   deleteChecked() {
-    _.remove(this.items, (item) => item.checked);
+    this.items = this.items.filter((item) => {
+       return !item.checked;
+    });
   }
 }
-
 
 
 bootstrap(ShoppingApp);
