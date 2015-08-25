@@ -1,11 +1,4 @@
-/// <reference path="./typings/angular2/angular2"/>
-
-import {
-  Component,
-  View,
-  For,
-  bootstrap
-} from 'angular2/angular2';
+import { Component, View, NgFor, bootstrap } from 'angular2/angular2';
 
 class Article{
   title : string;
@@ -29,7 +22,7 @@ class Article{
 
 @Component({
   selector: 'reddit-article',
-  properties: {'article' : 'article'}
+  properties: ['article']
 })
 @View({
   template: `
@@ -49,7 +42,7 @@ class Article{
 })
 class RedditArticle {
   article: Article;
-  
+
   voteUp(){
     this.article.voteUp();
     // Stops event propagation and avoids browser reload
@@ -66,7 +59,7 @@ class RedditArticle {
   selector: 'reddit'
 })
 @View({
-  directives: [RedditArticle, For],
+  directives: [RedditArticle, NgFor],
   template: `
     <section class="new-link">
       <div class="control-group">
@@ -82,7 +75,7 @@ class RedditArticle {
     </section>
 
     <reddit-article
-      *for="#article of articles"
+      *ng-for="#article of articles"
       [article]="article">
     </reddit-article>
   `

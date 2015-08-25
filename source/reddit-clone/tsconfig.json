@@ -1,5 +1,5 @@
 {
-    "version": "1.5.0",
+    "version": "1.5.3",
     "compilerOptions": {
         "target": "es5",
         "module": "commonjs",
@@ -7,14 +7,14 @@
         "noImplicitAny": false,
         "removeComments": true,
         "noLib": false,
-        "emitDecoratorMetadata": true
+        "emitDecoratorMetadata": true,
+        "sourceMap": true,
+        "listFiles": true,
+        "experimentalDecorators": true,
+        "newLine": "LF"
     },
-    "filesGlob": [
-        "./**/*.ts",
-        "!./node_modules/**/*.ts"
-    ],
     "files": [
         "./app.ts",
-        "./typings/angular2/angular2.d.ts"
+        "../../lib/angular-latest-typings/angular2/angular2.d.ts"
     ]
 }

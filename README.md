@@ -15,7 +15,7 @@ $ npm start
 
 * [hello-world - mit Bundle](source/hello-world-bundle) - zeigt, wie das Bundle angular2.dev.js verwendet wird
 * [hello-world](source/hello-world) - zeigt, wie Angular per System.js geladen wird
-* [reddit-clone](reddit-clone)
+* [reddit-clone](source/reddit-clone)
 * [shopping-list](shopping-list)
 
 ## Texte
