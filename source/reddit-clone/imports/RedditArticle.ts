@@ -1,9 +1,10 @@
-import { Component, View } from 'angular2/angular2';
+import { Component, View, EventEmitter } from 'angular2/angular2';
 import Article from 'imports/Article';
 
 @Component({
   selector: 'reddit-article',
-  properties: ['article']
+  properties: ['article'],
+  events: ['voted']
 })
 @View({
   template: `
@@ -23,15 +24,22 @@ import Article from 'imports/Article';
 })
 export default class RedditArticle {
   article: Article;
+  voted: EventEmitter;
+
+  constructor() {
+    this.voted = new EventEmitter();
+  }
 
   voteUp(){
     this.article.voteUp();
+    this.voted.next(this.article);
     // Stops event propagation and avoids browser reload
     return false;
   }
 
   voteDown(){
     this.article.voteDown();
+    this.voted.next(this.article);
     return false;
   }
 }

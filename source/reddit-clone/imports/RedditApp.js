@@ -21,9 +21,14 @@ var RedditApp = (function () {
         ];
     }
     RedditApp.prototype.addArticle = function (title, link) {
-        this.articles.push(new Article_1.default(title.value, link.value));
+        var newArticle = new Article_1.default(title.value, link.value);
+        this.articles.push(newArticle);
         title.value = '';
         link.value = '';
+        this.sortList(newArticle);
+    };
+    RedditApp.prototype.sortList = function (article) {
+        this.articles.sort(function (a, b) { return b.votes - a.votes; });
     };
     RedditApp = __decorate([
         angular2_1.Component({
@@ -31,7 +36,7 @@ var RedditApp = (function () {
         }),
         angular2_1.View({
             directives: [RedditArticle_1.default, angular2_1.NgFor],
-            template: "\n    <section class=\"new-link\">\n      <div class=\"control-group\">\n        <div><label for=\"title\">Title:</label></div>\n        <div><input name=\"title\" #newtitle></div>\n      </div>\n      <div class=\"control-group\">\n        <div><label for=\"link\">Link:</label></div>\n        <div><input name=\"link\" #newlink/></div>\n      </div>\n\n      <button (click)=\"addArticle(newtitle, newlink)\">Submit link</button>\n    </section>\n\n    <reddit-article\n      *ng-for=\"#article of articles\"\n      [article]=\"article\">\n    </reddit-article>\n  "
+            template: "\n    <section class=\"new-link\">\n      <div class=\"control-group\">\n        <div><label for=\"title\">Title:</label></div>\n        <div><input name=\"title\" #newtitle></div>\n      </div>\n      <div class=\"control-group\">\n        <div><label for=\"link\">Link:</label></div>\n        <div><input name=\"link\" #newlink/></div>\n      </div>\n\n      <button (click)=\"addArticle(newtitle, newlink)\">Submit link</button>\n    </section>\n\n    <reddit-article\n      *ng-for=\"#article of articles\"\n      [article]=\"article\"\n      (voted)=\"sortList(article)\">\n    </reddit-article>\n  "
         }), 
         __metadata('design:paramtypes', [])
     ], RedditApp);

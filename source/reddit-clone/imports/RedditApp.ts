@@ -23,7 +23,8 @@ import RedditArticle from 'imports/RedditArticle';
 
     <reddit-article
       *ng-for="#article of articles"
-      [article]="article">
+      [article]="article"
+      (voted)="sortList(article)">
     </reddit-article>
   `
 })
@@ -32,21 +33,24 @@ export default class RedditApp {
 
   constructor() {
     this.articles = [
-      new Article(
-        'Angular 2 - Beispiel Code',
-        'https://github.com/Angular2Buch/code'),
-      new Article(
-        'Angular 2 - Buch',
-        'https://github.com/Angular2Buch/book'),
-      new Article(
-        'Angular 2',
-        'https://angular.io'),
+      new Article('Angular 2 - Beispiel Code', 'https://github.com/Angular2Buch/code'),
+      new Article('Angular 2 - Buch', 'https://github.com/Angular2Buch/book'),
+      new Article('Angular 2', 'https://angular.io'),
     ]
   }
 
   addArticle(title, link) {
-    this.articles.push(new Article(title.value, link.value));
+    var newArticle = new Article(title.value, link.value);
+
+    this.articles.push(newArticle);
     title.value = '';
     link.value  = '';
+
+    this.sortList(newArticle);
+  }
+
+  sortList(article) {
+    //console.log(article, 'got a new vote!');
+    this.articles.sort((a, b) => b.votes - a.votes);
   }
 }
