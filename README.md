@@ -7,6 +7,8 @@ Quelltexte, Snippets, mal schauen...
 
 ```cmd
 $ npm install
+$ npm install -g jspm
+$ jspm install
 $ npm run-script build
 $ npm start
 ```

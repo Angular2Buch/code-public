@@ -3,7 +3,6 @@
   "version": "0.0.1",
   "description": "startup und deploy scrips",
   "scripts": {
-    "postinstall": "jspm install",
     "start": "http-server -o",
     "build": "gulp build",
     "deploy": "gulp deploy"
@@ -14,7 +13,7 @@
     "url": "https://github.com/Angular2Buch/code.git"
   },
   "dependencies": {
-    "angular2": "2.0.0-alpha.35"
+    "angular2": "2.0.0-alpha.36"
   },
   "devDependencies": {
     "http-server": "^0.8.0",

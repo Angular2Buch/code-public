@@ -22,14 +22,14 @@ System.config({
   },
 
   map: {
-    "angular2": "npm:angular2@2.0.0-alpha.35",
-    "es6-shim": "github:es-shims/es6-shim@0.33.1",
+    "angular2": "npm:angular2@2.0.0-alpha.36",
+    "es6-shim": "github:es-shims/es6-shim@0.33.3",
     "jquery": "github:components/jquery@2.1.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.0",
     "traceur": "github:jmcriffey/bower-traceur@0.0.88",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88",
     "typescript": "npm:typescript@1.5.3",
-    "zone.js": "npm:zone.js@0.5.3",
+    "zone.js": "npm:zone.js@0.5.4",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
     },
@@ -66,7 +66,7 @@ System.config({
     "github:jspm/nodelibs-vm@0.1.0": {
       "vm-browserify": "npm:vm-browserify@0.0.4"
     },
-    "npm:angular2@2.0.0-alpha.35": {
+    "npm:angular2@2.0.0-alpha.36": {
       "crypto": "github:jspm/nodelibs-crypto@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0",
@@ -74,7 +74,7 @@ System.config({
       "reflect-metadata": "npm:reflect-metadata@0.1.0",
       "rx": "npm:rx@2.5.1",
       "url": "github:jspm/nodelibs-url@0.1.0",
-      "zone.js": "npm:zone.js@0.5.3"
+      "zone.js": "npm:zone.js@0.5.4"
     },
     "npm:asn1.js@2.2.0": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -286,7 +286,7 @@ System.config({
     "npm:vm-browserify@0.0.4": {
       "indexof": "npm:indexof@0.0.1"
     },
-    "npm:zone.js@0.5.3": {
+    "npm:zone.js@0.5.4": {
       "process": "github:jspm/nodelibs-process@0.1.1"
     }
   }
