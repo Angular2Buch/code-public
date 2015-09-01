@@ -1,14 +1,15 @@
 import {Component, View, NgFor, bootstrap} from 'angular2/angular2';
+import {FORM_DIRECTIVES} from 'angular2/angular2';
 
 /**
 * Item class - data holder for shopping list items
 */
 class Item {
-  name : string;
-  quantity  : string;
-  checked  : boolean;
+  name: string;
+  quantity: string;
+  checked: boolean;
 
-  constructor(name, quantity, checked) {
+  constructor(name: string, quantity: string = '', checked:boolean = false) {
     this.name = name;
     this.quantity  = quantity;
     this.checked  = checked;
@@ -42,26 +43,31 @@ class ShoppingItem {
   selector: 'shopping'
 })
 @View({
-  directives: [ShoppingItem, NgFor],
+  directives: [ShoppingItem, NgFor, FORM_DIRECTIVES ],
   templateUrl: 'templates/main.html'
 })
 class ShoppingApp {
+
   items: Array<Item>;
+
+  newName: string = '';
+  newQuantity: string = '1';
 
   constructor() {
     this.items = [
       new Item('Beer','3', true),
-      new Item('Water','3 Bottles', false),
-      new Item('Apple','20', false),
+      new Item('Water','3 Bottles'),
+      new Item('Apple','20'),
       new Item('Milk','2', true),
-      new Item('Coffee','1', false),
-      new Item('Sausage','', false),
+      new Item('Coffee','1'),
+      new Item('Sausage'),
     ]
   }
 
   /** add a new item to shopping list */
-  addItem(name: String, quantity: String) {
-    this.items.push(new Item(name, quantity, false));
+  addItem() {
+    var newItem = new Item(this.newName, this.newQuantity, false);
+    this.items.push(newItem);
   }
 
   /** check all items in list */

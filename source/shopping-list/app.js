@@ -10,8 +10,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var angular2_2 = require('angular2/angular2');
 var Item = (function () {
     function Item(name, quantity, checked) {
+        if (quantity === void 0) { quantity = ''; }
+        if (checked === void 0) { checked = false; }
         this.name = name;
         this.quantity = quantity;
         this.checked = checked;
@@ -38,17 +41,20 @@ var ShoppingItem = (function () {
 })();
 var ShoppingApp = (function () {
     function ShoppingApp() {
+        this.newName = '';
+        this.newQuantity = '1';
         this.items = [
             new Item('Beer', '3', true),
-            new Item('Water', '3 Bottles', false),
-            new Item('Apple', '20', false),
+            new Item('Water', '3 Bottles'),
+            new Item('Apple', '20'),
             new Item('Milk', '2', true),
-            new Item('Coffee', '1', false),
-            new Item('Sausage', '', false),
+            new Item('Coffee', '1'),
+            new Item('Sausage'),
         ];
     }
-    ShoppingApp.prototype.addItem = function (name, quantity) {
-        this.items.push(new Item(name, quantity, false));
+    ShoppingApp.prototype.addItem = function () {
+        var newItem = new Item(this.newName, this.newQuantity, false);
+        this.items.push(newItem);
     };
     ShoppingApp.prototype.checkAll = function () {
         for (var _i = 0, _a = this.items; _i < _a.length; _i++) {
@@ -72,7 +78,7 @@ var ShoppingApp = (function () {
             selector: 'shopping'
         }),
         angular2_1.View({
-            directives: [ShoppingItem, angular2_1.NgFor],
+            directives: [ShoppingItem, angular2_1.NgFor, angular2_2.FORM_DIRECTIVES],
             templateUrl: 'templates/main.html'
         }), 
         __metadata('design:paramtypes', [])

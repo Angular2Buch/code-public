@@ -7,17 +7,16 @@
       <div class="form-group" style="padding-top: 20px;">
         <label class="col-md-3" for="name">Name</label>
         <div class="col-md-3">
-          <input #inputname class="form-control input-lg" placeholder="e.g. Beer" type="text" name="name" autofocus />
+          <input [(ng-model)]="newName" class="form-control input-lg" placeholder="e.g. Beer" type="text" name="name" autofocus />
         </div>
       </div>
       <div class="form-group" style="padding-top: 20px;">
         <label class="col-md-3" for="quantity">Quantity</label>
         <div class="col-md-3">
-          <input #inputquantity class="form-control input-lg" placeholder="1" type="text" name="quantity" />
-
+          <input [(ng-model)]="newQuantity" class="form-control input-lg" placeholder="1" type="text" name="quantity" />
         </div>
       </div>
-      <button (click)="addItem(inputname.value, inputquantity.value)" class="btn btn-primary btn-fab btn-raised mdi-content-add pull-right" type="submit" onclick="return false;"></button>
+      <button (click)="addItem()" class="btn btn-primary btn-fab btn-raised mdi-content-add pull-right" type="submit" onclick="return false;"></button>
     </form>
   </div>
   <table class="table table-striped table-hover table-bordered">
@@ -25,15 +24,15 @@
   </table>
 
   <div class="panel-footer">
-    <a class="btn btn-info btn-raised" (click)="checkAll()">
+    <a class="btn btn-info btn-raised" (^click)="checkAll()">
       <span class="mdi-toggle-check-box"></span>
       Check<span class="hidden-xs"> all</span>
     </a>
-    <a class="btn btn-info btn-raised" (click)="uncheckAll()">
+    <a class="btn btn-info btn-raised" (^click)="uncheckAll()">
       <span class="mdi-toggle-check-box-outline-blank"></span>
       Uncheck<span class="hidden-xs">  all</span>
     </a>
-    <a class="btn btn-success btn-raised" (click)="deleteChecked()">
+    <a class="btn btn-success btn-raised" (^click)="deleteChecked()">
       <span class="mdi-navigation-cancel"></span>
       Delete checked Items
     </a>
