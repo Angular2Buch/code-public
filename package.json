@@ -37,7 +37,7 @@
       "es6-shim": "github:es-shims/es6-shim@^0.33.3",
       "jquery": "github:components/jquery@^2.1.4",
       "reflect-metadata": "npm:reflect-metadata@^0.1.0",
-      "typescript": "npm:typescript@^1.5.3",
+      "typescript": "npm:typescript@^1.6.0-dev.20150818",
       "zone.js": "npm:zone.js@^0.5.4"
     },
     "devDependencies": {

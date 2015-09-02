@@ -28,7 +28,7 @@ System.config({
     "reflect-metadata": "npm:reflect-metadata@0.1.0",
     "traceur": "github:jmcriffey/bower-traceur@0.0.88",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88",
-    "typescript": "npm:typescript@1.5.3",
+    "typescript": "npm:typescript@1.6.0-dev.20150825",
     "zone.js": "npm:zone.js@0.5.4",
     "github:jspm/nodelibs-assert@0.1.0": {
       "assert": "npm:assert@1.3.0"
@@ -264,7 +264,7 @@ System.config({
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:typescript@1.5.3": {
+    "npm:typescript@1.6.0-dev.20150825": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "child_process": "github:jspm/nodelibs-child_process@0.1.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
