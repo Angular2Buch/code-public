@@ -34,7 +34,8 @@ $ tsc --watch
 
 ## Texte
 
-* [about-modules](text/about-modules)
+* [angular-module](text/angular-module)
+* [angular-forms](text/angular-forms)
 
 ## Externe Ressourcen
 
