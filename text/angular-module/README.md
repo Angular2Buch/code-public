@@ -17,35 +17,65 @@
 <a name="einleitung"></a>
 ## 1. Einleitung
 
-Angular2 ist ein mutiges Stück Software. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein völlig neues Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten, was für viel Aufregung gesorgt hat. Statt Controller setzt man nun Komponenten ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. Neben diesen hervorstechenden Neuerung soll in diesem Artikel auf ein paar unscheinbarere Änderungen eingegangen werden. Diese betreffen das Management von Abhängigkeiten. Sowohl beim Laden von JavaScript-Dateien als auch die Dependency Injection war in Angular 1 nicht optimal gelöst. Der erste Teil dieser Reihe beleuchtet das Laden von modularem JavaScript-Code. In der nächsten Ausgabe wird anschließend auf das DI von Angular2 eingegangen.
+Angular2 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular2 folgen in den kommenden Ausgaben der Web und Mobile.
 
 <a name="hello"></a>
 ## 2. Hello World
 
-Die Entwicklung von Angular findet auf Github statt, so dass man die spannende Neuentwicklung direkt verfolgen kann. Auf der neuen Website unter **angular.io** findet man kurzen [5 Minuten Schnellstart](https://angular.io/docs/js/latest/quickstart.html) in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher eine Datei Namens `app.js` erzeugt. Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen:
+Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Schnellstart][1] in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei `app.ts` in eine JavaScript-Datei Namens `app.js` umwandelt.
 
 ```javascript
-<!-- Zeile 1 --><script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
-<!-- Zeile 2 --><script src="https://jspm.io/system@0.16.js"></script>
-<!-- Zeile 3 --><script src="https://code.angularjs.org/2.0.0-alpha.28/angular2.dev.js"></script>
-
-<!-- Zeile 4 --><script>System.import('app');</script>
+<html>
+  <head>
+    <title>Angular 2 Quickstart</title>
+    <!-- Zeile 1 --> <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.87/traceur-runtime.js"></script>
+    <!-- Zeile 2 --> <script src="https://jspm.io/system@0.16.js"></script>
+    <!-- Zeile 3 --> <script src="https://code.angularjs.org/2.0.0-alpha.28/angular2.dev.js"></script>
+  </head>
+  <body>
+    <my-app></my-app>
+    <!-- Zeile 4 --> <script>System.import('app');</script>
+  </body
 ```
+> [index.html](angular_quickstart-alpha28/index.html)
 
-Hinter diesen vier Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular. Das Angular-Team setzt durch die Auswahl dieser Technologien massiv auf die Entwicklung mittels ECMAScript 6. Eigentlich wird ECMAScript 6 (kurz "ES6") derzeit noch von keinem Browser vollständig unterstützt. Doch durch die Auswahl an neuen Frameworks ist dennoch möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ES6 zu entwickeln. Die notwendige Tools sollen in diesem Artikel intensiv betrachtet werden.
+```javascript
+import {Component, View, bootstrap} from 'angular2/angular2';
 
-Das vollständige "5 Min Quickstart" Beispiel finden Sie [hier](angular_quickstart-alpha28/index.html). Alle gezeigten Befehle setzen voraus, dass Node.js auf dem Entwicklungsrecher installiert ist.
+@Component({
+  selector: 'my-app'
+})
+@View({
+  template: '<h1>Hello {{ name }}</h1>'
+})
+class MyAppComponent {
+  name: string;
+  constructor() {
+    this.name = 'Alice';
+  }
+}
+
+bootstrap(MyAppComponent);
+```
+> [app.ts](angular_quickstart-alpha28/app.ts)
+
+ Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen. Die eigentliche Funktion dieses Beispiels erschließt sich aber dennoch schnell. Das DOM-Element `<my-app>` wird mit einer eine Überschrift ergänzt, welche den Text "Hello Alice" trägt.
+
+![Screenshot](images/screenshot_hello_alice.png)
+> Screenshot: Der Output im Browser
+
+Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular2. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ES6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js mit NPM installiert ist.
 
 
 <a name="es6module"></a>
 ## 3. ES6 Module Loader Polyfill
 
-In der Webwelt steht der Begriff "Poylfill" für ein Software, welche fehlende JavaScrip-Funktionalitäten im Browser zur Verfügung stellt. In der Vergangenheit ging es bei Polyfills häufig darum, standardisierte Funkionen in alten Internet-Explorer Versionen nachzurüsten. Es können aber auch mithilfe von Polyfills Funktionen hinzugefügt werden, die gerade erst definiert wurden und daher noch von keinem Browser vollständig unterstützt werden.
+In der Webwelt steht der Begriff "Poylfill" für ein Software, welche fehlende JavaScript-Funktionalitäten im Browser zur Verfügung stellt. In der Vergangenheit ging es bei Polyfills häufig darum, standardisierte Funkionen in alten Internet-Explorer Versionen nachzurüsten. Es können aber auch mithilfe von Polyfills Funktionen hinzugefügt werden, die gerade erst definiert wurden und daher noch von keinem Browser vollständig unterstützt werden.
 
-Der "[ES6 Module Loader Polyfills](https://github.com/ModuleLoader/es6-module-loader)" ist ein bekanntes Tool für die Entwicklung von ECMAScript 6 Anwendungen.  
+Der "[ES6 Module Loader Polyfill][2]" ist ein bekanntes Tool für die Entwicklung von ECMAScript 6 Anwendungen.  
 Unter anderem liefert er:
 * einen asynchronen Modul-Loader für ES6-Module entsprechend der ES6-Spezifikation (`System.import`).
-* die Möglichkeit, einen so genannten Transpiler [Traceur](https://github.com/google/traceur-compiler), [Babel](http://babeljs.io/) oder [TypeScript](https://github.com/Microsoft/TypeScript/) direkt im Browser zu verwenden.
+* die Möglichkeit, einen so genannten Transpiler wie [Traceur][3], [Babel][4] oder [TypeScript][5] direkt im Browser zu verwenden.
 * das spezielle Script Tag `<script type="module">` in dem man ES6 Code-schreiben kann.
 
 Folgendes ES6 Modul:
@@ -75,7 +105,7 @@ export class Test {
 
 Für die Verwendung von ES6 Features (wie z.B. einer Klasse) benötigt man einen Transpiler, welcher ECMAScript 6 in ECMAScript 5 umwandelt, damit der Code in jedem Browser ausführbar ist. Der Polyfill verwendet standardmäßig den Transpiler Traceur, welcher von Google entwickelt wird. Die Umwandlung des Quellcodes geschieht direkt im Browser, sogar eine "SourceMap" steht für ein komfortables Debugging zur Verfügung. Das Script `traceur.js` wird automatisch vom Polyfill nachgeladen, sofern es nicht bereits vorhanden ist. Aufgrund der verwendeten Ordnerstruktur würde es im vorliegenden Fall zu einem Fehler 404 (Not Found) kommen. Mit dem ersten Script-Tag wird dem Fehler 404 entgegen gewirkt, indem die benötigte Datei vorab eingebunden wird und das Nachladen nicht mehr notwendig ist.
 
-Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags `<script type="module">` kann man hingegen die ES6 Features sicher verwenden, da der Browser aufgrund des unbekannten Typs den Inhalt ignoriert. Das Transpiling geschieht erneut zur Laufzeit.
+Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags `<script type="module">` kann man hingegen die ES6 Features sicher verwenden, da der Browser den Inhalt aufgrund des unbekannten Typs ignoriert. Das Transpiling geschieht dann erneut zur Laufzeit.
 
 ```javascript
 <script src="/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
@@ -112,14 +142,13 @@ Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `t
 ```
 > [example_traceur-runtime.html](example_traceur-runtime.html)
 
-Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular2 benötigt die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)". Mehr dazu im Abschnitt "Angular2 mit Gulp bauen".
+Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular2 wurde mit Traceur erstellt und benötigt schlicht die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)"). 
 
 
 <a name="systemjs"></a>
 ## 5. SystemJS
 
 In ***Zeile 2*** sieht man die Verwendung von [SystemJS](https://github.com/systemjs/systemjs).
-SystemJS lädt die in TypeScript entwickelte Komponente app
 
 SystemJS ist ein "universaler Module-Loader" und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von **CommonJS** können Module verwendet werden, welche ursprünglich für [Browserify](http://browserify.org/) gedacht waren. Ebenso lassen sich **AMD**-Module verwenden, welche üblicherweise über [require.js](http://requirejs.org/) geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten **ES6 Module** Loader Polyfills unterstützt.
 
@@ -338,3 +367,11 @@ Die Anleitung zu dem Laden per JSPM basiert zum Teil auf folgendem Gist:
 ## 9. Fazit
 
 Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. AngularJS verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Die Lösung bestand dann darin, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular2 Anwendung integrieren lassen.
+
+<hr>
+
+[1]: https://angular.io/docs/js/latest/quickstart.html "5 Minuten Schnellstart"
+[2]: https://github.com/ModuleLoader/es6-module-loader "ES6 Module Loader Polyfill"
+[3]: https://github.com/google/traceur-compiler "Traceur"
+[4]: http://babeljs.io/ "Babel"
+[5]: https://github.com/Microsoft/TypeScript/ "TypeScript"
