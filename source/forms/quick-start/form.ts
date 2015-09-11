@@ -1,4 +1,4 @@
-/// <reference path="../../lib/angular-latest-typings/angular2/angular2"/>
+/// <reference path="../../../lib/angular-latest-typings/angular2/angular2"/>
 
 import {bootstrap, Component, View} from "angular2/angular2";
 import {FORM_DIRECTIVES} from 'angular2/angular2';

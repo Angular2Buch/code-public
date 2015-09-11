@@ -11,18 +11,18 @@ import {Validators, NgIf} from 'angular2/angular2';
 @View({
   directives: [FORM_DIRECTIVES, NgIf],
   template: `
-    <h2>Form</h2>
     <form ng-form-model="myForm"
           class="form form-inline"
           (submit)="onSubmit(myForm.value)">
-      <div class="form-group">
+      <div class="form-group"
+           [class.has-error]="!myForm.find('sku').valid &&
+                               myForm.find('sku').touched">
         <label for="skuInput">SKU</label>
         <input type="text"
                class="form-control"
-               [class.has-error]="!sku.valid && sku.touched"
                id="skuInput"
-               placeholder="SKU"
-               [ng-form-control]="sku"/>
+               placeholder="Type a unique number"
+               [ng-form-control]="myForm.controls['sku']" />
 
         <button type="submit" class="btn btn-default">Submit</button>
       </div>
@@ -30,8 +30,8 @@ import {Validators, NgIf} from 'angular2/angular2';
 
     <hr>
     <h2>Sku control</h2>
-    <div *ng-if="!sku.valid" class="bg-warning">Sku has some errors.</div>
-    <div *ng-if="sku.hasError('required')" class="bg-warning">Sku is required</div>
+    <div *ng-if="!myForm.find('sku').valid" class="bg-warning">Sku has some errors.</div>
+    <div *ng-if="myForm.find('sku').hasError('required')" class="bg-warning">Sku is required</div>
 
     <hr>
     <h2>Whole form</h2>
@@ -47,8 +47,6 @@ export class DemoForSku {
     this.myForm = form.group({
       'sku': ['', Validators.required]
     });
-
-    this.sku = this.myForm.controls['sku'];
   }
 
   onSubmit(value) {

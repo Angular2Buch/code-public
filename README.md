@@ -23,7 +23,9 @@ $ npm start
 ### Forms
 
 * [Quick start](source/forms/quick-start/)
-* [FormBuilder](source/forms/form-builder)
+* [FormBuilder](source/forms/form-builder/)
+* [myform.find()](source/forms/form-controls-shorthand/)
+* [Custom validators](source/forms/custom-validators/)
 
 Beispiele neu Transpilieren
 

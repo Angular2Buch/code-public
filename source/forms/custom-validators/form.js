@@ -16,12 +16,18 @@ var angular2_3 = require('angular2/angular2');
 var DemoForSku = (function () {
     function DemoForSku(form) {
         this.myForm = form.group({
-            'sku': ['', angular2_3.Validators.required]
+            'sku': ['', angular2_3.Validators.compose([
+                    angular2_3.Validators.required,
+                    this.skuValidator])]
         });
-        this.sku = this.myForm.controls['sku'];
     }
     DemoForSku.prototype.onSubmit = function (value) {
         console.log('You submitted value: ', value);
+    };
+    DemoForSku.prototype.skuValidator = function (control) {
+        if (!control.value.match(/^123/)) {
+            return { invalidSku: true };
+        }
     };
     DemoForSku = __decorate([
         angular2_1.Component({
@@ -30,7 +36,7 @@ var DemoForSku = (function () {
         }),
         angular2_1.View({
             directives: [angular2_2.FORM_DIRECTIVES, angular2_3.NgIf],
-            template: "\n    <h2>Form</h2>\n    <form ng-form-model=\"myForm\"\n          class=\"form form-inline\"\n          (submit)=\"onSubmit(myForm.value)\">\n      <div class=\"form-group\">\n        <label for=\"skuInput\">SKU</label>\n        <input type=\"text\"\n               class=\"form-control\"\n               [class.has-error]=\"!sku.valid && sku.touched\"\n               id=\"skuInput\"\n               placeholder=\"SKU\"\n               [ng-form-control]=\"sku\"/>\n\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </div>\n    </form>\n\n    <hr>\n    <h2>Sku control</h2>\n    <div *ng-if=\"!sku.valid\" class=\"bg-warning\">Sku has some errors.</div>\n    <div *ng-if=\"sku.hasError('required')\" class=\"bg-warning\">Sku is required</div>\n\n    <hr>\n    <h2>Whole form</h2>\n    <div *ng-if=\"!myForm.valid\" class=\"bg-warning\">Form is invalid</div>\n  "
+            template: "\n    <form ng-form-model=\"myForm\"\n          class=\"form form-inline\"\n          (submit)=\"onSubmit(myForm.value)\">\n      <div class=\"form-group\"\n           [class.has-error]=\"!myForm.find('sku').valid &&\n                               myForm.find('sku').touched\">\n        <label for=\"skuInput\">SKU</label>\n        <input type=\"text\"\n               class=\"form-control\"\n               id=\"skuInput\"\n               placeholder=\"Type a unique number\"\n               [ng-form-control]=\"myForm.controls['sku']\" />\n\n        <button type=\"submit\" class=\"btn btn-default\">Submit</button>\n      </div>\n    </form>\n\n    <hr>\n    <h2>Sku control</h2>\n    <div *ng-if=\"!myForm.find('sku').valid\" class=\"bg-warning\">Sku has some errors.</div>\n    <div *ng-if=\"myForm.find('sku').hasError('required')\" class=\"bg-warning\">Sku is required</div>\n    <div *ng-if=\"myForm.find('sku').hasError('invalidSku')\" class=\"bg-warning\">Sku hast to start with '123'</div>\n\n    <hr>\n    <h2>Whole form</h2>\n    <div *ng-if=\"!myForm.valid\" class=\"bg-warning\">Form is invalid</div>\n  "
         }), 
         __metadata('design:paramtypes', [angular2_2.FormBuilder])
     ], DemoForSku);
