@@ -20,10 +20,10 @@ $ npm start
 * [reddit-clone](source/reddit-clone)
 * [shopping-list](source/shopping-list)
 
-### Angular Forms
+### Forms
 
-* [Minimum sample](source/forms)
-* [FormBuilder](source/form-builder)
+* [Quick start](source/forms/quick-start/)
+* [FormBuilder](source/forms/form-builder)
 
 Beispiele neu Transpilieren
 
