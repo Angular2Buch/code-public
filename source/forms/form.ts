@@ -1,7 +1,7 @@
 /// <reference path="../../lib/angular-latest-typings/angular2/angular2"/>
 
 import {bootstrap, Component, View} from "angular2/angular2";
-import {Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/angular2';
+import {FORM_DIRECTIVES} from 'angular2/angular2';
 
 @Component({
   selector: 'demo-form-sku'
@@ -20,9 +20,9 @@ import {Control, ControlGroup, FORM_DIRECTIVES} from 'angular2/angular2';
                id="skuInput"
                placeholder="SKU"
                ng-control="sku" />
-      </div>
 
-      <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </div>
     </form>
     </div>
   `

@@ -23,6 +23,7 @@ System.config({
 
   map: {
     "angular2": "npm:angular2@2.0.0-alpha.36",
+    "bootstrap": "npm:bootstrap@3.3.5",
     "es6-shim": "github:es-shims/es6-shim@0.33.3",
     "jquery": "github:components/jquery@2.1.4",
     "reflect-metadata": "npm:reflect-metadata@0.1.0",
@@ -86,6 +87,11 @@ System.config({
     },
     "npm:assert@1.3.0": {
       "util": "npm:util@0.10.3"
+    },
+    "npm:bootstrap@3.3.5": {
+      "fs": "github:jspm/nodelibs-fs@0.1.2",
+      "path": "github:jspm/nodelibs-path@0.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.1"
     },
     "npm:browserify-aes@1.0.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
