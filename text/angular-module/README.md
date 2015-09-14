@@ -92,8 +92,8 @@ export class Test {
 ...kann mithilfe des ES6 Module Loader Polyfill geladen und sofort ausgeführt werden:
 
 ```javascript
-<script src="/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
-<script src="/jspm_packages/es6-module-loader.js"></script>
+<script src="https://github.jspm.io/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
+<script src="https://jspm.io/es6-module-loader@0.16.6.js"></script>
 
 <script>
   System.import('es6_module').then(function(module) {
@@ -108,8 +108,8 @@ Für die Verwendung von ES6 Features (wie z.B. einer Klasse) benötigt man einen
 Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags `<script type="module">` kann man hingegen die ES6 Features sicher verwenden, da der Browser den Inhalt aufgrund des unbekannten Typs ignoriert. Das Transpiling geschieht dann erneut zur Laufzeit.
 
 ```javascript
-<script src="/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
-<script src="/jspm_packages/es6-module-loader.js"></script>
+<script src="https://github.jspm.io/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
+<script src="https://jspm.io/es6-module-loader@0.16.6.js"></script>
 
 <script type="module">
   import {Test} from 'es6_module';
@@ -187,7 +187,7 @@ Wird `jspm install` auf ein leeres Verzeichnis angewendet, so erscheint der Assi
 ![Screenshot](images/screenshot_jspm_install.png)
 > Screenshot: jspm führt durch die Installation
 
-Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird!
+Alle bisherigen Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt! Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus. Verwenden Sie statt dessen das jspm Kommandozeilen-Tool, um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten.
 
 
 <a name="angular2bauen"></a>
@@ -201,37 +201,30 @@ npm install -g gulp
 gulp build
 ```
 
-Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Das die Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org](https://code.angularjs.org/).
-
-
-Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool](https://www.npmjs.com/package/systemjs-builder) erstellt wurde (siehe [hier](https://github.com/angular/angular/blob/master/tools/build/bundle.js#L13) und [hier](https://github.com/angular/angular/blob/705d3aacff4005483f8ecbff5fc2d484b3e38cf5/gulpfile.js#L671)). SystemJS verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es würde sich eigentlich anbieten, dass Angular2-Bundle direkt mit der notwendige Runtime zusammen auszuliefern. Entsprechend der Kommentare aus [#2829](https://github.com/angular/angular/issues/2829) wird aber bereits daran gearbeitet, Traceur komplett aus dem Build zu entfernen. Dies ist auch deswegen konsequent, da die Quelltexte bereits alle auf TypeScript umgestellt wurden (siehe [#2335](https://github.com/angular/angular/issues/2335)).
-
-Bei der Datei `angular2.sfx.dev.js` handelt es sich um ein ES5-kompatibles Bundle, welches ein [Self-Executing bundle](https://github.com/systemjs/builder#self-executing-sfx-bundles) ist. In dieser Datei ist die Traceur Runtime bereits enthalten. Ebenso wird Angular wird über das globale Objekt `window.ng` verfügbar gemacht.  Damit spricht man ES5-Entwickler an, die weder SystemJS noch den ES6 Module Loader Polyfill verwenden wollen. Im folgenden ein Beispiel für die Verwendung:
+Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Das die Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org][8]. Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool][9] erstellt wurde. SystemJS verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Bei der Datei `angular2.sfx.dev.js` handelt es sich um ein ES5-kompatibles Bundle, welches ein [Self-Executing bundle][10] ist. In dieser Datei ist die Traceur Runtime bereits enthalten. Ebenso wird Angular wird über das globale Objekt `window.ng` verfügbar gemacht. Damit spricht man ES5-Entwickler an, die weder SystemJS noch den ES6 Module Loader Polyfill verwenden wollen. Im folgenden ein Beispiel für die Verwendung:
 
 ```html
 <html>
   <head>
     <title>Angular 2 Quickstart (ES5)</title>
-    <script src="https://code.angularjs.org/2.0.0-alpha.34/angular2.sfx.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.37/angular2.sfx.dev.js"></script>
     <script>
 
-      var angular = ng;
-
-      var app = function() {
-        this.name = "Alice";
-      };
-
-      app.annotations = [
-        new angular.ComponentAnnotation({
-          selector: 'my-app'
-        }),
-        new angular.ViewAnnotation({
-          template: '<h1>Hello {{ name }}</h1>'
-        })
-      ];
+    var app = ng
+      .Component({
+        selector: 'my-app'
+      })
+      .View({
+        template: '<h1>Hello {{ name }}</h1>'
+      })
+      .Class({
+        constructor: function () {
+          this.name = "Alice";
+        }
+      });
 
       document.addEventListener('DOMContentLoaded', function() {
-        angular.bootstrap(app);
+        ng.bootstrap(app);
       });
     </script>
   </head>
@@ -380,3 +373,6 @@ Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularitä
 [5]: https://github.com/Microsoft/TypeScript/ "TypeScript"
 [6]: https://github.com/gulpjs/gulp "Gulp"
 [7]: https://github.com/angular/angular "Angular2 Github-Repository"
+[8]: https://code.angularjs.org/ "code.angularjs.org"
+[9]: https://www.npmjs.com/package/systemjs-builder "SystemJS Build Tool"
+[10]: https://github.com/systemjs/builder#self-executing-sfx-bundles "Self-Executing bundle"

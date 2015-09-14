@@ -90,8 +90,8 @@ bootstrap(MyAppComponent);
 <p><a href="es6_module.js">es6_module.js</a></p>
 </blockquote>
 <p>...kann mithilfe des ES6 Module Loader Polyfill geladen und sofort ausgeführt werden:</p>
-<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/jspm_packages/es6-module-loader.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"https://github.jspm.io/jmcriffey/bower-traceur@0.0.88/traceur.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://jspm.io/es6-module-loader@0.16.6.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="actionscript">
   System.<span class="hljs-keyword">import</span>(<span class="hljs-string">'es6_module'</span>).then(<span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(module)</span> </span>{
@@ -104,8 +104,8 @@ bootstrap(MyAppComponent);
 </blockquote>
 <p>Für die Verwendung von ES6 Features (wie z.B. einer Klasse) benötigt man einen Transpiler, welcher ECMAScript 6 in ECMAScript 5 umwandelt, damit der Code in jedem Browser ausführbar ist. Der Polyfill verwendet standardmäßig den Transpiler Traceur, welcher von Google entwickelt wird. Die Umwandlung des Quellcodes geschieht direkt im Browser, sogar eine &quot;SourceMap&quot; steht für ein komfortables Debugging zur Verfügung. Das Script <code>traceur.js</code> wird automatisch vom Polyfill nachgeladen, sofern es nicht bereits vorhanden ist. Aufgrund der verwendeten Ordnerstruktur würde es im vorliegenden Fall zu einem Fehler 404 (Not Found) kommen. Mit dem ersten Script-Tag wird dem Fehler 404 entgegen gewirkt, indem die benötigte Datei vorab eingebunden wird und das Nachladen nicht mehr notwendig ist.</p>
 <p>Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags <code>&lt;script type=&quot;module&quot;&gt;</code> kann man hingegen die ES6 Features sicher verwenden, da der Browser den Inhalt aufgrund des unbekannten Typs ignoriert. Das Transpiling geschieht dann erneut zur Laufzeit.</p>
-<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"/jspm_packages/github/jmcriffey/bower-traceur@0.0.88/traceur.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"/jspm_packages/es6-module-loader.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"https://github.jspm.io/jmcriffey/bower-traceur@0.0.88/traceur.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://jspm.io/es6-module-loader@0.16.6.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"module"</span>&gt;</span><span class="javascript">
   <span class="hljs-keyword">import</span> {Test} <span class="hljs-keyword">from</span> <span class="hljs-string">'es6_module'</span>;
@@ -162,39 +162,35 @@ jspm <span class="hljs-keyword">install</span> jquery</span>
 <blockquote>
 <p>Screenshot: jspm führt durch die Installation</p>
 </blockquote>
-<p>Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird!</p>
+<p>Alle bisherigen Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt! Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus. Verwenden Sie statt dessen das jspm Kommandozeilen-Tool, um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten.</p>
 <p><a name="angular2bauen"></a></p>
 <h2 id="7-angular2-mit-gulp-bauen">7. Angular2 mit Gulp bauen</h2>
 <p>In <strong><em>Zeile 3</em></strong> sieht man ein vorbereitetes Bundle mit dem Namen <code>angular2.dev.js</code>. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools <a href="https://github.com/gulpjs/gulp" title="Gulp">Gulp</a> vereinfacht wurden. Nachdem Angular2 vom <a href="https://github.com/angular/angular" title="Angular2 Github-Repository">Github-Repository</a> herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  </p>
 <pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span>
 npm <span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> gulp
 gulp <span class="hljs-keyword">build</span></span>
-</code></pre><p>Es werden eine Reihe von Dateien im Ordner &#39;dist&#39; erzeugt. Das die Datei <code>angular2.dev.js</code> befindet sich im Ordner <code>dist/js/bundle</code>. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf <a href="https://code.angularjs.org/">code.angularjs.org</a>.</p>
-<p>Ganz konkret handelt es sich bei <code>angular2.dev.js</code> um ein ES5-kompatibles Bundle, welches mit dem <a href="https://www.npmjs.com/package/systemjs-builder">SystemJS Build Tool</a> erstellt wurde (siehe <a href="https://github.com/angular/angular/blob/master/tools/build/bundle.js#L13">hier</a> und <a href="https://github.com/angular/angular/blob/705d3aacff4005483f8ecbff5fc2d484b3e38cf5/gulpfile.js#L671">hier</a>). SystemJS verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es würde sich eigentlich anbieten, dass Angular2-Bundle direkt mit der notwendige Runtime zusammen auszuliefern. Entsprechend der Kommentare aus <a href="https://github.com/angular/angular/issues/2829">#2829</a> wird aber bereits daran gearbeitet, Traceur komplett aus dem Build zu entfernen. Dies ist auch deswegen konsequent, da die Quelltexte bereits alle auf TypeScript umgestellt wurden (siehe <a href="https://github.com/angular/angular/issues/2335">#2335</a>).</p>
-<p>Bei der Datei <code>angular2.sfx.dev.js</code> handelt es sich um ein ES5-kompatibles Bundle, welches ein <a href="https://github.com/systemjs/builder#self-executing-sfx-bundles">Self-Executing bundle</a> ist. In dieser Datei ist die Traceur Runtime bereits enthalten. Ebenso wird Angular wird über das globale Objekt <code>window.ng</code> verfügbar gemacht.  Damit spricht man ES5-Entwickler an, die weder SystemJS noch den ES6 Module Loader Polyfill verwenden wollen. Im folgenden ein Beispiel für die Verwendung:</p>
+</code></pre><p>Es werden eine Reihe von Dateien im Ordner &#39;dist&#39; erzeugt. Das die Datei <code>angular2.dev.js</code> befindet sich im Ordner <code>dist/js/bundle</code>. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a>. Ganz konkret handelt es sich bei <code>angular2.dev.js</code> um ein ES5-kompatibles Bundle, welches mit dem <a href="https://www.npmjs.com/package/systemjs-builder" title="SystemJS Build Tool">SystemJS Build Tool</a> erstellt wurde. SystemJS verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Bei der Datei <code>angular2.sfx.dev.js</code> handelt es sich um ein ES5-kompatibles Bundle, welches ein <a href="https://github.com/systemjs/builder#self-executing-sfx-bundles" title="Self-Executing bundle">Self-Executing bundle</a> ist. In dieser Datei ist die Traceur Runtime bereits enthalten. Ebenso wird Angular wird über das globale Objekt <code>window.ng</code> verfügbar gemacht. Damit spricht man ES5-Entwickler an, die weder SystemJS noch den ES6 Module Loader Polyfill verwenden wollen. Im folgenden ein Beispiel für die Verwendung:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Angular 2 Quickstart (ES5)<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.angularjs.org/2.0.0-alpha.34/angular2.sfx.dev.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"https://code.angularjs.org/2.0.0-alpha.37/angular2.sfx.dev.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">script</span>&gt;</span><span class="javascript">
 
-      <span class="hljs-keyword">var</span> angular = ng;
-
-      <span class="hljs-keyword">var</span> app = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"Alice"</span>;
-      };
-
-      app.annotations = [
-        <span class="hljs-keyword">new</span> angular.ComponentAnnotation({
-          selector: <span class="hljs-string">'my-app'</span>
-        }),
-        <span class="hljs-keyword">new</span> angular.ViewAnnotation({
-          template: <span class="hljs-string">'&lt;h1&gt;Hello {{ name }}&lt;/h1&gt;'</span>
-        })
-      ];
+    <span class="hljs-keyword">var</span> app = ng
+      .Component({
+        selector: <span class="hljs-string">'my-app'</span>
+      })
+      .View({
+        template: <span class="hljs-string">'&lt;h1&gt;Hello {{ name }}&lt;/h1&gt;'</span>
+      })
+      .Class({
+        constructor: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+          <span class="hljs-keyword">this</span>.name = <span class="hljs-string">"Alice"</span>;
+        }
+      });
 
       <span class="hljs-built_in">document</span>.addEventListener(<span class="hljs-string">'DOMContentLoaded'</span>, <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>{
-        angular.bootstrap(app);
+        ng.bootstrap(app);
       });
     </span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">head</span>&gt;</span>
@@ -358,7 +354,7 @@ bootstrap(MyAppComponent);
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-14T20:44:46.350Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-14T21:36:06.306Z</small>
     </article>
 
     <span id="forkongithub">

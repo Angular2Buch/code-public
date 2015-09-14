@@ -1,26 +1,24 @@
 <html>
   <head>
     <title>Angular 2 Quickstart (ES5)</title>
-    <script src="https://code.angularjs.org/2.0.0-alpha.34/angular2.sfx.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.37/angular2.sfx.dev.js"></script>
     <script>
 
-      var angular = ng;
-
-      var app = function() {
-        this.name = "Alice";
-      };
-
-      app.annotations = [
-        new angular.ComponentAnnotation({
-          selector: 'my-app'
-        }),
-        new angular.ViewAnnotation({
-          template: '<h1>Hello {{ name }}</h1>'
-        })
-      ];
+    var app = ng
+      .Component({
+        selector: 'my-app'
+      })
+      .View({
+        template: '<h1>Hello {{ name }}</h1>'
+      })
+      .Class({
+        constructor: function () {
+          this.name = "Alice";
+        }
+      });
 
       document.addEventListener('DOMContentLoaded', function() {
-        angular.bootstrap(app);
+        ng.bootstrap(app);
       });
     </script>
   </head>
