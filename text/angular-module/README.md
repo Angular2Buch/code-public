@@ -126,7 +126,7 @@ Das Transpiling von ES6 zur Laufzeit ist im produktiven Einsatz nicht sehr effiz
 
 ```
 npm install -g traceur
-traceur --sourcemap --out es5_module.js es6_module.js --experimental
+traceur --sourcemap --out es5_module.js es6_module.js
 ```
 
 Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `traceur-runtime.js`. eingefügt werden. Der Sinn dieser **Traceur-Runtime** besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object `$traceurRuntime` sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.
@@ -148,7 +148,7 @@ Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwen
 <a name="systemjs"></a>
 ## 5. SystemJS
 
-In ***Zeile 2*** sieht man die Verwendung von [SystemJS](https://github.com/systemjs/systemjs).
+In ***Zeile 2 und 4*** sieht man die Verwendung von [SystemJS](https://github.com/systemjs/systemjs).
 
 SystemJS ist ein "universaler Module-Loader" und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von **CommonJS** können Module verwendet werden, welche ursprünglich für [Browserify](http://browserify.org/) gedacht waren. Ebenso lassen sich **AMD**-Module verwenden, welche üblicherweise über [require.js](http://requirejs.org/) geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten **ES6 Module** Loader Polyfills unterstützt.
 
@@ -178,11 +178,14 @@ jspm ist ein Paketmanager, welcher **indirekt** in Zeile 2 verwendet wird. Die V
 Mit folgendem Befehlen lässt sich beispielsweise die aktuellste Version jQuery von dessen Github-Repository herunter zu laden:
 
 ```
-npm install -g jspm
+npm install -g jspm@0.15.7
 jspm install jquery
 ```
 
 Wird `jspm install` auf ein leeres Verzeichnis angewendet, so erscheint der Assistent welcher auch durch `jspm init` gestartet werden kann. Obwohl man jquery angefordert hat, wird zusätzlich SystemJS sowie dessen Abhängigkeiten herunter geladen.  Es wird durch `jspm init` eine Datei namens package.json angelegt. Unter dem Prefix "jspm" können alle gewünschten Abhängigkeiten eingetragen werden. Wie bei npm lassen sich per `jspm install` bzw. `jspm update` später erneut alle Dateien herunter laden. Weiterhin wird eine Datei names `config.js` angelegt, über die unter anderem die zu verwendenden Pfade konfiguriert werden.
+
+![Screenshot](images/screenshot_jspm_install.png)
+> Screenshot: jspm führt durch die Installation
 
 Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird!
 
@@ -190,7 +193,7 @@ Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunte
 <a name="angular2bauen"></a>
 ## 7. Angular2 mit Gulp bauen
 
-In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp](https://github.com/gulpjs/gulp) vereinfacht wurden. Nachdem Angular2 vom [Github-Repository](https://github.com/angular/angular) herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
+In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp][6] vereinfacht wurden. Nachdem Angular2 vom [Github-Repository][7] herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
 
 ```
 npm install
@@ -375,3 +378,5 @@ Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularitä
 [3]: https://github.com/google/traceur-compiler "Traceur"
 [4]: http://babeljs.io/ "Babel"
 [5]: https://github.com/Microsoft/TypeScript/ "TypeScript"
+[6]: https://github.com/gulpjs/gulp "Gulp"
+[7]: https://github.com/angular/angular "Angular2 Github-Repository"

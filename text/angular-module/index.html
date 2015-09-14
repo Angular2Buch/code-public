@@ -118,8 +118,8 @@ bootstrap(MyAppComponent);
 <p><a name="traceur"></a></p>
 <h2 id="4-traceur-traceur-runtime">4. Traceur &amp; Traceur runtime</h2>
 <p>Das Transpiling von ES6 zur Laufzeit ist im produktiven Einsatz nicht sehr effizient. Es bietet sich an, den Code zwar in ES6 zu entwickeln, aber die Umwandlung stets vorab durchzuführen. Zu Traceur gehört ein Kommandozeilen-Script, welches das Transpiling durchführt. Folgende Befehle erzeugen eine Datei mit dem Namen <code>es5_module.js</code>:</p>
-<pre><code>npm install -g traceur
-traceur --sourcemap --out es5_module<span class="hljs-class">.js</span> es6_module<span class="hljs-class">.js</span> --experimental
+<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> traceur
+traceur <span class="hljs-comment">--sourcemap --out es5_module.js es6_module.js</span></span>
 </code></pre><p>Um die generierte Datei verwenden zu können, muss eine passende Datei Namens <code>traceur-runtime.js</code>. eingefügt werden. Der Sinn dieser <strong>Traceur-Runtime</strong> besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object <code>$traceurRuntime</code> sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.</p>
 <pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"/jspm_packages/github/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"es5_module.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -135,7 +135,7 @@ traceur --sourcemap --out es5_module<span class="hljs-class">.js</span> es6_modu
 <p>Damit wäre <strong><em>Zeile 1</em></strong> aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular2 wurde mit Traceur erstellt und benötigt schlicht die <strong>Traceur-Runtime</strong> um fehlerfrei zu funktionieren (Fehler: &quot;<a href="https://github.com/angular/angular.io/issues/102">$traceurRuntime is undefined</a>&quot;). </p>
 <p><a name="systemjs"></a></p>
 <h2 id="5-systemjs">5. SystemJS</h2>
-<p>In <strong><em>Zeile 2</em></strong> sieht man die Verwendung von <a href="https://github.com/systemjs/systemjs">SystemJS</a>.</p>
+<p>In <strong><em>Zeile 2 und 4</em></strong> sieht man die Verwendung von <a href="https://github.com/systemjs/systemjs">SystemJS</a>.</p>
 <p>SystemJS ist ein &quot;universaler Module-Loader&quot; und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von <strong>CommonJS</strong> können Module verwendet werden, welche ursprünglich für <a href="http://browserify.org/">Browserify</a> gedacht waren. Ebenso lassen sich <strong>AMD</strong>-Module verwenden, welche üblicherweise über <a href="http://requirejs.org/">require.js</a> geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten <strong>ES6 Module</strong> Loader Polyfills unterstützt.</p>
 <p>Das bekannte Framework jQuery (als AMD-Modul verwendbar) lässt sich z.B. wie folgt einbinden:</p>
 <pre><code class="lang-js">&lt;script src=<span class="hljs-string">'/jspm_packages/system.js'</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -155,13 +155,17 @@ traceur --sourcemap --out es5_module<span class="hljs-class">.js</span> es6_modu
 <h2 id="6-jspm">6. jspm</h2>
 <p>jspm ist ein Paketmanager, welcher <strong>indirekt</strong> in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der <a href="npmjs.com">npm</a>-registry oder direkt aus Github Repositorien stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von <a href="http://bower.io">bower</a>. Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels <a href="https://github.com/systemjs/systemjs">SystemJS</a> ausgelegt.</p>
 <p>Mit folgendem Befehlen lässt sich beispielsweise die aktuellste Version jQuery von dessen Github-Repository herunter zu laden:</p>
-<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm
+<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm@<span class="hljs-number">0.15</span><span class="hljs-number">.7</span>
 jspm <span class="hljs-keyword">install</span> jquery</span>
 </code></pre><p>Wird <code>jspm install</code> auf ein leeres Verzeichnis angewendet, so erscheint der Assistent welcher auch durch <code>jspm init</code> gestartet werden kann. Obwohl man jquery angefordert hat, wird zusätzlich SystemJS sowie dessen Abhängigkeiten herunter geladen.  Es wird durch <code>jspm init</code> eine Datei namens package.json angelegt. Unter dem Prefix &quot;jspm&quot; können alle gewünschten Abhängigkeiten eingetragen werden. Wie bei npm lassen sich per <code>jspm install</code> bzw. <code>jspm update</code> später erneut alle Dateien herunter laden. Weiterhin wird eine Datei names <code>config.js</code> angelegt, über die unter anderem die zu verwendenden Pfade konfiguriert werden.</p>
+<p><img src="images/screenshot_jspm_install.png" alt="Screenshot"></p>
+<blockquote>
+<p>Screenshot: jspm führt durch die Installation</p>
+</blockquote>
 <p>Alle in den bisherigen Beispielen gezeigten Bibliotheken wurden mit jspm herunter geladen und unter Versionsverwaltung gestellt. Das Quickstart-Beispiel verwendet hingegen das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist noch nicht empfehlenswert, da das CDN noch als experimentell bezeichnet wird!</p>
 <p><a name="angular2bauen"></a></p>
 <h2 id="7-angular2-mit-gulp-bauen">7. Angular2 mit Gulp bauen</h2>
-<p>In <strong><em>Zeile 3</em></strong> sieht man ein vorbereitetes Bundle mit dem Namen <code>angular2.dev.js</code>. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools <a href="https://github.com/gulpjs/gulp">Gulp</a> vereinfacht wurden. Nachdem Angular2 vom <a href="https://github.com/angular/angular">Github-Repository</a> herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  </p>
+<p>In <strong><em>Zeile 3</em></strong> sieht man ein vorbereitetes Bundle mit dem Namen <code>angular2.dev.js</code>. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools <a href="https://github.com/gulpjs/gulp" title="Gulp">Gulp</a> vereinfacht wurden. Nachdem Angular2 vom <a href="https://github.com/angular/angular" title="Angular2 Github-Repository">Github-Repository</a> herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  </p>
 <pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span>
 npm <span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> gulp
 gulp <span class="hljs-keyword">build</span></span>
@@ -354,7 +358,7 @@ bootstrap(MyAppComponent);
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-11T17:09:08.071Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-14T20:44:46.350Z</small>
     </article>
 
     <span id="forkongithub">
