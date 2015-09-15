@@ -162,14 +162,16 @@ jspm <span class="hljs-keyword">install</span> jquery</span>
 <blockquote>
 <p>Screenshot: jspm führt durch die Installation</p>
 </blockquote>
-<p>Alle bisherigen Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt! Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus. Verwenden Sie statt dessen das jspm Kommandozeilen-Tool, um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten.</p>
+<p>Alle bislang gezeigten Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt. Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus! Verwenden Sie statt dessen das jspm Kommandozeilen-Tool, um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten.</p>
 <p><a name="angular2bauen"></a></p>
 <h2 id="7-angular2-mit-gulp-bauen">7. Angular2 mit Gulp bauen</h2>
-<p>In <strong><em>Zeile 3</em></strong> sieht man ein vorbereitetes Bundle mit dem Namen <code>angular2.dev.js</code>. Es bietet sich an, diese Datei auch selbst zu erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools <a href="https://github.com/gulpjs/gulp" title="Gulp">Gulp</a> vereinfacht wurden. Nachdem Angular2 vom <a href="https://github.com/angular/angular" title="Angular2 Github-Repository">Github-Repository</a> herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  </p>
-<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span>
+<p>In <strong><em>Zeile 3</em></strong> sieht man ein vorbereitetes Bundle mit dem Namen <code>angular2.dev.js</code>. Diese Datei wollen wir nun selbst erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools <a href="https://github.com/gulpjs/gulp" title="Gulp">Gulp</a> durchgeführt werden. Nachdem Angular2 vom <a href="https://github.com/angular/angular" title="Angular2 Github-Repository">Github-Repository</a> herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  </p>
+<pre><code>git clone https://github.com/angular/angular.git
+npm <span class="hljs-operator"><span class="hljs-keyword">install</span>
 npm <span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> gulp
 gulp <span class="hljs-keyword">build</span></span>
-</code></pre><p>Es werden eine Reihe von Dateien im Ordner &#39;dist&#39; erzeugt. Das die Datei <code>angular2.dev.js</code> befindet sich im Ordner <code>dist/js/bundle</code>. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a>. Ganz konkret handelt es sich bei <code>angular2.dev.js</code> um ein ES5-kompatibles Bundle, welches mit dem <a href="https://www.npmjs.com/package/systemjs-builder" title="SystemJS Build Tool">SystemJS Build Tool</a> erstellt wurde. SystemJS verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Bei der Datei <code>angular2.sfx.dev.js</code> handelt es sich um ein ES5-kompatibles Bundle, welches ein <a href="https://github.com/systemjs/builder#self-executing-sfx-bundles" title="Self-Executing bundle">Self-Executing bundle</a> ist. In dieser Datei ist die Traceur Runtime bereits enthalten. Ebenso wird Angular wird über das globale Objekt <code>window.ng</code> verfügbar gemacht. Damit spricht man ES5-Entwickler an, die weder SystemJS noch den ES6 Module Loader Polyfill verwenden wollen. Im folgenden ein Beispiel für die Verwendung:</p>
+</code></pre><p>Es werden eine Reihe von Dateien im Ordner &#39;dist&#39; erzeugt. Die bekannte Datei <code>angular2.dev.js</code> befindet sich im Ordner <code>dist/js/bundle</code>. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a>. Ganz konkret handelt es sich bei <code>angular2.dev.js</code> um ein ES5-kompatibles Bundle, welches mit dem <a href="https://www.npmjs.com/package/systemjs-builder" title="SystemJS Build Tool">SystemJS Build Tool</a> erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist Anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular2 entsprechend vereinfachen.</p>
+<p>Wem dies alles zu viel ist, der sollte die Datei <code>angular2.sfx.dev.js</code> verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes <a href="https://github.com/systemjs/builder#self-executing-sfx-bundles" title="Self-Executing bundle">Self-Executing bundle</a> erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt <code>window.ng</code> verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den &quot;ES6 Module Loader Polyfill&quot; verwenden wollen. Im Folgenden sehen Sie ein Beispiel für die Verwendung von Angular2 mit reinem ES5-JavaScript unter Verwendung einer alternativen API:</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Angular 2 Quickstart (ES5)<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
@@ -202,12 +204,12 @@ gulp <span class="hljs-keyword">build</span></span>
 <blockquote>
 <p><a href="example_es5.html">example_es5.html</a></p>
 </blockquote>
-<p>Die anderen Fragmente aus dem Build findet man im <a href="https://www.npmjs.com/package/angular2">NPM-Paket von Angular2</a> wieder:</p>
+<p>Auch die anderen Fragmente aus dem Build findet man im <a href="https://www.npmjs.com/package/angular2" title="NPM-Paket von Angular2">NPM-Paket von Angular2</a>wieder:</p>
 <table>
 <thead>
 <tr>
 <th>Build-Verzeichnis</th>
-<th>Verzeichnis im <a href="https://www.npmjs.com/package/angular2">NPM-Paket</a></th>
+<th>Verzeichnis im <a href="https://www.npmjs.com/package/angular2" title="NPM-Paket von Angular2">NPM-Paket</a></th>
 <th>JavaScript-Version</th>
 <th>Modul-Format</th>
 <th>Erklärung</th>
@@ -216,38 +218,38 @@ gulp <span class="hljs-keyword">build</span></span>
 <tbody>
 <tr>
 <td>dist/js/bundle/angular2.sfx.dev.js</td>
-<td>(kein)</td>
+<td>bundles/angular2.sfx.dev.js</td>
 <td>ECMAScript&nbsp;5</td>
 <td>Globales Objekt (<code>window.ng = ng</code>)</td>
-<td>Transpiliertes Bundle mit globalem Objekt, Verfügbar auf <a href="https://code.angularjs.org/">code.angularjs.org</a></td>
+<td>Transpiliertes Bundle mit globalem Objekt, Verfügbar auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a></td>
 </tr>
 <tr>
 <td>dist/js/bundle/angular2.dev.js</td>
-<td>(kein)</td>
+<td>bundles/angular2.dev.js</td>
 <td>ECMAScript&nbsp;5</td>
 <td>SystemJS (<code>System.register()</code>)</td>
-<td>Transpiliertes Bundle für SystemJS, Verfügbar auf <a href="https://code.angularjs.org/">code.angularjs.org</a></td>
+<td>Transpiliertes Bundle für SystemJS, Verfügbar auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a></td>
 </tr>
 <tr>
 <td>dist/js/cjs/angular2</td>
 <td>./ (root folder)</td>
 <td>ECMAScript&nbsp;5</td>
 <td>CommonJS (<code>exports.XXX = XXX</code>)</td>
-<td>Einzelne Dateien, verwendbar mit Browserify, sowie TypeScript type definitions (*.d.ts)<br><br>Wird im nächsten Abschnitt (<a href="#angular2jspm">7. Angular2 mit jspm laden</a>) verwendet.</td>
+<td>Einzelne Dateien, verwendbar mit Browserify,<br><br>Wird im nächsten Abschnitt (<a href="#angular2jspm">7. Angular2 mit jspm laden</a>) verwendet.</td>
 </tr>
 <tr>
 <td>dist/js/dev/es6/angular2</td>
 <td>es6/dev</td>
 <td>ECMAScript&nbsp;6</td>
 <td>ES6 (<code>export * from XXX</code>)</td>
-<td>Einzelne Dateien mit Prüfungen zur Laufzeit (<a href="https://www.npmjs.com/package/rtts-assert">run-time type assertion library</a>), sowie TypeScript type definitions (*.d.ts)</td>
+<td>Einzelne Dateien mit Prüfungen zur Laufzeit (<a href="https://www.npmjs.com/package/rtts-assert">run-time type assertion library</a>)</td>
 </tr>
 <tr>
 <td>dist/js/prod/es6/angular2</td>
 <td>es6/prod</td>
 <td>ECMAScript&nbsp;6</td>
 <td>ES6 (<code>export * from XXX</code>)</td>
-<td>Einzelne Dateien ohne Prüfungen zur Laufzeit, sowie TypeScript type definitions (*.d.ts)</td>
+<td>Einzelne Dateien ohne Prüfungen zur Laufzeit</td>
 </tr>
 </tbody>
 </table>
@@ -354,7 +356,7 @@ bootstrap(MyAppComponent);
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-14T21:36:06.306Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-15T21:36:32.942Z</small>
     </article>
 
     <span id="forkongithub">
