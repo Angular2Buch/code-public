@@ -255,9 +255,9 @@ Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular2][
 <a name="angular2jspm"></a>
 ## 8. Angular2 mit jspm laden
 
-Mit jspm und SystemJs gibt es einen sehr komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular2 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular2 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  
+Mit jspm und SystemJs gibt es einen komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular2 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular2 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  
 
-Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell [0.16.11](https://github.com/jspm/jspm-cli/releases/tag/0.16.11)). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell [SystemJS 0.18.x](https://github.com/systemjs/systemjs/releases)). Ab SystemJS 0.1.7 gibt es  wichtige [Änderungen](https://github.com/systemjs/systemjs/releases/tag/0.17.0), durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. Die größte Änderung bestehen nämlich darin, dass der ES6 Module Loader Polyfill (`es6-module-loader.js`) nicht mehr notwendig ist und statt dessen direkter Support für TypeScript hinzugekommen ist.
+Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell [0.16.11](https://github.com/jspm/jspm-cli/releases/tag/0.16.11)). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell [SystemJS 0.18.x](https://github.com/systemjs/systemjs/releases)). Ab SystemJS 0.1.7 gibt es  wichtige [Änderungen](https://github.com/systemjs/systemjs/releases/tag/0.17.0), durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (`es6-module-loader.js`) nicht mehr notwendig. Es wird statt dessen direkt TypeScript unterstützt.
 
 ```
 npm install -g jspm@0.16.11
@@ -266,7 +266,7 @@ jspm install angular2
 jspm install reflect-metadata zone.js es6-shim
 ```
 
-Die neu erstelle Datei `config.js` muss angepasst werden, damit TypeScript als Transpiler verwendet wird:
+Die neu erstelle Datei `config.js` muss angepasst werden, damit TypeScript mit den korrekten Einstellungen verwendet wird:
 
 ```javascript
 System.config({
@@ -352,7 +352,7 @@ Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angul
 <a name="fazit"></a>
 ## 9. Fazit
 
-Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. AngularJS verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Die Lösung bestand dann darin, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular2 Anwendung integrieren lassen.
+Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. Angular1 verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Man war gezwungen, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular2 fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular2 Anwendung integrieren lassen.
 
 <hr>
 
