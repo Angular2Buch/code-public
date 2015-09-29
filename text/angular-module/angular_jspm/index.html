@@ -8,12 +8,9 @@
     <script>
 
       System.config({
-        paths: {
-          app: 'text/angular-module/angular_jspm/app' // change this!
-        },
-        "packages": {
-          "app": {
-            "defaultExtension": "ts"
+        packages: {
+          meta: {
+            'angular2/angular2': { 'deps': ["zone.js", "reflect-metadata", "es6-shim"] }
           }
         }
       });
@@ -23,11 +20,7 @@
 
     <my-app></my-app>
     <script>
-      System.import('zone.js');
-      System.import('reflect-metadata');
-      System.import('es6-shim');
-
-      System.import('app');
+      System.import('text/angular-module/angular_jspm/app.ts!typescript');
     </script>
 
   </body>
