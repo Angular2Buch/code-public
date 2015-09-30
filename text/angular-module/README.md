@@ -70,7 +70,7 @@ Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien -
 <a name="es6module"></a>
 ## 3. ES6 Module Loader Polyfill
 
-In der Webwelt steht der Begriff "Poylfill" für ein Software, welche fehlende JavaScript-Funktionalitäten im Browser zur Verfügung stellt. In der Vergangenheit ging es bei Polyfills häufig darum, standardisierte Funkionen in alten Internet-Explorer Versionen nachzurüsten. Es können aber auch mithilfe von Polyfills Funktionen hinzugefügt werden, die gerade erst definiert wurden und daher noch von keinem Browser vollständig unterstützt werden.
+In der Webwelt steht der Begriff "Poylfill" für eine Software, welche fehlende JavaScript-Funktionalitäten im Browser zur Verfügung stellt. In der Vergangenheit ging es bei Polyfills häufig darum, standardisierte Funkionen in alten Internet-Explorer Versionen nachzurüsten. Es können aber auch mithilfe von Polyfills Funktionen hinzugefügt werden, die gerade erst definiert wurden und daher noch von keinem Browser vollständig unterstützt werden.
 
 Der "[ES6 Module Loader Polyfill][2]" ist ein bekanntes Tool für die Entwicklung von ECMAScript 6 Anwendungen.  
 Unter anderem liefert er:
