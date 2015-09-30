@@ -1,4 +1,4 @@
-# Angular2 und modularer Code
+# Angular 2.0 und modularer Code
 
 
 ### Inhalt
@@ -64,7 +64,7 @@ bootstrap(MyAppComponent);
 ![Screenshot](images/screenshot_hello_alice.png)
 > Screenshot: Der Output im Browser
 
-Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular2. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ECMAScript 6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js mit NPM installiert ist.
+Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular 2.0. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ECMAScript 6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js mit NPM installiert ist.
 
 
 <a name="es6module"></a>
@@ -142,7 +142,7 @@ Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `t
 ```
 > [example_traceur-runtime.html](example_traceur-runtime.html)
 
-Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular2 wurde mit Traceur erstellt und benötigt schlicht die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)"). 
+Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular 2.0 wurde mit Traceur erstellt und benötigt schlicht die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)"). 
 
 
 <a name="jspm"></a>
@@ -191,9 +191,9 @@ SystemJS lädt in dieser Version immer auch den bereits vorgestellten "ES6 Modul
 
 
 <a name="angular2bauen"></a>
-## 7. Angular2 mit Gulp bauen
+## 7. Angular 2.0 mit Gulp bauen
 
-In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Diese Datei wollen wir nun selbst erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp][6] durchgeführt werden. Nachdem Angular2 vom [Github-Repository][7] herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
+In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Diese Datei wollen wir nun selbst erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp][6] durchgeführt werden. Nachdem Angular 2.0 vom [Github-Repository][7] herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
 
 ```
 git clone https://github.com/angular/angular.git
@@ -202,7 +202,7 @@ npm install -g gulp
 gulp build
 ```
 
-Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Die bekannte Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org][8]. Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool][9] erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular2 entsprechend vereinfachen.
+Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Die bekannte Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org][8]. Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool][9] erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular 2.0 entsprechend vereinfachen.
 
 Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei `angular2.sfx.dev.js` verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes [Self-Executing bundle][10] erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt `window.ng` verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den "ES6 Module Loader Polyfill" verwenden wollen. Im Folgenden sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer alternativen API:
 
@@ -245,7 +245,7 @@ Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.
 |------------------------------------|--------------------------------------------------------------------|--------------------|------------------------------------|------------------------------------------------------------------------------------------------------------|
 | dist/js/bundle/angular2.sfx.dev.js | bundles/angular2.sfx.dev.js    | ECMAScript&nbsp;5  | Globales Objekt (`window.ng = ng`) | Transpiliertes Bundle mit globalem Objekt, Verfügbar auf [code.angularjs.org][8]
 | dist/js/bundle/angular2.dev.js     | bundles/angular2.dev.js        | ECMAScript&nbsp;5  | SystemJS (`System.register()`)     | Transpiliertes Bundle für SystemJS, Verfügbar auf [code.angularjs.org][8]
-| dist/js/cjs/angular2               | ./ (root folder)               | ECMAScript&nbsp;5  | CommonJS (`exports.XXX = XXX`)     | Einzelne Dateien, verwendbar mit Browserify,<br><br>Wird im nächsten Abschnitt ([7. Angular2 mit jspm laden](#angular2jspm)) verwendet.
+| dist/js/cjs/angular2               | ./ (root folder)               | ECMAScript&nbsp;5  | CommonJS (`exports.XXX = XXX`)     | Einzelne Dateien, verwendbar mit Browserify,<br><br>Wird im nächsten Abschnitt ([7. Angular 2.0 mit jspm laden](#angular2jspm)) verwendet.
 | dist/js/dev/es6/angular2           | es6/dev                        | ECMAScript&nbsp;6  | ES6 (`export * from XXX`)          | Einzelne Dateien mit Prüfungen zur Laufzeit ([run-time type assertion library](https://www.npmjs.com/package/rtts-assert))
 | dist/js/prod/es6/angular2          | es6/prod                       | ECMAScript&nbsp;6  | ES6 (`export * from XXX`)          | Einzelne Dateien ohne Prüfungen zur Laufzeit
 
@@ -366,4 +366,4 @@ Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularitä
 [8]: https://code.angularjs.org/ "code.angularjs.org"
 [9]: https://www.npmjs.com/package/systemjs-builder "SystemJS Build Tool"
 [10]: https://github.com/systemjs/builder#self-executing-sfx-bundles "Self-Executing bundle"
-[11]: https://www.npmjs.com/package/angular2 "NPM-Paket von Angular2"
+[11]: https://www.npmjs.com/package/angular2 "NPM-Paket von Angular 2.0"
