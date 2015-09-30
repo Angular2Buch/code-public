@@ -28,6 +28,9 @@
 <p>Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der Web und Mobile.</p>
 <p><a name="hello"></a></p>
 <h2 id="2-hello-world">2. Hello World</h2>
+<blockquote>
+<p><em>Hinweis</em> Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.</p>
+</blockquote>
 <p>Auf der neuen Website unter <strong>angular.io</strong> findet man einen kurzen <a href="https://angular.io/docs/js/latest/quickstart.html" title="5 Minuten Schnellstart">5 Minuten Schnellstart</a> in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei <code>app.ts</code> in eine JavaScript-Datei Namens <code>app.js</code> umwandelt.</p>
 <pre><code class="lang-javascript">&lt;html&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
@@ -256,7 +259,7 @@ gulp <span class="hljs-keyword">build</span></span>
 <hr>
 <p><a name="angular2jspm"></a></p>
 <h2 id="8-angular-2-0-mit-jspm-laden">8. Angular 2.0 mit jspm laden</h2>
-<p>Mit jspm und SystemJs gibt es einen komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular 2.0 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular 2.0 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  </p>
+<p>Mit jspm und SystemJS gibt es einen komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular 2.0 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular 2.0 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  </p>
 <p>Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell <a href="https://github.com/jspm/jspm-cli/releases/tag/0.16.11">0.16.11</a>). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell <a href="https://github.com/systemjs/systemjs/releases">SystemJS 0.18.x</a>). Ab SystemJS 0.1.7 gibt es  wichtige <a href="https://github.com/systemjs/systemjs/releases/tag/0.17.0">Änderungen</a>, durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (<code>es6-module-loader.js</code>) nicht mehr notwendig. Es wird statt dessen direkt TypeScript unterstützt.</p>
 <pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm@<span class="hljs-number">0.16</span><span class="hljs-number">.11</span>
 jspm <span class="hljs-keyword">install</span> typescript
@@ -342,7 +345,7 @@ bootstrap(MyAppComponent);
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-30T17:52:25.011Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-30T18:14:42.649Z</small>
     </article>
 
     <span id="forkongithub">
