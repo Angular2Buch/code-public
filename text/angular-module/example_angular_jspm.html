@@ -5,22 +5,12 @@
 
     <script src='/jspm_packages/system.js'></script>
     <script src="/config.js"></script>
-    <script>
-
-      System.config({
-        packages: {
-          meta: {
-            'angular2/angular2': { deps: ['zone.js', 'reflect-metadata', 'es6-shim'] }
-          }
-        }
-      });
-    </script>
   </head>
   <body>
 
     <my-app></my-app>
     <script>
-      System.import('text/angular-module/angular_jspm/app.ts!typescript');
+      System.import('./app.ts!typescript');
     </script>
 
   </body>

@@ -17,12 +17,12 @@
 <a name="einleitung"></a>
 ## 1. Einleitung
 
-Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der Web und Mobile.
+Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der web & mobile developer.
 
 <a name="hello"></a>
 ## 2. Hello World
 
-> *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
+> *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen ge­ge­be­nen­falls angepasst werden.
 
 Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Schnellstart][1] in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei `app.ts` in eine JavaScript-Datei Namens `app.js` umwandelt.
 
@@ -39,7 +39,7 @@ Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Sc
     <!-- Zeile 4 --> <script>System.import('app');</script>
   </body
 ```
-> [index.html](angular_quickstart-alpha28/index.html)
+> Listing 1: [index.html](angular_quickstart-alpha28/index.html) - Quickstart mit Markierung der relevanten Zeilen
 
 ```javascript
 import {Component, View, bootstrap} from 'angular2/angular2';
@@ -128,14 +128,14 @@ Das Transpiling von ES6 zur Laufzeit ist im produktiven Einsatz nicht sehr effiz
 
 ```
 npm install -g traceur
-traceur --sourcemap --out es6_module.compiled.js es6_module.js
+traceur --sourcemap --out es6_module.transpiled.js es6_module.js
 ```
 
 Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `traceur-runtime.js`. eingefügt werden. Der Sinn dieser **Traceur-Runtime** besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object `$traceurRuntime` sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.
 
 ```javascript
 <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"></script>
-<script src="es6_module.compiled.js"></script>
+<script src="es6_module.transpiled.js"></script>
 
 <script>
   var Test = System.get("es6_module.js").Test;
@@ -144,7 +144,7 @@ Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `t
 ```
 > [example_traceur-runtime.html](example_traceur-runtime.html)
 
-Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular 2.0 wurde mit Traceur erstellt und benötigt schlicht die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)"). 
+Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular 2.0 wurde mit Traceur erstellt und benötigt schlicht die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)").
 
 
 <a name="jspm"></a>
@@ -268,26 +268,24 @@ jspm install angular2
 jspm install reflect-metadata zone.js es6-shim
 ```
 
-Die neu erstelle Datei `config.js` muss angepasst werden, damit TypeScript mit den korrekten Einstellungen verwendet wird:
+Die automatisch erstelle Datei `config.js` muss noch ein wenig angepasst werden, damit TypeScript mit den korrekten Einstellungen verwendet wird. Angular 2.0 hat zudem weitere Abhängigkeiten, welche bekannt gemacht werden müssen. Dies sind die zuvor installierten Frameworks "reflect-metadata" und "zone.js" sowie ein Polyfill (es6-shim).
 
 ```javascript
 System.config({
-  "baseURL": "/",
-  "defaultJSExtensions": true,
-  "transpiler": "typescript",
-  "typescriptOptions": {
+  baseURL: "/",
+  defaultJSExtensions: true,
+  transpiler: "typescript",
+  typescriptOptions: {
     "module": "commonjs",
     "emitDecoratorMetadata": true
   },
-  "paths": {
-    /* [...] */
-  }
-});
+  meta: {
+    "angular2/angular2": {
+      "deps": ["reflect-metadata", "zone.js", "es6-shim"]
+    }
+  },
 
-System.config({
-  "map": {
-    /* [...] */
-  }
+  /* [...] weitere Einstellungen */
 });
 ```
 > [config.js](../..config.js)
@@ -314,7 +312,7 @@ bootstrap(MyAppComponent);
 ```
 > [app.ts](angular_jspm/app.ts)
 
-Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt eingestellt sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört auch das Angular-Framework! Weitere Abhängigkeiten sind die Frameworks "reflect-metadata" und "zone.js" sowie ein Polyfill (es6-shim), ohne die Angular 2.0 nicht lauffähig ist. Aktuell muss man diese Abhängigkeiten noch nachträglich konfigurieren, dies wird sich aber sicher in Zukunft noch ändern:
+Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt eingestellt sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten.
 
 ```html
 <!DOCTYPE html>
@@ -324,30 +322,19 @@ Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angul
 
     <script src='/jspm_packages/system.js'></script>
     <script src="/config.js"></script>
-    <script>
-
-      System.config({
-        packages: {
-          meta: {
-            'angular2/angular2': { deps: ['zone.js', 'reflect-metadata', 'es6-shim'] }
-          }
-        }
-      });
-    </script>
   </head>
   <body>
 
     <my-app></my-app>
     <script>
-      System.import('app.ts!typescript');
+      System.import('./app.ts!typescript');
     </script>
 
   </body>
 </html>
 
-
 ```
-[index.html](angular_jspm\index.html)
+[example_angular_jspm.html](example_angular_jspm.html)
 
 
 
