@@ -22,6 +22,8 @@ Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regel
 <a name="hello"></a>
 ## 2. Hello World
 
+> *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
+
 Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Schnellstart][1] in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei `app.ts` in eine JavaScript-Datei Namens `app.js` umwandelt.
 
 ```javascript
@@ -327,7 +329,7 @@ Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angul
       System.config({
         packages: {
           meta: {
-            'angular2/angular2': { 'deps': ["zone.js", "reflect-metadata", "es6-shim"] }
+            'angular2/angular2': { deps: ['zone.js', 'reflect-metadata', 'es6-shim'] }
           }
         }
       });

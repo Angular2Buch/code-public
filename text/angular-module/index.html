@@ -28,6 +28,9 @@
 <p>Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der Web und Mobile.</p>
 <p><a name="hello"></a></p>
 <h2 id="2-hello-world">2. Hello World</h2>
+<blockquote>
+<p><em>Hinweis</em> Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.</p>
+</blockquote>
 <p>Auf der neuen Website unter <strong>angular.io</strong> findet man einen kurzen <a href="https://angular.io/docs/js/latest/quickstart.html" title="5 Minuten Schnellstart">5 Minuten Schnellstart</a> in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei <code>app.ts</code> in eine JavaScript-Datei Namens <code>app.js</code> umwandelt.</p>
 <pre><code class="lang-javascript">&lt;html&gt;
   <span class="xml"><span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
@@ -319,7 +322,7 @@ bootstrap(MyAppComponent);
       System.config({
         packages: {
           meta: {
-            <span class="hljs-string">'angular2/angular2'</span>: { <span class="hljs-string">'deps'</span>: [<span class="hljs-string">"zone.js"</span>, <span class="hljs-string">"reflect-metadata"</span>, <span class="hljs-string">"es6-shim"</span>] }
+            <span class="hljs-string">'angular2/angular2'</span>: { deps: [<span class="hljs-string">'zone.js'</span>, <span class="hljs-string">'reflect-metadata'</span>, <span class="hljs-string">'es6-shim'</span>] }
           }
         }
       });
@@ -342,7 +345,7 @@ bootstrap(MyAppComponent);
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-09-30T18:22:05.123Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-10-05T21:20:34.538Z</small>
     </article>
 
     <span id="forkongithub">
