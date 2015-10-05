@@ -31,9 +31,8 @@
     "jspm": "^0.16.11"
   },
   "jspm": {
-    "directories": {},
     "dependencies": {
-      "angular2": "npm:angular2@^2.0.0-alpha.36",
+      "angular2": "npm:angular2@2.0.0-alpha.37",
       "bootstrap": "npm:bootstrap@^3.3.1",
       "es6-shim": "github:es-shims/es6-shim@^0.33.3",
       "jquery": "github:components/jquery@^2.1.4",
