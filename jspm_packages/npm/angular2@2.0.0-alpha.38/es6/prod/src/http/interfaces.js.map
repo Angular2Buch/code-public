@@ -1,0 +1,1 @@
+{"version":3,"file":"interfaces.js","sourceRoot":"./","sources":["angular2/src/http/interfaces.ts"],"names":["ConnectionBackend","ConnectionBackend.constructor","Connection"],"mappings":"AAOA;;;;;GAKG;AACH;IACEA;IAAeC,CAACA;AAElBD,CAACA;AAED;;GAEG;AACH;AAIAE,CAACA;AAAA"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"platform_bindings.js","sourceRoot":"./","sources":["angular2/src/core/platform_bindings.ts"],"names":[],"mappings":"OAAO,EAAC,IAAI,EAAC,MAAM,sBAAsB;OAClC,EAAC,gBAAgB,EAAC,MAAM,qCAAqC;OAC7D,EAAC,GAAG,EAAC,MAAM,mCAAmC;AAErD,aAAa,iBAAiB,GAC1B,IAAI,CAAC,gBAAgB,CAAC,CAAC,SAAS,CAAC,MAAM,IAAI,gBAAgB,CAAC,GAAG,EAAE,KAAK,CAAC,EAAE,EAAE,CAAC,CAAC"}

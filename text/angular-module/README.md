@@ -264,8 +264,8 @@ Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgen
 ```
 npm install -g jspm@0.16.11
 jspm install typescript
-jspm install angular2
-jspm install reflect-metadata zone.js es6-shim
+jspm install angular2@2.0.0-alpha.38
+jspm install reflect-metadata zone.js es6-shim npm:@reactivex/rxjs
 ```
 
 Die automatisch erstelle Datei `config.js` muss noch ein wenig angepasst werden, damit TypeScript mit den korrekten Einstellungen verwendet wird. Angular 2.0 hat zudem weitere Abhängigkeiten, welche bekannt gemacht werden müssen. Dies sind die zuvor installierten Frameworks "reflect-metadata" und "zone.js" sowie ein Polyfill (es6-shim).
@@ -281,7 +281,7 @@ System.config({
   },
   meta: {
     "angular2/angular2": {
-      "deps": ["reflect-metadata", "zone.js", "es6-shim"]
+      "deps": ["reflect-metadata", "zone.js", "es6-shim", "@reactivex/rxjs"]
     }
   },
 

@@ -261,10 +261,10 @@ gulp <span class="hljs-keyword">build</span></span>
 <h2 id="8-angular-2-0-mit-jspm-laden">8. Angular 2.0 mit jspm laden</h2>
 <p>Mit jspm und SystemJS gibt es einen komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular 2.0 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular 2.0 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  </p>
 <p>Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell <a href="https://github.com/jspm/jspm-cli/releases/tag/0.16.11">0.16.11</a>). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell <a href="https://github.com/systemjs/systemjs/releases">SystemJS 0.18.x</a>). Ab SystemJS 0.1.7 gibt es  wichtige <a href="https://github.com/systemjs/systemjs/releases/tag/0.17.0">Änderungen</a>, durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (<code>es6-module-loader.js</code>) nicht mehr notwendig. Es wird statt dessen direkt TypeScript unterstützt.</p>
-<pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm@<span class="hljs-number">0.16</span><span class="hljs-number">.11</span>
-jspm <span class="hljs-keyword">install</span> typescript
-jspm <span class="hljs-keyword">install</span> angular2
-jspm <span class="hljs-keyword">install</span> reflect-metadata zone.js es6-shim</span>
+<pre><code>npm install -g jspm@<span class="hljs-number">0.16</span><span class="hljs-number">.11</span>
+jspm install typescript
+jspm install angular2@<span class="hljs-number">2.0</span><span class="hljs-number">.0</span>-alpha<span class="hljs-number">.38</span>
+jspm install reflect-metadata zone.js es6-shim npm:@reactivex/rxjs
 </code></pre><p>Die automatisch erstelle Datei <code>config.js</code> muss noch ein wenig angepasst werden, damit TypeScript mit den korrekten Einstellungen verwendet wird. Angular 2.0 hat zudem weitere Abhängigkeiten, welche bekannt gemacht werden müssen. Dies sind die zuvor installierten Frameworks &quot;reflect-metadata&quot; und &quot;zone.js&quot; sowie ein Polyfill (es6-shim).</p>
 <pre><code class="lang-javascript">System.config({
   baseURL: <span class="hljs-string">"/"</span>,
@@ -276,7 +276,7 @@ jspm <span class="hljs-keyword">install</span> reflect-metadata zone.js es6-shim
   },
   meta: {
     <span class="hljs-string">"angular2/angular2"</span>: {
-      <span class="hljs-string">"deps"</span>: [<span class="hljs-string">"reflect-metadata"</span>, <span class="hljs-string">"zone.js"</span>, <span class="hljs-string">"es6-shim"</span>]
+      <span class="hljs-string">"deps"</span>: [<span class="hljs-string">"reflect-metadata"</span>, <span class="hljs-string">"zone.js"</span>, <span class="hljs-string">"es6-shim"</span>, <span class="hljs-string">"@reactivex/rxjs"</span>]
     }
   },
 
@@ -333,7 +333,7 @@ bootstrap(MyAppComponent);
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-10-05T22:55:14.974Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-10-06T20:55:23.272Z</small>
     </article>
 
     <span id="forkongithub">
