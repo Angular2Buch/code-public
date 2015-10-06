@@ -323,6 +323,16 @@ Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularitä
 
 <hr>
 
+## Über die Autoren
+
+![Johannes Hoppe](images/johannes-hoppe.png)
+**Johannes Hoppe** ist selbstständiger IT-Berater, Softwareentwickler und Trainer. Er arbeitet derzeit als Architekt für ein Portal auf Basis von .NET und AngularJS. Er bloggt unter http://blog.johanneshoppe.de/ .
+
+![Gregor Woiwode](images/gregor-woiwode.png)
+**Gregor Woiwode** ist als Softwareentwickler im Bereich des Competitive Intelligence bzw. Enterprise Knowledge Managements für ein Softwareunternehmen in Leipzig tätig. Er veranstaltet Trainings AngularJS. Er bloggt unter http://www.woiwode.info/blog/ .
+
+<hr>
+
 [1]: https://angular.io/docs/js/latest/quickstart.html "5 Minuten Schnellstart"
 [2]: https://github.com/ModuleLoader/es6-module-loader "ES6 Module Loader Polyfill"
 [3]: https://github.com/google/traceur-compiler "Traceur"
