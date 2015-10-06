@@ -24,7 +24,7 @@ Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regel
 
 > *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen ge­ge­be­nen­falls angepasst werden.
 
-Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Schnellstart][1] in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei `app.ts` in eine JavaScript-Datei Namens `app.js` umwandelt.
+Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Schnellstart][1] in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei `app.ts` in eine JavaScript-Datei Namens `app.js` umwandelt. Listing 1a und 1b zeigen das Schnellstart-Beispiel von Angular 2.0. Es wurden 4 Zeilen markiert, welche im Folgenden genauer betrachtet werden. 
 
 ```javascript
 <html>
@@ -39,7 +39,7 @@ Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Sc
     <!-- Zeile 4 --> <script>System.import('app');</script>
   </body
 ```
-> Listing 1: [index.html](angular_quickstart-alpha28/index.html) - Quickstart mit Markierung der relevanten Zeilen
+> Listing 1a: [index.html](angular_quickstart-alpha28/index.html) - Quickstart mit Markierung der relevanten Zeilen
 
 ```javascript
 import {Component, View, bootstrap} from 'angular2/angular2';
@@ -59,7 +59,7 @@ class MyAppComponent {
 
 bootstrap(MyAppComponent);
 ```
-> [app.ts](angular_quickstart-alpha28/app.ts)
+> Listing 1b: [app.ts](angular_quickstart-alpha28/app.ts) - Eine simple Angular 2.0 Komponente
 
  Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen. Die eigentliche Funktion dieses Beispiels erschließt sich aber dennoch schnell. Das DOM-Element `<my-app>` wird mit einer eine Überschrift ergänzt, welche den Text "Hello Alice" trägt.
 
@@ -89,7 +89,7 @@ export class Test {
   }
 }
 ```
-> [es6_module.js](es6_module.js)
+> Listing 2a: [es6_module.js](es6_module.js) - Eine Klasse in ECMAScript 6
 
 ...kann mithilfe des ES6 Module Loader Polyfill geladen und sofort ausgeführt werden:
 
@@ -103,11 +103,11 @@ export class Test {
   });
 </script>
 ```
-> [example_es6.html](example_es6.html)
+> Listing 2b: [example_es6.html](example_es6.html) - Verwendung des "ES6 Module Loader Polyfill" 
 
 Für die Verwendung von ES6 Features (wie z.B. einer Klasse) benötigt man einen Transpiler, welcher ECMAScript 6 in ECMAScript 5 umwandelt, damit der Code in jedem Browser ausführbar ist. Der Polyfill verwendet standardmäßig den Transpiler Traceur, welcher von Google entwickelt wird. Die Umwandlung des Quellcodes geschieht direkt im Browser, sogar eine "SourceMap" steht für ein komfortables Debugging zur Verfügung. Das Script `traceur.js` wird automatisch vom Polyfill nachgeladen, sofern es nicht bereits vorhanden ist. Aufgrund der verwendeten Ordnerstruktur würde es im vorliegenden Fall zu einem Fehler 404 (Not Found) kommen. Mit dem ersten Script-Tag wird dem Fehler 404 entgegen gewirkt, indem die benötigte Datei vorab eingebunden wird und das Nachladen nicht mehr notwendig ist.
 
-Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags `<script type="module">` kann man hingegen die ES6 Features sicher verwenden, da der Browser den Inhalt aufgrund des unbekannten Typs ignoriert. Das Transpiling geschieht dann erneut zur Laufzeit.
+Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Script-Tags verwenden, so ist dies mit heutigen Browsern nicht direkt möglich. Der Browser würde den Code sofort ausführen und die unbekannten Schlüsselwörter mit einer Exception bemängeln. Mithilfe des Script-Tags `<script type="module">` kann man hingegen die ES6 Features sicher verwenden, da der Browser den Inhalt aufgrund des unbekannten Typs ignoriert. Das Transpiling geschieht dann erneut zur Laufzeit. In Listing 2c sieht man, wie die speziellen Script-Tags verwendet werden.
 
 ```javascript
 <script src="https://github.jspm.io/jmcriffey/bower-traceur@0.0.88/traceur.js"></script>
@@ -118,7 +118,7 @@ Möchte man die ES6 Syntax nicht nur in geladenen Dateien, sondern auch in Scrip
   var test = new Test();
 </script>
 ```
-> [example_es6_import.html](example_es6_import.html)
+> Listing 2c: [example_es6_import.html](example_es6_import.html) - Verwendung des Schlüsselworts "import" mithilfe des Polyfills
 
 
 <a name="traceur"></a>
@@ -142,7 +142,7 @@ Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `t
   var test = new Test();
 </script>
 ```
-> [example_traceur-runtime.html](example_traceur-runtime.html)
+> Listing 3: [example_traceur-runtime.html](example_traceur-runtime.html) - Die Traceur-Runtime ermöglicht die Ausführung vom transpiliertem Code
 
 Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular 2.0 wurde mit Traceur erstellt und benötigt schlicht die **Traceur-Runtime** um fehlerfrei zu funktionieren (Fehler: "[$traceurRuntime is undefined](https://github.com/angular/angular.io/issues/102)").
 
@@ -174,7 +174,7 @@ In ***Zeile 2 und 4*** sieht man die Verwendung von [SystemJS](https://github.co
 
 SystemJS ist ein "universaler Module-Loader" und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von **CommonJS** können Module verwendet werden, welche ursprünglich für [Browserify](http://browserify.org/) gedacht waren. Ebenso lassen sich **AMD**-Module verwenden, welche üblicherweise über [require.js](http://requirejs.org/) geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten **ES6 Module** Loader Polyfills unterstützt.
 
-Das zuvor herunter geladene Framework jQuery (als AMD-Modul verwendbar) lässt sich z.B. wie folgt einbinden:
+Ein typischer Anwendungsfall von SystemJS wird im Listing 4 gezeigt. Das zuvor herunter geladene Framework jQuery, welches als AMD-Modul verwendbar ist, wird in diesem Beispiel eingebunden.
 
 ```js
 <script src='/jspm_packages/system.js'></script>
@@ -186,7 +186,7 @@ Das zuvor herunter geladene Framework jQuery (als AMD-Modul verwendbar) lässt s
   });
 </script>
 ```
-> [example_systemjs_jquery.html](example_systemjs_jquery.html)
+> Listing 4: [example_systemjs_jquery.html](example_systemjs_jquery.html) - SystemJS lädt jQuery 
 
 
 SystemJS lädt in dieser Version immer auch den bereits vorgestellten "ES6 Module Loader Polyfill" (`es6-module-loader.js`) nach, so dass dessen gesamte Funktionalitäten stets zur Verfügung stehen.
@@ -206,13 +206,13 @@ gulp build
 
 Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Die bekannte Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org][8]. Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool][9] erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular 2.0 entsprechend vereinfachen.
 
-Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei `angular2.sfx.dev.js` verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes [Self-Executing bundle][10] erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt `window.ng` verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den "ES6 Module Loader Polyfill" verwenden wollen. Im Folgenden sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer alternativen API:
+Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei `angular2.sfx.dev.js` verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes [Self-Executing bundle][10] erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt `window.ng` verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den "ES6 Module Loader Polyfill" verwenden wollen. Im Listing 5 sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer Fluent-API, welche speziell für ES5-Nutzer gedacht ist.
 
 ```html
 <html>
   <head>
     <title>Angular 2 Quickstart (ES5)</title>
-    <script src="https://code.angularjs.org/2.0.0-alpha.37/angular2.sfx.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.38/angular2.sfx.dev.js"></script>
     <script>
 
     var app = ng
@@ -238,9 +238,9 @@ Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Date
   </body>
 </html>
 ```
-> [example_es5.html](example_es5.html)
+> Listing 5: [example_es5.html](example_es5.html) - Einsatz der alternativen API für ECMAScript 5
 
-Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.0][11]wieder:
+Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.0][11] wieder:
 
 
 | Build-Verzeichnis                  | Verzeichnis im [NPM-Paket][11] | JavaScript-Version | Modul-Format                       | Erklärung                                                                                                  |
@@ -250,7 +250,7 @@ Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.
 | dist/js/cjs/angular2               | ./ (root folder)               | ECMAScript&nbsp;5  | CommonJS (`exports.XXX = XXX`)     | Einzelne Dateien, verwendbar mit Browserify,<br><br>Wird im nächsten Abschnitt ([7. Angular 2.0 mit jspm laden](#angular2jspm)) verwendet.
 | dist/js/dev/es6/angular2           | es6/dev                        | ECMAScript&nbsp;6  | ES6 (`export * from XXX`)          | Einzelne Dateien mit Prüfungen zur Laufzeit ([run-time type assertion library](https://www.npmjs.com/package/rtts-assert))
 | dist/js/prod/es6/angular2          | es6/prod                       | ECMAScript&nbsp;6  | ES6 (`export * from XXX`)          | Einzelne Dateien ohne Prüfungen zur Laufzeit
-
+> Tabelle: Die wichtigsten Dateien im NPM-Paket von Angular 2.0
 
 -------
 
@@ -268,7 +268,7 @@ jspm install angular2@2.0.0-alpha.38
 jspm install reflect-metadata zone.js es6-shim npm:@reactivex/rxjs
 ```
 
-Die automatisch erstelle Datei `config.js` muss noch ein wenig angepasst werden, damit TypeScript mit den korrekten Einstellungen verwendet wird. Angular 2.0 hat zudem weitere Abhängigkeiten, welche bekannt gemacht werden müssen. Dies sind die zuvor installierten Frameworks "reflect-metadata" und "zone.js" sowie ein Polyfill (es6-shim).
+Die automatisch erstelle Datei `config.js` muss noch ein wenig angepasst werden (siehe Listing 6a), damit TypeScript mit den korrekten Einstellungen verwendet wird. Angular 2.0 hat zudem weitere Abhängigkeiten, welche bekannt gemacht werden müssen. Dies sind die zuvor installierten Frameworks zone.js sowie ReactiveX und die ebenso notwendigen Polyfills für Metadata-Reflection sowie für fehlende ES6-Features.
 
 ```javascript
 System.config({
@@ -288,31 +288,9 @@ System.config({
   /* [...] weitere Einstellungen */
 });
 ```
-> [config.js](../..config.js)
+> Listing 6a: [config.js](config.js) - Die notwendigen Anpassungen an die Konfigurations-Datei
 
-Die TypeScript-Datei aus dem  [5 Min Quickstart](https://angular.io/docs/js/latest/quickstart.html) kann unverändert wiederverwendet werden:
-
-```javascript
-import { Component, View, bootstrap } from 'angular2/angular2';
-
-@Component({
-  selector: 'my-app'
-})
-@View({
-  template: '<h1>Hello {{name}}</h1>'
-})
-class MyAppComponent {
-  name: string;
-  constructor() {
-    this.name = 'Alice';
-  }
-}
-
-bootstrap(MyAppComponent);
-```
-> [app.ts](angular_jspm/app.ts)
-
-Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt eingestellt sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten.
+Die TypeScript-Datei aus dem  [5 Min Quickstart](https://angular.io/docs/js/latest/quickstart.html) kann unverändert wiederverwendet werden (siehe erneute Listing 1b). Die Besonderheit bei der Verwendung von SystemJS/jspm ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt konfiguriert sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten. Dies hält den eigenen Code entsprechend sauber und übersichtlich. Im Listing 6b sehen Sie ein optimiertes Schnellstart-Beispiel, welches nun voll auf das modulare Nachladen von JavaScript-Code setzt.  
 
 ```html
 <!DOCTYPE html>
@@ -334,14 +312,14 @@ Die Besonderheit bei diesem Beispiel ist die Tatsache, dass man nicht mehr Angul
 </html>
 
 ```
-[example_angular_jspm.html](example_angular_jspm.html)
+Listing 6b: [example_angular_jspm.html](example_angular_jspm.html) - Mittels SystemJS und jspm wird TypeScript direkt im Browser geladen und ausgeführt
 
 
 
 <a name="fazit"></a>
 ## 9. Fazit
 
-Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. Angular1 verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Man war gezwungen, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular 2.0 fest, indem es auf ECMAScript 6 Module setzt. Diese wiederrum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular 2.0 Anwendung integrieren lassen.
+Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularität vieles zum Positiven entwickelt. Angular1 verwendete lediglich ein globales Objekt, so dass man die Qual der Wahl zwischen den Modulformaten AMD und CommonJS hatte. Man war gezwungen, AngularJS mittels "Shims" in das gewählte Format zu pressen. Nun legt sich Angular 2.0 fest, indem es auf ECMAScript 6 Module setzt. Diese wiederum lassen sich auch als CommonJS Module abbilden, so dass auch ECMAScript 5 Entwickler keine Einschnitte hinnehmen müssen. Das Highlight ist ganz klar die Kompatibilität und der Einsatz des universalen Modul-Loaders SystemJS. Egal in welchem Format weitere Abhängigkeiten vorliegen, sie werden sich ohne großen Aufwand in eine Angular 2.0 Anwendung integrieren lassen.
 
 <hr>
 
