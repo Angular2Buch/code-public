@@ -9,6 +9,7 @@
 <body>
   <article class="markdown-body">
 <h1 id="angular-2-0-und-modularer-code">Angular 2.0 und modularer Code</h1>
+<h2 id="die-vorschauversion-von-angularjs-gibt-einen-ausblick-auf-die-entwicklung-mit-typescript-und-ein-solides-management-von-abh-ngigkeiten-">Die Vorschauversion von AngularJS gibt einen Ausblick auf die Entwicklung mit TypeScript und ein solides Management von Abhängigkeiten.</h2>
 <h3 id="inhalt">Inhalt</h3>
 <ol>
 <li><a href="#einleitung">Einleitung</a></li>
@@ -25,11 +26,11 @@
 
 <p><a name="einleitung"></a></p>
 <h2 id="1-einleitung">1. Einleitung</h2>
-<p>Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der web &amp; mobile developer.</p>
+<p>Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderung eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der web &amp; mobile developer.</p>
 <p><a name="hello"></a></p>
 <h2 id="2-hello-world">2. Hello World</h2>
 <blockquote>
-<p><em>Hinweis</em> Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen ge­ge­be­nen­falls angepasst werden.</p>
+<p><em>Hinweis</em> Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der gezeigte Code muss für spätere Versionen wahrscheinlich angepasst werden.</p>
 </blockquote>
 <p>Auf der neuen Website unter <strong>angular.io</strong> findet man einen kurzen <a href="https://angular.io/docs/js/latest/quickstart.html" title="5 Minuten Schnellstart">5 Minuten Schnellstart</a> in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei <code>app.ts</code> in eine JavaScript-Datei Namens <code>app.js</code> umwandelt. Listing 1a und 1b zeigen das Schnellstart-Beispiel von Angular 2.0. Es wurden 4 Zeilen markiert, welche im Folgenden genauer betrachtet werden. </p>
 <pre><code class="lang-javascript">&lt;html&gt;
@@ -67,12 +68,12 @@ bootstrap(MyAppComponent);
 <blockquote>
 <p>Listing 1b: <a href="angular_quickstart-alpha28/app.ts">app.ts</a> - Eine simple Angular 2.0 Komponente</p>
 </blockquote>
-<p> Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen. Die eigentliche Funktion dieses Beispiels erschließt sich aber dennoch schnell. Das DOM-Element <code>&lt;my-app&gt;</code> wird mit einer eine Überschrift ergänzt, welche den Text &quot;Hello Alice&quot; trägt.</p>
+<p>Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen. Die eigentliche Funktion dieses Beispiels erschließt sich aber dennoch schnell. Das DOM-Element <code>&lt;my-app&gt;</code> wird mit einer eine Überschrift ergänzt, welche den Text &quot;Hello Alice&quot; trägt.</p>
 <p><img src="images/screenshot_hello_alice.png" alt="Screenshot"></p>
 <blockquote>
 <p>Screenshot: Der Output im Browser</p>
 </blockquote>
-<p>Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular 2.0. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ECMAScript 6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js mit NPM installiert ist.</p>
+<p>Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular 2.0. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ECMAScript 6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js installiert ist.</p>
 <p><a name="es6module"></a></p>
 <h2 id="3-es6-module-loader-polyfill">3. ES6 Module Loader Polyfill</h2>
 <p>In der Webwelt steht der Begriff &quot;Poylfill&quot; für eine Software, welche fehlende JavaScript-Funktionalitäten im Browser zur Verfügung stellt. In der Vergangenheit ging es bei Polyfills häufig darum, standardisierte Funkionen in alten Internet-Explorer Versionen nachzurüsten. Es können aber auch mithilfe von Polyfills Funktionen hinzugefügt werden, die gerade erst definiert wurden und daher noch von keinem Browser vollständig unterstützt werden.</p>
@@ -123,7 +124,7 @@ bootstrap(MyAppComponent);
 <p>Das Transpiling von ES6 zur Laufzeit ist im produktiven Einsatz nicht sehr effizient. Es bietet sich an, den Code zwar in ES6 zu entwickeln, aber die Umwandlung stets vorab durchzuführen. Zu Traceur gehört ein Kommandozeilen-Script, welches das Transpiling durchführt. Folgende Befehle erzeugen eine Datei mit dem Namen <code>es6_module.compiled.js</code>:</p>
 <pre><code><span class="hljs-tag">npm</span> <span class="hljs-tag">install</span> <span class="hljs-tag">-g</span> <span class="hljs-tag">traceur</span>
 <span class="hljs-tag">traceur</span> <span class="hljs-tag">--sourcemap</span> <span class="hljs-tag">--out</span> <span class="hljs-tag">es6_module</span><span class="hljs-class">.transpiled</span><span class="hljs-class">.js</span> <span class="hljs-tag">es6_module</span><span class="hljs-class">.js</span>
-</code></pre><p>Um die generierte Datei verwenden zu können, muss eine passende Datei Namens <code>traceur-runtime.js</code>. eingefügt werden. Der Sinn dieser <strong>Traceur-Runtime</strong> besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object <code>$traceurRuntime</code> sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.</p>
+</code></pre><p>Um die generierte Datei verwenden zu können, muss eine passende Datei Namens <code>traceur-runtime.js</code>. eingefügt werden. Der Sinn dieser <strong>Traceur-Runtime</strong> besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object <code>$traceurRuntime</code> sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierte ES5-Code nicht lauffähig.</p>
 <pre><code class="lang-javascript">&lt;script src=<span class="hljs-string">"https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">"es6_module.transpiled.js"</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 
@@ -138,7 +139,7 @@ bootstrap(MyAppComponent);
 <p>Damit wäre <strong><em>Zeile 1</em></strong> aus dem 5-Minuten Quickstart geklärt. Die hier verwendete Version von Angular 2.0 wurde mit Traceur erstellt und benötigt schlicht die <strong>Traceur-Runtime</strong> um fehlerfrei zu funktionieren (Fehler: &quot;<a href="https://github.com/angular/angular.io/issues/102">$traceurRuntime is undefined</a>&quot;).</p>
 <p><a name="jspm"></a></p>
 <h2 id="5-jspm">5. jspm</h2>
-<p>jspm ist ein Paketmanager, welcher <strong>indirekt</strong> in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der <a href="npmjs.com">npm</a>-registry oder direkt aus Github Repositories stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von <a href="http://bower.io">bower</a>. Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels <a href="https://github.com/systemjs/systemjs">SystemJS</a> ausgelegt.</p>
+<p>jspm ist ein Paketmanager, welcher <strong>indirekt in Zeile 2</strong> verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der <a href="npmjs.com">npm</a>-registry oder direkt aus Github Repositories stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von <a href="http://bower.io">bower</a>. Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels <a href="https://github.com/systemjs/systemjs">SystemJS</a> ausgelegt.</p>
 <p>Mit folgendem Befehlen lässt sich beispielsweise die aktuellste Version jQuery von dessen Github-Repository herunter zu laden:</p>
 <pre><code>npm <span class="hljs-operator"><span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> jspm@<span class="hljs-number">0.15</span><span class="hljs-number">.7</span>
 jspm <span class="hljs-keyword">install</span> jquery</span>
@@ -147,11 +148,11 @@ jspm <span class="hljs-keyword">install</span> jquery</span>
 <blockquote>
 <p>Screenshot: jspm führt durch die Installation</p>
 </blockquote>
-<p>Alle bislang gezeigten Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt. Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus! Verwenden Sie statt dessen das jspm Kommandozeilen-Tool &quot;jspm-cli&quot;, um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten. Das Standardverzeichnis des Kommandozeilen-Tools lautet &#39;jspm_packages&#39;. Das nächste Quelltext-Beispiel wird auf Dateien basieren, welche per JSPM herunter geladen wurden.</p>
+<p>Alle bislang gezeigten Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt. Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus! Verwenden Sie stattdessen das jspm Kommandozeilen-Tool &quot;jspm-cli&quot;, um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten. Das Standardverzeichnis des Kommandozeilen-Tools lautet &#39;jspm_packages&#39;. Das nächste Quelltext-Beispiel wird auf Dateien basieren, welche per JSPM herunter geladen wurden.</p>
 <p><a name="systemjs"></a></p>
 <h2 id="6-systemjs">6. SystemJS</h2>
-<p>In <strong><em>Zeile 2 und 4</em></strong> sieht man die Verwendung von <a href="https://github.com/systemjs/systemjs">SystemJS</a>.</p>
-<p>SystemJS ist ein &quot;universaler Module-Loader&quot; und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von <strong>CommonJS</strong> können Module verwendet werden, welche ursprünglich für <a href="http://browserify.org/">Browserify</a> gedacht waren. Ebenso lassen sich <strong>AMD</strong>-Module verwenden, welche üblicherweise über <a href="http://requirejs.org/">require.js</a> geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten <strong>ES6 Module</strong> Loader Polyfills unterstützt.</p>
+<p>In <strong><em>Zeile 2 und 4</em></strong> sieht man die Verwendung von <a href="https://github.com/systemjs/systemjs" title="SystemJS">SystemJS</a>.</p>
+<p>SystemJS ist ein &quot;universaler Module-Loader&quot; und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von <strong>CommonJS</strong> können Module verwendet werden, welche ursprünglich für <a href="http://browserify.org/">Browserify</a> gedacht waren. Ebenso lassen sich <strong>AMD</strong>-Module verwenden, welche üblicherweise über <a href="http://requirejs.org/">require.js</a> geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten ES6 Module Loader Polyfills unterstützt.</p>
 <p>Ein typischer Anwendungsfall von SystemJS wird im Listing 4 gezeigt. Das zuvor herunter geladene Framework jQuery, welches als AMD-Modul verwendbar ist, wird in diesem Beispiel eingebunden.</p>
 <pre><code class="lang-js">&lt;script src=<span class="hljs-string">'/jspm_packages/system.js'</span>&gt;<span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">script</span> <span class="hljs-attribute">src</span>=<span class="hljs-value">'/config.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-title">script</span>&gt;</span>
@@ -174,7 +175,7 @@ npm <span class="hljs-operator"><span class="hljs-keyword">install</span>
 npm <span class="hljs-keyword">install</span> -<span class="hljs-keyword">g</span> gulp
 gulp <span class="hljs-keyword">build</span></span>
 </code></pre><p>Es werden eine Reihe von Dateien im Ordner &#39;dist&#39; erzeugt. Die bekannte Datei <code>angular2.dev.js</code> befindet sich im Ordner <code>dist/js/bundle</code>. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a>. Ganz konkret handelt es sich bei <code>angular2.dev.js</code> um ein ES5-kompatibles Bundle, welches mit dem <a href="https://www.npmjs.com/package/systemjs-builder" title="SystemJS Build Tool">SystemJS Build Tool</a> erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular 2.0 entsprechend vereinfachen.</p>
-<p>Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei <code>angular2.sfx.dev.js</code> verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes <a href="https://github.com/systemjs/builder#self-executing-sfx-bundles" title="Self-Executing bundle">Self-Executing bundle</a> erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt <code>window.ng</code> verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den &quot;ES6 Module Loader Polyfill&quot; verwenden wollen. Im Listing 5 sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer Fluent-API, welche speziell für ES5-Nutzer gedacht ist.</p>
+<p>Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei <code>angular2.sfx.dev.js</code> verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes [Self-Executing bundle][11] erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt <code>window.ng</code> verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den &quot;ES6 Module Loader Polyfill&quot; verwenden wollen. Im Listing 5 sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer Fluent-API, welche speziell für ES5-Nutzer gedacht ist.</p>
 <pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">title</span>&gt;</span>Angular 2 Quickstart (ES5)<span class="hljs-tag">&lt;/<span class="hljs-title">title</span>&gt;</span>
@@ -212,7 +213,7 @@ gulp <span class="hljs-keyword">build</span></span>
 <thead>
 <tr>
 <th>Build-Verzeichnis</th>
-<th>Verzeichnis im <a href="https://www.npmjs.com/package/angular2" title="NPM-Paket von Angular 2.0">NPM-Paket</a></th>
+<th>Verzeichnis im NPM-Paket</th>
 <th>JavaScript-Version</th>
 <th>Modul-Format</th>
 <th>Erklärung</th>
@@ -224,14 +225,14 @@ gulp <span class="hljs-keyword">build</span></span>
 <td>bundles/angular2.sfx.dev.js</td>
 <td>ECMAScript&nbsp;5</td>
 <td>Globales Objekt (<code>window.ng = ng</code>)</td>
-<td>Transpiliertes Bundle mit globalem Objekt, Verfügbar auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a></td>
+<td>Transpiliertes Bundle mit globalem Objekt, Verfügbar auf <a href="https://github.com/angular/angular" title="Angular 2.0 Github-Repository">code.angularjs.org</a></td>
 </tr>
 <tr>
 <td>dist/js/bundle/angular2.dev.js</td>
 <td>bundles/angular2.dev.js</td>
 <td>ECMAScript&nbsp;5</td>
 <td>SystemJS (<code>System.register()</code>)</td>
-<td>Transpiliertes Bundle für SystemJS, Verfügbar auf <a href="https://code.angularjs.org/" title="code.angularjs.org">code.angularjs.org</a></td>
+<td>Transpiliertes Bundle für SystemJS, Verfügbar auf <a href="https://github.com/angular/angular" title="Angular 2.0 Github-Repository">code.angularjs.org</a></td>
 </tr>
 <tr>
 <td>dist/js/cjs/angular2</td>
@@ -263,7 +264,7 @@ gulp <span class="hljs-keyword">build</span></span>
 <p><a name="angular2jspm"></a></p>
 <h2 id="8-angular-2-0-mit-jspm-laden">8. Angular 2.0 mit jspm laden</h2>
 <p>Mit jspm und SystemJS gibt es einen komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular 2.0 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular 2.0 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  </p>
-<p>Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell <a href="https://github.com/jspm/jspm-cli/releases/tag/0.16.11">0.16.11</a>). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell <a href="https://github.com/systemjs/systemjs/releases">SystemJS 0.18.x</a>). Ab SystemJS 0.1.7 gibt es  wichtige <a href="https://github.com/systemjs/systemjs/releases/tag/0.17.0">Änderungen</a>, durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (<code>es6-module-loader.js</code>) nicht mehr notwendig. Es wird statt dessen direkt TypeScript unterstützt.</p>
+<p>Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell <a href="https://github.com/jspm/jspm-cli/releases/tag/0.16.11">0.16.11</a>). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell <a href="https://github.com/systemjs/systemjs/releases">SystemJS 0.18.x</a>). Ab SystemJS 0.1.7 gibt es  wichtige <a href="https://github.com/systemjs/systemjs/releases/tag/0.17.0">Änderungen</a>, durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (<code>es6-module-loader.js</code>) nicht mehr notwendig. Es wird stattdessen direkt TypeScript unterstützt.</p>
 <pre><code>npm install -g jspm@<span class="hljs-number">0.16</span><span class="hljs-number">.11</span>
 jspm install typescript
 jspm install angular2@<span class="hljs-number">2.0</span><span class="hljs-number">.0</span>-alpha<span class="hljs-number">.38</span>
@@ -289,7 +290,7 @@ jspm install reflect-metadata zone.js es6-shim npm:@reactivex/rxjs
 <blockquote>
 <p>Listing 6a: <a href="config.js">config.js</a> - Die notwendigen Anpassungen an die Konfigurations-Datei</p>
 </blockquote>
-<p>Die TypeScript-Datei aus dem  <a href="https://angular.io/docs/js/latest/quickstart.html">5 Min Quickstart</a> kann unverändert wiederverwendet werden (siehe erneute Listing 1b). Die Besonderheit bei der Verwendung von SystemJS/jspm ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt konfiguriert sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten. Dies hält den eigenen Code entsprechend sauber und übersichtlich. Im Listing 6b sehen Sie ein optimiertes Schnellstart-Beispiel, welches nun voll auf das modulare Nachladen von JavaScript-Code setzt.  </p>
+<p>Die TypeScript-Datei aus dem  <a href="https://angular.io/docs/js/latest/quickstart.html">5 Min Quickstart</a> kann unverändert wiederverwendet werden (siehe erneute Listing 1b). Die Besonderheit bei der Verwendung von SystemJS bzw. jspm ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt konfiguriert sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten. Dies hält den eigenen Code entsprechend sauber und übersichtlich. Im Listing 6b sehen Sie ein optimiertes Schnellstart-Beispiel, welches nun voll auf das modulare Nachladen von JavaScript-Code setzt.  </p>
 <pre><code class="lang-html"><span class="hljs-doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">html</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">head</span>&gt;</span>
@@ -320,7 +321,7 @@ jspm install reflect-metadata zone.js es6-shim npm:@reactivex/rxjs
 <hr>
 
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-10-06T23:28:36.545Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-10-07T09:22:14.621Z</small>
     </article>
 
     <span id="forkongithub">

@@ -1,5 +1,6 @@
 # Angular 2.0 und modularer Code
 
+## Die Vorschauversion von AngularJS gibt einen Ausblick auf die Entwicklung mit TypeScript und ein solides Management von Abhängigkeiten.
 
 ### Inhalt
 1. [Einleitung](#einleitung)
@@ -17,12 +18,12 @@
 <a name="einleitung"></a>
 ## 1. Einleitung
 
-Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderungen eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der web & mobile developer.
+Angular 2.0 wird in naher Zukunft fertig gestellt sein. Es gibt es bereits regelmäßige Vorabversionen für interessierte Entwickler. Das Angular-Team hat sich entschieden, alte Zöpfe rigoros abzuschneiden und ein komplett überarbeitetes Framework zu entwickeln. Die neue Version bricht mit bestehenden Konzepten - was für viel Aufregung gesorgt hat. Die Template-Syntax ist neu und man setzt nun Komponenten statt Controller ein. Auch der Einsatz von TypeScript rüttelt am einher gebrachten. In diesem Artikel soll auf eine weitere maßgebliche Änderung eingegangen werden. Diese betrifft das Laden von JavaScript-Dateien. Weitere Artikel zu den Neuerungen in Angular 2.0 folgen in den kommenden Ausgaben der web & mobile developer.
 
 <a name="hello"></a>
 ## 2. Hello World
 
-> *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen ge­ge­be­nen­falls angepasst werden.
+> *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der gezeigte Code muss für spätere Versionen wahrscheinlich angepasst werden.
 
 Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Schnellstart][1] in das neue Framework. In dem Quickstart wird unter anderem beschrieben, wie man eine erste Komponente erstellt. Ebenso wird der Transpiler TypeScript vorgestellt, welcher die Datei `app.ts` in eine JavaScript-Datei Namens `app.js` umwandelt. Listing 1a und 1b zeigen das Schnellstart-Beispiel von Angular 2.0. Es wurden 4 Zeilen markiert, welche im Folgenden genauer betrachtet werden. 
 
@@ -61,12 +62,12 @@ bootstrap(MyAppComponent);
 ```
 > Listing 1b: [app.ts](angular_quickstart-alpha28/app.ts) - Eine simple Angular 2.0 Komponente
 
- Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen. Die eigentliche Funktion dieses Beispiels erschließt sich aber dennoch schnell. Das DOM-Element `<my-app>` wird mit einer eine Überschrift ergänzt, welche den Text "Hello Alice" trägt.
+Das Beispiel baut auf einer Reihe von Frameworks auf, um diese Datei zu laden und auszuführen. Die eigentliche Funktion dieses Beispiels erschließt sich aber dennoch schnell. Das DOM-Element `<my-app>` wird mit einer eine Überschrift ergänzt, welche den Text "Hello Alice" trägt.
 
 ![Screenshot](images/screenshot_hello_alice.png)
 > Screenshot: Der Output im Browser
 
-Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular 2.0. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ECMAScript 6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js mit NPM installiert ist.
+Hinter diesen vier markierten Zeilen verbirgt sich ein Strauß an Technologien - unter anderem Traceur, jspm, SystemJS, TypeSript und natürlich Angular 2.0. Durch die Auswahl dieser Frameworks ist es möglich, bereits mit heutigen Browsern eine Anwendung auf Grundlage von ECMAScript 6 zu entwickeln. Die verwendeten Tools sollen nun betrachtet werden. Alle gezeigten Kommandozeilen-Befehle setzen voraus, dass Node.js installiert ist.
 
 
 <a name="es6module"></a>
@@ -131,7 +132,7 @@ npm install -g traceur
 traceur --sourcemap --out es6_module.transpiled.js es6_module.js
 ```
 
-Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `traceur-runtime.js`. eingefügt werden. Der Sinn dieser **Traceur-Runtime** besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object `$traceurRuntime` sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierten ES5-Code nicht lauffähig.
+Um die generierte Datei verwenden zu können, muss eine passende Datei Namens `traceur-runtime.js`. eingefügt werden. Der Sinn dieser **Traceur-Runtime** besteht vorwiegend darin, mehrfach benötigten Code in den einzelnen transpilierten Dateien zu vermeiden, was später Traffic spart. In dieser Datei befinden sich der Code für das häufig verwendete globale Object `$traceurRuntime` sowie eine Reihe von Polyfills. Ohne die Runtime ist der generierte ES5-Code nicht lauffähig.
 
 ```javascript
 <script src="https://github.jspm.io/jmcriffey/bower-traceur-runtime@0.0.88/traceur-runtime.js"></script>
@@ -150,7 +151,7 @@ Damit wäre ***Zeile 1*** aus dem 5-Minuten Quickstart geklärt. Die hier verwen
 <a name="jspm"></a>
 ## 5. jspm
 
-jspm ist ein Paketmanager, welcher **indirekt** in Zeile 2 verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der [npm](npmjs.com)-registry oder direkt aus Github Repositories stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von [bower](http://bower.io). Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels [SystemJS](https://github.com/systemjs/systemjs) ausgelegt.
+jspm ist ein Paketmanager, welcher **indirekt in Zeile 2** verwendet wird. Die Verwendung von jspm erleichtert die Einbindung von Paketen enorm. Jene Pakete können aus der [npm](npmjs.com)-registry oder direkt aus Github Repositories stammen. Im Falle eines Github-Repositoriums werden fertige Versionen mittels Git-Tags markiert. Dies entspricht dem Vorgehen von [bower](http://bower.io). Hervorzuheben ist die Verwendung einer flachen Ordnerstruktur, was ebenso dem Ansatz von Bower entspricht. Jspm ist für die Verwendung mittels [SystemJS](https://github.com/systemjs/systemjs) ausgelegt.
 
 Mit folgendem Befehlen lässt sich beispielsweise die aktuellste Version jQuery von dessen Github-Repository herunter zu laden:
 
@@ -164,15 +165,15 @@ Wird `jspm install` auf ein leeres Verzeichnis angewendet, so erscheint der Assi
 ![Screenshot](images/screenshot_jspm_install.png)
 > Screenshot: jspm führt durch die Installation
 
-Alle bislang gezeigten Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt. Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus! Verwenden Sie statt dessen das jspm Kommandozeilen-Tool "jspm-cli", um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten. Das Standardverzeichnis des Kommandozeilen-Tools lautet 'jspm_packages'. Das nächste Quelltext-Beispiel wird auf Dateien basieren, welche per JSPM herunter geladen wurden.
+Alle bislang gezeigten Beispiele verwendeten das CDN (Content Delivery Network) von jspm.io. Ein produktiver Einsatz des CDN ist jedoch noch nicht empfehlenswert, da das CDN als experimentell gilt. Während der Arbeit an diesem Artikel fiel das CDN mehrfach aus! Verwenden Sie stattdessen das jspm Kommandozeilen-Tool "jspm-cli", um alle Abhängigkeiten herunter zu laden und die Dateien selbst zu hosten. Das Standardverzeichnis des Kommandozeilen-Tools lautet 'jspm_packages'. Das nächste Quelltext-Beispiel wird auf Dateien basieren, welche per JSPM herunter geladen wurden.
 
 
 <a name="systemjs"></a>
 ## 6. SystemJS
 
-In ***Zeile 2 und 4*** sieht man die Verwendung von [SystemJS](https://github.com/systemjs/systemjs).
+In ***Zeile 2 und 4*** sieht man die Verwendung von [SystemJS][6].
 
-SystemJS ist ein "universaler Module-Loader" und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von **CommonJS** können Module verwendet werden, welche ursprünglich für [Browserify](http://browserify.org/) gedacht waren. Ebenso lassen sich **AMD**-Module verwenden, welche üblicherweise über [require.js](http://requirejs.org/) geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten **ES6 Module** Loader Polyfills unterstützt.
+SystemJS ist ein "universaler Module-Loader" und integriert diverse existierende Modul-Formate (ES6, AMD, CommonJS und globale Objekte). Durch die Integration von **CommonJS** können Module verwendet werden, welche ursprünglich für [Browserify](http://browserify.org/) gedacht waren. Ebenso lassen sich **AMD**-Module verwenden, welche üblicherweise über [require.js](http://requirejs.org/) geladen werden. Zusätzlich werden auch direkt ES6-Module mittels des bereits vorgestellten ES6 Module Loader Polyfills unterstützt.
 
 Ein typischer Anwendungsfall von SystemJS wird im Listing 4 gezeigt. Das zuvor herunter geladene Framework jQuery, welches als AMD-Modul verwendbar ist, wird in diesem Beispiel eingebunden.
 
@@ -195,7 +196,7 @@ SystemJS lädt in dieser Version immer auch den bereits vorgestellten "ES6 Modul
 <a name="angular2bauen"></a>
 ## 7. Angular 2.0 mit Gulp bauen
 
-In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Diese Datei wollen wir nun selbst erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp][6] durchgeführt werden. Nachdem Angular 2.0 vom [Github-Repository][7] herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
+In ***Zeile 3*** sieht man ein vorbereitetes Bundle mit dem Namen `angular2.dev.js`. Diese Datei wollen wir nun selbst erzeugen. Dies ist vergleichsweise einfach, das die diversen Schritte mittels des Automatisierungstools [Gulp][7] durchgeführt werden. Nachdem Angular 2.0 vom [Github-Repository][8] herunter geladen wurde, muss Gulp zunächst installiert und dann ausgeführt werden.  
 
 ```
 git clone https://github.com/angular/angular.git
@@ -204,9 +205,9 @@ npm install -g gulp
 gulp build
 ```
 
-Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Die bekannte Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org][8]. Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool][9] erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular 2.0 entsprechend vereinfachen.
+Es werden eine Reihe von Dateien im Ordner 'dist' erzeugt. Die bekannte Datei `angular2.dev.js` befindet sich im Ordner `dist/js/bundle`. Den Inhalt dieses Ordners veröffentlicht das Angular-Team bei jeder neuen Alpha-Version auf [code.angularjs.org][9]. Ganz konkret handelt es sich bei `angular2.dev.js` um ein ES5-kompatibles Bundle, welches mit dem [SystemJS Build Tool][10] erstellt wurde. Das Build-Tool verwendet wiederum Traceur, was die die Notwendigkeit für die Runtime erklärt. Es ist anzunehmen, dass in einer zukünftigen Version auf Traceur gänzlich verzichtet wird. Dies würde die Verwendung von Angular 2.0 entsprechend vereinfachen.
 
-Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei `angular2.sfx.dev.js` verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes [Self-Executing bundle][10] erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt `window.ng` verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den "ES6 Module Loader Polyfill" verwenden wollen. Im Listing 5 sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer Fluent-API, welche speziell für ES5-Nutzer gedacht ist.
+Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Datei `angular2.sfx.dev.js` verwenden. Hierbei handelt es sich zwar ebenso um ein ES5-kompatibles Bundle, die Datei wurde aber zusätzlich als ein so genanntes [Self-Executing bundle][11] erstellt. In dieser Datei ist die Traceur Runtime bereits enthalten und das manuelle Einbinden entfällt. Ebenso wird Angular in dieser Variante über das globale Objekt `window.ng` verfügbar gemacht. Damit spricht man Entwickler an, die weder SystemJS noch den "ES6 Module Loader Polyfill" verwenden wollen. Im Listing 5 sehen Sie ein Beispiel für die Verwendung von Angular 2.0 mit reinem ES5-JavaScript unter Verwendung einer Fluent-API, welche speziell für ES5-Nutzer gedacht ist.
 
 ```html
 <html>
@@ -240,10 +241,10 @@ Wem die sperate Einbindung der Traceur-Runtime nicht zusagt, der sollte die Date
 ```
 > Listing 5: [example_es5.html](example_es5.html) - Einsatz der alternativen API für ECMAScript 5
 
-Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.0][11] wieder:
+Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.0][12] wieder:
 
 
-| Build-Verzeichnis                  | Verzeichnis im [NPM-Paket][11] | JavaScript-Version | Modul-Format                       | Erklärung                                                                                                  |
+| Build-Verzeichnis                  | Verzeichnis im NPM-Paket | JavaScript-Version | Modul-Format                       | Erklärung                                                                                                  |
 |------------------------------------|--------------------------------------------------------------------|--------------------|------------------------------------|------------------------------------------------------------------------------------------------------------|
 | dist/js/bundle/angular2.sfx.dev.js | bundles/angular2.sfx.dev.js    | ECMAScript&nbsp;5  | Globales Objekt (`window.ng = ng`) | Transpiliertes Bundle mit globalem Objekt, Verfügbar auf [code.angularjs.org][8]
 | dist/js/bundle/angular2.dev.js     | bundles/angular2.dev.js        | ECMAScript&nbsp;5  | SystemJS (`System.register()`)     | Transpiliertes Bundle für SystemJS, Verfügbar auf [code.angularjs.org][8]
@@ -259,7 +260,7 @@ Auch die anderen Fragmente aus dem Build findet man im [NPM-Paket von Angular 2.
 
 Mit jspm und SystemJS gibt es einen komfortablen Weg, stets mit der neuesten Version von Angular zu arbeiten. Durch jspm kann man regelmäßig die aktuelle Version von Angular 2.0 und seinen Abhängigkeiten beziehen. SystemJS wiederum lädt alle Dateien asynchron im Browser. Man kann jedoch noch einen Schritt weiter gehen! Im Schnellstart von Angular 2.0 wird TypeScript-Code über die Kommandozeile in JavaScript umgewandelt. Das funktioniert zwar tadellos, aber gerade während der Entwicklung bietet es sich an, TypeScript direkt im Browser zu transpilieren.  
 
-Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell [0.16.11](https://github.com/jspm/jspm-cli/releases/tag/0.16.11)). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell [SystemJS 0.18.x](https://github.com/systemjs/systemjs/releases)). Ab SystemJS 0.1.7 gibt es  wichtige [Änderungen](https://github.com/systemjs/systemjs/releases/tag/0.17.0), durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (`es6-module-loader.js`) nicht mehr notwendig. Es wird statt dessen direkt TypeScript unterstützt.
+Das jQuery-Beispiel basierte noch auf dem 0.15.x-Zweig von jspm. Für das folgende Beispiel muss hingegen die aktuellste Version von jspm verwendet werden (aktuell [0.16.11](https://github.com/jspm/jspm-cli/releases/tag/0.16.11)). Mit den Versionen 0.16.x von jspm erhält man eine entsprechend neue Version von SystemJS (aktuell [SystemJS 0.18.x](https://github.com/systemjs/systemjs/releases)). Ab SystemJS 0.1.7 gibt es  wichtige [Änderungen](https://github.com/systemjs/systemjs/releases/tag/0.17.0), durch die das TypeScript-Szenario Beispiel reibungslos funktioniert. In der neuesten Version ist der ES6 Module Loader Polyfill (`es6-module-loader.js`) nicht mehr notwendig. Es wird stattdessen direkt TypeScript unterstützt.
 
 ```
 npm install -g jspm@0.16.11
@@ -290,7 +291,7 @@ System.config({
 ```
 > Listing 6a: [config.js](config.js) - Die notwendigen Anpassungen an die Konfigurations-Datei
 
-Die TypeScript-Datei aus dem  [5 Min Quickstart](https://angular.io/docs/js/latest/quickstart.html) kann unverändert wiederverwendet werden (siehe erneute Listing 1b). Die Besonderheit bei der Verwendung von SystemJS/jspm ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt konfiguriert sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten. Dies hält den eigenen Code entsprechend sauber und übersichtlich. Im Listing 6b sehen Sie ein optimiertes Schnellstart-Beispiel, welches nun voll auf das modulare Nachladen von JavaScript-Code setzt.  
+Die TypeScript-Datei aus dem  [5 Min Quickstart](https://angular.io/docs/js/latest/quickstart.html) kann unverändert wiederverwendet werden (siehe erneute Listing 1b). Die Besonderheit bei der Verwendung von SystemJS bzw. jspm ist die Tatsache, dass man nicht mehr Angular per Script-Tag eingefügt werden muss. Sofern alle Pfade korrekt konfiguriert sind, übernimmt SystemJS von nun an die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework mit seinen weiteren Abhängigkeiten. Dies hält den eigenen Code entsprechend sauber und übersichtlich. Im Listing 6b sehen Sie ein optimiertes Schnellstart-Beispiel, welches nun voll auf das modulare Nachladen von JavaScript-Code setzt.  
 
 ```html
 <!DOCTYPE html>
@@ -338,9 +339,9 @@ Verglichen mit der Version 1 hat sich bei AngularJS hinsichtlich der Modularitä
 [3]: https://github.com/google/traceur-compiler "Traceur"
 [4]: http://babeljs.io/ "Babel"
 [5]: https://github.com/Microsoft/TypeScript/ "TypeScript"
-[6]: https://github.com/gulpjs/gulp "Gulp"
-[7]: https://github.com/angular/angular "Angular 2.0 Github-Repository"
-[8]: https://code.angularjs.org/ "code.angularjs.org"
-[9]: https://www.npmjs.com/package/systemjs-builder "SystemJS Build Tool"
-[10]: https://github.com/systemjs/builder#self-executing-sfx-bundles "Self-Executing bundle"
-[11]: https://www.npmjs.com/package/angular2 "NPM-Paket von Angular 2.0"
+[6]: https://github.com/systemjs/systemjs "SystemJS"
+[7]: https://github.com/gulpjs/gulp "Gulp"
+[8]: https://github.com/angular/angular "Angular 2.0 Github-Repository"
+[9]: https://code.angularjs.org/ "code.angularjs.org"
+[10]: https://www.npmjs.com/package/systemjs-builder "SystemJS Build Tool"
+[12]: https://www.npmjs.com/package/angular2 "NPM-Paket von Angular 2.0"
