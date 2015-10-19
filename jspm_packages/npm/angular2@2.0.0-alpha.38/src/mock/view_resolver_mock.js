@@ -9,11 +9,11 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var metadata_1 = require("../core/metadata");
-var view_resolver_1 = require("../core/linker/view_resolver");
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var metadata_1 = require('../core/metadata');
+var view_resolver_1 = require('../core/linker/view_resolver');
 var MockViewResolver = (function(_super) {
   __extends(MockViewResolver, _super);
   function MockViewResolver() {

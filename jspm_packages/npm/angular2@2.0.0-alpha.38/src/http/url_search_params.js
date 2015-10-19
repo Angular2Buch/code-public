@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var collection_1 = require("../core/facade/collection");
+var lang_1 = require('../core/facade/lang');
+var collection_1 = require('../core/facade/collection');
 function paramParser(rawParams) {
   if (rawParams === void 0) {
     rawParams = '';

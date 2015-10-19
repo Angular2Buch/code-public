@@ -27,9 +27,9 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var di_1 = require("../di");
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
+var di_1 = require('../di');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
 exports.APP_VIEW_POOL_CAPACITY = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppViewPool.viewPoolCapacity'));
 var AppViewPool = (function() {
   function AppViewPool(poolCapacityPerProtoView) {

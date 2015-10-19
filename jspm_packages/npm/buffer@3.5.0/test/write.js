@@ -2,9 +2,9 @@
 (function(process) {
   if (process.env.OBJECT_IMPL)
     global.TYPED_ARRAY_SUPPORT = false;
-  var B = require("../index").Buffer;
-  var test = require("tape");
-  var isnan = require("is-nan");
+  var B = require('../index').Buffer;
+  var test = require('tape');
+  var isnan = require('is-nan');
   test('buffer.write string should get parsed as number', function(t) {
     var b = new B(64);
     b.writeUInt16LE('1003', 0);
@@ -87,4 +87,4 @@
     }
     t.end();
   });
-})(require("process"));
+})(require('process'));

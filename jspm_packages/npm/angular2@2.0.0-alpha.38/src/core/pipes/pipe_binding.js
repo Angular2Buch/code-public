@@ -9,8 +9,8 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var binding_1 = require("../di/binding");
-var di_1 = require("../di");
+var binding_1 = require('../di/binding');
+var di_1 = require('../di');
 var PipeBinding = (function(_super) {
   __extends(PipeBinding, _super);
   function PipeBinding(name, pure, key, resolvedFactories, multiBinding) {

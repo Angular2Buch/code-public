@@ -22,11 +22,11 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _ImmediateScheduler2 = require("./ImmediateScheduler");
+var _ImmediateScheduler2 = require('./ImmediateScheduler');
 var _ImmediateScheduler3 = _interopRequireDefault(_ImmediateScheduler2);
-var _NextTickAction = require("./NextTickAction");
+var _NextTickAction = require('./NextTickAction');
 var _NextTickAction2 = _interopRequireDefault(_NextTickAction);
-var _ImmediateAction = require("./ImmediateAction");
+var _ImmediateAction = require('./ImmediateAction');
 var _ImmediateAction2 = _interopRequireDefault(_ImmediateAction);
 var NextTickScheduler = (function(_ImmediateScheduler) {
   _inherits(NextTickScheduler, _ImmediateScheduler);

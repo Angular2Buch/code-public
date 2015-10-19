@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var exceptions_1 = require("../facade/exceptions");
+var exceptions_1 = require('../facade/exceptions');
 var ElementRef = (function() {
   function ElementRef(parentView, boundElementIndex, _renderer) {
     this._renderer = _renderer;

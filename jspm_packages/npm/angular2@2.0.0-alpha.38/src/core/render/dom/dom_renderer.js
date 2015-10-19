@@ -27,19 +27,19 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var di_1 = require("../../di");
-var animation_builder_1 = require("../../../animate/animation_builder");
-var lang_1 = require("../../facade/lang");
-var exceptions_1 = require("../../facade/exceptions");
-var dom_adapter_1 = require("../../dom/dom_adapter");
-var event_manager_1 = require("./events/event_manager");
-var shared_styles_host_1 = require("./shared_styles_host");
-var profile_1 = require("../../profile/profile");
-var api_1 = require("../api");
-var dom_tokens_1 = require("./dom_tokens");
-var view_factory_1 = require("../view_factory");
-var view_1 = require("../view");
-var util_1 = require("./util");
+var di_1 = require('../../di');
+var animation_builder_1 = require('../../../animate/animation_builder');
+var lang_1 = require('../../facade/lang');
+var exceptions_1 = require('../../facade/exceptions');
+var dom_adapter_1 = require('../../dom/dom_adapter');
+var event_manager_1 = require('./events/event_manager');
+var shared_styles_host_1 = require('./shared_styles_host');
+var profile_1 = require('../../profile/profile');
+var api_1 = require('../api');
+var dom_tokens_1 = require('./dom_tokens');
+var view_factory_1 = require('../view_factory');
+var view_1 = require('../view');
+var util_1 = require('./util');
 var DomRenderer = (function() {
   function DomRenderer(_eventManager, _domSharedStylesHost, _animate, document) {
     this._eventManager = _eventManager;

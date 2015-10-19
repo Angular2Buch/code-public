@@ -5,6 +5,6 @@ function __export(m) {
     if (!exports.hasOwnProperty(p))
       exports[p] = m[p];
 }
-__export(require("./test"));
-__export(require("./src/test_lib/utils"));
-__export(require("./src/test_lib/fake_async"));
+__export(require('./test'));
+__export(require('./src/test_lib/utils'));
+__export(require('./src/test_lib/fake_async'));

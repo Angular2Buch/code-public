@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
-var static_request_1 = require("../static_request");
-var enums_1 = require("../enums");
-var lang_1 = require("../../core/facade/lang");
-var exceptions_1 = require("../../core/facade/exceptions");
-var Rx = require("@reactivex/rxjs/dist/cjs/Rx");
+var di_1 = require('../../core/di');
+var static_request_1 = require('../static_request');
+var enums_1 = require('../enums');
+var lang_1 = require('../../core/facade/lang');
+var exceptions_1 = require('../../core/facade/exceptions');
+var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
 var Subject = Rx.Subject,
     ReplaySubject = Rx.ReplaySubject;
 var MockConnection = (function() {

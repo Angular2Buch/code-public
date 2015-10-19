@@ -5,9 +5,9 @@ exports['default'] = concat;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _Observable = require("../Observable");
+var _Observable = require('../Observable');
 var _Observable2 = _interopRequireDefault(_Observable);
-var _schedulersImmediate = require("../schedulers/immediate");
+var _schedulersImmediate = require('../schedulers/immediate');
 var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
 function concat() {
   var scheduler = _schedulersImmediate2['default'];

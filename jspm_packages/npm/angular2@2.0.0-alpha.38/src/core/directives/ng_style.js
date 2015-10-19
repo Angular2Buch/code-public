@@ -22,11 +22,11 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var change_detection_1 = require("../change_detection");
-var linker_1 = require("../linker");
-var metadata_1 = require("../metadata");
-var render_1 = require("../render");
-var lang_1 = require("../facade/lang");
+var change_detection_1 = require('../change_detection');
+var linker_1 = require('../linker');
+var metadata_1 = require('../metadata');
+var render_1 = require('../render');
+var lang_1 = require('../facade/lang');
 var NgStyle = (function() {
   function NgStyle(_differs, _ngEl, _renderer) {
     this._differs = _differs;

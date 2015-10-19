@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var utils = require("../utils");
+var utils = require('../utils');
 function patchSetClearFunction(obj, fnNames) {
   fnNames.map(function(name) {
     return name[0].toUpperCase() + name.substr(1);

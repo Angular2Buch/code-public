@@ -24,7 +24,7 @@
       throw new TypeError('Cannot call a class as a function');
     }
   }
-  var _Subscriber2 = require("../Subscriber");
+  var _Subscriber2 = require('../Subscriber');
   var _Subscriber3 = _interopRequireDefault(_Subscriber2);
   function bufferCount(bufferSize) {
     var startBufferEvery = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -91,4 +91,4 @@
     return BufferCountSubscriber;
   })(_Subscriber3['default']);
   module.exports = exports['default'];
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

@@ -22,10 +22,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../di");
-var lang_1 = require("../../facade/lang");
-var metadata_1 = require("../../metadata");
-var validators_1 = require("../validators");
+var di_1 = require('../../di');
+var lang_1 = require('../../facade/lang');
+var metadata_1 = require('../../metadata');
+var validators_1 = require('../validators');
 var DEFAULT_VALIDATORS = lang_1.CONST_EXPR(new di_1.Binding(validators_1.NG_VALIDATORS, {
   toValue: validators_1.Validators.required,
   multi: true

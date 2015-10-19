@@ -1,6 +1,6 @@
 /* */ 
-require("../../Reflect");
-var assert = require("assert");
+require('../../Reflect');
+var assert = require('assert');
 function ReflectDecorateThrowsIfDecoratorsArgumentNotArrayForFunctionOverload() {
   var target = function() {};
   assert.throws(function() {

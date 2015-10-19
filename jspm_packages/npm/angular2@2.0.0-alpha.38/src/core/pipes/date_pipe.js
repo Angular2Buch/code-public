@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var intl_1 = require("../facade/intl");
-var di_1 = require("../di");
-var metadata_1 = require("../metadata");
-var collection_1 = require("../facade/collection");
-var invalid_pipe_argument_exception_1 = require("./invalid_pipe_argument_exception");
+var lang_1 = require('../facade/lang');
+var intl_1 = require('../facade/intl');
+var di_1 = require('../di');
+var metadata_1 = require('../metadata');
+var collection_1 = require('../facade/collection');
+var invalid_pipe_argument_exception_1 = require('./invalid_pipe_argument_exception');
 var defaultLocale = 'en-US';
 var DatePipe = (function() {
   function DatePipe() {}

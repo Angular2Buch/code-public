@@ -9,8 +9,8 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var lang_1 = require("./lang");
-var Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+var lang_1 = require('./lang');
+var Subject = require('@reactivex/rxjs/dist/cjs/Subject');
 var PromiseWrapper = (function() {
   function PromiseWrapper() {}
   PromiseWrapper.resolve = function(obj) {

@@ -22,19 +22,19 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var cpl = require("./directive_metadata");
-var dirAnn = require("../metadata/directives");
-var directive_resolver_1 = require("../linker/directive_resolver");
-var view_resolver_1 = require("../linker/view_resolver");
-var directive_lifecycle_reflector_1 = require("../linker/directive_lifecycle_reflector");
-var interfaces_1 = require("../linker/interfaces");
-var reflection_1 = require("../reflection/reflection");
-var di_2 = require("../di");
-var util_1 = require("./util");
+var di_1 = require('../di');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var cpl = require('./directive_metadata');
+var dirAnn = require('../metadata/directives');
+var directive_resolver_1 = require('../linker/directive_resolver');
+var view_resolver_1 = require('../linker/view_resolver');
+var directive_lifecycle_reflector_1 = require('../linker/directive_lifecycle_reflector');
+var interfaces_1 = require('../linker/interfaces');
+var reflection_1 = require('../reflection/reflection');
+var di_2 = require('../di');
+var util_1 = require('./util');
 var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
 var RuntimeMetadataResolver = (function() {
   function RuntimeMetadataResolver(_directiveResolver, _viewResolver) {

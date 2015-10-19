@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
 var ReflectionCapabilities = (function() {
   function ReflectionCapabilities(reflect) {
     this._reflect = lang_1.isPresent(reflect) ? reflect : lang_1.global.Reflect;

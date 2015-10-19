@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var exceptions_1 = require("../facade/exceptions");
+var exceptions_1 = require('../facade/exceptions');
 var PregenProtoChangeDetector = (function() {
   function PregenProtoChangeDetector() {}
   PregenProtoChangeDetector.isSupported = function() {

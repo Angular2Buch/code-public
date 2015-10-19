@@ -23,9 +23,9 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-var _Subject = require("../Subject");
+var _Subject = require('../Subject');
 var _Subject2 = _interopRequireDefault(_Subject);
 function windowCount(windowSize) {
   var startWindowEvery = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];

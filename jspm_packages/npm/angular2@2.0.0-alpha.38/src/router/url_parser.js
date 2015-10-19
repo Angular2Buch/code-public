@@ -9,9 +9,9 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
 var Url = (function() {
   function Url(path, child, auxiliary, params) {
     if (child === void 0) {

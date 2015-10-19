@@ -5,13 +5,13 @@ exports['default'] = subscribeToResult;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _Observable = require("../Observable");
+var _Observable = require('../Observable');
 var _Observable2 = _interopRequireDefault(_Observable);
-var _utilSymbol_iterator = require("./Symbol_iterator");
+var _utilSymbol_iterator = require('./Symbol_iterator');
 var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-var _utilSymbol_observable = require("./Symbol_observable");
+var _utilSymbol_observable = require('./Symbol_observable');
 var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
-var _InnerSubscriber = require("../InnerSubscriber");
+var _InnerSubscriber = require('../InnerSubscriber');
 var _InnerSubscriber2 = _interopRequireDefault(_InnerSubscriber);
 var isArray = Array.isArray;
 function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {

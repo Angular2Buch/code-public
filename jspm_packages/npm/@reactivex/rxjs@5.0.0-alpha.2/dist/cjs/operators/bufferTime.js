@@ -24,9 +24,9 @@
       throw new TypeError('Cannot call a class as a function');
     }
   }
-  var _Subscriber2 = require("../Subscriber");
+  var _Subscriber2 = require('../Subscriber');
   var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-  var _schedulersNextTick = require("../schedulers/nextTick");
+  var _schedulersNextTick = require('../schedulers/nextTick');
   var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
   function bufferTime(bufferTimeSpan) {
     var bufferCreationInterval = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -136,4 +136,4 @@
     subscriber.closeBuffer(buffer);
   }
   module.exports = exports['default'];
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

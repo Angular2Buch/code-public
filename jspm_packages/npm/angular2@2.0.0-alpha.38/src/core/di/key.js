@@ -1,11 +1,11 @@
 /* */ 
 'use strict';
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var type_literal_1 = require("./type_literal");
-var forward_ref_1 = require("./forward_ref");
-var type_literal_2 = require("./type_literal");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var type_literal_1 = require('./type_literal');
+var forward_ref_1 = require('./forward_ref');
+var type_literal_2 = require('./type_literal');
 exports.TypeLiteral = type_literal_2.TypeLiteral;
 var Key = (function() {
   function Key(token, id) {

@@ -9,26 +9,26 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var async_1 = require("../facade/async");
-var collection_1 = require("../facade/collection");
-var di_1 = require("../di");
-var injector_1 = require("../di/injector");
-var binding_1 = require("../di/binding");
-var di_2 = require("../metadata/di");
-var avmModule = require("./view_manager");
-var view_container_ref_1 = require("./view_container_ref");
-var element_ref_1 = require("./element_ref");
-var template_ref_1 = require("./template_ref");
-var directives_1 = require("../metadata/directives");
-var directive_lifecycle_reflector_1 = require("./directive_lifecycle_reflector");
-var change_detection_1 = require("../change_detection/change_detection");
-var query_list_1 = require("./query_list");
-var reflection_1 = require("../reflection/reflection");
-var event_config_1 = require("./event_config");
-var pipe_binding_1 = require("../pipes/pipe_binding");
-var interfaces_1 = require("./interfaces");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var async_1 = require('../facade/async');
+var collection_1 = require('../facade/collection');
+var di_1 = require('../di');
+var injector_1 = require('../di/injector');
+var binding_1 = require('../di/binding');
+var di_2 = require('../metadata/di');
+var avmModule = require('./view_manager');
+var view_container_ref_1 = require('./view_container_ref');
+var element_ref_1 = require('./element_ref');
+var template_ref_1 = require('./template_ref');
+var directives_1 = require('../metadata/directives');
+var directive_lifecycle_reflector_1 = require('./directive_lifecycle_reflector');
+var change_detection_1 = require('../change_detection/change_detection');
+var query_list_1 = require('./query_list');
+var reflection_1 = require('../reflection/reflection');
+var event_config_1 = require('./event_config');
+var pipe_binding_1 = require('../pipes/pipe_binding');
+var interfaces_1 = require('./interfaces');
 var _staticKeys;
 var StaticKeys = (function() {
   function StaticKeys() {

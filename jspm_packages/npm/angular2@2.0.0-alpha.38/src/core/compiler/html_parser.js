@@ -22,11 +22,11 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var dom_adapter_1 = require("../dom/dom_adapter");
-var html_ast_1 = require("./html_ast");
-var util_1 = require("./util");
-var di_1 = require("../di");
+var lang_1 = require('../facade/lang');
+var dom_adapter_1 = require('../dom/dom_adapter');
+var html_ast_1 = require('./html_ast');
+var util_1 = require('./util');
+var di_1 = require('../di');
 var NG_NON_BINDABLE = 'ng-non-bindable';
 var HtmlParser = (function() {
   function HtmlParser() {}

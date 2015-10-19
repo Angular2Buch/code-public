@@ -22,13 +22,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var metadata_1 = require("../../metadata");
-var linker_1 = require("../../linker");
-var render_1 = require("../../render");
-var di_1 = require("../../di");
-var control_value_accessor_1 = require("./control_value_accessor");
-var lang_1 = require("../../facade/lang");
-var shared_1 = require("./shared");
+var metadata_1 = require('../../metadata');
+var linker_1 = require('../../linker');
+var render_1 = require('../../render');
+var di_1 = require('../../di');
+var control_value_accessor_1 = require('./control_value_accessor');
+var lang_1 = require('../../facade/lang');
+var shared_1 = require('./shared');
 var DEFAULT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, {
   toAlias: di_1.forwardRef(function() {
     return DefaultValueAccessor;

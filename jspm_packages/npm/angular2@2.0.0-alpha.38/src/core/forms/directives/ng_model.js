@@ -36,15 +36,15 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var lang_1 = require("../../facade/lang");
-var async_1 = require("../../facade/async");
-var metadata_1 = require("../../metadata");
-var di_1 = require("../../di");
-var control_value_accessor_1 = require("./control_value_accessor");
-var ng_control_1 = require("./ng_control");
-var model_1 = require("../model");
-var validators_1 = require("../validators");
-var shared_1 = require("./shared");
+var lang_1 = require('../../facade/lang');
+var async_1 = require('../../facade/async');
+var metadata_1 = require('../../metadata');
+var di_1 = require('../../di');
+var control_value_accessor_1 = require('./control_value_accessor');
+var ng_control_1 = require('./ng_control');
+var model_1 = require('../model');
+var validators_1 = require('../validators');
+var shared_1 = require('./shared');
 var formControlBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, {toAlias: di_1.forwardRef(function() {
     return NgModel;
   })}));

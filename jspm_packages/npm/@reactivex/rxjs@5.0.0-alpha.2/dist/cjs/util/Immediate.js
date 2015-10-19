@@ -2,7 +2,7 @@
 (function(process) {
   "use strict";
   exports.__esModule = true;
-  var _root = require("./root");
+  var _root = require('./root');
   var Immediate = {
     setImmediate: function setImmediate(x) {
       return 0;
@@ -144,4 +144,4 @@
       }
     })(_root.root, Immediate);
   }
-})(require("process"));
+})(require('process'));

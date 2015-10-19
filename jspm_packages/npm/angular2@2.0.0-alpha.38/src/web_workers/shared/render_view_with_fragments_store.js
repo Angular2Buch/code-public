@@ -36,10 +36,10 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var di_1 = require("../../core/di");
-var api_1 = require("../../core/render/api");
-var api_2 = require("./api");
-var collection_1 = require("../../core/facade/collection");
+var di_1 = require('../../core/di');
+var api_1 = require('../../core/render/api');
+var api_2 = require('./api');
+var collection_1 = require('../../core/facade/collection');
 var RenderViewWithFragmentsStore = (function() {
   function RenderViewWithFragmentsStore(onWebWorker) {
     this._nextIndex = 0;

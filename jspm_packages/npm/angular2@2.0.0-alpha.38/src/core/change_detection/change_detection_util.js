@@ -1,12 +1,12 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var constants_1 = require("./constants");
-var pipe_lifecycle_reflector_1 = require("./pipe_lifecycle_reflector");
-var binding_record_1 = require("./binding_record");
-var directive_record_1 = require("./directive_record");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var constants_1 = require('./constants');
+var pipe_lifecycle_reflector_1 = require('./pipe_lifecycle_reflector');
+var binding_record_1 = require('./binding_record');
+var directive_record_1 = require('./directive_record');
 var WrappedValue = (function() {
   function WrappedValue(wrapped) {
     this.wrapped = wrapped;

@@ -22,11 +22,11 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Observable2 = require("../Observable");
+var _Observable2 = require('../Observable');
 var _Observable3 = _interopRequireDefault(_Observable2);
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
+var _utilErrorObject = require('../util/errorObject');
 var DeferObservable = (function(_Observable) {
   _inherits(DeferObservable, _Observable);
   function DeferObservable(observableFactory) {

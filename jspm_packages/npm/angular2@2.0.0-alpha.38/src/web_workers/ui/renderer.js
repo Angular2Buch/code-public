@@ -22,17 +22,17 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
-var message_bus_1 = require("../shared/message_bus");
-var serializer_1 = require("../shared/serializer");
-var api_1 = require("../../core/render/api");
-var api_2 = require("../shared/api");
-var messaging_api_1 = require("../shared/messaging_api");
-var bind_1 = require("./bind");
-var event_dispatcher_1 = require("./event_dispatcher");
-var render_proto_view_ref_store_1 = require("../shared/render_proto_view_ref_store");
-var render_view_with_fragments_store_1 = require("../shared/render_view_with_fragments_store");
-var service_message_broker_1 = require("../shared/service_message_broker");
+var di_1 = require('../../core/di');
+var message_bus_1 = require('../shared/message_bus');
+var serializer_1 = require('../shared/serializer');
+var api_1 = require('../../core/render/api');
+var api_2 = require('../shared/api');
+var messaging_api_1 = require('../shared/messaging_api');
+var bind_1 = require('./bind');
+var event_dispatcher_1 = require('./event_dispatcher');
+var render_proto_view_ref_store_1 = require('../shared/render_proto_view_ref_store');
+var render_view_with_fragments_store_1 = require('../shared/render_view_with_fragments_store');
+var service_message_broker_1 = require('../shared/service_message_broker');
 var MessageBasedRenderer = (function() {
   function MessageBasedRenderer(_brokerFactory, _bus, _serializer, _renderProtoViewRefStore, _renderViewWithFragmentsStore, _renderer) {
     this._brokerFactory = _brokerFactory;

@@ -1,10 +1,10 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var collection_1 = require("../core/facade/collection");
-var url_parser_1 = require("./url_parser");
-var instruction_1 = require("./instruction");
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var collection_1 = require('../core/facade/collection');
+var url_parser_1 = require('./url_parser');
+var instruction_1 = require('./instruction');
 var TouchMap = (function() {
   function TouchMap(map) {
     var _this = this;

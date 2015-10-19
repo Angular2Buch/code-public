@@ -22,14 +22,14 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
-var collection_1 = require("../../core/facade/collection");
-var api_1 = require("../../core/render/api");
-var serializer_1 = require("../shared/serializer");
-var messaging_api_1 = require("../shared/messaging_api");
-var message_bus_1 = require("../shared/message_bus");
-var async_1 = require("../../core/facade/async");
-var event_deserializer_1 = require("./event_deserializer");
+var di_1 = require('../../core/di');
+var collection_1 = require('../../core/facade/collection');
+var api_1 = require('../../core/render/api');
+var serializer_1 = require('../shared/serializer');
+var messaging_api_1 = require('../shared/messaging_api');
+var message_bus_1 = require('../shared/message_bus');
+var async_1 = require('../../core/facade/async');
+var event_deserializer_1 = require('./event_deserializer');
 var WebWorkerEventDispatcher = (function() {
   function WebWorkerEventDispatcher(bus, _serializer) {
     var _this = this;

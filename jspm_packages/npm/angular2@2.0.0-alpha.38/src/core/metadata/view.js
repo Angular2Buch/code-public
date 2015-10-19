@@ -22,8 +22,8 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var api_1 = require("../render/api");
+var lang_1 = require('../facade/lang');
+var api_1 = require('../render/api');
 exports.ViewEncapsulation = api_1.ViewEncapsulation;
 var ViewMetadata = (function() {
   function ViewMetadata(_a) {

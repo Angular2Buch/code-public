@@ -1,13 +1,13 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var collection_1 = require("../core/facade/collection");
-var path_recognizer_1 = require("./path_recognizer");
-var route_config_impl_1 = require("./route_config_impl");
-var async_route_handler_1 = require("./async_route_handler");
-var sync_route_handler_1 = require("./sync_route_handler");
-var url_parser_1 = require("./url_parser");
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var collection_1 = require('../core/facade/collection');
+var path_recognizer_1 = require('./path_recognizer');
+var route_config_impl_1 = require('./route_config_impl');
+var async_route_handler_1 = require('./async_route_handler');
+var sync_route_handler_1 = require('./sync_route_handler');
+var url_parser_1 = require('./url_parser');
 var RouteRecognizer = (function() {
   function RouteRecognizer() {
     this.names = new collection_1.Map();

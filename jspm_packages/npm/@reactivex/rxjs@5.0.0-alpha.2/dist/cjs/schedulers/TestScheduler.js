@@ -22,13 +22,13 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Observable = require("../Observable");
+var _Observable = require('../Observable');
 var _Observable2 = _interopRequireDefault(_Observable);
-var _VirtualTimeScheduler2 = require("./VirtualTimeScheduler");
+var _VirtualTimeScheduler2 = require('./VirtualTimeScheduler');
 var _VirtualTimeScheduler3 = _interopRequireDefault(_VirtualTimeScheduler2);
-var _Notification = require("../Notification");
+var _Notification = require('../Notification');
 var _Notification2 = _interopRequireDefault(_Notification);
-var _Subject = require("../Subject");
+var _Subject = require('../Subject');
 var _Subject2 = _interopRequireDefault(_Subject);
 var TestScheduler = (function(_VirtualTimeScheduler) {
   _inherits(TestScheduler, _VirtualTimeScheduler);

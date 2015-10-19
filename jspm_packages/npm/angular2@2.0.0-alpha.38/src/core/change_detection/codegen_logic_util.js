@@ -1,11 +1,11 @@
 /* */ 
 'use strict';
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var codegen_facade_1 = require("./codegen_facade");
-var proto_record_1 = require("./proto_record");
-var constants_1 = require("./constants");
-var exceptions_1 = require("../facade/exceptions");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var codegen_facade_1 = require('./codegen_facade');
+var proto_record_1 = require('./proto_record');
+var constants_1 = require('./constants');
+var exceptions_1 = require('../facade/exceptions');
 var CodegenLogicUtil = (function() {
   function CodegenLogicUtil(_names, _utilName, _changeDetection) {
     this._names = _names;

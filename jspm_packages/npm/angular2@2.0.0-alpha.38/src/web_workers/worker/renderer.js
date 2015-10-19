@@ -22,15 +22,15 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var api_1 = require("../../core/render/api");
-var client_message_broker_1 = require("../shared/client_message_broker");
-var lang_1 = require("../../core/facade/lang");
-var di_1 = require("../../core/di");
-var render_proto_view_ref_store_1 = require("../shared/render_proto_view_ref_store");
-var render_view_with_fragments_store_1 = require("../shared/render_view_with_fragments_store");
-var api_2 = require("../shared/api");
-var messaging_api_1 = require("../shared/messaging_api");
-var event_dispatcher_1 = require("./event_dispatcher");
+var api_1 = require('../../core/render/api');
+var client_message_broker_1 = require('../shared/client_message_broker');
+var lang_1 = require('../../core/facade/lang');
+var di_1 = require('../../core/di');
+var render_proto_view_ref_store_1 = require('../shared/render_proto_view_ref_store');
+var render_view_with_fragments_store_1 = require('../shared/render_view_with_fragments_store');
+var api_2 = require('../shared/api');
+var messaging_api_1 = require('../shared/messaging_api');
+var event_dispatcher_1 = require('./event_dispatcher');
 var WebWorkerRenderer = (function() {
   function WebWorkerRenderer(messageBrokerFactory, _renderProtoViewRefStore, _renderViewStore, _eventDispatcher) {
     this._renderProtoViewRefStore = _renderProtoViewRefStore;

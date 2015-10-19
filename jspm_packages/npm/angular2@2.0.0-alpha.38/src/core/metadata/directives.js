@@ -31,9 +31,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var metadata_1 = require("../di/metadata");
-var change_detection_1 = require("../change_detection");
+var lang_1 = require('../facade/lang');
+var metadata_1 = require('../di/metadata');
+var change_detection_1 = require('../change_detection');
 var DirectiveMetadata = (function(_super) {
   __extends(DirectiveMetadata, _super);
   function DirectiveMetadata(_a) {

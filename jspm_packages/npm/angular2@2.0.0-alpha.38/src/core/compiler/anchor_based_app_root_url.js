@@ -31,9 +31,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var app_root_url_1 = require("./app_root_url");
-var dom_adapter_1 = require("../dom/dom_adapter");
-var di_1 = require("../di");
+var app_root_url_1 = require('./app_root_url');
+var dom_adapter_1 = require('../dom/dom_adapter');
+var di_1 = require('../di');
 var AnchorBasedAppRootUrl = (function(_super) {
   __extends(AnchorBasedAppRootUrl, _super);
   function AnchorBasedAppRootUrl() {

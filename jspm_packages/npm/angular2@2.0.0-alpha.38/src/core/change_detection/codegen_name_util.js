@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
 var _ALREADY_CHECKED_ACCESSOR = "alreadyChecked";
 var _CONTEXT_ACCESSOR = "context";
 var _PROP_BINDING_INDEX = "propertyBindingIndex";

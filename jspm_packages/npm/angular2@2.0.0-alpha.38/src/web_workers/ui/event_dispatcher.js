@@ -1,10 +1,10 @@
 /* */ 
 'use strict';
-var api_1 = require("../../core/render/api");
-var event_serializer_1 = require("./event_serializer");
-var exceptions_1 = require("../../core/facade/exceptions");
-var collection_1 = require("../../core/facade/collection");
-var async_1 = require("../../core/facade/async");
+var api_1 = require('../../core/render/api');
+var event_serializer_1 = require('./event_serializer');
+var exceptions_1 = require('../../core/facade/exceptions');
+var collection_1 = require('../../core/facade/collection');
+var async_1 = require('../../core/facade/async');
 var EventDispatcher = (function() {
   function EventDispatcher(_viewRef, _sink, _serializer) {
     this._viewRef = _viewRef;

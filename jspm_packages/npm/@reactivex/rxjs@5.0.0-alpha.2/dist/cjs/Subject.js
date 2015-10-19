@@ -22,13 +22,13 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Observable2 = require("./Observable");
+var _Observable2 = require('./Observable');
 var _Observable3 = _interopRequireDefault(_Observable2);
-var _Subscriber = require("./Subscriber");
+var _Subscriber = require('./Subscriber');
 var _Subscriber2 = _interopRequireDefault(_Subscriber);
-var _Subscription = require("./Subscription");
+var _Subscription = require('./Subscription');
 var _Subscription2 = _interopRequireDefault(_Subscription);
-var _subjectsSubjectSubscription = require("./subjects/SubjectSubscription");
+var _subjectsSubjectSubscription = require('./subjects/SubjectSubscription');
 var _subjectsSubjectSubscription2 = _interopRequireDefault(_subjectsSubjectSubscription);
 var subscriptionAdd = _Subscription2['default'].prototype.add;
 var subscriptionRemove = _Subscription2['default'].prototype.remove;

@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var keys = require("../keys");
+var keys = require('../keys');
 var _defineProperty = Object.defineProperty;
 var _getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
 var _create = Object.create;

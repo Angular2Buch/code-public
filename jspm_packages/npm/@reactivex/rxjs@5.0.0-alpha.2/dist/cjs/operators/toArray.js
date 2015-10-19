@@ -23,7 +23,7 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
 function toArray() {
   return this.lift(new ToArrayOperator());

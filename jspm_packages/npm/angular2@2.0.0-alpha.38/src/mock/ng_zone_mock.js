@@ -9,7 +9,7 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var ng_zone_1 = require("../core/zone/ng_zone");
+var ng_zone_1 = require('../core/zone/ng_zone');
 var MockNgZone = (function(_super) {
   __extends(MockNgZone, _super);
   function MockNgZone() {

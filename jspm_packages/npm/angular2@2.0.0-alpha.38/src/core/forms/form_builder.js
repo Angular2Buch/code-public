@@ -22,10 +22,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var modelModule = require("./model");
+var di_1 = require('../di');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var modelModule = require('./model');
 var FormBuilder = (function() {
   function FormBuilder() {}
   FormBuilder.prototype.group = function(controlsConfig, extra) {

@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 function extractAnnotation(annotation) {
   if (lang_1.isFunction(annotation) && annotation.hasOwnProperty('annotation')) {
     annotation = annotation.annotation;

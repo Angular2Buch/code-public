@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var decorators_1 = require("../../di/decorators");
-var collection_1 = require("../../facade/collection");
-var lang_1 = require("../../facade/lang");
-var exceptions_1 = require("../../facade/exceptions");
+var decorators_1 = require('../../di/decorators');
+var collection_1 = require('../../facade/collection');
+var lang_1 = require('../../facade/lang');
+var exceptions_1 = require('../../facade/exceptions');
 (function(TokenType) {
   TokenType[TokenType["Character"] = 0] = "Character";
   TokenType[TokenType["Identifier"] = 1] = "Identifier";

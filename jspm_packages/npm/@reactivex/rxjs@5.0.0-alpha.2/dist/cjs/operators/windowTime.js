@@ -23,11 +23,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-var _Subject = require("../Subject");
+var _Subject = require('../Subject');
 var _Subject2 = _interopRequireDefault(_Subject);
-var _schedulersNextTick = require("../schedulers/nextTick");
+var _schedulersNextTick = require('../schedulers/nextTick');
 var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
 function windowTime(windowTimeSpan) {
   var windowCreationInterval = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];

@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var messaging_api_1 = require("../shared/messaging_api");
-var async_1 = require("../../core/facade/async");
-var message_bus_1 = require("../shared/message_bus");
-var anchor_based_app_root_url_1 = require("../../core/compiler/anchor_based_app_root_url");
-var lang_1 = require("../../core/facade/lang");
-var di_1 = require("../../core/di");
+var messaging_api_1 = require('../shared/messaging_api');
+var async_1 = require('../../core/facade/async');
+var message_bus_1 = require('../shared/message_bus');
+var anchor_based_app_root_url_1 = require('../../core/compiler/anchor_based_app_root_url');
+var lang_1 = require('../../core/facade/lang');
+var di_1 = require('../../core/di');
 var WebWorkerSetup = (function() {
   function WebWorkerSetup(_bus, anchorBasedAppRootUrl) {
     this._bus = _bus;

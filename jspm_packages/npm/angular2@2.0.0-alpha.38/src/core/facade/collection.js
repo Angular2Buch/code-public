@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("./lang");
+var lang_1 = require('./lang');
 exports.Map = lang_1.global.Map;
 exports.Set = lang_1.global.Set;
 exports.StringMap = lang_1.global.Object;

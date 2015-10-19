@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
 var RouteParams = (function() {
   function RouteParams(params) {
     this.params = params;

@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var async_1 = require("../facade/async");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var async_1 = require('../facade/async');
 var QueryList = (function() {
   function QueryList() {
     this._results = [];

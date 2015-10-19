@@ -9,9 +9,9 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _ImmediateAction = require("./ImmediateAction");
+var _ImmediateAction = require('./ImmediateAction');
 var _ImmediateAction2 = _interopRequireDefault(_ImmediateAction);
-var _FutureAction = require("./FutureAction");
+var _FutureAction = require('./FutureAction');
 var _FutureAction2 = _interopRequireDefault(_FutureAction);
 var ImmediateScheduler = (function() {
   function ImmediateScheduler() {

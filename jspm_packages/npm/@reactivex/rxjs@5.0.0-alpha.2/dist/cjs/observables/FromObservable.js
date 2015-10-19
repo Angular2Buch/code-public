@@ -22,20 +22,20 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _PromiseObservable = require("./PromiseObservable");
+var _PromiseObservable = require('./PromiseObservable');
 var _PromiseObservable2 = _interopRequireDefault(_PromiseObservable);
-var _IteratorObservable = require("./IteratorObservable");
+var _IteratorObservable = require('./IteratorObservable');
 var _IteratorObservable2 = _interopRequireDefault(_IteratorObservable);
-var _ArrayObservable = require("./ArrayObservable");
+var _ArrayObservable = require('./ArrayObservable');
 var _ArrayObservable2 = _interopRequireDefault(_ArrayObservable);
-var _utilSymbol_observable = require("../util/Symbol_observable");
+var _utilSymbol_observable = require('../util/Symbol_observable');
 var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
-var _utilSymbol_iterator = require("../util/Symbol_iterator");
+var _utilSymbol_iterator = require('../util/Symbol_iterator');
 var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-var _Observable2 = require("../Observable");
+var _Observable2 = require('../Observable');
 var _Observable3 = _interopRequireDefault(_Observable2);
-var _operatorsObserveOnSupport = require("../operators/observeOn-support");
-var _schedulersImmediate = require("../schedulers/immediate");
+var _operatorsObserveOnSupport = require('../operators/observeOn-support');
+var _schedulersImmediate = require('../schedulers/immediate');
 var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
 var isArray = Array.isArray;
 var FromObservable = (function(_Observable) {

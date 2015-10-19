@@ -9,10 +9,10 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var api_1 = require("./api");
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var api_1 = require('./api');
 var DefaultProtoViewRef = (function(_super) {
   __extends(DefaultProtoViewRef, _super);
   function DefaultProtoViewRef(cmds) {

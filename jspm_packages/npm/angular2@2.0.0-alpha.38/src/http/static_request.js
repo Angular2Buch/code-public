@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var headers_1 = require("./headers");
-var http_utils_1 = require("./http_utils");
-var lang_1 = require("../core/facade/lang");
+var headers_1 = require('./headers');
+var http_utils_1 = require('./http_utils');
+var lang_1 = require('../core/facade/lang');
 var Request = (function() {
   function Request(requestOptions) {
     var url = requestOptions.url;

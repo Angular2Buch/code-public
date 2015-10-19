@@ -23,13 +23,13 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber3 = require("../Subscriber");
+var _Subscriber3 = require('../Subscriber');
 var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-var _Subject = require("../Subject");
+var _Subject = require('../Subject');
 var _Subject2 = _interopRequireDefault(_Subject);
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
+var _utilErrorObject = require('../util/errorObject');
 function retryWhen(notifier) {
   return this.lift(new RetryWhenOperator(notifier, this));
 }

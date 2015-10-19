@@ -5,10 +5,10 @@ function __export(m) {
     if (!exports.hasOwnProperty(p))
       exports[p] = m[p];
 }
-__export(require("./src/mock/mock_location_strategy"));
-var location_strategy_1 = require("./src/router/location_strategy");
+__export(require('./src/mock/mock_location_strategy'));
+var location_strategy_1 = require('./src/router/location_strategy');
 exports.LocationStrategy = location_strategy_1.LocationStrategy;
-var view_resolver_mock_1 = require("./src/mock/view_resolver_mock");
+var view_resolver_mock_1 = require('./src/mock/view_resolver_mock');
 exports.MockViewResolver = view_resolver_mock_1.MockViewResolver;
-var xhr_mock_1 = require("./src/core/compiler/xhr_mock");
+var xhr_mock_1 = require('./src/core/compiler/xhr_mock');
 exports.MockXHR = xhr_mock_1.MockXHR;

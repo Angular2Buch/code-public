@@ -1,15 +1,15 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var ast_1 = require("./parser/ast");
-var change_detection_util_1 = require("./change_detection_util");
-var dynamic_change_detector_1 = require("./dynamic_change_detector");
-var directive_record_1 = require("./directive_record");
-var event_binding_1 = require("./event_binding");
-var coalesce_1 = require("./coalesce");
-var proto_record_1 = require("./proto_record");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var ast_1 = require('./parser/ast');
+var change_detection_util_1 = require('./change_detection_util');
+var dynamic_change_detector_1 = require('./dynamic_change_detector');
+var directive_record_1 = require('./directive_record');
+var event_binding_1 = require('./event_binding');
+var coalesce_1 = require('./coalesce');
+var proto_record_1 = require('./proto_record');
 var DynamicProtoChangeDetector = (function() {
   function DynamicProtoChangeDetector(_definition) {
     this._definition = _definition;

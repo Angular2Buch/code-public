@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var core = require("../core");
-var browserPatch = require("../patch/browser");
+var core = require('../core');
+var browserPatch = require('../patch/browser');
 if (global.Zone) {
   console.warn('Zone already exported on window the object!');
 }

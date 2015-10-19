@@ -1,11 +1,11 @@
 /* */ 
 'use strict';
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var reflection_1 = require("../reflection/reflection");
-var change_detection_1 = require("../change_detection/change_detection");
-var template_ast_1 = require("./template_ast");
-var interfaces_1 = require("../linker/interfaces");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var reflection_1 = require('../reflection/reflection');
+var change_detection_1 = require('../change_detection/change_detection');
+var template_ast_1 = require('./template_ast');
+var interfaces_1 = require('../linker/interfaces');
 function createChangeDetectorDefinitions(componentType, componentStrategy, genConfig, parsedTemplate) {
   var pvVisitors = [];
   var visitor = new ProtoViewVisitor(null, pvVisitors, componentStrategy);

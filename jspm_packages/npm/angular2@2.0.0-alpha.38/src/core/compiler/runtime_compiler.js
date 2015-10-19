@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var compiler_1 = require("../linker/compiler");
-var proto_view_factory_1 = require("../linker/proto_view_factory");
-var template_compiler_1 = require("./template_compiler");
-var di_1 = require("../di");
+var compiler_1 = require('../linker/compiler');
+var proto_view_factory_1 = require('../linker/proto_view_factory');
+var template_compiler_1 = require('./template_compiler');
+var di_1 = require('../di');
 var RuntimeCompiler = (function(_super) {
   __extends(RuntimeCompiler, _super);
   function RuntimeCompiler(_protoViewFactory, _templateCompiler) {

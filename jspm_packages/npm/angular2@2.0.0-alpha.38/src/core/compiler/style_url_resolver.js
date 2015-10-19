@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 function resolveStyleUrls(resolver, baseUrl, cssText) {
   var foundUrls = [];
   cssText = extractUrls(resolver, baseUrl, cssText, foundUrls);

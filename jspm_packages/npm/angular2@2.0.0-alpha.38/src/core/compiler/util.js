@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 var CAMEL_CASE_REGEXP = /([A-Z])/g;
 var DASH_CASE_REGEXP = /-([a-z])/g;
 var SINGLE_QUOTE_ESCAPE_STRING_RE = /'|\\|\n|\$/g;

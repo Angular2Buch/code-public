@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 var DIRECTIVE_LIFECYCLE = "directiveLifecycle";
 var BINDING = "native";
 var DIRECTIVE = "directive";

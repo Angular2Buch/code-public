@@ -9,10 +9,10 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
-var metadata_1 = require("../core/metadata");
-var directive_resolver_1 = require("../core/linker/directive_resolver");
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
+var metadata_1 = require('../core/metadata');
+var directive_resolver_1 = require('../core/linker/directive_resolver');
 var MockDirectiveResolver = (function(_super) {
   __extends(MockDirectiveResolver, _super);
   function MockDirectiveResolver() {

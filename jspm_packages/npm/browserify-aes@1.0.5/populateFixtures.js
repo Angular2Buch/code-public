@@ -1,11 +1,11 @@
 /* */ 
 (function(Buffer) {
-  var modes = require("./modes");
-  var fixtures = require("./test/fixtures.json!systemjs-json");
-  var crypto = require("crypto");
+  var modes = require('./modes');
+  var fixtures = require('./test/fixtures.json!systemjs-json');
+  var crypto = require('crypto');
   var types = ['aes-128-cfb1', 'aes-192-cfb1', 'aes-256-cfb1'];
-  var ebtk = require("./EVP_BytesToKey");
-  var fs = require("fs");
+  var ebtk = require('./EVP_BytesToKey');
+  var fs = require('fs');
   fixtures.forEach(function(fixture) {
     types.forEach(function(cipher) {
       var suite = crypto.createCipher(cipher, new Buffer(fixture.password));
@@ -24,4 +24,4 @@
     });
   });
   fs.writeFileSync('./test/fixturesNew.json', JSON.stringify(fixtures, false, 4));
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

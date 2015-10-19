@@ -537,4 +537,4 @@
       }
     })(typeof window !== "undefined" ? window : typeof WorkerGlobalScope !== "undefined" ? self : typeof global !== "undefined" ? global : Function("return this;")());
   })(Reflect || (Reflect = {}));
-})(require("process"));
+})(require('process'));

@@ -1,26 +1,26 @@
 /* */ 
 'use strict';
-var di_1 = require("../../core/di");
-var forms_1 = require("../../core/forms");
-var lang_1 = require("../../core/facade/lang");
-var exceptions_1 = require("../../core/facade/exceptions");
-var async_1 = require("../../core/facade/async");
-var xhr_1 = require("../../core/compiler/xhr");
-var xhr_impl_1 = require("./xhr_impl");
-var app_root_url_1 = require("../../core/compiler/app_root_url");
-var renderer_1 = require("./renderer");
-var api_1 = require("../../core/render/api");
-var client_message_broker_1 = require("../shared/client_message_broker");
-var message_bus_1 = require("../shared/message_bus");
-var application_ref_1 = require("../../core/application_ref");
-var serializer_1 = require("../shared/serializer");
-var api_2 = require("../shared/api");
-var render_proto_view_ref_store_1 = require("../shared/render_proto_view_ref_store");
-var render_view_with_fragments_store_1 = require("../shared/render_view_with_fragments_store");
-var async_2 = require("../../core/facade/async");
-var messaging_api_1 = require("../shared/messaging_api");
-var event_dispatcher_1 = require("./event_dispatcher");
-var compiler_1 = require("../../core/compiler/compiler");
+var di_1 = require('../../core/di');
+var forms_1 = require('../../core/forms');
+var lang_1 = require('../../core/facade/lang');
+var exceptions_1 = require('../../core/facade/exceptions');
+var async_1 = require('../../core/facade/async');
+var xhr_1 = require('../../core/compiler/xhr');
+var xhr_impl_1 = require('./xhr_impl');
+var app_root_url_1 = require('../../core/compiler/app_root_url');
+var renderer_1 = require('./renderer');
+var api_1 = require('../../core/render/api');
+var client_message_broker_1 = require('../shared/client_message_broker');
+var message_bus_1 = require('../shared/message_bus');
+var application_ref_1 = require('../../core/application_ref');
+var serializer_1 = require('../shared/serializer');
+var api_2 = require('../shared/api');
+var render_proto_view_ref_store_1 = require('../shared/render_proto_view_ref_store');
+var render_view_with_fragments_store_1 = require('../shared/render_view_with_fragments_store');
+var async_2 = require('../../core/facade/async');
+var messaging_api_1 = require('../shared/messaging_api');
+var event_dispatcher_1 = require('./event_dispatcher');
+var compiler_1 = require('../../core/compiler/compiler');
 function platform(bindings) {
   return application_ref_1.platformCommon(bindings);
 }

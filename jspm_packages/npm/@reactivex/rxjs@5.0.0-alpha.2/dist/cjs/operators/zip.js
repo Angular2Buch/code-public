@@ -5,7 +5,7 @@ exports['default'] = zipProto;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _zipStatic = require("./zip-static");
+var _zipStatic = require('./zip-static');
 var _zipStatic2 = _interopRequireDefault(_zipStatic);
 function zipProto() {
   for (var _len = arguments.length,

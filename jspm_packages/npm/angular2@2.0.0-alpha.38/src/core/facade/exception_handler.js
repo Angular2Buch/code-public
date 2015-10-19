@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("./lang");
-var exceptions_1 = require("./exceptions");
-var collection_1 = require("./collection");
+var lang_1 = require('./lang');
+var exceptions_1 = require('./exceptions');
+var collection_1 = require('./collection');
 var _ArrayLogger = (function() {
   function _ArrayLogger() {
     this.res = [];

@@ -1,12 +1,12 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
-var change_detection_1 = require("../change_detection/change_detection");
-var api_1 = require("../render/api");
-var selector_1 = require("./selector");
-var util_1 = require("./util");
-var interfaces_1 = require("../linker/interfaces");
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
+var change_detection_1 = require('../change_detection/change_detection');
+var api_1 = require('../render/api');
+var selector_1 = require('./selector');
+var util_1 = require('./util');
+var interfaces_1 = require('../linker/interfaces');
 var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
 var CompileTypeMetadata = (function() {
   function CompileTypeMetadata(_a) {

@@ -27,22 +27,22 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var api_1 = require("../render/api");
-var di_1 = require("../di");
-var pipe_binding_1 = require("../pipes/pipe_binding");
-var pipes_1 = require("../pipes/pipes");
-var view_1 = require("./view");
-var element_binder_1 = require("./element_binder");
-var element_injector_1 = require("./element_injector");
-var directive_resolver_1 = require("./directive_resolver");
-var view_resolver_1 = require("./view_resolver");
-var pipe_resolver_1 = require("./pipe_resolver");
-var pipes_2 = require("../pipes");
-var template_commands_1 = require("./template_commands");
-var render_1 = require("../../../render");
-var application_tokens_1 = require("../application_tokens");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var api_1 = require('../render/api');
+var di_1 = require('../di');
+var pipe_binding_1 = require('../pipes/pipe_binding');
+var pipes_1 = require('../pipes/pipes');
+var view_1 = require('./view');
+var element_binder_1 = require('./element_binder');
+var element_injector_1 = require('./element_injector');
+var directive_resolver_1 = require('./directive_resolver');
+var view_resolver_1 = require('./view_resolver');
+var pipe_resolver_1 = require('./pipe_resolver');
+var pipes_2 = require('../pipes');
+var template_commands_1 = require('./template_commands');
+var render_1 = require('../../../render');
+var application_tokens_1 = require('../application_tokens');
 var ProtoViewFactory = (function() {
   function ProtoViewFactory(_renderer, defaultPipes, _directiveResolver, _viewResolver, _pipeResolver, appId) {
     this._renderer = _renderer;

@@ -9,12 +9,12 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = require("../core/facade/async");
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var instruction_1 = require("./instruction");
-var route_lifecycle_reflector_1 = require("./route_lifecycle_reflector");
+var async_1 = require('../core/facade/async');
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var instruction_1 = require('./instruction');
+var route_lifecycle_reflector_1 = require('./route_lifecycle_reflector');
 var _resolveToTrue = async_1.PromiseWrapper.resolve(true);
 var _resolveToFalse = async_1.PromiseWrapper.resolve(false);
 var Router = (function() {

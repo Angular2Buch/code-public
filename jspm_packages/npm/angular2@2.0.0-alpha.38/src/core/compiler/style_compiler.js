@@ -22,16 +22,16 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var source_module_1 = require("./source_module");
-var api_1 = require("../render/api");
-var xhr_1 = require("./xhr");
-var lang_1 = require("../facade/lang");
-var async_1 = require("../facade/async");
-var shadow_css_1 = require("./shadow_css");
-var url_resolver_1 = require("./url_resolver");
-var style_url_resolver_1 = require("./style_url_resolver");
-var util_1 = require("./util");
-var di_1 = require("../di");
+var source_module_1 = require('./source_module');
+var api_1 = require('../render/api');
+var xhr_1 = require('./xhr');
+var lang_1 = require('../facade/lang');
+var async_1 = require('../facade/async');
+var shadow_css_1 = require('./shadow_css');
+var url_resolver_1 = require('./url_resolver');
+var style_url_resolver_1 = require('./style_url_resolver');
+var util_1 = require('./util');
+var di_1 = require('../di');
 var COMPONENT_VARIABLE = '%COMP%';
 var COMPONENT_REGEX = /%COMP%/g;
 var HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;

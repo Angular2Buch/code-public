@@ -31,13 +31,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var decorators_1 = require("../core/di/decorators");
-var interfaces_1 = require("./interfaces");
-var static_request_1 = require("./static_request");
-var base_request_options_1 = require("./base_request_options");
-var enums_1 = require("./enums");
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var decorators_1 = require('../core/di/decorators');
+var interfaces_1 = require('./interfaces');
+var static_request_1 = require('./static_request');
+var base_request_options_1 = require('./base_request_options');
+var enums_1 = require('./enums');
 function httpRequest(backend, request) {
   return backend.createConnection(request).response;
 }

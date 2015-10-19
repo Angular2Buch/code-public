@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var testability_1 = require("./testability");
-var lang_1 = require("../facade/lang");
+var testability_1 = require('./testability');
+var lang_1 = require('../facade/lang');
 var PublicTestability = (function() {
   function PublicTestability(testability) {
     this._testability = testability;

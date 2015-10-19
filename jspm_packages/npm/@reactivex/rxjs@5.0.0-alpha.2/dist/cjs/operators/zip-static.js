@@ -5,9 +5,9 @@ exports['default'] = zip;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _observablesArrayObservable = require("../observables/ArrayObservable");
+var _observablesArrayObservable = require('../observables/ArrayObservable');
 var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-var _zipSupport = require("./zip-support");
+var _zipSupport = require('./zip-support');
 function zip() {
   for (var _len = arguments.length,
       observables = Array(_len),

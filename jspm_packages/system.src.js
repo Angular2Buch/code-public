@@ -1,5 +1,5 @@
 /*
- * SystemJS v0.19.3
+ * SystemJS v0.19.5
  */
 (function() {
 function bootstrap() {(function(__global) {
@@ -836,19 +836,14 @@ function logloads(loads) {
       if (typeof obj != 'object')
         throw new TypeError('Expected object');
 
-      // we do this to be able to tell if a module is a module privately in ES5
-      // by doing m instanceof Module
       var m = new Module();
 
-      var pNames;
-      if (Object.getOwnPropertyNames && obj != null) {
+      var pNames = [];
+      if (Object.getOwnPropertyNames && obj != null)
         pNames = Object.getOwnPropertyNames(obj);
-      }
-      else {
-        pNames = [];
+      else
         for (var key in obj)
           pNames.push(key);
-      }
 
       for (var i = 0; i < pNames.length; i++) (function(key) {
         defineProperty(m, key, {
@@ -859,9 +854,6 @@ function logloads(loads) {
           }
         });
       })(pNames[i]);
-
-      if (Object.preventExtensions)
-        Object.preventExtensions(m);
 
       return m;
     },
@@ -1264,7 +1256,7 @@ function extend(a, b, prepend) {
 }
 
 // package configuration options
-var packageProperties = ['main', 'format', 'defaultExtension', 'meta', 'map', 'basePath', 'depCache'];
+var packageProperties = ['main', 'format', 'defaultExtension', 'modules', 'map', 'basePath', 'depCache'];
 
 // meta first-level extends where:
 // array + array appends
@@ -1338,32 +1330,30 @@ var __exec;
           '\n//# sourceMappingURL=data:application/json;base64,' + btoa(unescape(encodeURIComponent(load.metadata.sourceMap))) || '')
   }
 
-  // Web Worker and Chrome Extensions use original ESML eval
-  // this may lead to some global module execution differences (eg var not defining onto global)
-  if (isWorker || isBrowser && window.chrome && window.chrome.extension) {
-    __exec = function(load) {
-      if (load.metadata.integrity)
-        throw new TypeError('Subresource integrity checking is not supported in Web Workers or Chrome Extensions.');
-      try {
-        preExec(this, load);
-        new Function(getSource(load)).call(__global);
-        postExec();
-      }
-      catch(e) {
-        postExec();
-        throw addToError(e, 'Evaluating ' + load.address);
-      }
-    };
+  function evalExec(load) {
+    if (load.metadata.integrity)
+      throw new TypeError('Subresource integrity checking is not supported in Web Workers or Chrome Extensions.');
+    try {
+      preExec(this, load);
+      new Function(getSource(load)).call(__global);
+      postExec();
+    }
+    catch(e) {
+      postExec();
+      throw addToError(e, 'Evaluating ' + load.address);
+    }
   }
 
   // use script injection eval to get identical global script behaviour
-  else if (typeof document != 'undefined') {
+  if (typeof document != 'undefined' && document.getElementsByTagName) {
     var head;
 
     var scripts = document.getElementsByTagName('script');
     $__curScript = scripts[scripts.length - 1];
-
     __exec = function(load) {
+      if (!this.globalEvaluationScope)
+        return evalExec.call(this, load);
+
       if (!head)
         head = document.head || document.body || document.documentElement;
 
@@ -1387,13 +1377,17 @@ var __exec;
       window.onerror = onerror;
       if (e)
         throw e;
-    }
+    };
   }
-  else {
-    // global scoped eval for node
+
+  // global scoped eval for node
+  else if (typeof require != 'undefined') {
     var vmModule = 'vm';
     var vm = require(vmModule);
-    __exec = function(load) {
+    __exec = function vmExec(load) {
+      if (!this.globalEvaluationScope)
+        return evalExec.call(this, load);
+
       if (load.metadata.integrity)
         throw new TypeError('Subresource integrity checking is unavailable in Node.');
       try {
@@ -1406,6 +1400,9 @@ var __exec;
         throw addToError(e.toString(), 'Evaluating ' + load.address);
       }
     };
+  }
+  else {
+    __exec = evalExec;
   }
 
 })();/*
@@ -1486,6 +1483,19 @@ hookConstructor(function(constructor) {
 
     // support baseURL
     this.baseURL = baseURI.substr(0, baseURI.lastIndexOf('/') + 1);
+
+    // global behaviour flags
+    this.warnings = false;
+    this.defaultJSExtensions = false;
+    this.globalEvaluationScope = true;
+    this.pluginFirst = false;
+
+    // Default settings for globalEvaluationScope:
+    // Disabled for WebWorker, Chrome Extensions and jsdom
+    if (isWorker 
+        || isBrowser && window.chrome && window.chrome.extension 
+        || isBrowser && navigator.userAgent.match(/^Node\.js/))
+      this.globalEvaluationScope = false;
 
     // support the empty module, as a concept
     this.set('@empty', this.newModule({}));
@@ -1617,7 +1627,6 @@ hook('import', function(systemImport) {
   For easy normalization canonicalization with latest URL support.
 
 */
-SystemJSLoader.prototype.warnings = false;
 SystemJSLoader.prototype.config = function(cfg) {
   if ('warnings' in cfg)
     this.warnings = cfg.warnings;
@@ -1629,7 +1638,7 @@ SystemJSLoader.prototype.config = function(cfg) {
       for (var p in obj)
         return true;
     }
-    if (checkHasConfig(this.packages) || checkHasConfig(this.meta) || checkHasConfig(this.depCache) || checkHasConfig(this.bundles))
+    if (checkHasConfig(this.packages) || checkHasConfig(this.meta) || checkHasConfig(this.depCache) || checkHasConfig(this.bundles) || checkHasConfig(this.packageConfigPaths))
       throw new TypeError('baseURL should only be configured once and must be configured first.');
 
     this.baseURL = cfg.baseURL;
@@ -1714,7 +1723,15 @@ SystemJSLoader.prototype.config = function(cfg) {
       if (!this.packages[prop] && this.defaultJSExtensions && p.substr(p.length - 3, 3) != '.js')
         prop = prop.substr(0, prop.length - 3);
 
-      this.packages[prop]= this.packages[prop] || {};
+      this.packages[prop] = this.packages[prop] || {};
+
+      // meta backwards compatibility
+      if (cfg.packages[p].meta) {
+        warn.call(this, 'Package ' + p + ' is configured with meta, which is deprecated as it has been renamed to modules.');
+        cfg.packages[p].modules = cfg.packages[p].meta;
+        delete cfg.packages[p].meta;
+      }
+
       for (var q in cfg.packages[p])
         if (indexOf.call(packageProperties, q) == -1)
           warn.call(this, '"' + q + '" is not a valid package configuration option in package ' + p);
@@ -1803,7 +1820,7 @@ hook('normalize', function(normalize) {
  *     main: 'index.js', // when not set, package name is requested directly
  *     format: 'amd',
  *     defaultExtension: 'ts', // defaults to 'js', can be set to false
- *     meta: {
+ *     modules: {
  *       '*.ts': {
  *         loader: 'typescript'
  *       },
@@ -1845,12 +1862,12 @@ hook('normalize', function(normalize) {
  * - map and defaultExtension are applied to the main
  * - defaultExtension adds the extension only if no other extension is present
  * - defaultJSExtensions applies after map when defaultExtension is not set
- * - if a meta value is available for a module, map and defaultExtension are skipped
+ * - if a modules value is available for a module, map and defaultExtension are skipped
  * - like global map, package map also applies to subpaths (sizzle/x, ./vendor/another/sub)
  * - condition module map is '@env' module in package or '@system-env' globally
  *
- * In addition, the following meta properties will be allowed to be package
- * -relative as well in the package meta config:
+ * In addition, the following modules properties will be allowed to be package
+ * -relative as well in the package module config:
  *   
  *   - loader
  *   - alias
@@ -1950,8 +1967,8 @@ hook('normalize', function(normalize) {
     var skipExtension = !!(isPlugin || subPath.indexOf('#?') != -1 || subPath.match(interpolationRegEx));
 
     // exact meta or meta with any content after the last wildcard skips extension
-    if (!skipExtension && pkg.meta)
-      getMetaMatches(pkg.meta, pkgName, subPath, function(metaPattern, matchMeta, matchDepth) {
+    if (!skipExtension && pkg.modules)
+      getMetaMatches(pkg.modules, pkgName, subPath, function(metaPattern, matchMeta, matchDepth) {
         if (matchDepth == 0 || metaPattern.lastIndexOf('*') != metaPattern.length - 1)
           skipExtension = true;
       });
@@ -2210,6 +2227,12 @@ hook('normalize', function(normalize) {
             if (cfg.systemjs)
               cfg = cfg.systemjs;
 
+            // meta backwards compatibility
+            if (cfg.meta) {
+              cfg.modules = cfg.meta;
+              warn.call(loader, 'Package config file ' + pkgConfigPath + ' is configured with meta, which is deprecated as it has been renamed to modules.');
+            }
+
             // remove any non-system properties if generic config file (eg package.json)
             for (var p in cfg) {
               if (indexOf.call(packageProperties, p) == -1)
@@ -2306,9 +2329,9 @@ hook('normalize', function(normalize) {
           }
 
           var meta = {};
-          if (pkg.meta) {
+          if (pkg.modules) {
             var bestDepth = 0;
-            getMetaMatches(pkg.meta, pkgName, subPath, function(metaPattern, matchMeta, matchDepth) {
+            getMetaMatches(pkg.modules, pkgName, subPath, function(metaPattern, matchMeta, matchDepth) {
               if (matchDepth > bestDepth)
                 bestDepth = matchDepth;
               extendMeta(meta, matchMeta, matchDepth && bestDepth > matchDepth);
@@ -2502,7 +2525,7 @@ hook('normalize', function(normalize) {
             s.detachEvent('onreadystatechange', complete);
             for (var i = 0; i < interactiveLoadingScripts.length; i++)
               if (interactiveLoadingScripts[i].script == s) {
-                if (interactiveScript.script == s)
+                if (interactiveScript && interactiveScript.script == s)
                   interactiveScript = null;
                 interactiveLoadingScripts.splice(i, 1);
               }
@@ -2667,8 +2690,12 @@ function createEntry() {
       if (!entry.name || load && entry.name == load.name) {
         if (!curMeta)
           throw new TypeError('Unexpected anonymous System.register call.');
-        if (curMeta.entry)
-          throw new Error('Multiple anonymous System.register calls in module ' + load.name + '. If loading a bundle, ensure all the System.register calls are named.');
+        if (curMeta.entry) {
+          if (curMeta.format == 'register')
+            throw new Error('Multiple anonymous System.register calls in module ' + load.name + '. If loading a bundle, ensure all the System.register calls are named.');
+          else
+            throw new Error('Module ' + load.name + ' interpreted as ' + curMeta.format + ' module format, but called System.register.');
+        }
         if (!curMeta.format)
           curMeta.format = 'register';
         curMeta.entry = entry;
@@ -2988,7 +3015,7 @@ function createEntry() {
         return '';
       }
       
-      if (load.metadata.format == 'register' && !load.metadata.authorization)
+      if (load.metadata.format == 'register' && !load.metadata.authorization && load.metadata.scriptLoad !== false)
         load.metadata.scriptLoad = true;
 
       load.metadata.deps = load.metadata.deps || [];
@@ -3041,6 +3068,10 @@ function createEntry() {
           throw new Error(load.name + ' detected as ' + load.metadata.format + ' but didn\'t execute.');
 
         entry = load.metadata.entry;
+
+        // support metadata deps for System.register
+        if (entry && load.metadata.deps)
+          entry.deps = entry.deps.concat(load.metadata.deps);
       }
 
       // named bundles are just an empty module
@@ -3209,14 +3240,15 @@ hook('reduceRegister_', function(reduceRegister) {
 
 hook('fetch', function(fetch) {
   return function(load) {
-    if (load.metadata.exports)
+    if (load.metadata.exports && !load.metadata.format)
       load.metadata.format = 'global';
 
     // A global with exports, no globals and no deps
     // can be loaded via a script tag
     if (load.metadata.format == 'global' && !load.metadata.authorization
         && load.metadata.exports && !load.metadata.globals 
-        && (!load.metadata.deps || load.metadata.deps.length == 0))
+        && (!load.metadata.deps || load.metadata.deps.length == 0)
+        && load.metadata.scriptLoad !== false)
       load.metadata.scriptLoad = true;
 
     return fetch.call(this, load);
@@ -3335,7 +3367,7 @@ hookConstructor(function(constructor) {
         if (globals) {
           oldGlobals = {};
           for (var g in globals) {
-            oldGlobals[g] = globals[g];
+            oldGlobals[g] = __global[g];
             __global[g] = globals[g];
           }
         }
@@ -3774,9 +3806,12 @@ hookConstructor(function(constructor) {
 
   hook('fetch', function(fetch) {
     return function(load) {
-      if (load.metadata.format === 'amd' && !load.metadata.authorization)
+      if (load.metadata.format === 'amd' 
+          && !load.metadata.authorization 
+          && load.metadata.scriptLoad !== false)
         load.metadata.scriptLoad = true;
-      if (load.metadata.scriptLoad)
+      // script load implies define global leak
+      if (load.metadata.scriptLoad && isBrowser)
         this.get('@@amd-helpers').createDefine();
       return fetch.call(this, load);
     };
@@ -3792,9 +3827,12 @@ hookConstructor(function(constructor) {
         if (!loader.builder && loader.execute !== false) {
           var removeDefine = this.get('@@amd-helpers').createDefine();
 
-          __exec.call(loader, load);
-
-          removeDefine();
+          try {
+            __exec.call(loader, load);
+          }
+          finally {
+            removeDefine();
+          }
 
           if (!load.metadata.entry && !load.metadata.bundle)
             throw new TypeError('AMD module ' + load.name + ' did not define');
@@ -4116,7 +4154,7 @@ hookConstructor(function(constructor) {
     if (this.builder)
       return this['normalize'](conditionObj.module, parentName)
       .then(function(conditionModule) {
-        conditionObj.conditionModule = conditionModule;
+        conditionObj.module = conditionModule;
         return name.replace(interpolationRegEx, '#{' + serializeCondition(conditionObj) + '}');
       });
 
@@ -4124,6 +4162,9 @@ hookConstructor(function(constructor) {
     .then(function(conditionValue) {
       if (typeof conditionValue !== 'string')
         throw new TypeError('The condition value for ' + name + ' doesn\'t resolve to a string.');
+
+      if (conditionValue.indexOf('/') != -1)
+        throw new TypeError('Unabled to interpolate conditional ' + name + (parentName ? ' in ' + parentName : '') + '\n\tThe condition value ' + conditionValue + ' cannot contain a "/" separator.');
 
       return name.replace(interpolationRegEx, conditionValue);
     });
@@ -4474,7 +4515,7 @@ function getBundleFor(loader, name) {
 })();
   
 System = new SystemJSLoader();
-System.version = '0.19.3 Standard';
+System.version = '0.19.5 Standard';
   // -- exporting --
 
   if (typeof exports === 'object')

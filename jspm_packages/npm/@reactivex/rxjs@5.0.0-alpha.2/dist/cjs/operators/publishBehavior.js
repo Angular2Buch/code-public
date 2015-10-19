@@ -5,9 +5,9 @@ exports['default'] = publishBehavior;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _subjectsBehaviorSubject = require("../subjects/BehaviorSubject");
+var _subjectsBehaviorSubject = require('../subjects/BehaviorSubject');
 var _subjectsBehaviorSubject2 = _interopRequireDefault(_subjectsBehaviorSubject);
-var _multicast = require("./multicast");
+var _multicast = require('./multicast');
 var _multicast2 = _interopRequireDefault(_multicast);
 function publishBehavior(value) {
   return _multicast2['default'].call(this, function() {

@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var interfaces_1 = require("./interfaces");
+var lang_1 = require('../facade/lang');
+var interfaces_1 = require('./interfaces');
 function hasLifecycleHook(lcInterface, token) {
   if (!(token instanceof lang_1.Type))
     return false;

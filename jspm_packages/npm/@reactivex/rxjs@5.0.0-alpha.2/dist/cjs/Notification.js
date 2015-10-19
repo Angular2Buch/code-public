@@ -9,7 +9,7 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Observable = require("./Observable");
+var _Observable = require('./Observable');
 var _Observable2 = _interopRequireDefault(_Observable);
 var Notification = (function() {
   function Notification(kind, value, exception) {

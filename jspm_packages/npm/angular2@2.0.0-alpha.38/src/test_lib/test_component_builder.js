@@ -22,17 +22,17 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../core/di");
-var lang_1 = require("../core/facade/lang");
-var collection_1 = require("../core/facade/collection");
-var directive_resolver_1 = require("../core/linker/directive_resolver");
-var view_resolver_1 = require("../core/linker/view_resolver");
-var view_ref_1 = require("../core/linker/view_ref");
-var dynamic_component_loader_1 = require("../core/linker/dynamic_component_loader");
-var utils_1 = require("./utils");
-var render_1 = require("../core/render/render");
-var dom_adapter_1 = require("../core/dom/dom_adapter");
-var debug_element_1 = require("../core/debug/debug_element");
+var di_1 = require('../core/di');
+var lang_1 = require('../core/facade/lang');
+var collection_1 = require('../core/facade/collection');
+var directive_resolver_1 = require('../core/linker/directive_resolver');
+var view_resolver_1 = require('../core/linker/view_resolver');
+var view_ref_1 = require('../core/linker/view_ref');
+var dynamic_component_loader_1 = require('../core/linker/dynamic_component_loader');
+var utils_1 = require('./utils');
+var render_1 = require('../core/render/render');
+var dom_adapter_1 = require('../core/dom/dom_adapter');
+var debug_element_1 = require('../core/debug/debug_element');
 var RootTestComponent = (function() {
   function RootTestComponent(componentRef) {
     this.debugElement = new debug_element_1.DebugElement(view_ref_1.internalView(componentRef.hostView), 0);

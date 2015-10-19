@@ -5,7 +5,7 @@ exports['default'] = concatProto;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _Observable = require("../Observable");
+var _Observable = require('../Observable');
 var _Observable2 = _interopRequireDefault(_Observable);
 function concatProto() {
   for (var _len = arguments.length,

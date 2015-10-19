@@ -1,30 +1,30 @@
 /* */ 
 (function(process) {
   'use strict';
-  var ng_zone_1 = require("./zone/ng_zone");
-  var lang_1 = require("./facade/lang");
-  var di_1 = require("./di");
-  var application_tokens_1 = require("./application_tokens");
-  var async_1 = require("./facade/async");
-  var collection_1 = require("./facade/collection");
-  var reflection_1 = require("./reflection/reflection");
-  var testability_1 = require("./testability/testability");
-  var dynamic_component_loader_1 = require("./linker/dynamic_component_loader");
-  var exceptions_1 = require("./facade/exceptions");
-  var dom_adapter_1 = require("./dom/dom_adapter");
-  var view_ref_1 = require("./linker/view_ref");
-  var life_cycle_1 = require("./life_cycle/life_cycle");
-  var change_detection_1 = require("./change_detection/change_detection");
-  var view_pool_1 = require("./linker/view_pool");
-  var view_manager_1 = require("./linker/view_manager");
-  var view_manager_utils_1 = require("./linker/view_manager_utils");
-  var view_listener_1 = require("./linker/view_listener");
-  var proto_view_factory_1 = require("./linker/proto_view_factory");
-  var pipes_1 = require("./pipes");
-  var view_resolver_1 = require("./linker/view_resolver");
-  var directive_resolver_1 = require("./linker/directive_resolver");
-  var pipe_resolver_1 = require("./linker/pipe_resolver");
-  var compiler_1 = require("./linker/compiler");
+  var ng_zone_1 = require('./zone/ng_zone');
+  var lang_1 = require('./facade/lang');
+  var di_1 = require('./di');
+  var application_tokens_1 = require('./application_tokens');
+  var async_1 = require('./facade/async');
+  var collection_1 = require('./facade/collection');
+  var reflection_1 = require('./reflection/reflection');
+  var testability_1 = require('./testability/testability');
+  var dynamic_component_loader_1 = require('./linker/dynamic_component_loader');
+  var exceptions_1 = require('./facade/exceptions');
+  var dom_adapter_1 = require('./dom/dom_adapter');
+  var view_ref_1 = require('./linker/view_ref');
+  var life_cycle_1 = require('./life_cycle/life_cycle');
+  var change_detection_1 = require('./change_detection/change_detection');
+  var view_pool_1 = require('./linker/view_pool');
+  var view_manager_1 = require('./linker/view_manager');
+  var view_manager_utils_1 = require('./linker/view_manager_utils');
+  var view_listener_1 = require('./linker/view_listener');
+  var proto_view_factory_1 = require('./linker/proto_view_factory');
+  var pipes_1 = require('./pipes');
+  var view_resolver_1 = require('./linker/view_resolver');
+  var directive_resolver_1 = require('./linker/directive_resolver');
+  var pipe_resolver_1 = require('./linker/pipe_resolver');
+  var compiler_1 = require('./linker/compiler');
   function platformBindings() {
     return [di_1.bind(reflection_1.Reflector).toValue(reflection_1.reflector), testability_1.TestabilityRegistry];
   }
@@ -207,4 +207,4 @@
     return ApplicationRef;
   })();
   exports.ApplicationRef = ApplicationRef;
-})(require("process"));
+})(require('process'));

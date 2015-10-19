@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var dom_adapter_1 = require("../dom/dom_adapter");
+var dom_adapter_1 = require('../dom/dom_adapter');
 var Title = (function() {
   function Title() {}
   Title.prototype.getTitle = function() {

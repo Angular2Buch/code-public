@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 function forwardRef(forwardRefFn) {
   forwardRefFn.__forward_ref__ = forwardRef;
   forwardRefFn.toString = function() {

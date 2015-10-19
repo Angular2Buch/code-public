@@ -2,7 +2,7 @@
 'use strict';
 exports.__esModule = true;
 exports['default'] = toPromise;
-var _utilRoot = require("../util/root");
+var _utilRoot = require('../util/root');
 function toPromise(PromiseCtor) {
   var _this = this;
   if (!PromiseCtor) {

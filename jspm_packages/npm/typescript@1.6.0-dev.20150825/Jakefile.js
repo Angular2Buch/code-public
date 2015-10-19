@@ -1,9 +1,9 @@
 /* */ 
 (function(process) {
-  var fs = require("fs");
-  var os = require("os");
-  var path = require("path");
-  var child_process = require("child_process");
+  var fs = require('fs');
+  var os = require('os');
+  var path = require('path');
+  var child_process = require('child_process');
   var compilerDirectory = "src/compiler/";
   var servicesDirectory = "src/services/";
   var serverDirectory = "src/server/";
@@ -505,4 +505,4 @@
       exec(cmd, success(f), failure(f));
     }
   }, {async: true});
-})(require("process"));
+})(require('process'));

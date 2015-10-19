@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var hammer_common_1 = require("./hammer_common");
-var lang_1 = require("../../../facade/lang");
-var exceptions_1 = require("../../../facade/exceptions");
-var di_1 = require("../../../di");
+var hammer_common_1 = require('./hammer_common');
+var lang_1 = require('../../../facade/lang');
+var exceptions_1 = require('../../../facade/exceptions');
+var di_1 = require('../../../di');
 var HammerGesturesPlugin = (function(_super) {
   __extends(HammerGesturesPlugin, _super);
   function HammerGesturesPlugin() {

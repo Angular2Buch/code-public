@@ -5,10 +5,10 @@ exports['default'] = merge;
 function _interopRequireDefault(obj) {
   return obj && obj.__esModule ? obj : {'default': obj};
 }
-var _observablesArrayObservable = require("../observables/ArrayObservable");
+var _observablesArrayObservable = require('../observables/ArrayObservable');
 var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-var _mergeAllSupport = require("./mergeAll-support");
-var _schedulersImmediate = require("../schedulers/immediate");
+var _mergeAllSupport = require('./mergeAll-support');
+var _schedulersImmediate = require('../schedulers/immediate');
 var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
 function merge() {
   var concurrent = Number.POSITIVE_INFINITY;

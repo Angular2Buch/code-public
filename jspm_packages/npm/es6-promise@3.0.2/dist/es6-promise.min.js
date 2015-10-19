@@ -522,4 +522,4 @@
     }
     lib$es6$promise$polyfill$$default();
   }).call(this);
-})(require("process"));
+})(require('process'));

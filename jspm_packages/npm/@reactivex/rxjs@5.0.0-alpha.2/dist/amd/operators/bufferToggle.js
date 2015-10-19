@@ -114,4 +114,4 @@
       return BufferToggleOpeningsSubscriber;
     })(Subscriber_1.default);
   });
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

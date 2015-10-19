@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var render_1 = require("./render/render");
+var render_1 = require('./render/render');
 exports.Renderer = render_1.Renderer;
 exports.RenderViewRef = render_1.RenderViewRef;
 exports.RenderProtoViewRef = render_1.RenderProtoViewRef;

@@ -9,9 +9,9 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
 function findFirstClosedCycle(keys) {
   var res = [];
   for (var i = 0; i < keys.length; ++i) {

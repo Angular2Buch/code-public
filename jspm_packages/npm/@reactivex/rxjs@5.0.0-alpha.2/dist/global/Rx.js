@@ -49,7 +49,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscriber2 = require("./Subscriber");
+      var _Subscriber2 = require('./Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       var InnerSubscriber = (function(_Subscriber) {
         _inherits(InnerSubscriber, _Subscriber);
@@ -87,7 +87,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Observable = require("./Observable");
+      var _Observable = require('./Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
       var Notification = (function() {
         function Notification(kind, value, exception) {
@@ -167,10 +167,10 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber = require("./Subscriber");
+      var _Subscriber = require('./Subscriber');
       var _Subscriber2 = _interopRequireDefault(_Subscriber);
-      var _utilRoot = require("./util/root");
-      var _utilSymbol_observable = require("./util/Symbol_observable");
+      var _utilRoot = require('./util/root');
+      var _utilSymbol_observable = require('./util/Symbol_observable');
       var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
       var Observable = (function() {
         function Observable(subscribe) {
@@ -259,7 +259,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscriber2 = require("./Subscriber");
+      var _Subscriber2 = require('./Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       var OuterSubscriber = (function(_Subscriber) {
         _inherits(OuterSubscriber, _Subscriber);
@@ -287,201 +287,201 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Observable = require("./Observable");
+      var _Observable = require('./Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
-      var _operatorsCombineLatestStatic = require("./operators/combineLatest-static");
+      var _operatorsCombineLatestStatic = require('./operators/combineLatest-static');
       var _operatorsCombineLatestStatic2 = _interopRequireDefault(_operatorsCombineLatestStatic);
-      var _operatorsConcatStatic = require("./operators/concat-static");
+      var _operatorsConcatStatic = require('./operators/concat-static');
       var _operatorsConcatStatic2 = _interopRequireDefault(_operatorsConcatStatic);
-      var _observablesDeferObservable = require("./observables/DeferObservable");
+      var _observablesDeferObservable = require('./observables/DeferObservable');
       var _observablesDeferObservable2 = _interopRequireDefault(_observablesDeferObservable);
-      var _observablesEmptyObservable = require("./observables/EmptyObservable");
+      var _observablesEmptyObservable = require('./observables/EmptyObservable');
       var _observablesEmptyObservable2 = _interopRequireDefault(_observablesEmptyObservable);
-      var _observablesForkJoinObservable = require("./observables/ForkJoinObservable");
+      var _observablesForkJoinObservable = require('./observables/ForkJoinObservable');
       var _observablesForkJoinObservable2 = _interopRequireDefault(_observablesForkJoinObservable);
-      var _observablesFromObservable = require("./observables/FromObservable");
+      var _observablesFromObservable = require('./observables/FromObservable');
       var _observablesFromObservable2 = _interopRequireDefault(_observablesFromObservable);
-      var _observablesArrayObservable = require("./observables/ArrayObservable");
+      var _observablesArrayObservable = require('./observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _observablesFromEventObservable = require("./observables/FromEventObservable");
+      var _observablesFromEventObservable = require('./observables/FromEventObservable');
       var _observablesFromEventObservable2 = _interopRequireDefault(_observablesFromEventObservable);
-      var _observablesFromEventPatternObservable = require("./observables/FromEventPatternObservable");
+      var _observablesFromEventPatternObservable = require('./observables/FromEventPatternObservable');
       var _observablesFromEventPatternObservable2 = _interopRequireDefault(_observablesFromEventPatternObservable);
-      var _observablesPromiseObservable = require("./observables/PromiseObservable");
+      var _observablesPromiseObservable = require('./observables/PromiseObservable');
       var _observablesPromiseObservable2 = _interopRequireDefault(_observablesPromiseObservable);
-      var _observablesIntervalObservable = require("./observables/IntervalObservable");
+      var _observablesIntervalObservable = require('./observables/IntervalObservable');
       var _observablesIntervalObservable2 = _interopRequireDefault(_observablesIntervalObservable);
-      var _operatorsMergeStatic = require("./operators/merge-static");
+      var _operatorsMergeStatic = require('./operators/merge-static');
       var _operatorsMergeStatic2 = _interopRequireDefault(_operatorsMergeStatic);
-      var _observablesInfiniteObservable = require("./observables/InfiniteObservable");
+      var _observablesInfiniteObservable = require('./observables/InfiniteObservable');
       var _observablesInfiniteObservable2 = _interopRequireDefault(_observablesInfiniteObservable);
-      var _observablesRangeObservable = require("./observables/RangeObservable");
+      var _observablesRangeObservable = require('./observables/RangeObservable');
       var _observablesRangeObservable2 = _interopRequireDefault(_observablesRangeObservable);
-      var _observablesErrorObservable = require("./observables/ErrorObservable");
+      var _observablesErrorObservable = require('./observables/ErrorObservable');
       var _observablesErrorObservable2 = _interopRequireDefault(_observablesErrorObservable);
-      var _observablesTimerObservable = require("./observables/TimerObservable");
+      var _observablesTimerObservable = require('./observables/TimerObservable');
       var _observablesTimerObservable2 = _interopRequireDefault(_observablesTimerObservable);
-      var _operatorsZipStatic = require("./operators/zip-static");
+      var _operatorsZipStatic = require('./operators/zip-static');
       var _operatorsZipStatic2 = _interopRequireDefault(_operatorsZipStatic);
-      var _operatorsBuffer = require("./operators/buffer");
+      var _operatorsBuffer = require('./operators/buffer');
       var _operatorsBuffer2 = _interopRequireDefault(_operatorsBuffer);
-      var _operatorsBufferCount = require("./operators/bufferCount");
+      var _operatorsBufferCount = require('./operators/bufferCount');
       var _operatorsBufferCount2 = _interopRequireDefault(_operatorsBufferCount);
-      var _operatorsBufferTime = require("./operators/bufferTime");
+      var _operatorsBufferTime = require('./operators/bufferTime');
       var _operatorsBufferTime2 = _interopRequireDefault(_operatorsBufferTime);
-      var _operatorsBufferToggle = require("./operators/bufferToggle");
+      var _operatorsBufferToggle = require('./operators/bufferToggle');
       var _operatorsBufferToggle2 = _interopRequireDefault(_operatorsBufferToggle);
-      var _operatorsBufferWhen = require("./operators/bufferWhen");
+      var _operatorsBufferWhen = require('./operators/bufferWhen');
       var _operatorsBufferWhen2 = _interopRequireDefault(_operatorsBufferWhen);
-      var _operatorsCatch = require("./operators/catch");
+      var _operatorsCatch = require('./operators/catch');
       var _operatorsCatch2 = _interopRequireDefault(_operatorsCatch);
-      var _operatorsCombineAll = require("./operators/combineAll");
+      var _operatorsCombineAll = require('./operators/combineAll');
       var _operatorsCombineAll2 = _interopRequireDefault(_operatorsCombineAll);
-      var _operatorsCombineLatest = require("./operators/combineLatest");
+      var _operatorsCombineLatest = require('./operators/combineLatest');
       var _operatorsCombineLatest2 = _interopRequireDefault(_operatorsCombineLatest);
-      var _operatorsConcat = require("./operators/concat");
+      var _operatorsConcat = require('./operators/concat');
       var _operatorsConcat2 = _interopRequireDefault(_operatorsConcat);
-      var _operatorsConcatAll = require("./operators/concatAll");
+      var _operatorsConcatAll = require('./operators/concatAll');
       var _operatorsConcatAll2 = _interopRequireDefault(_operatorsConcatAll);
-      var _operatorsConcatMap = require("./operators/concatMap");
+      var _operatorsConcatMap = require('./operators/concatMap');
       var _operatorsConcatMap2 = _interopRequireDefault(_operatorsConcatMap);
-      var _operatorsConcatMapTo = require("./operators/concatMapTo");
+      var _operatorsConcatMapTo = require('./operators/concatMapTo');
       var _operatorsConcatMapTo2 = _interopRequireDefault(_operatorsConcatMapTo);
-      var _operatorsCount = require("./operators/count");
+      var _operatorsCount = require('./operators/count');
       var _operatorsCount2 = _interopRequireDefault(_operatorsCount);
-      var _operatorsDebounce = require("./operators/debounce");
+      var _operatorsDebounce = require('./operators/debounce');
       var _operatorsDebounce2 = _interopRequireDefault(_operatorsDebounce);
-      var _operatorsDefaultIfEmpty = require("./operators/defaultIfEmpty");
+      var _operatorsDefaultIfEmpty = require('./operators/defaultIfEmpty');
       var _operatorsDefaultIfEmpty2 = _interopRequireDefault(_operatorsDefaultIfEmpty);
-      var _operatorsDelay = require("./operators/delay");
+      var _operatorsDelay = require('./operators/delay');
       var _operatorsDelay2 = _interopRequireDefault(_operatorsDelay);
-      var _operatorsDistinctUntilChanged = require("./operators/distinctUntilChanged");
+      var _operatorsDistinctUntilChanged = require('./operators/distinctUntilChanged');
       var _operatorsDistinctUntilChanged2 = _interopRequireDefault(_operatorsDistinctUntilChanged);
-      var _operatorsDo = require("./operators/do");
+      var _operatorsDo = require('./operators/do');
       var _operatorsDo2 = _interopRequireDefault(_operatorsDo);
-      var _operatorsExpand = require("./operators/expand");
+      var _operatorsExpand = require('./operators/expand');
       var _operatorsExpand2 = _interopRequireDefault(_operatorsExpand);
-      var _operatorsFilter = require("./operators/filter");
+      var _operatorsFilter = require('./operators/filter');
       var _operatorsFilter2 = _interopRequireDefault(_operatorsFilter);
-      var _operatorsFinally = require("./operators/finally");
+      var _operatorsFinally = require('./operators/finally');
       var _operatorsFinally2 = _interopRequireDefault(_operatorsFinally);
-      var _operatorsFirst = require("./operators/first");
+      var _operatorsFirst = require('./operators/first');
       var _operatorsFirst2 = _interopRequireDefault(_operatorsFirst);
-      var _operatorsGroupBy = require("./operators/groupBy");
+      var _operatorsGroupBy = require('./operators/groupBy');
       var _operatorsGroupBy2 = _interopRequireDefault(_operatorsGroupBy);
-      var _operatorsIgnoreElements = require("./operators/ignoreElements");
+      var _operatorsIgnoreElements = require('./operators/ignoreElements');
       var _operatorsIgnoreElements2 = _interopRequireDefault(_operatorsIgnoreElements);
-      var _operatorsIsEmpty = require("./operators/isEmpty");
+      var _operatorsIsEmpty = require('./operators/isEmpty');
       var _operatorsIsEmpty2 = _interopRequireDefault(_operatorsIsEmpty);
-      var _operatorsLast = require("./operators/last");
+      var _operatorsLast = require('./operators/last');
       var _operatorsLast2 = _interopRequireDefault(_operatorsLast);
-      var _operatorsMap = require("./operators/map");
+      var _operatorsMap = require('./operators/map');
       var _operatorsMap2 = _interopRequireDefault(_operatorsMap);
-      var _operatorsMapTo = require("./operators/mapTo");
+      var _operatorsMapTo = require('./operators/mapTo');
       var _operatorsMapTo2 = _interopRequireDefault(_operatorsMapTo);
-      var _operatorsMaterialize = require("./operators/materialize");
+      var _operatorsMaterialize = require('./operators/materialize');
       var _operatorsMaterialize2 = _interopRequireDefault(_operatorsMaterialize);
-      var _operatorsMerge = require("./operators/merge");
+      var _operatorsMerge = require('./operators/merge');
       var _operatorsMerge2 = _interopRequireDefault(_operatorsMerge);
-      var _operatorsMergeAll = require("./operators/mergeAll");
+      var _operatorsMergeAll = require('./operators/mergeAll');
       var _operatorsMergeAll2 = _interopRequireDefault(_operatorsMergeAll);
-      var _operatorsMergeMap = require("./operators/mergeMap");
+      var _operatorsMergeMap = require('./operators/mergeMap');
       var _operatorsMergeMap2 = _interopRequireDefault(_operatorsMergeMap);
-      var _operatorsMergeMapTo = require("./operators/mergeMapTo");
+      var _operatorsMergeMapTo = require('./operators/mergeMapTo');
       var _operatorsMergeMapTo2 = _interopRequireDefault(_operatorsMergeMapTo);
-      var _operatorsMulticast = require("./operators/multicast");
+      var _operatorsMulticast = require('./operators/multicast');
       var _operatorsMulticast2 = _interopRequireDefault(_operatorsMulticast);
-      var _operatorsObserveOn = require("./operators/observeOn");
+      var _operatorsObserveOn = require('./operators/observeOn');
       var _operatorsObserveOn2 = _interopRequireDefault(_operatorsObserveOn);
-      var _operatorsPartition = require("./operators/partition");
+      var _operatorsPartition = require('./operators/partition');
       var _operatorsPartition2 = _interopRequireDefault(_operatorsPartition);
-      var _operatorsPublish = require("./operators/publish");
+      var _operatorsPublish = require('./operators/publish');
       var _operatorsPublish2 = _interopRequireDefault(_operatorsPublish);
-      var _operatorsPublishBehavior = require("./operators/publishBehavior");
+      var _operatorsPublishBehavior = require('./operators/publishBehavior');
       var _operatorsPublishBehavior2 = _interopRequireDefault(_operatorsPublishBehavior);
-      var _operatorsPublishReplay = require("./operators/publishReplay");
+      var _operatorsPublishReplay = require('./operators/publishReplay');
       var _operatorsPublishReplay2 = _interopRequireDefault(_operatorsPublishReplay);
-      var _operatorsReduce = require("./operators/reduce");
+      var _operatorsReduce = require('./operators/reduce');
       var _operatorsReduce2 = _interopRequireDefault(_operatorsReduce);
-      var _operatorsRepeat = require("./operators/repeat");
+      var _operatorsRepeat = require('./operators/repeat');
       var _operatorsRepeat2 = _interopRequireDefault(_operatorsRepeat);
-      var _operatorsRetry = require("./operators/retry");
+      var _operatorsRetry = require('./operators/retry');
       var _operatorsRetry2 = _interopRequireDefault(_operatorsRetry);
-      var _operatorsRetryWhen = require("./operators/retryWhen");
+      var _operatorsRetryWhen = require('./operators/retryWhen');
       var _operatorsRetryWhen2 = _interopRequireDefault(_operatorsRetryWhen);
-      var _operatorsSample = require("./operators/sample");
+      var _operatorsSample = require('./operators/sample');
       var _operatorsSample2 = _interopRequireDefault(_operatorsSample);
-      var _operatorsSampleTime = require("./operators/sampleTime");
+      var _operatorsSampleTime = require('./operators/sampleTime');
       var _operatorsSampleTime2 = _interopRequireDefault(_operatorsSampleTime);
-      var _operatorsScan = require("./operators/scan");
+      var _operatorsScan = require('./operators/scan');
       var _operatorsScan2 = _interopRequireDefault(_operatorsScan);
-      var _operatorsSingle = require("./operators/single");
+      var _operatorsSingle = require('./operators/single');
       var _operatorsSingle2 = _interopRequireDefault(_operatorsSingle);
-      var _operatorsSkip = require("./operators/skip");
+      var _operatorsSkip = require('./operators/skip');
       var _operatorsSkip2 = _interopRequireDefault(_operatorsSkip);
-      var _operatorsSkipUntil = require("./operators/skipUntil");
+      var _operatorsSkipUntil = require('./operators/skipUntil');
       var _operatorsSkipUntil2 = _interopRequireDefault(_operatorsSkipUntil);
-      var _operatorsStartWith = require("./operators/startWith");
+      var _operatorsStartWith = require('./operators/startWith');
       var _operatorsStartWith2 = _interopRequireDefault(_operatorsStartWith);
-      var _operatorsSubscribeOn = require("./operators/subscribeOn");
+      var _operatorsSubscribeOn = require('./operators/subscribeOn');
       var _operatorsSubscribeOn2 = _interopRequireDefault(_operatorsSubscribeOn);
-      var _operatorsSwitch = require("./operators/switch");
+      var _operatorsSwitch = require('./operators/switch');
       var _operatorsSwitch2 = _interopRequireDefault(_operatorsSwitch);
-      var _operatorsSwitchMap = require("./operators/switchMap");
+      var _operatorsSwitchMap = require('./operators/switchMap');
       var _operatorsSwitchMap2 = _interopRequireDefault(_operatorsSwitchMap);
-      var _operatorsSwitchMapTo = require("./operators/switchMapTo");
+      var _operatorsSwitchMapTo = require('./operators/switchMapTo');
       var _operatorsSwitchMapTo2 = _interopRequireDefault(_operatorsSwitchMapTo);
-      var _operatorsTake = require("./operators/take");
+      var _operatorsTake = require('./operators/take');
       var _operatorsTake2 = _interopRequireDefault(_operatorsTake);
-      var _operatorsTakeUntil = require("./operators/takeUntil");
+      var _operatorsTakeUntil = require('./operators/takeUntil');
       var _operatorsTakeUntil2 = _interopRequireDefault(_operatorsTakeUntil);
-      var _operatorsThrottle = require("./operators/throttle");
+      var _operatorsThrottle = require('./operators/throttle');
       var _operatorsThrottle2 = _interopRequireDefault(_operatorsThrottle);
-      var _operatorsTimeout = require("./operators/timeout");
+      var _operatorsTimeout = require('./operators/timeout');
       var _operatorsTimeout2 = _interopRequireDefault(_operatorsTimeout);
-      var _operatorsTimeoutWith = require("./operators/timeoutWith");
+      var _operatorsTimeoutWith = require('./operators/timeoutWith');
       var _operatorsTimeoutWith2 = _interopRequireDefault(_operatorsTimeoutWith);
-      var _operatorsToArray = require("./operators/toArray");
+      var _operatorsToArray = require('./operators/toArray');
       var _operatorsToArray2 = _interopRequireDefault(_operatorsToArray);
-      var _operatorsToPromise = require("./operators/toPromise");
+      var _operatorsToPromise = require('./operators/toPromise');
       var _operatorsToPromise2 = _interopRequireDefault(_operatorsToPromise);
-      var _operatorsWindow = require("./operators/window");
+      var _operatorsWindow = require('./operators/window');
       var _operatorsWindow2 = _interopRequireDefault(_operatorsWindow);
-      var _operatorsWindowCount = require("./operators/windowCount");
+      var _operatorsWindowCount = require('./operators/windowCount');
       var _operatorsWindowCount2 = _interopRequireDefault(_operatorsWindowCount);
-      var _operatorsWindowTime = require("./operators/windowTime");
+      var _operatorsWindowTime = require('./operators/windowTime');
       var _operatorsWindowTime2 = _interopRequireDefault(_operatorsWindowTime);
-      var _operatorsWindowToggle = require("./operators/windowToggle");
+      var _operatorsWindowToggle = require('./operators/windowToggle');
       var _operatorsWindowToggle2 = _interopRequireDefault(_operatorsWindowToggle);
-      var _operatorsWindowWhen = require("./operators/windowWhen");
+      var _operatorsWindowWhen = require('./operators/windowWhen');
       var _operatorsWindowWhen2 = _interopRequireDefault(_operatorsWindowWhen);
-      var _operatorsWithLatestFrom = require("./operators/withLatestFrom");
+      var _operatorsWithLatestFrom = require('./operators/withLatestFrom');
       var _operatorsWithLatestFrom2 = _interopRequireDefault(_operatorsWithLatestFrom);
-      var _operatorsZip = require("./operators/zip");
+      var _operatorsZip = require('./operators/zip');
       var _operatorsZip2 = _interopRequireDefault(_operatorsZip);
-      var _operatorsZipAll = require("./operators/zipAll");
+      var _operatorsZipAll = require('./operators/zipAll');
       var _operatorsZipAll2 = _interopRequireDefault(_operatorsZipAll);
-      var _Subject = require("./Subject");
+      var _Subject = require('./Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _Subscription = require("./Subscription");
+      var _Subscription = require('./Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _Subscriber = require("./Subscriber");
+      var _Subscriber = require('./Subscriber');
       var _Subscriber2 = _interopRequireDefault(_Subscriber);
-      var _subjectsReplaySubject = require("./subjects/ReplaySubject");
+      var _subjectsReplaySubject = require('./subjects/ReplaySubject');
       var _subjectsReplaySubject2 = _interopRequireDefault(_subjectsReplaySubject);
-      var _subjectsBehaviorSubject = require("./subjects/BehaviorSubject");
+      var _subjectsBehaviorSubject = require('./subjects/BehaviorSubject');
       var _subjectsBehaviorSubject2 = _interopRequireDefault(_subjectsBehaviorSubject);
-      var _observablesConnectableObservable = require("./observables/ConnectableObservable");
+      var _observablesConnectableObservable = require('./observables/ConnectableObservable');
       var _observablesConnectableObservable2 = _interopRequireDefault(_observablesConnectableObservable);
-      var _Notification = require("./Notification");
+      var _Notification = require('./Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
-      var _utilEmptyError = require("./util/EmptyError");
+      var _utilEmptyError = require('./util/EmptyError');
       var _utilEmptyError2 = _interopRequireDefault(_utilEmptyError);
-      var _utilArgumentOutOfRangeError = require("./util/ArgumentOutOfRangeError");
+      var _utilArgumentOutOfRangeError = require('./util/ArgumentOutOfRangeError');
       var _utilArgumentOutOfRangeError2 = _interopRequireDefault(_utilArgumentOutOfRangeError);
-      var _schedulersNextTick = require("./schedulers/nextTick");
+      var _schedulersNextTick = require('./schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
-      var _schedulersImmediate = require("./schedulers/immediate");
+      var _schedulersImmediate = require('./schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       _Observable2['default'].combineLatest = _operatorsCombineLatestStatic2['default'];
       _Observable2['default'].concat = _operatorsConcatStatic2['default'];
@@ -712,13 +712,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("./Observable");
+      var _Observable2 = require('./Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscriber = require("./Subscriber");
+      var _Subscriber = require('./Subscriber');
       var _Subscriber2 = _interopRequireDefault(_Subscriber);
-      var _Subscription = require("./Subscription");
+      var _Subscription = require('./Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _subjectsSubjectSubscription = require("./subjects/SubjectSubscription");
+      var _subjectsSubjectSubscription = require('./subjects/SubjectSubscription');
       var _subjectsSubjectSubscription2 = _interopRequireDefault(_subjectsSubjectSubscription);
       var subscriptionAdd = _Subscription2['default'].prototype.add;
       var subscriptionRemove = _Subscription2['default'].prototype.remove;
@@ -929,13 +929,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilNoop = require("./util/noop");
+      var _utilNoop = require('./util/noop');
       var _utilNoop2 = _interopRequireDefault(_utilNoop);
-      var _utilThrowError = require("./util/throwError");
+      var _utilThrowError = require('./util/throwError');
       var _utilThrowError2 = _interopRequireDefault(_utilThrowError);
-      var _utilTryOrOnError = require("./util/tryOrOnError");
+      var _utilTryOrOnError = require('./util/tryOrOnError');
       var _utilTryOrOnError2 = _interopRequireDefault(_utilTryOrOnError);
-      var _Subscription2 = require("./Subscription");
+      var _Subscription2 = require('./Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var Subscriber = (function(_Subscription) {
         _inherits(Subscriber, _Subscription);
@@ -1143,11 +1143,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _ScalarObservable = require("./ScalarObservable");
+      var _ScalarObservable = require('./ScalarObservable');
       var _ScalarObservable2 = _interopRequireDefault(_ScalarObservable);
-      var _EmptyObservable = require("./EmptyObservable");
+      var _EmptyObservable = require('./EmptyObservable');
       var _EmptyObservable2 = _interopRequireDefault(_EmptyObservable);
       var ArrayObservable = (function(_Observable) {
         _inherits(ArrayObservable, _Observable);
@@ -1253,9 +1253,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable3 = require("../Observable");
+      var _Observable3 = require('../Observable');
       var _Observable4 = _interopRequireDefault(_Observable3);
-      var _Subscription3 = require("../Subscription");
+      var _Subscription3 = require('../Subscription');
       var _Subscription4 = _interopRequireDefault(_Subscription3);
       var ConnectableObservable = (function(_Observable) {
         _inherits(ConnectableObservable, _Observable);
@@ -1371,11 +1371,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       var DeferObservable = (function(_Observable) {
         _inherits(DeferObservable, _Observable);
         function DeferObservable(observableFactory) {
@@ -1427,7 +1427,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var EmptyObservable = (function(_Observable) {
         _inherits(EmptyObservable, _Observable);
@@ -1480,7 +1480,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var ErrorObservable = (function(_Observable) {
         _inherits(ErrorObservable, _Observable);
@@ -1539,9 +1539,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       var ForkJoinObservable = (function(_Observable) {
         _inherits(ForkJoinObservable, _Observable);
@@ -1634,12 +1634,12 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _Subscription = require("../Subscription");
+      var _utilErrorObject = require('../util/errorObject');
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
       var FromEventObservable = (function(_Observable) {
         _inherits(FromEventObservable, _Observable);
@@ -1729,13 +1729,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscription = require("../Subscription");
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       var FromEventPatternObservable = (function(_Observable) {
         _inherits(FromEventPatternObservable, _Observable);
         function FromEventPatternObservable(addHandler, removeHandler, selector) {
@@ -1805,20 +1805,20 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _PromiseObservable = require("./PromiseObservable");
+      var _PromiseObservable = require('./PromiseObservable');
       var _PromiseObservable2 = _interopRequireDefault(_PromiseObservable);
-      var _IteratorObservable = require("./IteratorObservable");
+      var _IteratorObservable = require('./IteratorObservable');
       var _IteratorObservable2 = _interopRequireDefault(_IteratorObservable);
-      var _ArrayObservable = require("./ArrayObservable");
+      var _ArrayObservable = require('./ArrayObservable');
       var _ArrayObservable2 = _interopRequireDefault(_ArrayObservable);
-      var _utilSymbol_observable = require("../util/Symbol_observable");
+      var _utilSymbol_observable = require('../util/Symbol_observable');
       var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
-      var _utilSymbol_iterator = require("../util/Symbol_iterator");
+      var _utilSymbol_iterator = require('../util/Symbol_iterator');
       var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _operatorsObserveOnSupport = require("../operators/observeOn-support");
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _operatorsObserveOnSupport = require('../operators/observeOn-support');
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       var isArray = Array.isArray;
       var FromObservable = (function(_Observable) {
@@ -1894,7 +1894,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var InfiniteObservable = (function(_Observable) {
         _inherits(InfiniteObservable, _Observable);
@@ -1935,11 +1935,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilIsNumeric = require("../util/isNumeric");
+      var _utilIsNumeric = require('../util/isNumeric');
       var _utilIsNumeric2 = _interopRequireDefault(_utilIsNumeric);
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       var IntervalObservable = (function(_Observable) {
         _inherits(IntervalObservable, _Observable);
@@ -2016,14 +2016,14 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _utilRoot = require("../util/root");
-      var _utilSymbol_iterator = require("../util/Symbol_iterator");
+      var _utilRoot = require('../util/root');
+      var _utilSymbol_iterator = require('../util/Symbol_iterator');
       var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       var IteratorObservable = (function(_Observable) {
         _inherits(IteratorObservable, _Observable);
         function IteratorObservable(iterator, project, thisArg, scheduler) {
@@ -2245,11 +2245,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscription = require("../Subscription");
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       var PromiseObservable = (function(_Observable) {
         _inherits(PromiseObservable, _Observable);
@@ -2365,7 +2365,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var RangeObservable = (function(_Observable) {
         _inherits(RangeObservable, _Observable);
@@ -2454,7 +2454,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var ScalarObservable = (function(_Observable) {
         _inherits(ScalarObservable, _Observable);
@@ -2528,9 +2528,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       var SubscribeOnObservable = (function(_Observable) {
         _inherits(SubscribeOnObservable, _Observable);
@@ -2594,11 +2594,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilIsNumeric = require("../util/isNumeric");
+      var _utilIsNumeric = require('../util/isNumeric');
       var _utilIsNumeric2 = _interopRequireDefault(_utilIsNumeric);
-      var _Observable2 = require("../Observable");
+      var _Observable2 = require('../Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       var TimerObservable = (function(_Observable) {
         _inherits(TimerObservable, _Observable);
@@ -2693,7 +2693,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function buffer(closingNotifier) {
         return this.lift(new BufferOperator(closingNotifier));
@@ -2778,7 +2778,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function bufferCount(bufferSize) {
         var startBufferEvery = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -2871,9 +2871,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function bufferTime(bufferTimeSpan) {
         var bufferCreationInterval = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -3012,13 +3012,13 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber4 = require("../Subscriber");
+      var _Subscriber4 = require('../Subscriber');
       var _Subscriber5 = _interopRequireDefault(_Subscriber4);
-      var _Subscription = require("../Subscription");
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function bufferToggle(openings, closingSelector) {
         return this.lift(new BufferToggleOperator(openings, closingSelector));
       }
@@ -3155,11 +3155,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function bufferWhen(closingSelector) {
         return this.lift(new BufferWhenOperator(closingSelector));
       }
@@ -3263,11 +3263,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function _catch(selector) {
         var catchOperator = new CatchOperator(selector);
         var caught = this.lift(catchOperator);
@@ -3312,7 +3312,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = combineAll;
-      var _combineLatestSupport = require("./combineLatest-support");
+      var _combineLatestSupport = require('./combineLatest-support');
       function combineAll(project) {
         return this.lift(new _combineLatestSupport.CombineLatestOperator(project));
       }
@@ -3325,9 +3325,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("../observables/ArrayObservable");
+      var _observablesArrayObservable = require('../observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _combineLatestSupport = require("./combineLatest-support");
+      var _combineLatestSupport = require('./combineLatest-support');
       function combineLatest() {
         var project = undefined,
             scheduler = undefined;
@@ -3373,12 +3373,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _utilErrorObject = require('../util/errorObject');
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       var CombineLatestOperator = (function() {
         function CombineLatestOperator(project) {
@@ -3466,9 +3466,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("../observables/ArrayObservable");
+      var _observablesArrayObservable = require('../observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _combineLatestSupport = require("./combineLatest-support");
+      var _combineLatestSupport = require('./combineLatest-support');
       function combineLatest() {
         for (var _len = arguments.length,
             observables = Array(_len),
@@ -3494,9 +3494,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Observable = require("../Observable");
+      var _Observable = require('../Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       function concat() {
         var scheduler = _schedulersImmediate2['default'];
@@ -3525,7 +3525,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Observable = require("../Observable");
+      var _Observable = require('../Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
       function concatProto() {
         for (var _len = arguments.length,
@@ -3546,7 +3546,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = concatAll;
-      var _mergeAllSupport = require("./mergeAll-support");
+      var _mergeAllSupport = require('./mergeAll-support');
       function concatAll() {
         return this.lift(new _mergeAllSupport.MergeAllOperator(1));
       }
@@ -3556,7 +3556,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = concatMap;
-      var _mergeMapSupport = require("./mergeMap-support");
+      var _mergeMapSupport = require('./mergeMap-support');
       function concatMap(project, projectResult) {
         return this.lift(new _mergeMapSupport.MergeMapOperator(project, projectResult, 1));
       }
@@ -3566,7 +3566,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = concatMapTo;
-      var _mergeMapToSupport = require("./mergeMapTo-support");
+      var _mergeMapToSupport = require('./mergeMapTo-support');
       function concatMapTo(observable, projectResult) {
         return this.lift(new _mergeMapToSupport.MergeMapToOperator(observable, projectResult, 1));
       }
@@ -3597,7 +3597,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function count() {
         return this.lift(new CountOperator());
@@ -3654,9 +3654,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function debounce(dueTime) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersNextTick2['default'] : arguments[1];
@@ -3737,7 +3737,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function defaultIfEmpty() {
         var defaultValue = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
@@ -3800,11 +3800,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Notification = require("../Notification");
+      var _Notification = require('../Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       function delay(delay) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersImmediate2['default'] : arguments[1];
@@ -3921,12 +3921,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function distinctUntilChanged(compare, thisArg) {
         return this.lift(new DistinctUntilChangedOperator(thisArg ? _utilBindCallback2['default'](compare, thisArg, 2) : compare));
@@ -4004,13 +4004,13 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilNoop = require("../util/noop");
+      var _utilNoop = require('../util/noop');
       var _utilNoop2 = _interopRequireDefault(_utilNoop);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function _do(next, error, complete) {
         return this.lift(new DoOperator(next || _utilNoop2['default'], error || _utilNoop2['default'], complete || _utilNoop2['default']));
       }
@@ -4092,12 +4092,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _utilErrorObject = require('../util/errorObject');
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       var ExpandOperator = (function() {
         function ExpandOperator(project) {
@@ -4179,7 +4179,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = expand;
-      var _expandSupport = require("./expand-support");
+      var _expandSupport = require('./expand-support');
       function expand(project) {
         var concurrent = arguments.length <= 1 || arguments[1] === undefined ? Number.POSITIVE_INFINITY : arguments[1];
         return this.lift(new _expandSupport.ExpandOperator(project, concurrent));
@@ -4211,12 +4211,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function filter(select, thisArg) {
         return this.lift(new FilterOperator(select, thisArg));
@@ -4281,11 +4281,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Subscription = require("../Subscription");
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function _finally(finallySelector, thisArg) {
         return this.lift(new FinallyOperator(thisArg ? _utilBindCallback2['default'](finallySelector, thisArg, 2) : finallySelector));
@@ -4340,14 +4340,14 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
-      var _utilEmptyError = require("../util/EmptyError");
+      var _utilEmptyError = require('../util/EmptyError');
       var _utilEmptyError2 = _interopRequireDefault(_utilEmptyError);
       function first(predicate, thisArg, defaultValue) {
         return this.lift(new FirstOperator(predicate, thisArg, defaultValue, this));
@@ -4440,17 +4440,17 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _utilMap = require("../util/Map");
+      var _utilMap = require('../util/Map');
       var _utilMap2 = _interopRequireDefault(_utilMap);
-      var _utilFastMap = require("../util/FastMap");
+      var _utilFastMap = require('../util/FastMap');
       var _utilFastMap2 = _interopRequireDefault(_utilFastMap);
-      var _subjectsGroupSubject = require("../subjects/GroupSubject");
+      var _subjectsGroupSubject = require('../subjects/GroupSubject');
       var _subjectsGroupSubject2 = _interopRequireDefault(_subjectsGroupSubject);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function groupBy(keySelector, elementSelector, durationSelector) {
         return this.lift(new GroupByOperator(keySelector, durationSelector, elementSelector));
       }
@@ -4598,7 +4598,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function ignoreElements() {
         return this.lift(new IgnoreElementsOperator());
@@ -4649,7 +4649,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function isEmpty() {
         return this.lift(new IsEmptyOperator());
@@ -4709,14 +4709,14 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
-      var _utilEmptyError = require("../util/EmptyError");
+      var _utilEmptyError = require('../util/EmptyError');
       var _utilEmptyError2 = _interopRequireDefault(_utilEmptyError);
       function last(predicate, thisArg, defaultValue) {
         return this.lift(new LastOperator(predicate, thisArg, defaultValue, this));
@@ -4811,12 +4811,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function map(project, thisArg) {
         return this.lift(new MapOperator(project, thisArg));
@@ -4881,7 +4881,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function mapTo(value) {
         return this.lift(new MapToOperator(value));
@@ -4935,9 +4935,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Notification = require("../Notification");
+      var _Notification = require('../Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
       function materialize() {
         return this.lift(new MaterializeOperator());
@@ -4984,10 +4984,10 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("../observables/ArrayObservable");
+      var _observablesArrayObservable = require('../observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _mergeAllSupport = require("./mergeAll-support");
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _mergeAllSupport = require('./mergeAll-support');
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       function merge() {
         var concurrent = Number.POSITIVE_INFINITY;
@@ -5024,7 +5024,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _mergeStatic = require("./merge-static");
+      var _mergeStatic = require('./merge-static');
       var _mergeStatic2 = _interopRequireDefault(_mergeStatic);
       function merge() {
         for (var _len = arguments.length,
@@ -5061,9 +5061,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       var MergeAllOperator = (function() {
         function MergeAllOperator(concurrent) {
@@ -5125,7 +5125,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = mergeAll;
-      var _mergeAllSupport = require("./mergeAll-support");
+      var _mergeAllSupport = require('./mergeAll-support');
       function mergeAll() {
         var concurrent = arguments.length <= 0 || arguments[0] === undefined ? Number.POSITIVE_INFINITY : arguments[0];
         return this.lift(new _mergeAllSupport.MergeAllOperator(concurrent));
@@ -5156,12 +5156,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
       var MergeMapOperator = (function() {
         function MergeMapOperator(project, resultSelector) {
@@ -5252,7 +5252,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = mergeMap;
-      var _mergeMapSupport = require("./mergeMap-support");
+      var _mergeMapSupport = require('./mergeMap-support');
       function mergeMap(project, resultSelector) {
         var concurrent = arguments.length <= 2 || arguments[2] === undefined ? Number.POSITIVE_INFINITY : arguments[2];
         return this.lift(new _mergeMapSupport.MergeMapOperator(project, resultSelector, concurrent));
@@ -5283,12 +5283,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _utilErrorObject = require('../util/errorObject');
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       var MergeMapToOperator = (function() {
         function MergeMapToOperator(ish, resultSelector) {
@@ -5383,7 +5383,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = mergeMapTo;
-      var _mergeMapToSupport = require("./mergeMapTo-support");
+      var _mergeMapToSupport = require('./mergeMapTo-support');
       function mergeMapTo(observable, resultSelector) {
         var concurrent = arguments.length <= 2 || arguments[2] === undefined ? Number.POSITIVE_INFINITY : arguments[2];
         return this.lift(new _mergeMapToSupport.MergeMapToOperator(observable, resultSelector, concurrent));
@@ -5397,7 +5397,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesConnectableObservable = require("../observables/ConnectableObservable");
+      var _observablesConnectableObservable = require('../observables/ConnectableObservable');
       var _observablesConnectableObservable2 = _interopRequireDefault(_observablesConnectableObservable);
       function multicast(subjectFactory) {
         return new _observablesConnectableObservable2['default'](this, subjectFactory);
@@ -5428,9 +5428,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Notification = require("../Notification");
+      var _Notification = require('../Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
       var ObserveOnOperator = (function() {
         function ObserveOnOperator(scheduler) {
@@ -5484,7 +5484,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = observeOn;
-      var _observeOnSupport = require("./observeOn-support");
+      var _observeOnSupport = require('./observeOn-support');
       function observeOn(scheduler) {
         var delay = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
         return this.lift(new _observeOnSupport.ObserveOnOperator(scheduler, delay));
@@ -5498,9 +5498,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _utilNot = require("../util/not");
+      var _utilNot = require('../util/not');
       var _utilNot2 = _interopRequireDefault(_utilNot);
-      var _filter = require("./filter");
+      var _filter = require('./filter');
       var _filter2 = _interopRequireDefault(_filter);
       function partition(predicate, thisArg) {
         return [_filter2['default'].call(this, predicate), _filter2['default'].call(this, _utilNot2['default'](predicate, thisArg))];
@@ -5517,9 +5517,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _multicast = require("./multicast");
+      var _multicast = require('./multicast');
       var _multicast2 = _interopRequireDefault(_multicast);
       function subjectFactory() {
         return new _Subject2['default']();
@@ -5539,9 +5539,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _subjectsBehaviorSubject = require("../subjects/BehaviorSubject");
+      var _subjectsBehaviorSubject = require('../subjects/BehaviorSubject');
       var _subjectsBehaviorSubject2 = _interopRequireDefault(_subjectsBehaviorSubject);
-      var _multicast = require("./multicast");
+      var _multicast = require('./multicast');
       var _multicast2 = _interopRequireDefault(_multicast);
       function publishBehavior(value) {
         return _multicast2['default'].call(this, function() {
@@ -5560,9 +5560,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _subjectsReplaySubject = require("../subjects/ReplaySubject");
+      var _subjectsReplaySubject = require('../subjects/ReplaySubject');
       var _subjectsReplaySubject2 = _interopRequireDefault(_subjectsReplaySubject);
-      var _multicast = require("./multicast");
+      var _multicast = require('./multicast');
       var _multicast2 = _interopRequireDefault(_multicast);
       function publishReplay(bufferSize, windowTime, scheduler) {
         if (bufferSize === undefined)
@@ -5603,11 +5603,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function reduce(project, acc) {
         return this.lift(new ReduceOperator(project, acc));
       }
@@ -5684,7 +5684,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function repeat(count) {
         return this.lift(new RepeatOperator(count, this));
@@ -5748,7 +5748,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function retry() {
         var count = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
@@ -5814,13 +5814,13 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function retryWhen(notifier) {
         return this.lift(new RetryWhenOperator(notifier, this));
       }
@@ -5914,7 +5914,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function sample(notifier) {
         return this.lift(new SampleOperator(notifier));
@@ -5992,9 +5992,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function sampleTime(delay) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersNextTick2['default'] : arguments[1];
@@ -6071,11 +6071,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function scan(project, acc) {
         return this.lift(new ScanOperator(project));
       }
@@ -6151,14 +6151,14 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _utilBindCallback = require("../util/bindCallback");
+      var _utilErrorObject = require('../util/errorObject');
+      var _utilBindCallback = require('../util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
-      var _utilEmptyError = require("../util/EmptyError");
+      var _utilEmptyError = require('../util/EmptyError');
       var _utilEmptyError2 = _interopRequireDefault(_utilEmptyError);
       function single(predicate, thisArg) {
         return this.lift(new SingleOperator(predicate, thisArg, this));
@@ -6254,7 +6254,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function skip(total) {
         return this.lift(new SkipOperator(total));
@@ -6311,7 +6311,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function skipUntil(total) {
         return this.lift(new SkipUntilOperator(total));
@@ -6364,9 +6364,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesScalarObservable = require("../observables/ScalarObservable");
+      var _observablesScalarObservable = require('../observables/ScalarObservable');
       var _observablesScalarObservable2 = _interopRequireDefault(_observablesScalarObservable);
-      var _concatStatic = require("./concat-static");
+      var _concatStatic = require('./concat-static');
       var _concatStatic2 = _interopRequireDefault(_concatStatic);
       function startWith(x) {
         return _concatStatic2['default'](new _observablesScalarObservable2['default'](x), this);
@@ -6383,7 +6383,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesSubscribeOnObservable = require("../observables/SubscribeOnObservable");
+      var _observablesSubscribeOnObservable = require('../observables/SubscribeOnObservable');
       var _observablesSubscribeOnObservable2 = _interopRequireDefault(_observablesSubscribeOnObservable);
       function subscribeOn(scheduler) {
         var delay = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
@@ -6416,9 +6416,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       function _switch() {
         return this.lift(new SwitchOperator());
@@ -6503,12 +6503,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _utilErrorObject = require('../util/errorObject');
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       function switchMap(project, resultSelector) {
         return this.lift(new SwitchMapOperator(project, resultSelector));
@@ -6614,7 +6614,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _mergeMapToSupport = require("./mergeMapTo-support");
+      var _mergeMapToSupport = require('./mergeMapTo-support');
       function switchMapTo(observable, projectResult) {
         return this.lift(new SwitchMapToOperator(observable, projectResult));
       }
@@ -6664,7 +6664,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function take(total) {
         return this.lift(new TakeOperator(total));
@@ -6725,7 +6725,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function takeUntil(observable) {
         return this.lift(new TakeUntilOperator(observable));
@@ -6791,9 +6791,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function throttle(delay) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersNextTick2['default'] : arguments[1];
@@ -6874,11 +6874,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
-      var _utilIsDate = require("../util/isDate");
+      var _utilIsDate = require('../util/isDate');
       var _utilIsDate2 = _interopRequireDefault(_utilIsDate);
       function timeout(due) {
         var errorToSend = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -6949,11 +6949,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
-      var _utilIsDate = require("../util/isDate");
+      var _utilIsDate = require('../util/isDate');
       var _utilIsDate2 = _interopRequireDefault(_utilIsDate);
       function timeoutWith(due, withObservable) {
         var scheduler = arguments.length <= 2 || arguments[2] === undefined ? _schedulersImmediate2['default'] : arguments[2];
@@ -7024,7 +7024,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function toArray() {
         return this.lift(new ToArrayOperator());
@@ -7060,7 +7060,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = toPromise;
-      var _utilRoot = require("../util/root");
+      var _utilRoot = require('../util/root');
       function toPromise(PromiseCtor) {
         var _this = this;
         if (!PromiseCtor) {
@@ -7111,9 +7111,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
       function window(closingNotifier) {
         return this.lift(new WindowOperator(closingNotifier));
@@ -7200,9 +7200,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
       function windowCount(windowSize) {
         var startWindowEvery = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
@@ -7306,11 +7306,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _schedulersNextTick = require("../schedulers/nextTick");
+      var _schedulersNextTick = require('../schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function windowTime(windowTimeSpan) {
         var windowCreationInterval = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -7462,15 +7462,15 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber4 = require("../Subscriber");
+      var _Subscriber4 = require('../Subscriber');
       var _Subscriber5 = _interopRequireDefault(_Subscriber4);
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _Subscription = require("../Subscription");
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function windowToggle(openings, closingSelector) {
         return this.lift(new WindowToggleOperator(openings, closingSelector));
       }
@@ -7608,15 +7608,15 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("../Subscriber");
+      var _Subscriber3 = require('../Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _Subject = require("../Subject");
+      var _Subject = require('../Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _Subscription = require("../Subscription");
+      var _Subscription = require('../Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
+      var _utilErrorObject = require('../util/errorObject');
       function window(closingSelector) {
         return this.lift(new WindowOperator(closingSelector));
       }
@@ -7722,12 +7722,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _utilErrorObject = require('../util/errorObject');
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
       function withLatestFrom() {
         var project = undefined;
@@ -7816,9 +7816,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("../observables/ArrayObservable");
+      var _observablesArrayObservable = require('../observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _zipSupport = require("./zip-support");
+      var _zipSupport = require('./zip-support');
       function zip() {
         for (var _len = arguments.length,
             observables = Array(_len),
@@ -7860,16 +7860,16 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("../Subscriber");
+      var _Subscriber2 = require('../Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("../util/tryCatch");
+      var _utilTryCatch = require('../util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("../util/errorObject");
-      var _OuterSubscriber2 = require("../OuterSubscriber");
+      var _utilErrorObject = require('../util/errorObject');
+      var _OuterSubscriber2 = require('../OuterSubscriber');
       var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-      var _utilSubscribeToResult = require("../util/subscribeToResult");
+      var _utilSubscribeToResult = require('../util/subscribeToResult');
       var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
-      var _utilSymbol_iterator = require("../util/Symbol_iterator");
+      var _utilSymbol_iterator = require('../util/Symbol_iterator');
       var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
       var isArray = Array.isArray;
       var ZipOperator = (function() {
@@ -8079,7 +8079,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _zipStatic = require("./zip-static");
+      var _zipStatic = require('./zip-static');
       var _zipStatic2 = _interopRequireDefault(_zipStatic);
       function zipProto() {
         for (var _len = arguments.length,
@@ -8096,7 +8096,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = zipAll;
-      var _zipSupport = require("./zip-support");
+      var _zipSupport = require('./zip-support');
       function zipAll(project) {
         return this.lift(new _zipSupport.ZipOperator(project));
       }
@@ -8126,7 +8126,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _ImmediateAction2 = require("./ImmediateAction");
+      var _ImmediateAction2 = require('./ImmediateAction');
       var _ImmediateAction3 = _interopRequireDefault(_ImmediateAction2);
       var FutureAction = (function(_ImmediateAction) {
         _inherits(FutureAction, _ImmediateAction);
@@ -8194,7 +8194,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscription2 = require("../Subscription");
+      var _Subscription2 = require('../Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var ImmediateAction = (function(_Subscription) {
         _inherits(ImmediateAction, _Subscription);
@@ -8248,9 +8248,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _ImmediateAction = require("./ImmediateAction");
+      var _ImmediateAction = require('./ImmediateAction');
       var _ImmediateAction2 = _interopRequireDefault(_ImmediateAction);
-      var _FutureAction = require("./FutureAction");
+      var _FutureAction = require('./FutureAction');
       var _FutureAction2 = _interopRequireDefault(_FutureAction);
       var ImmediateScheduler = (function() {
         function ImmediateScheduler() {
@@ -8316,8 +8316,8 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilImmediate = require("../util/Immediate");
-      var _ImmediateAction2 = require("./ImmediateAction");
+      var _utilImmediate = require('../util/Immediate');
+      var _ImmediateAction2 = require('./ImmediateAction');
       var _ImmediateAction3 = _interopRequireDefault(_ImmediateAction2);
       var NextTickAction = (function(_ImmediateAction) {
         _inherits(NextTickAction, _ImmediateAction);
@@ -8388,11 +8388,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _ImmediateScheduler2 = require("./ImmediateScheduler");
+      var _ImmediateScheduler2 = require('./ImmediateScheduler');
       var _ImmediateScheduler3 = _interopRequireDefault(_ImmediateScheduler2);
-      var _NextTickAction = require("./NextTickAction");
+      var _NextTickAction = require('./NextTickAction');
       var _NextTickAction2 = _interopRequireDefault(_NextTickAction);
-      var _ImmediateAction = require("./ImmediateAction");
+      var _ImmediateAction = require('./ImmediateAction');
       var _ImmediateAction2 = _interopRequireDefault(_ImmediateAction);
       var NextTickScheduler = (function(_ImmediateScheduler) {
         _inherits(NextTickScheduler, _ImmediateScheduler);
@@ -8418,7 +8418,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _ImmediateScheduler = require("./ImmediateScheduler");
+      var _ImmediateScheduler = require('./ImmediateScheduler');
       var _ImmediateScheduler2 = _interopRequireDefault(_ImmediateScheduler);
       exports['default'] = new _ImmediateScheduler2['default']();
       module.exports = exports['default'];
@@ -8429,7 +8429,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _NextTickScheduler = require("./NextTickScheduler");
+      var _NextTickScheduler = require('./NextTickScheduler');
       var _NextTickScheduler2 = _interopRequireDefault(_NextTickScheduler);
       exports['default'] = new _NextTickScheduler2['default']();
       module.exports = exports['default'];
@@ -8458,7 +8458,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subject2 = require("../Subject");
+      var _Subject2 = require('../Subject');
       var _Subject3 = _interopRequireDefault(_Subject2);
       var BehaviorSubject = (function(_Subject) {
         _inherits(BehaviorSubject, _Subject);
@@ -8508,7 +8508,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subject2 = require("../Subject");
+      var _Subject2 = require('../Subject');
       var _Subject3 = _interopRequireDefault(_Subject2);
       var GroupSubject = (function(_Subject) {
         _inherits(GroupSubject, _Subject);
@@ -8546,9 +8546,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subject2 = require("../Subject");
+      var _Subject2 = require('../Subject');
       var _Subject3 = _interopRequireDefault(_Subject2);
-      var _schedulersImmediate = require("../schedulers/immediate");
+      var _schedulersImmediate = require('../schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       var ReplaySubject = (function(_Subject) {
         _inherits(ReplaySubject, _Subject);
@@ -8639,7 +8639,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscription2 = require("../Subscription");
+      var _Subscription2 = require('../Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var SubjectSubscription = (function(_Subscription) {
         _inherits(SubjectSubscription, _Subscription);
@@ -8747,7 +8747,7 @@
     120: [function(require, module, exports) {
       "use strict";
       exports.__esModule = true;
-      var _root = require("./root");
+      var _root = require('./root');
       var Immediate = {
         setImmediate: function setImmediate(x) {
           return 0;
@@ -8893,7 +8893,7 @@
     121: [function(require, module, exports) {
       'use strict';
       exports.__esModule = true;
-      var _root = require("./root");
+      var _root = require('./root');
       exports['default'] = _root.root.Map || (function() {
         function Map() {
           this.size = 0;
@@ -8937,7 +8937,7 @@
     122: [function(require, module, exports) {
       'use strict';
       exports.__esModule = true;
-      var _root = require("./root");
+      var _root = require('./root');
       if (!_root.root.Symbol) {
         _root.root.Symbol = {};
       }
@@ -8956,7 +8956,7 @@
     123: [function(require, module, exports) {
       'use strict';
       exports.__esModule = true;
-      var _root = require("./root");
+      var _root = require('./root');
       if (!_root.root.Symbol) {
         _root.root.Symbol = {};
       }
@@ -9079,13 +9079,13 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Observable = require("../Observable");
+      var _Observable = require('../Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
-      var _utilSymbol_iterator = require("../util/Symbol_iterator");
+      var _utilSymbol_iterator = require('../util/Symbol_iterator');
       var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-      var _utilSymbol_observable = require("../util/Symbol_observable");
+      var _utilSymbol_observable = require('../util/Symbol_observable');
       var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
-      var _InnerSubscriber = require("../InnerSubscriber");
+      var _InnerSubscriber = require('../InnerSubscriber');
       var _InnerSubscriber2 = _interopRequireDefault(_InnerSubscriber);
       var isArray = Array.isArray;
       function subscribeToResult(outerSubscriber, result, outerValue, outerIndex) {
@@ -9180,7 +9180,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = tryCatch;
-      var _errorObject = require("./errorObject");
+      var _errorObject = require('./errorObject');
       var tryCatchTarget;
       function tryCatcher() {
         try {
@@ -9219,9 +9219,9 @@
         (function(root, factory) {
           root.Rx = factory();
         }(window || global || this, function() {
-          return require("../dist/cjs/Rx");
+          return require('../dist/cjs/Rx');
         }));
       }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
     }, {"../dist/cjs/Rx": 5}]
   }, {}, [135]);
-})(require("buffer").Buffer, require("process"));
+})(require('buffer').Buffer, require('process'));

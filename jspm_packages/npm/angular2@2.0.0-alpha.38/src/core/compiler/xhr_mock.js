@@ -9,11 +9,11 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var xhr_1 = require("./xhr");
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var async_1 = require("../facade/async");
+var xhr_1 = require('./xhr');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var async_1 = require('../facade/async');
 var MockXHR = (function(_super) {
   __extends(MockXHR, _super);
   function MockXHR() {

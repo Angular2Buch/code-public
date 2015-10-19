@@ -22,7 +22,7 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../core/facade/lang");
+var lang_1 = require('../core/facade/lang');
 var RouteLifecycleHook = (function() {
   function RouteLifecycleHook(name) {
     this.name = name;

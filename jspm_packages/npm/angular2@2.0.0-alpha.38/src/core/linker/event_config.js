@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 exports.EVENT_TARGET_SEPARATOR = ':';
 var EventConfig = (function() {
   function EventConfig(fieldName, eventName, isLongForm) {

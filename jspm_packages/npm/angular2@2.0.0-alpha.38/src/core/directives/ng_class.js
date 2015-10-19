@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var metadata_1 = require("../metadata");
-var linker_1 = require("../linker");
-var change_detection_1 = require("../change_detection");
-var render_1 = require("../render");
-var collection_1 = require("../facade/collection");
+var lang_1 = require('../facade/lang');
+var metadata_1 = require('../metadata');
+var linker_1 = require('../linker');
+var change_detection_1 = require('../change_detection');
+var render_1 = require('../render');
+var collection_1 = require('../facade/collection');
 var NgClass = (function() {
   function NgClass(_iterableDiffers, _keyValueDiffers, _ngEl, _renderer) {
     this._iterableDiffers = _iterableDiffers;

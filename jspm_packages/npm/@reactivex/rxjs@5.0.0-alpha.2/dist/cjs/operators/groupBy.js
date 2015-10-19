@@ -23,17 +23,17 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber3 = require("../Subscriber");
+var _Subscriber3 = require('../Subscriber');
 var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-var _utilMap = require("../util/Map");
+var _utilMap = require('../util/Map');
 var _utilMap2 = _interopRequireDefault(_utilMap);
-var _utilFastMap = require("../util/FastMap");
+var _utilFastMap = require('../util/FastMap');
 var _utilFastMap2 = _interopRequireDefault(_utilFastMap);
-var _subjectsGroupSubject = require("../subjects/GroupSubject");
+var _subjectsGroupSubject = require('../subjects/GroupSubject');
 var _subjectsGroupSubject2 = _interopRequireDefault(_subjectsGroupSubject);
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
+var _utilErrorObject = require('../util/errorObject');
 function groupBy(keySelector, elementSelector, durationSelector) {
   return this.lift(new GroupByOperator(keySelector, durationSelector, elementSelector));
 }

@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var lifecycle_annotations_impl_1 = require("./lifecycle_annotations_impl");
-var reflection_1 = require("../core/reflection/reflection");
+var lang_1 = require('../core/facade/lang');
+var lifecycle_annotations_impl_1 = require('./lifecycle_annotations_impl');
+var reflection_1 = require('../core/reflection/reflection');
 function hasLifecycleHook(e, type) {
   if (!(type instanceof lang_1.Type))
     return false;

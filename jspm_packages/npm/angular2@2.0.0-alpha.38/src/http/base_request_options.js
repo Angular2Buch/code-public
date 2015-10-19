@@ -31,12 +31,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../core/facade/lang");
-var headers_1 = require("./headers");
-var enums_1 = require("./enums");
-var di_1 = require("../core/di");
-var url_search_params_1 = require("./url_search_params");
-var http_utils_1 = require("./http_utils");
+var lang_1 = require('../core/facade/lang');
+var headers_1 = require('./headers');
+var enums_1 = require('./enums');
+var di_1 = require('../core/di');
+var url_search_params_1 = require('./url_search_params');
+var http_utils_1 = require('./http_utils');
 var RequestOptions = (function() {
   function RequestOptions(_a) {
     var _b = _a === void 0 ? {} : _a,

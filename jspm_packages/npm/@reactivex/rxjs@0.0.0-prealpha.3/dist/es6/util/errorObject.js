@@ -1,0 +1,2 @@
+/* */ 
+export var errorObject = { e: {} };

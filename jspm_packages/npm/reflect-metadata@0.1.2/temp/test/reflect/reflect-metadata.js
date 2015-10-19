@@ -1,6 +1,6 @@
 /* */ 
-require("../../Reflect");
-var assert = require("assert");
+require('../../Reflect');
+var assert = require('assert');
 function ReflectMetadataReturnsDecoratorFunction() {
   var result = Reflect.metadata("key", "value");
   assert.equal(typeof result, "function");

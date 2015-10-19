@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var css_animation_options_1 = require("./css_animation_options");
-var animation_1 = require("./animation");
+var css_animation_options_1 = require('./css_animation_options');
+var animation_1 = require('./animation');
 var CssAnimationBuilder = (function() {
   function CssAnimationBuilder(browserDetails) {
     this.browserDetails = browserDetails;

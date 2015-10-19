@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var collection_1 = require("../core/facade/collection");
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var collection_1 = require('../core/facade/collection');
 var _scheduler;
 var _microtasks = [];
 var _pendingPeriodicTimers = [];

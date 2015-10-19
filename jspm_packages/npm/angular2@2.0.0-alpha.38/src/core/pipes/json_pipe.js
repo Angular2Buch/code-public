@@ -22,9 +22,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var di_1 = require("../di");
-var metadata_1 = require("../metadata");
+var lang_1 = require('../facade/lang');
+var di_1 = require('../di');
+var metadata_1 = require('../metadata');
 var JsonPipe = (function() {
   function JsonPipe() {}
   JsonPipe.prototype.transform = function(value, args) {

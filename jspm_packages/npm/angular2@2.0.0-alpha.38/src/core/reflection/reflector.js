@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
 var ReflectionInfo = (function() {
   function ReflectionInfo(annotations, parameters, factory, interfaces, propMetadata) {
     this.annotations = annotations;

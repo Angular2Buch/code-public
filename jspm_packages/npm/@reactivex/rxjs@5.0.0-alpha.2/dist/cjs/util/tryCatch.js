@@ -2,7 +2,7 @@
 'use strict';
 exports.__esModule = true;
 exports['default'] = tryCatch;
-var _errorObject = require("./errorObject");
+var _errorObject = require('./errorObject');
 var tryCatchTarget;
 function tryCatcher() {
   try {

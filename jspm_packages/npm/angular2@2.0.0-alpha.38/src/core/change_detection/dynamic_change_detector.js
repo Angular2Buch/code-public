@@ -9,13 +9,13 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var abstract_change_detector_1 = require("./abstract_change_detector");
-var change_detection_util_1 = require("./change_detection_util");
-var constants_1 = require("./constants");
-var proto_record_1 = require("./proto_record");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var abstract_change_detector_1 = require('./abstract_change_detector');
+var change_detection_util_1 = require('./change_detection_util');
+var constants_1 = require('./constants');
+var proto_record_1 = require('./proto_record');
 var DynamicChangeDetector = (function(_super) {
   __extends(DynamicChangeDetector, _super);
   function DynamicChangeDetector(id, dispatcher, numberOfPropertyProtoRecords, propertyBindingTargets, directiveIndices, strategy, _records, _eventBindings, _directiveRecords, _genConfig) {

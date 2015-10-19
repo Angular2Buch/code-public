@@ -27,14 +27,14 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var di_1 = require("../../di");
-var render_1 = require("../../render");
-var linker_1 = require("../../linker");
-var metadata_1 = require("../../metadata");
-var async_1 = require("../../facade/async");
-var control_value_accessor_1 = require("./control_value_accessor");
-var lang_1 = require("../../facade/lang");
-var shared_1 = require("./shared");
+var di_1 = require('../../di');
+var render_1 = require('../../render');
+var linker_1 = require('../../linker');
+var metadata_1 = require('../../metadata');
+var async_1 = require('../../facade/async');
+var control_value_accessor_1 = require('./control_value_accessor');
+var lang_1 = require('../../facade/lang');
+var shared_1 = require('./shared');
 var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, {
   toAlias: di_1.forwardRef(function() {
     return SelectControlValueAccessor;

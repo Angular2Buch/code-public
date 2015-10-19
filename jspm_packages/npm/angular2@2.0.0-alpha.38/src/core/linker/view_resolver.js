@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var view_1 = require("../metadata/view");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var reflection_1 = require("../reflection/reflection");
+var di_1 = require('../di');
+var view_1 = require('../metadata/view');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var reflection_1 = require('../reflection/reflection');
 var ViewResolver = (function() {
   function ViewResolver() {
     this._cache = new collection_1.Map();

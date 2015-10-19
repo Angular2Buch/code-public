@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
 exports.__esModule = true;
-var _root = require("./root");
+var _root = require('./root');
 exports['default'] = _root.root.Map || (function() {
   function Map() {
     this.size = 0;

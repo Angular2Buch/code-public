@@ -1,9 +1,9 @@
 /* */ 
 (function(process) {
   'use strict';
-  var dom_adapter_1 = require("../dom/dom_adapter");
-  var collection_1 = require("../facade/collection");
-  var lang_1 = require("../facade/lang");
+  var dom_adapter_1 = require('../dom/dom_adapter');
+  var collection_1 = require('../facade/collection');
+  var lang_1 = require('../facade/lang');
   var ShadowCss = (function() {
     function ShadowCss() {
       this.strictStyling = true;
@@ -243,4 +243,4 @@
     var rules = _cssToRules(cssText);
     callback(rules);
   }
-})(require("process"));
+})(require('process'));

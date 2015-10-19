@@ -31,13 +31,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var decorators_1 = require("../../di/decorators");
-var lang_1 = require("../../facade/lang");
-var exceptions_1 = require("../../facade/exceptions");
-var collection_1 = require("../../facade/collection");
-var lexer_1 = require("./lexer");
-var reflection_1 = require("../../reflection/reflection");
-var ast_1 = require("./ast");
+var decorators_1 = require('../../di/decorators');
+var lang_1 = require('../../facade/lang');
+var exceptions_1 = require('../../facade/exceptions');
+var collection_1 = require('../../facade/collection');
+var lexer_1 = require('./lexer');
+var reflection_1 = require('../../reflection/reflection');
+var ast_1 = require('./ast');
 var _implicitReceiver = new ast_1.ImplicitReceiver();
 var INTERPOLATION_REGEXP = /\{\{(.*?)\}\}/g;
 var ParseException = (function(_super) {

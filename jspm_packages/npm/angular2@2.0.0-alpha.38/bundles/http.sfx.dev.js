@@ -698,7 +698,7 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var InjectMetadata = (function() {
         function InjectMetadata(token) {
           this.token = token;
@@ -772,7 +772,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       function extractAnnotation(annotation) {
         if (lang_1.isFunction(annotation) && annotation.hasOwnProperty('annotation')) {
           annotation = annotation.annotation;
@@ -933,7 +933,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       function forwardRef(forwardRefFn) {
         forwardRefFn.__forward_ref__ = forwardRef;
         forwardRefFn.toString = function() {
@@ -957,7 +957,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       exports.Map = lang_1.global.Map;
       exports.Set = lang_1.global.Set;
       exports.StringMap = lang_1.global.Object;
@@ -1371,9 +1371,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
       var _ArrayLogger = (function() {
         function _ArrayLogger() {
           this.res = [];
@@ -1491,9 +1491,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
       var ReflectionInfo = (function() {
         function ReflectionInfo(annotations, parameters, factory, interfaces, propMetadata) {
           this.annotations = annotations;
@@ -1633,9 +1633,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
       var ReflectionCapabilities = (function() {
         function ReflectionCapabilities(reflect) {
           this._reflect = lang_1.isPresent(reflect) ? reflect : lang_1.global.Reflect;
@@ -1851,9 +1851,9 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       function findFirstClosedCycle(keys) {
         var res = [];
         for (var i = 0; i < keys.length; ++i) {
@@ -2032,7 +2032,7 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var OpaqueToken = (function() {
         function OpaqueToken(_desc) {
           this._desc = _desc;
@@ -2073,10 +2073,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var di_1 = require('../src/core/di');
       var IterableDiffers = (function() {
         function IterableDiffers(factories) {
           this.factories = factories;
@@ -2144,10 +2144,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_2 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_2 = require('../src/core/facade/lang');
       var DefaultIterableDifferFactory = (function() {
         function DefaultIterableDifferFactory() {}
         DefaultIterableDifferFactory.prototype.supports = function(obj) {
@@ -2618,10 +2618,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var di_1 = require('../src/core/di');
       var KeyValueDiffers = (function() {
         function KeyValueDiffers(factories) {
           this.factories = factories;
@@ -2689,9 +2689,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var DefaultKeyValueDifferFactory = (function() {
         function DefaultKeyValueDifferFactory() {}
         DefaultKeyValueDifferFactory.prototype.supports = function(obj) {
@@ -2970,8 +2970,8 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
       var AST = (function() {
         function AST() {}
         AST.prototype.visit = function(visitor) {
@@ -3474,10 +3474,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var decorators_1 = require("../src/core/di/decorators");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var decorators_1 = require('../src/core/di/decorators');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       (function(TokenType) {
         TokenType[TokenType["Character"] = 0] = "Character";
         TokenType[TokenType["Identifier"] = 1] = "Identifier";
@@ -3918,13 +3918,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var decorators_1 = require("../src/core/di/decorators");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var lexer_1 = require("../src/core/change_detection/parser/lexer");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var ast_1 = require("../src/core/change_detection/parser/ast");
+      var decorators_1 = require('../src/core/di/decorators');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var lexer_1 = require('../src/core/change_detection/parser/lexer');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var ast_1 = require('../src/core/change_detection/parser/ast');
       var _implicitReceiver = new ast_1.ImplicitReceiver();
       var INTERPOLATION_REGEXP = /\{\{(.*?)\}\}/g;
       var ParseException = (function(_super) {
@@ -4533,9 +4533,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
       var Locals = (function() {
         function Locals(parent, current) {
           this.parent = parent;
@@ -4588,7 +4588,7 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var ExpressionChangedAfterItHasBeenCheckedException = (function(_super) {
         __extends(ExpressionChangedAfterItHasBeenCheckedException, _super);
         function ExpressionChangedAfterItHasBeenCheckedException(exp, oldValue, currValue, context) {
@@ -4663,7 +4663,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       (function(ChangeDetectionStrategy) {
         ChangeDetectionStrategy[ChangeDetectionStrategy["CheckOnce"] = 0] = "CheckOnce";
         ChangeDetectionStrategy[ChangeDetectionStrategy["Checked"] = 1] = "Checked";
@@ -4697,7 +4697,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var DIRECTIVE_LIFECYCLE = "directiveLifecycle";
       var BINDING = "native";
       var DIRECTIVE = "directive";
@@ -4825,8 +4825,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var constants_1 = require("../src/core/change_detection/constants");
+      var lang_1 = require('../src/core/facade/lang');
+      var constants_1 = require('../src/core/change_detection/constants');
       var DirectiveIndex = (function() {
         function DirectiveIndex(elementIndex, directiveIndex) {
           this.elementIndex = elementIndex;
@@ -4877,7 +4877,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var constants_1 = require("../src/core/change_detection/constants");
+      var constants_1 = require('../src/core/change_detection/constants');
       var ChangeDetectorRef = (function() {
         function ChangeDetectorRef(_cd) {
           this._cd = _cd;
@@ -4905,7 +4905,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var trace;
       var events;
       function detectWTF() {
@@ -5037,9 +5037,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var proto_record_1 = require("../src/core/change_detection/proto_record");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var proto_record_1 = require('../src/core/change_detection/proto_record');
       function coalesce(records) {
         var res = [];
         var indexMap = new collection_1.Map();
@@ -5097,8 +5097,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
       var _ALREADY_CHECKED_ACCESSOR = "alreadyChecked";
       var _CONTEXT_ACCESSOR = "context";
       var _PROP_BINDING_INDEX = "propertyBindingIndex";
@@ -5370,7 +5370,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var decorators_1 = require("../src/core/util/decorators");
+      var decorators_1 = require('../src/core/util/decorators');
       exports.Class = decorators_1.Class;
       global.define = __define;
       return module.exports;
@@ -5559,7 +5559,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscription2 = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription2 = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var SubjectSubscription = (function(_Subscription) {
         _inherits(SubjectSubscription, _Subscription);
@@ -5606,7 +5606,7 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var InvalidPipeArgumentException = (function(_super) {
         __extends(InvalidPipeArgumentException, _super);
         function InvalidPipeArgumentException(type, value) {
@@ -5762,10 +5762,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var invalid_pipe_argument_exception_1 = require("../src/core/pipes/invalid_pipe_argument_exception");
+      var lang_1 = require('../src/core/facade/lang');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var invalid_pipe_argument_exception_1 = require('../src/core/pipes/invalid_pipe_argument_exception');
       var UpperCasePipe = (function() {
         function UpperCasePipe() {}
         UpperCasePipe.prototype.transform = function(value, args) {
@@ -5812,10 +5812,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
-      var metadata_1 = require("../src/core/metadata");
-      var invalid_pipe_argument_exception_1 = require("../src/core/pipes/invalid_pipe_argument_exception");
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
+      var metadata_1 = require('../src/core/metadata');
+      var invalid_pipe_argument_exception_1 = require('../src/core/pipes/invalid_pipe_argument_exception');
       var LowerCasePipe = (function() {
         function LowerCasePipe() {}
         LowerCasePipe.prototype.transform = function(value, args) {
@@ -5862,9 +5862,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
-      var metadata_1 = require("../src/core/metadata");
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
+      var metadata_1 = require('../src/core/metadata');
       var JsonPipe = (function() {
         function JsonPipe() {}
         JsonPipe.prototype.transform = function(value, args) {
@@ -5906,12 +5906,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var di_1 = require("../src/core/di");
-      var invalid_pipe_argument_exception_1 = require("../src/core/pipes/invalid_pipe_argument_exception");
-      var metadata_1 = require("../src/core/metadata");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var di_1 = require('../src/core/di');
+      var invalid_pipe_argument_exception_1 = require('../src/core/pipes/invalid_pipe_argument_exception');
+      var metadata_1 = require('../src/core/metadata');
       var SlicePipe = (function() {
         function SlicePipe() {}
         SlicePipe.prototype.transform = function(value, args) {
@@ -5978,13 +5978,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var intl_1 = require("../src/core/facade/intl");
-      var di_1 = require("../src/core/di");
-      var metadata_1 = require("../src/core/metadata");
-      var collection_1 = require("../src/core/facade/collection");
-      var invalid_pipe_argument_exception_1 = require("../src/core/pipes/invalid_pipe_argument_exception");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var intl_1 = require('../src/core/facade/intl');
+      var di_1 = require('../src/core/di');
+      var metadata_1 = require('../src/core/metadata');
+      var collection_1 = require('../src/core/facade/collection');
+      var invalid_pipe_argument_exception_1 = require('../src/core/pipes/invalid_pipe_argument_exception');
       var defaultLocale = 'en-US';
       var _re = lang_1.RegExpWrapper.create('^(\\d+)?\\.((\\d+)(\\-(\\d+))?)?$');
       var NumberPipe = (function() {
@@ -6079,12 +6079,12 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       exports.Type = lang_1.Type;
-      var async_1 = require("../src/core/facade/async");
+      var async_1 = require('../src/core/facade/async');
       exports.Observable = async_1.Observable;
       exports.EventEmitter = async_1.EventEmitter;
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var exceptions_1 = require('../src/core/facade/exceptions');
       exports.WrappedException = exceptions_1.WrappedException;
       global.define = __define;
       return module.exports;
@@ -6115,7 +6115,7 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var _nextTemplateId = 0;
       function nextTemplateId() {
         return _nextTemplateId++;
@@ -6291,9 +6291,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var _EMPTY_ATTR_VALUE = '';
       var _SELECTOR_REGEXP = lang_1.RegExpWrapper.create('(\\:not\\()|' + '([-\\w]+)|' + '(?:\\.([-\\w]+))|' + '(?:\\[([-\\w*]+)(?:=([^\\]]*))?\\])|' + '(\\))|' + '(\\s*,\\s*)');
       var CssSelector = (function() {
@@ -6614,7 +6614,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var CAMEL_CASE_REGEXP = /([A-Z])/g;
       var DASH_CASE_REGEXP = /-([a-z])/g;
       var SINGLE_QUOTE_ESCAPE_STRING_RE = /'|\\|\n|\$/g;
@@ -6740,7 +6740,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var MODULE_REGEXP = /#MODULE\[([^\]]*)\]/g;
       function moduleRef(moduleUrl) {
         return "#MODULE[" + moduleUrl + "]";
@@ -6805,7 +6805,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var TextAst = (function() {
         function TextAst(value, ngContentIndex, sourceInfo) {
           this.value = value;
@@ -7031,7 +7031,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       function setRootDomAdapter(adapter) {
         if (lang_1.isBlank(exports.DOM)) {
           exports.DOM = adapter;
@@ -7072,9 +7072,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
       var UrlResolver = (function() {
         function UrlResolver() {}
         UrlResolver.prototype.resolve = function(baseUrl, url) {
@@ -7195,7 +7195,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       function resolveStyleUrls(resolver, baseUrl, cssText) {
         var foundUrls = [];
         cssText = extractUrls(resolver, baseUrl, cssText, foundUrls);
@@ -7264,15 +7264,15 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var template_commands_1 = require("../src/core/linker/template_commands");
-      var template_ast_1 = require("../src/core/compiler/template_ast");
-      var source_module_1 = require("../src/core/compiler/source_module");
-      var api_1 = require("../src/core/render/api");
-      var style_compiler_1 = require("../src/core/compiler/style_compiler");
-      var util_1 = require("../src/core/compiler/util");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var template_commands_1 = require('../src/core/linker/template_commands');
+      var template_ast_1 = require('../src/core/compiler/template_ast');
+      var source_module_1 = require('../src/core/compiler/source_module');
+      var api_1 = require('../src/core/render/api');
+      var style_compiler_1 = require('../src/core/compiler/style_compiler');
+      var util_1 = require('../src/core/compiler/util');
+      var di_1 = require('../src/core/di');
       exports.TEMPLATE_COMMANDS_MODULE_REF = source_module_1.moduleRef("package:angular2/src/core/linker/template_commands" + util_1.MODULE_SUFFIX);
       var IMPLICIT_TEMPLATE_VAR = '\$implicit';
       var CommandCompiler = (function() {
@@ -7556,7 +7556,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var HtmlTextAst = (function() {
         function HtmlTextAst(value, sourceInfo) {
           this.value = value;
@@ -7632,7 +7632,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var NG_CONTENT_SELECT_ATTR = 'select';
       var NG_CONTENT_ELEMENT = 'ng-content';
       var LINK_ELEMENT = 'link';
@@ -7726,18 +7726,18 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var directive_metadata_1 = require("../src/core/compiler/directive_metadata");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var async_1 = require("../src/core/facade/async");
-      var xhr_1 = require("../src/core/compiler/xhr");
-      var url_resolver_1 = require("../src/core/compiler/url_resolver");
-      var style_url_resolver_1 = require("../src/core/compiler/style_url_resolver");
-      var di_1 = require("../src/core/di");
-      var api_1 = require("../src/core/render/api");
-      var html_ast_1 = require("../src/core/compiler/html_ast");
-      var html_parser_1 = require("../src/core/compiler/html_parser");
-      var template_preparser_1 = require("../src/core/compiler/template_preparser");
+      var directive_metadata_1 = require('../src/core/compiler/directive_metadata');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var async_1 = require('../src/core/facade/async');
+      var xhr_1 = require('../src/core/compiler/xhr');
+      var url_resolver_1 = require('../src/core/compiler/url_resolver');
+      var style_url_resolver_1 = require('../src/core/compiler/style_url_resolver');
+      var di_1 = require('../src/core/di');
+      var api_1 = require('../src/core/render/api');
+      var html_ast_1 = require('../src/core/compiler/html_ast');
+      var html_parser_1 = require('../src/core/compiler/html_parser');
+      var template_preparser_1 = require('../src/core/compiler/template_preparser');
       var TemplateNormalizer = (function() {
         function TemplateNormalizer(_xhr, _urlResolver, _domParser) {
           this._xhr = _xhr;
@@ -7866,12 +7866,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var metadata_1 = require("../src/core/metadata");
-      var reflection_1 = require("../src/core/reflection/reflection");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var metadata_1 = require('../src/core/metadata');
+      var reflection_1 = require('../src/core/reflection/reflection');
       var DirectiveResolver = (function() {
         function DirectiveResolver() {}
         DirectiveResolver.prototype.resolve = function(type) {
@@ -8003,12 +8003,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var view_1 = require("../src/core/metadata/view");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var reflection_1 = require("../src/core/reflection/reflection");
+      var di_1 = require('../src/core/di');
+      var view_1 = require('../src/core/metadata/view');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var reflection_1 = require('../src/core/reflection/reflection');
       var ViewResolver = (function() {
         function ViewResolver() {
           this._cache = new collection_1.Map();
@@ -8042,8 +8042,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var interfaces_1 = require("../src/core/linker/interfaces");
+      var lang_1 = require('../src/core/facade/lang');
+      var interfaces_1 = require('../src/core/linker/interfaces');
       function hasLifecycleHook(lcInterface, token) {
         if (!(token instanceof lang_1.Type))
           return false;
@@ -8077,8 +8077,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
       exports.APP_COMPONENT_REF_PROMISE = lang_1.CONST_EXPR(new di_1.OpaqueToken('Promise<ComponentRef>'));
       exports.APP_COMPONENT = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppComponent'));
       exports.APP_ID = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppId'));
@@ -8108,8 +8108,8 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var binding_1 = require("../src/core/di/binding");
-      var di_1 = require("../src/core/di");
+      var binding_1 = require('../src/core/di/binding');
+      var di_1 = require('../src/core/di');
       var PipeBinding = (function(_super) {
         __extends(PipeBinding, _super);
         function PipeBinding(name, pure, key, resolvedFactories, multiBinding) {
@@ -8147,7 +8147,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       function internalView(viewRef) {
         return viewRef._view;
       }
@@ -8208,7 +8208,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var CAMEL_CASE_REGEXP = /([A-Z])/g;
       var DASH_CASE_REGEXP = /-([a-z])/g;
       function camelCaseToDashCase(input) {
@@ -8230,8 +8230,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var ElementBinder = (function() {
         function ElementBinder(index, parent, distanceToParent, protoElementInjector, componentDirective, nestedProtoView) {
           this.index = index;
@@ -8254,7 +8254,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var ElementRef = (function() {
         function ElementRef(parentView, boundElementIndex, _renderer) {
           this._renderer = _renderer;
@@ -8288,7 +8288,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var view_ref_1 = require("../src/core/linker/view_ref");
+      var view_ref_1 = require('../src/core/linker/view_ref');
       var TemplateRef = (function() {
         function TemplateRef(elementRef) {
           this.elementRef = elementRef;
@@ -8344,9 +8344,9 @@
           decorator(target, key, paramIndex);
         };
       };
-      var di_1 = require("../src/core/di");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
+      var di_1 = require('../src/core/di');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
       exports.APP_VIEW_POOL_CAPACITY = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppViewPool.viewPoolCapacity'));
       var AppViewPool = (function() {
         function AppViewPool(poolCapacityPerProtoView) {
@@ -8406,7 +8406,7 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
+      var di_1 = require('../src/core/di');
       var AppViewListener = (function() {
         function AppViewListener() {}
         AppViewListener.prototype.viewCreated = function(view) {};
@@ -8422,9 +8422,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var view_ref_1 = require("../src/core/linker/view_ref");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var view_ref_1 = require('../src/core/linker/view_ref');
       var ViewContainerRef = (function() {
         function ViewContainerRef(viewManager, element) {
           this.viewManager = viewManager;
@@ -8508,9 +8508,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
       var QueryList = (function() {
         function QueryList() {
           this._results = [];
@@ -8569,7 +8569,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       exports.EVENT_TARGET_SEPARATOR = ':';
       var EventConfig = (function() {
         function EventConfig(fieldName, eventName, isLongForm) {
@@ -8624,11 +8624,11 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var metadata_1 = require("../src/core/metadata");
-      var reflection_1 = require("../src/core/reflection/reflection");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var metadata_1 = require('../src/core/metadata');
+      var reflection_1 = require('../src/core/reflection/reflection');
       var PipeResolver = (function() {
         function PipeResolver() {}
         PipeResolver.prototype.resolve = function(type) {
@@ -8654,8 +8654,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
       exports.DOCUMENT = lang_1.CONST_EXPR(new di_1.OpaqueToken('DocumentToken'));
       global.define = __define;
       return module.exports;
@@ -8680,7 +8680,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       exports.Math = lang_1.global.Math;
       exports.NaN = typeof exports.NaN;
       global.define = __define;
@@ -8712,9 +8712,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var math_1 = require("../src/core/facade/math");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
+      var di_1 = require('../src/core/di');
+      var math_1 = require('../src/core/facade/math');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
       var BrowserDetails = (function() {
         function BrowserDetails() {
           this.elapsedTimeIncludesDelay = false;
@@ -8779,9 +8779,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var profile_1 = require("../src/core/profile/profile");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var profile_1 = require('../src/core/profile/profile');
       var NgZone = (function() {
         function NgZone(_a) {
           var enableLongStackTrace = _a.enableLongStackTrace;
@@ -8966,10 +8966,10 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var api_1 = require("../src/core/render/api");
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var api_1 = require('../src/core/render/api');
       var DefaultProtoViewRef = (function(_super) {
         __extends(DefaultProtoViewRef, _super);
         function DefaultProtoViewRef(cmds) {
@@ -9072,10 +9072,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var compiler_1 = require("../src/core/linker/compiler");
-      var proto_view_factory_1 = require("../src/core/linker/proto_view_factory");
-      var template_compiler_1 = require("../src/core/compiler/template_compiler");
-      var di_1 = require("../src/core/di");
+      var compiler_1 = require('../src/core/linker/compiler');
+      var proto_view_factory_1 = require('../src/core/linker/proto_view_factory');
+      var template_compiler_1 = require('../src/core/compiler/template_compiler');
+      var di_1 = require('../src/core/di');
       var RuntimeCompiler = (function(_super) {
         __extends(RuntimeCompiler, _super);
         function RuntimeCompiler(_protoViewFactory, _templateCompiler) {
@@ -9134,11 +9134,11 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var element_schema_registry_1 = require("../src/core/compiler/schema/element_schema_registry");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var element_schema_registry_1 = require('../src/core/compiler/schema/element_schema_registry');
       var DomElementSchemaRegistry = (function(_super) {
         __extends(DomElementSchemaRegistry, _super);
         function DomElementSchemaRegistry() {
@@ -9198,7 +9198,7 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
+      var di_1 = require('../src/core/di');
       var AppRootUrl = (function() {
         function AppRootUrl(value) {
           this._value = value;
@@ -9255,9 +9255,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var app_root_url_1 = require("../src/core/compiler/app_root_url");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var di_1 = require("../src/core/di");
+      var app_root_url_1 = require('../src/core/compiler/app_root_url');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var di_1 = require('../src/core/di');
       var AnchorBasedAppRootUrl = (function(_super) {
         __extends(AnchorBasedAppRootUrl, _super);
         function AnchorBasedAppRootUrl() {
@@ -9279,10 +9279,10 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var lang_2 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var lang_2 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var di_1 = require('../src/core/di');
       exports.NG_VALIDATORS = lang_2.CONST_EXPR(new di_1.OpaqueToken("NgValidators"));
       var Validators = (function() {
         function Validators() {}
@@ -9340,7 +9340,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
+      var lang_1 = require('../src/core/facade/lang');
       var AbstractControlDirective = (function() {
         function AbstractControlDirective() {}
         Object.defineProperty(AbstractControlDirective.prototype, "control", {
@@ -9418,7 +9418,7 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var abstract_control_directive_1 = require("../src/core/forms/directives/abstract_control_directive");
+      var abstract_control_directive_1 = require('../src/core/forms/directives/abstract_control_directive');
       var ControlContainer = (function(_super) {
         __extends(ControlContainer, _super);
         function ControlContainer() {
@@ -9457,7 +9457,7 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var abstract_control_directive_1 = require("../src/core/forms/directives/abstract_control_directive");
+      var abstract_control_directive_1 = require('../src/core/forms/directives/abstract_control_directive');
       var NgControl = (function(_super) {
         __extends(NgControl, _super);
         function NgControl() {
@@ -9490,8 +9490,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
       exports.NG_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.OpaqueToken("NgValueAccessor"));
       global.define = __define;
       return module.exports;
@@ -9522,10 +9522,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var compiler_1 = require("../src/core/linker/compiler");
-      var lang_1 = require("../src/core/facade/lang");
-      var view_manager_1 = require("../src/core/linker/view_manager");
+      var di_1 = require('../src/core/di');
+      var compiler_1 = require('../src/core/linker/compiler');
+      var lang_1 = require('../src/core/facade/lang');
+      var view_manager_1 = require('../src/core/linker/view_manager');
       var ComponentRef = (function() {
         function ComponentRef(location, instance, componentType, injector, _dispose) {
           this._dispose = _dispose;
@@ -9639,13 +9639,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var metadata_1 = require("../src/core/metadata");
-      var render_1 = require("../src/core/render");
-      var linker_1 = require("../src/core/linker");
-      var di_1 = require("../src/core/di");
-      var control_value_accessor_1 = require("../src/core/forms/directives/control_value_accessor");
-      var lang_1 = require("../src/core/facade/lang");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var metadata_1 = require('../src/core/metadata');
+      var render_1 = require('../src/core/render');
+      var linker_1 = require('../src/core/linker');
+      var di_1 = require('../src/core/di');
+      var control_value_accessor_1 = require('../src/core/forms/directives/control_value_accessor');
+      var lang_1 = require('../src/core/facade/lang');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var CHECKBOX_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, {
         toAlias: di_1.forwardRef(function() {
           return CheckboxControlValueAccessor;
@@ -9713,14 +9713,14 @@
           decorator(target, key, paramIndex);
         };
       };
-      var di_1 = require("../src/core/di");
-      var render_1 = require("../src/core/render");
-      var linker_1 = require("../src/core/linker");
-      var metadata_1 = require("../src/core/metadata");
-      var async_1 = require("../src/core/facade/async");
-      var control_value_accessor_1 = require("../src/core/forms/directives/control_value_accessor");
-      var lang_1 = require("../src/core/facade/lang");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var di_1 = require('../src/core/di');
+      var render_1 = require('../src/core/render');
+      var linker_1 = require('../src/core/linker');
+      var metadata_1 = require('../src/core/metadata');
+      var async_1 = require('../src/core/facade/async');
+      var control_value_accessor_1 = require('../src/core/forms/directives/control_value_accessor');
+      var lang_1 = require('../src/core/facade/lang');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var SELECT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, {
         toAlias: di_1.forwardRef(function() {
           return SelectControlValueAccessor;
@@ -9812,14 +9812,14 @@
           decorator(target, key, paramIndex);
         };
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var ng_control_1 = require("../src/core/forms/directives/ng_control");
-      var validators_1 = require("../src/core/forms/validators");
-      var control_value_accessor_1 = require("../src/core/forms/directives/control_value_accessor");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var ng_control_1 = require('../src/core/forms/directives/ng_control');
+      var validators_1 = require('../src/core/forms/validators');
+      var control_value_accessor_1 = require('../src/core/forms/directives/control_value_accessor');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var formControlBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, {toAlias: di_1.forwardRef(function() {
           return NgFormControl;
         })}));
@@ -9921,15 +9921,15 @@
           decorator(target, key, paramIndex);
         };
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var control_value_accessor_1 = require("../src/core/forms/directives/control_value_accessor");
-      var ng_control_1 = require("../src/core/forms/directives/ng_control");
-      var model_1 = require("../src/core/forms/model");
-      var validators_1 = require("../src/core/forms/validators");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var control_value_accessor_1 = require('../src/core/forms/directives/control_value_accessor');
+      var ng_control_1 = require('../src/core/forms/directives/ng_control');
+      var model_1 = require('../src/core/forms/model');
+      var validators_1 = require('../src/core/forms/validators');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var formControlBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, {toAlias: di_1.forwardRef(function() {
           return NgModel;
         })}));
@@ -10032,11 +10032,11 @@
           decorator(target, key, paramIndex);
         };
       };
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var control_container_1 = require("../src/core/forms/directives/control_container");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var control_container_1 = require('../src/core/forms/directives/control_container');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var controlGroupBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, {toAlias: di_1.forwardRef(function() {
           return NgControlGroup;
         })}));
@@ -10120,13 +10120,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var async_1 = require("../src/core/facade/async");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var control_container_1 = require("../src/core/forms/directives/control_container");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var async_1 = require('../src/core/facade/async');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var control_container_1 = require('../src/core/forms/directives/control_container');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var formDirectiveBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, {toAlias: di_1.forwardRef(function() {
           return NgFormModel;
         })}));
@@ -10243,14 +10243,14 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var async_1 = require("../src/core/facade/async");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var control_container_1 = require("../src/core/forms/directives/control_container");
-      var model_1 = require("../src/core/forms/model");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var async_1 = require('../src/core/facade/async');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var control_container_1 = require('../src/core/forms/directives/control_container');
+      var model_1 = require('../src/core/forms/model');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var formDirectiveBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, {toAlias: di_1.forwardRef(function() {
           return NgForm;
         })}));
@@ -10396,10 +10396,10 @@
           decorator(target, key, paramIndex);
         };
       };
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var ng_control_1 = require("../src/core/forms/directives/ng_control");
-      var lang_1 = require("../src/core/facade/lang");
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var ng_control_1 = require('../src/core/forms/directives/ng_control');
+      var lang_1 = require('../src/core/facade/lang');
       var NgControlStatus = (function() {
         function NgControlStatus(cd) {
           this._cd = cd;
@@ -10489,10 +10489,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var metadata_1 = require("../src/core/metadata");
-      var validators_1 = require("../src/core/forms/validators");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var metadata_1 = require('../src/core/metadata');
+      var validators_1 = require('../src/core/forms/validators');
       var DEFAULT_VALIDATORS = lang_1.CONST_EXPR(new di_1.Binding(validators_1.NG_VALIDATORS, {
         toValue: validators_1.Validators.required,
         multi: true
@@ -10535,10 +10535,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var modelModule = require("../src/core/forms/model");
+      var di_1 = require('../src/core/di');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var modelModule = require('../src/core/forms/model');
       var FormBuilder = (function() {
         function FormBuilder() {}
         FormBuilder.prototype.group = function(controlsConfig, extra) {
@@ -10617,9 +10617,9 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
       var GenericBrowserDomAdapter = (function(_super) {
         __extends(GenericBrowserDomAdapter, _super);
         function GenericBrowserDomAdapter() {
@@ -10728,13 +10728,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var ng_zone_1 = require("../src/core/zone/ng_zone");
-      var async_1 = require("../src/core/facade/async");
+      var di_1 = require('../src/core/di');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var ng_zone_1 = require('../src/core/zone/ng_zone');
+      var async_1 = require('../src/core/facade/async');
       var Testability = (function() {
         function Testability(_ngZone) {
           this._ngZone = _ngZone;
@@ -10877,10 +10877,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var async_1 = require("../src/core/facade/async");
-      var lang_1 = require("../src/core/facade/lang");
-      var xhr_1 = require("../src/core/compiler/xhr");
+      var di_1 = require('../src/core/di');
+      var async_1 = require('../src/core/facade/async');
+      var lang_1 = require('../src/core/facade/lang');
+      var xhr_1 = require('../src/core/compiler/xhr');
       var XHRImpl = (function(_super) {
         __extends(XHRImpl, _super);
         function XHRImpl() {
@@ -10951,11 +10951,11 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var event_manager_1 = require("../src/core/render/dom/events/event_manager");
-      var di_1 = require("../src/core/di");
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var event_manager_1 = require('../src/core/render/dom/events/event_manager');
+      var di_1 = require('../src/core/di');
       var modifierKeys = ['alt', 'control', 'meta', 'shift'];
       var modifierKeyGetters = {
         'alt': function(event) {
@@ -11066,8 +11066,8 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var event_manager_1 = require("../src/core/render/dom/events/event_manager");
-      var collection_1 = require("../src/core/facade/collection");
+      var event_manager_1 = require('../src/core/render/dom/events/event_manager');
+      var collection_1 = require('../src/core/facade/collection');
       var _eventNames = {
         'pan': true,
         'panstart': true,
@@ -11118,9 +11118,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var di_1 = require("../src/core/di");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
+      var di_1 = require('../src/core/di');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
       exports.EXCEPTION_BINDING = di_1.bind(exceptions_1.ExceptionHandler).toFactory(function() {
         return new exceptions_1.ExceptionHandler(dom_adapter_1.DOM, false);
       }, []);
@@ -11162,10 +11162,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var profile_1 = require("../src/core/profile/profile");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var profile_1 = require('../src/core/profile/profile');
       var LifeCycle = (function() {
         function LifeCycle(changeDetector, enforceNoNewChanges) {
           if (changeDetector === void 0) {
@@ -11225,7 +11225,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var application_1 = require("../src/core/application");
+      var application_1 = require('../src/core/application');
       exports.bootstrap = application_1.bootstrap;
       global.define = __define;
       return module.exports;
@@ -11234,7 +11234,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
       var Title = (function() {
         function Title() {}
         Title.prototype.getTitle = function() {
@@ -11253,7 +11253,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var life_cycle_1 = require("../src/core/life_cycle/life_cycle");
+      var life_cycle_1 = require('../src/core/life_cycle/life_cycle');
       exports.LifeCycle = life_cycle_1.LifeCycle;
       global.define = __define;
       return module.exports;
@@ -11262,7 +11262,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var ng_zone_1 = require("../src/core/zone/ng_zone");
+      var ng_zone_1 = require('../src/core/zone/ng_zone');
       exports.NgZone = ng_zone_1.NgZone;
       global.define = __define;
       return module.exports;
@@ -11293,12 +11293,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var metadata_1 = require("../src/core/metadata");
-      var linker_1 = require("../src/core/linker");
-      var change_detection_1 = require("../src/core/change_detection");
-      var render_1 = require("../src/core/render");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var metadata_1 = require('../src/core/metadata');
+      var linker_1 = require('../src/core/linker');
+      var change_detection_1 = require('../src/core/change_detection');
+      var render_1 = require('../src/core/render');
+      var collection_1 = require('../src/core/facade/collection');
       var NgClass = (function() {
         function NgClass(_iterableDiffers, _keyValueDiffers, _ngEl, _renderer) {
           this._iterableDiffers = _iterableDiffers;
@@ -11444,10 +11444,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var metadata_1 = require("../src/core/metadata");
-      var change_detection_1 = require("../src/core/change_detection");
-      var linker_1 = require("../src/core/linker");
-      var lang_1 = require("../src/core/facade/lang");
+      var metadata_1 = require('../src/core/metadata');
+      var change_detection_1 = require('../src/core/change_detection');
+      var linker_1 = require('../src/core/linker');
+      var lang_1 = require('../src/core/facade/lang');
       var NgFor = (function() {
         function NgFor(_viewContainer, _templateRef, _iterableDiffers, _cdr) {
           this._viewContainer = _viewContainer;
@@ -11572,9 +11572,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var metadata_1 = require("../src/core/metadata");
-      var linker_1 = require("../src/core/linker");
-      var lang_1 = require("../src/core/facade/lang");
+      var metadata_1 = require('../src/core/metadata');
+      var linker_1 = require('../src/core/linker');
+      var lang_1 = require('../src/core/facade/lang');
       var NgIf = (function() {
         function NgIf(_viewContainer, _templateRef) {
           this._viewContainer = _viewContainer;
@@ -11630,11 +11630,11 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var change_detection_1 = require("../src/core/change_detection");
-      var linker_1 = require("../src/core/linker");
-      var metadata_1 = require("../src/core/metadata");
-      var render_1 = require("../src/core/render");
-      var lang_1 = require("../src/core/facade/lang");
+      var change_detection_1 = require('../src/core/change_detection');
+      var linker_1 = require('../src/core/linker');
+      var metadata_1 = require('../src/core/metadata');
+      var render_1 = require('../src/core/render');
+      var lang_1 = require('../src/core/facade/lang');
       var NgStyle = (function() {
         function NgStyle(_differs, _ngEl, _renderer) {
           this._differs = _differs;
@@ -11715,11 +11715,11 @@
           decorator(target, key, paramIndex);
         };
       };
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var linker_1 = require("../src/core/linker");
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var linker_1 = require('../src/core/linker');
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
       var _WHEN_DEFAULT = lang_1.CONST_EXPR(new Object());
       var SwitchView = (function() {
         function SwitchView(_viewContainerRef, _templateRef) {
@@ -11858,10 +11858,10 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var view_ref_1 = require("../src/core/linker/view_ref");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var view_ref_1 = require('../src/core/linker/view_ref');
       var DebugElement = (function() {
         function DebugElement(_parentView, _boundElementIndex) {
           this._parentView = _parentView;
@@ -12060,13 +12060,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var di_1 = require("../src/core/di");
-      var view_listener_1 = require("../src/core/linker/view_listener");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var api_1 = require("../src/core/render/api");
-      var debug_element_1 = require("../src/core/debug/debug_element");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var di_1 = require('../src/core/di');
+      var view_listener_1 = require('../src/core/linker/view_listener');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var api_1 = require('../src/core/render/api');
+      var debug_element_1 = require('../src/core/debug/debug_element');
       var NG_ID_PROPERTY = 'ngid';
       var INSPECT_GLOBAL_NAME = 'ng.probe';
       var NG_ID_SEPARATOR = '#';
@@ -12147,9 +12147,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
       var Headers = (function() {
         function Headers(headers) {
           var _this = this;
@@ -12255,8 +12255,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
       function paramParser(rawParams) {
         if (rawParams === void 0) {
           rawParams = '';
@@ -12371,9 +12371,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var http_utils_1 = require("../src/http/http_utils");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var http_utils_1 = require('../src/http/http_utils');
       var Response = (function() {
         function Response(responseOptions) {
           this._body = responseOptions.body;
@@ -12442,10 +12442,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var headers_1 = require("../src/http/headers");
-      var enums_1 = require("../src/http/enums");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var headers_1 = require('../src/http/headers');
+      var enums_1 = require('../src/http/enums');
       var ResponseOptions = (function() {
         function ResponseOptions(_a) {
           var _b = _a === void 0 ? {} : _a,
@@ -12518,7 +12518,7 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
+      var di_1 = require('../src/core/di');
       var BrowserXhr = (function() {
         function BrowserXhr() {}
         BrowserXhr.prototype.build = function() {
@@ -12558,7 +12558,7 @@
           throw new TypeError("Cannot call a class as a function");
         }
       }
-      var _Subscription2 = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription2 = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var VirtualTimeScheduler = (function() {
         function VirtualTimeScheduler() {
@@ -12659,7 +12659,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Observable = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
       var Notification = (function() {
         function Notification(kind, value, exception) {
@@ -12752,7 +12752,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscription2 = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription2 = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var ImmediateAction = (function(_Subscription) {
         _inherits(ImmediateAction, _Subscription);
@@ -12824,7 +12824,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _ImmediateAction2 = require("@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction");
+      var _ImmediateAction2 = require('@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction');
       var _ImmediateAction3 = _interopRequireDefault(_ImmediateAction2);
       var FutureAction = (function(_ImmediateAction) {
         _inherits(FutureAction, _ImmediateAction);
@@ -12876,7 +12876,7 @@
       global.define = undefined;
       "use strict";
       exports.__esModule = true;
-      var _root = require("@reactivex/rxjs/dist/cjs/util/root");
+      var _root = require('@reactivex/rxjs/dist/cjs/util/root');
       var Immediate = {
         setImmediate: function setImmediate(x) {
           return 0;
@@ -13048,9 +13048,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subject2 = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject2 = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject3 = _interopRequireDefault(_Subject2);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       var ReplaySubject = (function(_Subject) {
         _inherits(ReplaySubject, _Subject);
@@ -13143,7 +13143,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subject2 = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject2 = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject3 = _interopRequireDefault(_Subject2);
       var BehaviorSubject = (function(_Subject) {
         _inherits(BehaviorSubject, _Subject);
@@ -13198,9 +13198,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable3 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable3 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable4 = _interopRequireDefault(_Observable3);
-      var _Subscription3 = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription3 = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription4 = _interopRequireDefault(_Subscription3);
       var ConnectableObservable = (function(_Observable) {
         _inherits(ConnectableObservable, _Observable);
@@ -13318,7 +13318,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var ScalarObservable = (function(_Observable) {
         _inherits(ScalarObservable, _Observable);
@@ -13397,7 +13397,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var EmptyObservable = (function(_Observable) {
         _inherits(EmptyObservable, _Observable);
@@ -13466,7 +13466,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var ErrorObservable = (function(_Observable) {
         _inherits(ErrorObservable, _Observable);
@@ -13530,7 +13530,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var InfiniteObservable = (function(_Observable) {
         _inherits(InfiniteObservable, _Observable);
@@ -13592,11 +13592,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       var PromiseObservable = (function(_Observable) {
         _inherits(PromiseObservable, _Observable);
@@ -13704,7 +13704,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
       var RangeObservable = (function(_Observable) {
         _inherits(RangeObservable, _Observable);
@@ -13798,11 +13798,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilIsNumeric = require("@reactivex/rxjs/dist/cjs/util/isNumeric");
+      var _utilIsNumeric = require('@reactivex/rxjs/dist/cjs/util/isNumeric');
       var _utilIsNumeric2 = _interopRequireDefault(_utilIsNumeric);
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       var TimerObservable = (function(_Observable) {
         _inherits(TimerObservable, _Observable);
@@ -13897,13 +13897,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       var FromEventPatternObservable = (function(_Observable) {
         _inherits(FromEventPatternObservable, _Observable);
         function FromEventPatternObservable(addHandler, removeHandler, selector) {
@@ -13973,12 +13973,12 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
       var FromEventObservable = (function(_Observable) {
         _inherits(FromEventObservable, _Observable);
@@ -14068,9 +14068,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       var ForkJoinObservable = (function(_Observable) {
         _inherits(ForkJoinObservable, _Observable);
@@ -14144,7 +14144,7 @@
       global.define = undefined;
       'use strict';
       exports.__esModule = true;
-      var _root = require("@reactivex/rxjs/dist/cjs/util/root");
+      var _root = require('@reactivex/rxjs/dist/cjs/util/root');
       if (!_root.root.Symbol) {
         _root.root.Symbol = {};
       }
@@ -14189,9 +14189,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Notification = require("@reactivex/rxjs/dist/cjs/Notification");
+      var _Notification = require('@reactivex/rxjs/dist/cjs/Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
       var ObserveOnOperator = (function() {
         function ObserveOnOperator(scheduler) {
@@ -14267,7 +14267,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       var MergeOperator = (function() {
         function MergeOperator() {
@@ -14372,7 +14372,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _mergeStatic = require("@reactivex/rxjs/dist/cjs/operators/merge-static");
+      var _mergeStatic = require('@reactivex/rxjs/dist/cjs/operators/merge-static');
       var _mergeStatic2 = _interopRequireDefault(_mergeStatic);
       function concatProto() {
         for (var _len = arguments.length,
@@ -14395,7 +14395,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = concatAll;
-      var _mergeSupport = require("@reactivex/rxjs/dist/cjs/operators/merge-support");
+      var _mergeSupport = require('@reactivex/rxjs/dist/cjs/operators/merge-support');
       function concatAll() {
         return this.lift(new _mergeSupport.MergeOperator(1));
       }
@@ -14430,10 +14430,10 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _mergeSupport = require("@reactivex/rxjs/dist/cjs/operators/merge-support");
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _mergeSupport = require('@reactivex/rxjs/dist/cjs/operators/merge-support');
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       var FlatMapOperator = (function() {
         function FlatMapOperator(project, projectResult) {
           var concurrent = arguments.length <= 2 || arguments[2] === undefined ? Number.POSITIVE_INFINITY : arguments[2];
@@ -14528,7 +14528,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _flatMapSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMap-support");
+      var _flatMapSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMap-support');
       var FlatMapToOperator = (function() {
         function FlatMapToOperator(observable, projectResult) {
           var concurrent = arguments.length <= 2 || arguments[2] === undefined ? Number.POSITIVE_INFINITY : arguments[2];
@@ -14569,7 +14569,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _mergeStatic = require("@reactivex/rxjs/dist/cjs/operators/merge-static");
+      var _mergeStatic = require('@reactivex/rxjs/dist/cjs/operators/merge-static');
       var _mergeStatic2 = _interopRequireDefault(_mergeStatic);
       function merge() {
         for (var _len = arguments.length,
@@ -14591,7 +14591,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = mergeAll;
-      var _mergeSupport = require("@reactivex/rxjs/dist/cjs/operators/merge-support");
+      var _mergeSupport = require('@reactivex/rxjs/dist/cjs/operators/merge-support');
       function mergeAll(concurrent) {
         return this.lift(new _mergeSupport.MergeOperator(concurrent));
       }
@@ -14606,7 +14606,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = flatMap;
-      var _flatMapSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMap-support");
+      var _flatMapSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMap-support');
       function flatMap(project, projectResult, concurrent) {
         return this.lift(new _flatMapSupport.FlatMapOperator(project, projectResult, concurrent));
       }
@@ -14621,7 +14621,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = flatMapTo;
-      var _flatMapToSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMapTo-support");
+      var _flatMapToSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMapTo-support');
       function flatMapTo(observable, projectResult, concurrent) {
         return this.lift(new _flatMapToSupport.FlatMapToOperator(observable, projectResult, concurrent));
       }
@@ -14657,9 +14657,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _mergeSupport = require("@reactivex/rxjs/dist/cjs/operators/merge-support");
+      var _mergeSupport = require('@reactivex/rxjs/dist/cjs/operators/merge-support');
       function switchAll() {
         return this.lift(new SwitchOperator());
       }
@@ -14729,9 +14729,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _flatMapSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMap-support");
+      var _flatMapSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMap-support');
       function switchLatest(project, projectResult) {
         return this.lift(new SwitchLatestOperator(project, projectResult));
       }
@@ -14799,7 +14799,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _flatMapToSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMapTo-support");
+      var _flatMapToSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMapTo-support');
       function switchLatestTo(observable, projectResult) {
         return this.lift(new SwitchLatestToOperator(observable, projectResult));
       }
@@ -14868,12 +14868,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _mergeSupport = require("@reactivex/rxjs/dist/cjs/operators/merge-support");
-      var _observablesEmptyObservable = require("@reactivex/rxjs/dist/cjs/observables/EmptyObservable");
+      var _mergeSupport = require('@reactivex/rxjs/dist/cjs/operators/merge-support');
+      var _observablesEmptyObservable = require('@reactivex/rxjs/dist/cjs/observables/EmptyObservable');
       var _observablesEmptyObservable2 = _interopRequireDefault(_observablesEmptyObservable);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function expand(project) {
         return this.lift(new ExpandOperator(project));
       }
@@ -14959,13 +14959,13 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilNoop = require("@reactivex/rxjs/dist/cjs/util/noop");
+      var _utilNoop = require('@reactivex/rxjs/dist/cjs/util/noop');
       var _utilNoop2 = _interopRequireDefault(_utilNoop);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function _do(next, error, complete) {
         return this.lift(new DoOperator(next || _utilNoop2['default'], error || _utilNoop2['default'], complete || _utilNoop2['default']));
       }
@@ -15086,7 +15086,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function mapTo(value) {
         return this.lift(new MapToOperator(value));
@@ -15145,7 +15145,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function toArray() {
         return this.lift(new ToArrayOperator());
@@ -15207,7 +15207,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function count() {
         return this.lift(new CountOperator());
@@ -15269,11 +15269,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function scan(project, acc) {
         return this.lift(new ScanOperator(project));
       }
@@ -15350,11 +15350,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function reduce(project, acc) {
         return this.lift(new ReduceOperator(project, acc));
       }
@@ -15414,9 +15414,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesScalarObservable = require("@reactivex/rxjs/dist/cjs/observables/ScalarObservable");
+      var _observablesScalarObservable = require('@reactivex/rxjs/dist/cjs/observables/ScalarObservable');
       var _observablesScalarObservable2 = _interopRequireDefault(_observablesScalarObservable);
-      var _concatStatic = require("@reactivex/rxjs/dist/cjs/operators/concat-static");
+      var _concatStatic = require('@reactivex/rxjs/dist/cjs/operators/concat-static');
       var _concatStatic2 = _interopRequireDefault(_concatStatic);
       function startWith(x) {
         return _concatStatic2['default'](new _observablesScalarObservable2['default'](x), this);
@@ -15453,7 +15453,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function take(total) {
         return this.lift(new TakeOperator(total));
@@ -15519,7 +15519,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function skip(total) {
         return this.lift(new SkipOperator(total));
@@ -15581,7 +15581,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function skipUntil(total) {
         return this.lift(new SkipUntilOperator(total));
@@ -15657,7 +15657,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function takeUntil(observable) {
         return this.lift(new TakeUntilOperator(observable));
@@ -15728,12 +15728,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
-      var _utilBindCallback = require("@reactivex/rxjs/dist/cjs/util/bindCallback");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
+      var _utilBindCallback = require('@reactivex/rxjs/dist/cjs/util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function filter(select, thisArg) {
         return this.lift(new FilterOperator(select, thisArg));
@@ -15798,12 +15798,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
-      var _utilBindCallback = require("@reactivex/rxjs/dist/cjs/util/bindCallback");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
+      var _utilBindCallback = require('@reactivex/rxjs/dist/cjs/util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function distinctUntilChanged(compare, thisArg) {
         return this.lift(new DistinctUntilChangedOperator(thisArg ? _utilBindCallback2['default'](compare, thisArg, 2) : compare));
@@ -15863,7 +15863,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _distinctUntilChanged = require("@reactivex/rxjs/dist/cjs/operators/distinctUntilChanged");
+      var _distinctUntilChanged = require('@reactivex/rxjs/dist/cjs/operators/distinctUntilChanged');
       var _distinctUntilChanged2 = _interopRequireDefault(_distinctUntilChanged);
       function distinctUntilKeyChanged(key, compare, thisArg) {
         return _distinctUntilChanged2['default'].call(this, function(x, y) {
@@ -15906,11 +15906,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       var ZipOperator = (function() {
         function ZipOperator(project) {
           _classCallCheck(this, ZipOperator);
@@ -16035,9 +16035,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _observablesArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _combineLatestSupport = require("@reactivex/rxjs/dist/cjs/operators/combineLatest-support");
+      var _combineLatestSupport = require('@reactivex/rxjs/dist/cjs/operators/combineLatest-support');
       function combineLatest() {
         for (var _len = arguments.length,
             observables = Array(_len),
@@ -16061,7 +16061,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = combineAll;
-      var _combineLatestSupport = require("@reactivex/rxjs/dist/cjs/operators/combineLatest-support");
+      var _combineLatestSupport = require('@reactivex/rxjs/dist/cjs/operators/combineLatest-support');
       function combineAll(project) {
         return this.lift(new _combineLatestSupport.CombineLatestOperator(project));
       }
@@ -16097,11 +16097,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function withLatestFrom() {
         for (var _len = arguments.length,
             args = Array(_len),
@@ -16185,9 +16185,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _observablesArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _zipSupport = require("@reactivex/rxjs/dist/cjs/operators/zip-support");
+      var _zipSupport = require('@reactivex/rxjs/dist/cjs/operators/zip-support');
       function zip() {
         for (var _len = arguments.length,
             observables = Array(_len),
@@ -16211,7 +16211,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = zipAll;
-      var _zipSupport = require("@reactivex/rxjs/dist/cjs/operators/zip-support");
+      var _zipSupport = require('@reactivex/rxjs/dist/cjs/operators/zip-support');
       function zipAll(project) {
         return this.lift(new _zipSupport.ZipOperator(project));
       }
@@ -16229,7 +16229,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesConnectableObservable = require("@reactivex/rxjs/dist/cjs/observables/ConnectableObservable");
+      var _observablesConnectableObservable = require('@reactivex/rxjs/dist/cjs/observables/ConnectableObservable');
       var _observablesConnectableObservable2 = _interopRequireDefault(_observablesConnectableObservable);
       function multicast(subjectFactory) {
         return new _observablesConnectableObservable2['default'](this, subjectFactory);
@@ -16248,9 +16248,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _subjectsBehaviorSubject = require("@reactivex/rxjs/dist/cjs/subjects/BehaviorSubject");
+      var _subjectsBehaviorSubject = require('@reactivex/rxjs/dist/cjs/subjects/BehaviorSubject');
       var _subjectsBehaviorSubject2 = _interopRequireDefault(_subjectsBehaviorSubject);
-      var _multicast = require("@reactivex/rxjs/dist/cjs/operators/multicast");
+      var _multicast = require('@reactivex/rxjs/dist/cjs/operators/multicast');
       var _multicast2 = _interopRequireDefault(_multicast);
       function publishBehavior(value) {
         return _multicast2['default'].call(this, function() {
@@ -16271,9 +16271,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _subjectsReplaySubject = require("@reactivex/rxjs/dist/cjs/subjects/ReplaySubject");
+      var _subjectsReplaySubject = require('@reactivex/rxjs/dist/cjs/subjects/ReplaySubject');
       var _subjectsReplaySubject2 = _interopRequireDefault(_subjectsReplaySubject);
-      var _multicast = require("@reactivex/rxjs/dist/cjs/operators/multicast");
+      var _multicast = require('@reactivex/rxjs/dist/cjs/operators/multicast');
       var _multicast2 = _interopRequireDefault(_multicast);
       function publishReplay(bufferSize, windowTime, scheduler) {
         if (bufferSize === undefined)
@@ -16295,7 +16295,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = observeOn;
-      var _observeOnSupport = require("@reactivex/rxjs/dist/cjs/operators/observeOn-support");
+      var _observeOnSupport = require('@reactivex/rxjs/dist/cjs/operators/observeOn-support');
       function observeOn(scheduler) {
         var delay = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
         return this.lift(new _observeOnSupport.ObserveOnOperator(scheduler, delay));
@@ -16331,9 +16331,9 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       var SubscribeOnObservable = (function(_Observable) {
         _inherits(SubscribeOnObservable, _Observable);
@@ -16444,7 +16444,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function defaultIfEmpty() {
         var defaultValue = arguments.length <= 0 || arguments[0] === undefined ? null : arguments[0];
@@ -16512,9 +16512,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Notification = require("@reactivex/rxjs/dist/cjs/Notification");
+      var _Notification = require('@reactivex/rxjs/dist/cjs/Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
       function materialize() {
         return this.lift(new MaterializeOperator());
@@ -16581,11 +16581,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function _catch(selector) {
         var catchOperator = new CatchOperator(selector);
         var caught = this.lift(catchOperator);
@@ -16652,7 +16652,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function retry() {
         var count = arguments.length <= 0 || arguments[0] === undefined ? 0 : arguments[0];
@@ -16723,13 +16723,13 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function retryWhen(notifier) {
         return this.lift(new RetryWhenOperator(notifier, this));
       }
@@ -16823,7 +16823,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function repeat(count) {
         return this.lift(new RepeatOperator(count, this));
@@ -16892,11 +16892,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilBindCallback = require("@reactivex/rxjs/dist/cjs/util/bindCallback");
+      var _utilBindCallback = require('@reactivex/rxjs/dist/cjs/util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function _finally(finallySelector, thisArg) {
         return this.lift(new FinallyOperator(thisArg ? _utilBindCallback2['default'](finallySelector, thisArg, 2) : finallySelector));
@@ -16966,11 +16966,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
-      var _utilIsDate = require("@reactivex/rxjs/dist/cjs/util/isDate");
+      var _utilIsDate = require('@reactivex/rxjs/dist/cjs/util/isDate');
       var _utilIsDate2 = _interopRequireDefault(_utilIsDate);
       function timeoutWith(due, withObservable) {
         var scheduler = arguments.length <= 2 || arguments[2] === undefined ? _schedulersImmediate2['default'] : arguments[2];
@@ -17020,7 +17020,7 @@
       global.define = undefined;
       'use strict';
       exports.__esModule = true;
-      var _root = require("@reactivex/rxjs/dist/cjs/util/root");
+      var _root = require('@reactivex/rxjs/dist/cjs/util/root');
       exports['default'] = _root.root.Map || (function() {
         function Map() {
           this.size = 0;
@@ -17136,7 +17136,7 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Subject2 = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject2 = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject3 = _interopRequireDefault(_Subject2);
       var GroupSubject = (function(_Subject) {
         _inherits(GroupSubject, _Subject);
@@ -17180,9 +17180,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
       function window(closingNotifier) {
         return this.lift(new WindowOperator(closingNotifier));
@@ -17271,15 +17271,15 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function window(closingSelector) {
         return this.lift(new WindowOperator(closingSelector));
       }
@@ -17384,15 +17384,15 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber4 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber4 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber5 = _interopRequireDefault(_Subscriber4);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function windowToggle(openings, closingSelector) {
         return this.lift(new WindowToggleOperator(openings, closingSelector));
       }
@@ -17529,11 +17529,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function windowTime(windowTimeSpan) {
         var windowCreationInterval = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -17686,9 +17686,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
       function windowCount(windowSize) {
         var startWindowEvery = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
@@ -17794,11 +17794,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _Notification = require("@reactivex/rxjs/dist/cjs/Notification");
+      var _Notification = require('@reactivex/rxjs/dist/cjs/Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       function delay(delay) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersImmediate2['default'] : arguments[1];
@@ -17916,9 +17916,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function throttle(delay) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersNextTick2['default'] : arguments[1];
@@ -18001,9 +18001,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function debounce(dueTime) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersNextTick2['default'] : arguments[1];
@@ -18086,7 +18086,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function buffer(closingNotifier) {
         return this.lift(new BufferOperator(closingNotifier));
@@ -18174,7 +18174,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
       function bufferCount(bufferSize) {
         var startBufferEvery = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -18272,9 +18272,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function bufferTime(bufferTimeSpan) {
         var bufferCreationInterval = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -18411,13 +18411,13 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber4 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber4 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber5 = _interopRequireDefault(_Subscriber4);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function bufferToggle(openings, closingSelector) {
         return this.lift(new BufferToggleOperator(openings, closingSelector));
       }
@@ -18554,11 +18554,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function bufferWhen(closingSelector) {
         return this.lift(new BufferWhenOperator(closingSelector));
       }
@@ -18663,7 +18663,7 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
       function sample(notifier) {
         return this.lift(new SampleOperator(notifier));
@@ -18746,9 +18746,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       function sampleTime(delay) {
         var scheduler = arguments.length <= 1 || arguments[1] === undefined ? _schedulersNextTick2['default'] : arguments[1];
@@ -18825,8 +18825,8 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
       var _nextRequestId = 0;
       exports.JSONP_HOME = '__ng_jsonp__';
       var _jsonpConnections = null;
@@ -18898,12 +18898,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var static_request_1 = require("../src/http/static_request");
-      var enums_1 = require("../src/http/enums");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var Rx = require("@reactivex/rxjs/dist/cjs/Rx");
+      var di_1 = require('../src/core/di');
+      var static_request_1 = require('../src/http/static_request');
+      var enums_1 = require('../src/http/enums');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
       var Subject = Rx.Subject,
           ReplaySubject = Rx.ReplaySubject;
       var MockConnection = (function() {
@@ -18970,8 +18970,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var metadata_1 = require("../src/core/di/metadata");
-      var decorators_1 = require("../src/core/util/decorators");
+      var metadata_1 = require('../src/core/di/metadata');
+      var decorators_1 = require('../src/core/util/decorators');
       exports.Inject = decorators_1.makeParamDecorator(metadata_1.InjectMetadata);
       exports.Optional = decorators_1.makeParamDecorator(metadata_1.OptionalMetadata);
       exports.Injectable = decorators_1.makeDecorator(metadata_1.InjectableMetadata);
@@ -18994,8 +18994,8 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var exception_handler_1 = require("../src/core/facade/exception_handler");
-      var exception_handler_2 = require("../src/core/facade/exception_handler");
+      var exception_handler_1 = require('../src/core/facade/exception_handler');
+      var exception_handler_2 = require('../src/core/facade/exception_handler');
       exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
       var BaseException = (function(_super) {
         __extends(BaseException, _super);
@@ -19082,11 +19082,11 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var reflector_1 = require("../src/core/reflection/reflector");
-      var reflector_2 = require("../src/core/reflection/reflector");
+      var reflector_1 = require('../src/core/reflection/reflector');
+      var reflector_2 = require('../src/core/reflection/reflector');
       exports.Reflector = reflector_2.Reflector;
       exports.ReflectionInfo = reflector_2.ReflectionInfo;
-      var reflection_capabilities_1 = require("../src/core/reflection/reflection_capabilities");
+      var reflection_capabilities_1 = require('../src/core/reflection/reflection_capabilities');
       exports.reflector = new reflector_1.Reflector(new reflection_capabilities_1.ReflectionCapabilities());
       global.define = __define;
       return module.exports;
@@ -19095,12 +19095,12 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var type_literal_1 = require("../src/core/di/type_literal");
-      var forward_ref_1 = require("../src/core/di/forward_ref");
-      var type_literal_2 = require("../src/core/di/type_literal");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var type_literal_1 = require('../src/core/di/type_literal');
+      var forward_ref_1 = require('../src/core/di/forward_ref');
+      var type_literal_2 = require('../src/core/di/type_literal');
       exports.TypeLiteral = type_literal_2.TypeLiteral;
       var Key = (function() {
         function Key(token, id) {
@@ -19167,13 +19167,13 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var constants_1 = require("../src/core/change_detection/constants");
-      var pipe_lifecycle_reflector_1 = require("../src/core/change_detection/pipe_lifecycle_reflector");
-      var binding_record_1 = require("../src/core/change_detection/binding_record");
-      var directive_record_1 = require("../src/core/change_detection/directive_record");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var constants_1 = require('../src/core/change_detection/constants');
+      var pipe_lifecycle_reflector_1 = require('../src/core/change_detection/pipe_lifecycle_reflector');
+      var binding_record_1 = require('../src/core/change_detection/binding_record');
+      var directive_record_1 = require('../src/core/change_detection/directive_record');
       var WrappedValue = (function() {
         function WrappedValue(wrapped) {
           this.wrapped = wrapped;
@@ -19391,7 +19391,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var impl = require("../src/core/profile/wtf_impl");
+      var impl = require('../src/core/profile/wtf_impl');
       exports.wtfEnabled = impl.detectWTF();
       function noopScope(arg0, arg1) {
         return null;
@@ -19415,12 +19415,12 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var codegen_facade_1 = require("../src/core/change_detection/codegen_facade");
-      var proto_record_1 = require("../src/core/change_detection/proto_record");
-      var constants_1 = require("../src/core/change_detection/constants");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var codegen_facade_1 = require('../src/core/change_detection/codegen_facade');
+      var proto_record_1 = require('../src/core/change_detection/proto_record');
+      var constants_1 = require('../src/core/change_detection/constants');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       var CodegenLogicUtil = (function() {
         function CodegenLogicUtil(_names, _utilName, _changeDetection) {
           this._names = _names;
@@ -19614,8 +19614,8 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var api_1 = require("../src/core/render/api");
+      var lang_1 = require('../src/core/facade/lang');
+      var api_1 = require('../src/core/render/api');
       exports.ViewEncapsulation = api_1.ViewEncapsulation;
       var ViewMetadata = (function() {
         function ViewMetadata(_a) {
@@ -19688,13 +19688,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilNoop = require("@reactivex/rxjs/dist/cjs/util/noop");
+      var _utilNoop = require('@reactivex/rxjs/dist/cjs/util/noop');
       var _utilNoop2 = _interopRequireDefault(_utilNoop);
-      var _utilThrowError = require("@reactivex/rxjs/dist/cjs/util/throwError");
+      var _utilThrowError = require('@reactivex/rxjs/dist/cjs/util/throwError');
       var _utilThrowError2 = _interopRequireDefault(_utilThrowError);
-      var _utilTryOrOnError = require("@reactivex/rxjs/dist/cjs/util/tryOrOnError");
+      var _utilTryOrOnError = require('@reactivex/rxjs/dist/cjs/util/tryOrOnError');
       var _utilTryOrOnError2 = _interopRequireDefault(_utilTryOrOnError);
-      var _Subscription2 = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription2 = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription3 = _interopRequireDefault(_Subscription2);
       var Subscriber = (function(_Subscription) {
         _inherits(Subscriber, _Subscription);
@@ -19802,7 +19802,7 @@
       global.define = undefined;
       'use strict';
       exports.__esModule = true;
-      var _root = require("@reactivex/rxjs/dist/cjs/util/root");
+      var _root = require('@reactivex/rxjs/dist/cjs/util/root');
       if (!_root.root.Symbol) {
         _root.root.Symbol = {};
       }
@@ -19844,12 +19844,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var intl_1 = require("../src/core/facade/intl");
-      var di_1 = require("../src/core/di");
-      var metadata_1 = require("../src/core/metadata");
-      var collection_1 = require("../src/core/facade/collection");
-      var invalid_pipe_argument_exception_1 = require("../src/core/pipes/invalid_pipe_argument_exception");
+      var lang_1 = require('../src/core/facade/lang');
+      var intl_1 = require('../src/core/facade/intl');
+      var di_1 = require('../src/core/di');
+      var metadata_1 = require('../src/core/metadata');
+      var collection_1 = require('../src/core/facade/collection');
+      var invalid_pipe_argument_exception_1 = require('../src/core/pipes/invalid_pipe_argument_exception');
       var defaultLocale = 'en-US';
       var DatePipe = (function() {
         function DatePipe() {}
@@ -19892,15 +19892,15 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var async_pipe_1 = require("../src/core/pipes/async_pipe");
-      var uppercase_pipe_1 = require("../src/core/pipes/uppercase_pipe");
-      var lowercase_pipe_1 = require("../src/core/pipes/lowercase_pipe");
-      var json_pipe_1 = require("../src/core/pipes/json_pipe");
-      var slice_pipe_1 = require("../src/core/pipes/slice_pipe");
-      var date_pipe_1 = require("../src/core/pipes/date_pipe");
-      var number_pipe_1 = require("../src/core/pipes/number_pipe");
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
+      var async_pipe_1 = require('../src/core/pipes/async_pipe');
+      var uppercase_pipe_1 = require('../src/core/pipes/uppercase_pipe');
+      var lowercase_pipe_1 = require('../src/core/pipes/lowercase_pipe');
+      var json_pipe_1 = require('../src/core/pipes/json_pipe');
+      var slice_pipe_1 = require('../src/core/pipes/slice_pipe');
+      var date_pipe_1 = require('../src/core/pipes/date_pipe');
+      var number_pipe_1 = require('../src/core/pipes/number_pipe');
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
       var DEFAULT_PIPES_LIST = lang_1.CONST_EXPR([async_pipe_1.AsyncPipe, uppercase_pipe_1.UpperCasePipe, lowercase_pipe_1.LowerCasePipe, json_pipe_1.JsonPipe, slice_pipe_1.SlicePipe, number_pipe_1.DecimalPipe, number_pipe_1.PercentPipe, number_pipe_1.CurrencyPipe, date_pipe_1.DatePipe]);
       exports.DEFAULT_PIPES_TOKEN = lang_1.CONST_EXPR(new di_1.OpaqueToken("Default Pipes"));
       exports.DEFAULT_PIPES = lang_1.CONST_EXPR(new di_1.Binding(exports.DEFAULT_PIPES_TOKEN, {toValue: DEFAULT_PIPES_LIST}));
@@ -19911,13 +19911,13 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var collection_1 = require("../src/core/facade/collection");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var api_1 = require("../src/core/render/api");
-      var selector_1 = require("../src/core/compiler/selector");
-      var util_1 = require("../src/core/compiler/util");
-      var interfaces_1 = require("../src/core/linker/interfaces");
+      var lang_1 = require('../src/core/facade/lang');
+      var collection_1 = require('../src/core/facade/collection');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var api_1 = require('../src/core/render/api');
+      var selector_1 = require('../src/core/compiler/selector');
+      var util_1 = require('../src/core/compiler/util');
+      var interfaces_1 = require('../src/core/linker/interfaces');
       var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
       var CompileTypeMetadata = (function() {
         function CompileTypeMetadata(_a) {
@@ -20150,12 +20150,12 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var template_ast_1 = require("../src/core/compiler/template_ast");
-      var interfaces_1 = require("../src/core/linker/interfaces");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var template_ast_1 = require('../src/core/compiler/template_ast');
+      var interfaces_1 = require('../src/core/linker/interfaces');
       function createChangeDetectorDefinitions(componentType, componentStrategy, genConfig, parsedTemplate) {
         var pvVisitors = [];
         var visitor = new ProtoViewVisitor(null, pvVisitors, componentStrategy);
@@ -20299,9 +20299,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
       var ShadowCss = (function() {
         function ShadowCss() {
           this.strictStyling = true;
@@ -20570,11 +20570,11 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var html_ast_1 = require("../src/core/compiler/html_ast");
-      var util_1 = require("../src/core/compiler/util");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var html_ast_1 = require('../src/core/compiler/html_ast');
+      var util_1 = require('../src/core/compiler/util');
+      var di_1 = require('../src/core/di');
       var NG_NON_BINDABLE = 'ng-non-bindable';
       var HtmlParser = (function() {
         function HtmlParser() {}
@@ -20694,19 +20694,19 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var cpl = require("../src/core/compiler/directive_metadata");
-      var dirAnn = require("../src/core/metadata/directives");
-      var directive_resolver_1 = require("../src/core/linker/directive_resolver");
-      var view_resolver_1 = require("../src/core/linker/view_resolver");
-      var directive_lifecycle_reflector_1 = require("../src/core/linker/directive_lifecycle_reflector");
-      var interfaces_1 = require("../src/core/linker/interfaces");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var di_2 = require("../src/core/di");
-      var util_1 = require("../src/core/compiler/util");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var cpl = require('../src/core/compiler/directive_metadata');
+      var dirAnn = require('../src/core/metadata/directives');
+      var directive_resolver_1 = require('../src/core/linker/directive_resolver');
+      var view_resolver_1 = require('../src/core/linker/view_resolver');
+      var directive_lifecycle_reflector_1 = require('../src/core/linker/directive_lifecycle_reflector');
+      var interfaces_1 = require('../src/core/linker/interfaces');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var di_2 = require('../src/core/di');
+      var util_1 = require('../src/core/compiler/util');
       var HOST_REG_EXP = /^(?:(?:\[([^\]]+)\])|(?:\(([^\)]+)\)))$/g;
       var RuntimeMetadataResolver = (function() {
         function RuntimeMetadataResolver(_directiveResolver, _viewResolver) {
@@ -20814,10 +20814,10 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var cd = require("../src/core/change_detection/pipes");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var cd = require('../src/core/change_detection/pipes');
       var ProtoPipes = (function() {
         function ProtoPipes(config) {
           this.config = config;
@@ -20876,14 +20876,14 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var interfaces_1 = require("../src/core/change_detection/interfaces");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var view_ref_1 = require("../src/core/linker/view_ref");
-      var util_1 = require("../src/core/render/dom/util");
-      var interfaces_2 = require("../src/core/change_detection/interfaces");
+      var collection_1 = require('../src/core/facade/collection');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var interfaces_1 = require('../src/core/change_detection/interfaces');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var view_ref_1 = require('../src/core/linker/view_ref');
+      var util_1 = require('../src/core/render/dom/util');
+      var interfaces_2 = require('../src/core/change_detection/interfaces');
       exports.DebugContext = interfaces_2.DebugContext;
       var REFLECT_PREFIX = 'ng-reflect-';
       var AppViewContainer = (function() {
@@ -21145,15 +21145,15 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var collection_1 = require("../src/core/facade/collection");
-      var eli = require("../src/core/linker/element_injector");
-      var lang_1 = require("../src/core/facade/lang");
-      var viewModule = require("../src/core/linker/view");
-      var element_ref_1 = require("../src/core/linker/element_ref");
-      var template_ref_1 = require("../src/core/linker/template_ref");
-      var pipes_1 = require("../src/core/pipes/pipes");
-      var api_1 = require("../src/core/render/api");
+      var di_1 = require('../src/core/di');
+      var collection_1 = require('../src/core/facade/collection');
+      var eli = require('../src/core/linker/element_injector');
+      var lang_1 = require('../src/core/facade/lang');
+      var viewModule = require('../src/core/linker/view');
+      var element_ref_1 = require('../src/core/linker/element_ref');
+      var template_ref_1 = require('../src/core/linker/template_ref');
+      var pipes_1 = require('../src/core/pipes/pipes');
+      var api_1 = require('../src/core/render/api');
       var AppViewManagerUtils = (function() {
         function AppViewManagerUtils() {}
         AppViewManagerUtils.prototype.getComponentInstance = function(parentView, boundElementIndex) {
@@ -21392,10 +21392,10 @@
           decorator(target, key, paramIndex);
         };
       };
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var di_1 = require("../src/core/di");
-      var collection_1 = require("../src/core/facade/collection");
-      var dom_tokens_1 = require("../src/core/render/dom/dom_tokens");
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var di_1 = require('../src/core/di');
+      var collection_1 = require('../src/core/facade/collection');
+      var dom_tokens_1 = require('../src/core/render/dom/dom_tokens');
       var SharedStylesHost = (function() {
         function SharedStylesHost() {
           this._styles = [];
@@ -21458,11 +21458,11 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var math_1 = require("../src/core/facade/math");
-      var util_1 = require("../src/core/render/dom/util");
-      var collection_1 = require("../src/core/facade/collection");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
+      var lang_1 = require('../src/core/facade/lang');
+      var math_1 = require('../src/core/facade/math');
+      var util_1 = require('../src/core/render/dom/util');
+      var collection_1 = require('../src/core/facade/collection');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
       var Animation = (function() {
         function Animation(element, data, browserDetails) {
           var _this = this;
@@ -21635,12 +21635,12 @@
           decorator(target, key, paramIndex);
         };
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var ng_zone_1 = require("../src/core/zone/ng_zone");
-      var di_1 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var ng_zone_1 = require('../src/core/zone/ng_zone');
+      var di_1 = require('../src/core/di');
       exports.EVENT_MANAGER_PLUGINS = lang_1.CONST_EXPR(new di_1.OpaqueToken("EventManagerPlugins"));
       var EventManager = (function() {
         function EventManager(plugins, _zone) {
@@ -21732,8 +21732,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var view_1 = require("../src/core/render/view");
+      var lang_1 = require('../src/core/facade/lang');
+      var view_1 = require('../src/core/render/view');
       function createRenderView(fragmentCmds, inplaceElement, nodeFactory) {
         var builders = [];
         visitAll(new RenderViewBuilder(null, null, inplaceElement, builders, nodeFactory), fragmentCmds);
@@ -21952,10 +21952,10 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
-      var collection_1 = require("../src/core/facade/collection");
-      var validators_1 = require("../src/core/forms/validators");
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
+      var collection_1 = require('../src/core/facade/collection');
+      var validators_1 = require('../src/core/forms/validators');
       exports.VALID = "VALID";
       exports.INVALID = "INVALID";
       function isControl(control) {
@@ -22276,26 +22276,26 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var directive_resolver_1 = require("../src/core/linker/directive_resolver");
+      var directive_resolver_1 = require('../src/core/linker/directive_resolver');
       exports.DirectiveResolver = directive_resolver_1.DirectiveResolver;
-      var compiler_1 = require("../src/core/linker/compiler");
+      var compiler_1 = require('../src/core/linker/compiler');
       exports.Compiler = compiler_1.Compiler;
-      var view_manager_1 = require("../src/core/linker/view_manager");
+      var view_manager_1 = require('../src/core/linker/view_manager');
       exports.AppViewManager = view_manager_1.AppViewManager;
-      var query_list_1 = require("../src/core/linker/query_list");
+      var query_list_1 = require('../src/core/linker/query_list');
       exports.QueryList = query_list_1.QueryList;
-      var dynamic_component_loader_1 = require("../src/core/linker/dynamic_component_loader");
+      var dynamic_component_loader_1 = require('../src/core/linker/dynamic_component_loader');
       exports.DynamicComponentLoader = dynamic_component_loader_1.DynamicComponentLoader;
-      var element_ref_1 = require("../src/core/linker/element_ref");
+      var element_ref_1 = require('../src/core/linker/element_ref');
       exports.ElementRef = element_ref_1.ElementRef;
-      var template_ref_1 = require("../src/core/linker/template_ref");
+      var template_ref_1 = require('../src/core/linker/template_ref');
       exports.TemplateRef = template_ref_1.TemplateRef;
-      var view_ref_1 = require("../src/core/linker/view_ref");
+      var view_ref_1 = require('../src/core/linker/view_ref');
       exports.ViewRef = view_ref_1.ViewRef;
       exports.ProtoViewRef = view_ref_1.ProtoViewRef;
-      var view_container_ref_1 = require("../src/core/linker/view_container_ref");
+      var view_container_ref_1 = require('../src/core/linker/view_container_ref');
       exports.ViewContainerRef = view_container_ref_1.ViewContainerRef;
-      var dynamic_component_loader_2 = require("../src/core/linker/dynamic_component_loader");
+      var dynamic_component_loader_2 = require('../src/core/linker/dynamic_component_loader');
       exports.ComponentRef = dynamic_component_loader_2.ComponentRef;
       global.define = __define;
       return module.exports;
@@ -22304,42 +22304,42 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var ng_control_name_1 = require("../src/core/forms/directives/ng_control_name");
-      var ng_form_control_1 = require("../src/core/forms/directives/ng_form_control");
-      var ng_model_1 = require("../src/core/forms/directives/ng_model");
-      var ng_control_group_1 = require("../src/core/forms/directives/ng_control_group");
-      var ng_form_model_1 = require("../src/core/forms/directives/ng_form_model");
-      var ng_form_1 = require("../src/core/forms/directives/ng_form");
-      var default_value_accessor_1 = require("../src/core/forms/directives/default_value_accessor");
-      var checkbox_value_accessor_1 = require("../src/core/forms/directives/checkbox_value_accessor");
-      var ng_control_status_1 = require("../src/core/forms/directives/ng_control_status");
-      var select_control_value_accessor_1 = require("../src/core/forms/directives/select_control_value_accessor");
-      var validators_1 = require("../src/core/forms/directives/validators");
-      var ng_control_name_2 = require("../src/core/forms/directives/ng_control_name");
+      var lang_1 = require('../src/core/facade/lang');
+      var ng_control_name_1 = require('../src/core/forms/directives/ng_control_name');
+      var ng_form_control_1 = require('../src/core/forms/directives/ng_form_control');
+      var ng_model_1 = require('../src/core/forms/directives/ng_model');
+      var ng_control_group_1 = require('../src/core/forms/directives/ng_control_group');
+      var ng_form_model_1 = require('../src/core/forms/directives/ng_form_model');
+      var ng_form_1 = require('../src/core/forms/directives/ng_form');
+      var default_value_accessor_1 = require('../src/core/forms/directives/default_value_accessor');
+      var checkbox_value_accessor_1 = require('../src/core/forms/directives/checkbox_value_accessor');
+      var ng_control_status_1 = require('../src/core/forms/directives/ng_control_status');
+      var select_control_value_accessor_1 = require('../src/core/forms/directives/select_control_value_accessor');
+      var validators_1 = require('../src/core/forms/directives/validators');
+      var ng_control_name_2 = require('../src/core/forms/directives/ng_control_name');
       exports.NgControlName = ng_control_name_2.NgControlName;
-      var ng_form_control_2 = require("../src/core/forms/directives/ng_form_control");
+      var ng_form_control_2 = require('../src/core/forms/directives/ng_form_control');
       exports.NgFormControl = ng_form_control_2.NgFormControl;
-      var ng_model_2 = require("../src/core/forms/directives/ng_model");
+      var ng_model_2 = require('../src/core/forms/directives/ng_model');
       exports.NgModel = ng_model_2.NgModel;
-      var ng_control_1 = require("../src/core/forms/directives/ng_control");
+      var ng_control_1 = require('../src/core/forms/directives/ng_control');
       exports.NgControl = ng_control_1.NgControl;
-      var ng_control_group_2 = require("../src/core/forms/directives/ng_control_group");
+      var ng_control_group_2 = require('../src/core/forms/directives/ng_control_group');
       exports.NgControlGroup = ng_control_group_2.NgControlGroup;
-      var ng_form_model_2 = require("../src/core/forms/directives/ng_form_model");
+      var ng_form_model_2 = require('../src/core/forms/directives/ng_form_model');
       exports.NgFormModel = ng_form_model_2.NgFormModel;
-      var ng_form_2 = require("../src/core/forms/directives/ng_form");
+      var ng_form_2 = require('../src/core/forms/directives/ng_form');
       exports.NgForm = ng_form_2.NgForm;
-      var default_value_accessor_2 = require("../src/core/forms/directives/default_value_accessor");
+      var default_value_accessor_2 = require('../src/core/forms/directives/default_value_accessor');
       exports.DefaultValueAccessor = default_value_accessor_2.DefaultValueAccessor;
-      var checkbox_value_accessor_2 = require("../src/core/forms/directives/checkbox_value_accessor");
+      var checkbox_value_accessor_2 = require('../src/core/forms/directives/checkbox_value_accessor');
       exports.CheckboxControlValueAccessor = checkbox_value_accessor_2.CheckboxControlValueAccessor;
-      var select_control_value_accessor_2 = require("../src/core/forms/directives/select_control_value_accessor");
+      var select_control_value_accessor_2 = require('../src/core/forms/directives/select_control_value_accessor');
       exports.SelectControlValueAccessor = select_control_value_accessor_2.SelectControlValueAccessor;
       exports.NgSelectOption = select_control_value_accessor_2.NgSelectOption;
-      var validators_2 = require("../src/core/forms/directives/validators");
+      var validators_2 = require('../src/core/forms/directives/validators');
       exports.DefaultValidators = validators_2.DefaultValidators;
-      var ng_control_status_2 = require("../src/core/forms/directives/ng_control_status");
+      var ng_control_status_2 = require('../src/core/forms/directives/ng_control_status');
       exports.NgControlStatus = ng_control_status_2.NgControlStatus;
       exports.FORM_DIRECTIVES = lang_1.CONST_EXPR([ng_control_name_1.NgControlName, ng_control_group_1.NgControlGroup, ng_form_control_1.NgFormControl, ng_model_1.NgModel, ng_form_model_1.NgFormModel, ng_form_1.NgForm, select_control_value_accessor_1.NgSelectOption, default_value_accessor_1.DefaultValueAccessor, checkbox_value_accessor_1.CheckboxControlValueAccessor, select_control_value_accessor_1.SelectControlValueAccessor, ng_control_status_1.NgControlStatus, validators_1.DefaultValidators]);
       global.define = __define;
@@ -22358,10 +22358,10 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var generic_browser_adapter_1 = require("../src/core/dom/generic_browser_adapter");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var generic_browser_adapter_1 = require('../src/core/dom/generic_browser_adapter');
       var _attrToPropMap = {
         'class': 'className',
         'innerHtml': 'innerHTML',
@@ -22871,8 +22871,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var testability_1 = require("../src/core/testability/testability");
-      var lang_1 = require("../src/core/facade/lang");
+      var testability_1 = require('../src/core/testability/testability');
+      var lang_1 = require('../src/core/facade/lang');
       var PublicTestability = (function() {
         function PublicTestability(testability) {
           this._testability = testability;
@@ -22952,10 +22952,10 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var hammer_common_1 = require("../src/core/render/dom/events/hammer_common");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var di_1 = require("../src/core/di");
+      var hammer_common_1 = require('../src/core/render/dom/events/hammer_common');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var di_1 = require('../src/core/di');
       var HammerGesturesPlugin = (function(_super) {
         __extends(HammerGesturesPlugin, _super);
         function HammerGesturesPlugin() {
@@ -22994,30 +22994,30 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var ng_zone_1 = require("../src/core/zone/ng_zone");
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
-      var application_tokens_1 = require("../src/core/application_tokens");
-      var async_1 = require("../src/core/facade/async");
-      var collection_1 = require("../src/core/facade/collection");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var testability_1 = require("../src/core/testability/testability");
-      var dynamic_component_loader_1 = require("../src/core/linker/dynamic_component_loader");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var view_ref_1 = require("../src/core/linker/view_ref");
-      var life_cycle_1 = require("../src/core/life_cycle/life_cycle");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var view_pool_1 = require("../src/core/linker/view_pool");
-      var view_manager_1 = require("../src/core/linker/view_manager");
-      var view_manager_utils_1 = require("../src/core/linker/view_manager_utils");
-      var view_listener_1 = require("../src/core/linker/view_listener");
-      var proto_view_factory_1 = require("../src/core/linker/proto_view_factory");
-      var pipes_1 = require("../src/core/pipes");
-      var view_resolver_1 = require("../src/core/linker/view_resolver");
-      var directive_resolver_1 = require("../src/core/linker/directive_resolver");
-      var pipe_resolver_1 = require("../src/core/linker/pipe_resolver");
-      var compiler_1 = require("../src/core/linker/compiler");
+      var ng_zone_1 = require('../src/core/zone/ng_zone');
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
+      var application_tokens_1 = require('../src/core/application_tokens');
+      var async_1 = require('../src/core/facade/async');
+      var collection_1 = require('../src/core/facade/collection');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var testability_1 = require('../src/core/testability/testability');
+      var dynamic_component_loader_1 = require('../src/core/linker/dynamic_component_loader');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var view_ref_1 = require('../src/core/linker/view_ref');
+      var life_cycle_1 = require('../src/core/life_cycle/life_cycle');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var view_pool_1 = require('../src/core/linker/view_pool');
+      var view_manager_1 = require('../src/core/linker/view_manager');
+      var view_manager_utils_1 = require('../src/core/linker/view_manager_utils');
+      var view_listener_1 = require('../src/core/linker/view_listener');
+      var proto_view_factory_1 = require('../src/core/linker/proto_view_factory');
+      var pipes_1 = require('../src/core/pipes');
+      var view_resolver_1 = require('../src/core/linker/view_resolver');
+      var directive_resolver_1 = require('../src/core/linker/directive_resolver');
+      var pipe_resolver_1 = require('../src/core/linker/pipe_resolver');
+      var compiler_1 = require('../src/core/linker/compiler');
       function platformBindings() {
         return [di_1.bind(reflection_1.Reflector).toValue(reflection_1.reflector), testability_1.TestabilityRegistry];
       }
@@ -23207,11 +23207,11 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var app_root_url_1 = require("../src/core/compiler/app_root_url");
+      var app_root_url_1 = require('../src/core/compiler/app_root_url');
       exports.AppRootUrl = app_root_url_1.AppRootUrl;
-      var url_resolver_1 = require("../src/core/compiler/url_resolver");
+      var url_resolver_1 = require('../src/core/compiler/url_resolver');
       exports.UrlResolver = url_resolver_1.UrlResolver;
-      var title_1 = require("../src/core/services/title");
+      var title_1 = require('../src/core/services/title');
       exports.Title = title_1.Title;
       global.define = __define;
       return module.exports;
@@ -23225,25 +23225,25 @@
           if (!exports.hasOwnProperty(p))
             exports[p] = m[p];
       }
-      var lang_1 = require("../src/core/facade/lang");
-      var ng_class_1 = require("../src/core/directives/ng_class");
-      var ng_for_1 = require("../src/core/directives/ng_for");
-      var ng_if_1 = require("../src/core/directives/ng_if");
-      var ng_style_1 = require("../src/core/directives/ng_style");
-      var ng_switch_1 = require("../src/core/directives/ng_switch");
-      var ng_class_2 = require("../src/core/directives/ng_class");
+      var lang_1 = require('../src/core/facade/lang');
+      var ng_class_1 = require('../src/core/directives/ng_class');
+      var ng_for_1 = require('../src/core/directives/ng_for');
+      var ng_if_1 = require('../src/core/directives/ng_if');
+      var ng_style_1 = require('../src/core/directives/ng_style');
+      var ng_switch_1 = require('../src/core/directives/ng_switch');
+      var ng_class_2 = require('../src/core/directives/ng_class');
       exports.NgClass = ng_class_2.NgClass;
-      var ng_for_2 = require("../src/core/directives/ng_for");
+      var ng_for_2 = require('../src/core/directives/ng_for');
       exports.NgFor = ng_for_2.NgFor;
-      var ng_if_2 = require("../src/core/directives/ng_if");
+      var ng_if_2 = require('../src/core/directives/ng_if');
       exports.NgIf = ng_if_2.NgIf;
-      var ng_style_2 = require("../src/core/directives/ng_style");
+      var ng_style_2 = require('../src/core/directives/ng_style');
       exports.NgStyle = ng_style_2.NgStyle;
-      var ng_switch_2 = require("../src/core/directives/ng_switch");
+      var ng_switch_2 = require('../src/core/directives/ng_switch');
       exports.NgSwitch = ng_switch_2.NgSwitch;
       exports.NgSwitchWhen = ng_switch_2.NgSwitchWhen;
       exports.NgSwitchDefault = ng_switch_2.NgSwitchDefault;
-      __export(require("../src/core/directives/observable_list_diff"));
+      __export(require('../src/core/directives/observable_list_diff'));
       exports.CORE_DIRECTIVES = lang_1.CONST_EXPR([ng_class_1.NgClass, ng_for_1.NgFor, ng_if_1.NgIf, ng_style_1.NgStyle, ng_switch_1.NgSwitch, ng_switch_1.NgSwitchWhen, ng_switch_1.NgSwitchDefault]);
       global.define = __define;
       return module.exports;
@@ -23257,8 +23257,8 @@
           if (!exports.hasOwnProperty(p))
             exports[p] = m[p];
       }
-      __export(require("../src/core/debug/debug_element"));
-      var debug_element_view_listener_1 = require("../src/core/debug/debug_element_view_listener");
+      __export(require('../src/core/debug/debug_element'));
+      var debug_element_view_listener_1 = require('../src/core/debug/debug_element_view_listener');
       exports.inspectNativeElement = debug_element_view_listener_1.inspectNativeElement;
       exports.ELEMENT_PROBE_BINDINGS = debug_element_view_listener_1.ELEMENT_PROBE_BINDINGS;
       global.define = __define;
@@ -23268,9 +23268,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var enums_1 = require("../src/http/enums");
-      var exceptions_1 = require("../src/core/facade/exceptions");
+      var lang_1 = require('../src/core/facade/lang');
+      var enums_1 = require('../src/http/enums');
+      var exceptions_1 = require('../src/core/facade/exceptions');
       function normalizeMethodName(method) {
         if (lang_1.isString(method)) {
           var originalMethod = method;
@@ -23284,7 +23284,7 @@
         return method;
       }
       exports.normalizeMethodName = normalizeMethodName;
-      var lang_2 = require("../src/core/facade/lang");
+      var lang_2 = require('../src/core/facade/lang');
       exports.isJsObject = lang_2.isJsObject;
       global.define = __define;
       return module.exports;
@@ -23324,12 +23324,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var headers_1 = require("../src/http/headers");
-      var enums_1 = require("../src/http/enums");
-      var di_1 = require("../src/core/di");
-      var url_search_params_1 = require("../src/http/url_search_params");
-      var http_utils_1 = require("../src/http/http_utils");
+      var lang_1 = require('../src/core/facade/lang');
+      var headers_1 = require('../src/http/headers');
+      var enums_1 = require('../src/http/enums');
+      var di_1 = require('../src/core/di');
+      var url_search_params_1 = require('../src/http/url_search_params');
+      var http_utils_1 = require('../src/http/http_utils');
       var RequestOptions = (function() {
         function RequestOptions(_a) {
           var _b = _a === void 0 ? {} : _a,
@@ -23398,13 +23398,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
-      var _VirtualTimeScheduler2 = require("@reactivex/rxjs/dist/cjs/schedulers/VirtualTimeScheduler");
+      var _VirtualTimeScheduler2 = require('@reactivex/rxjs/dist/cjs/schedulers/VirtualTimeScheduler');
       var _VirtualTimeScheduler3 = _interopRequireDefault(_VirtualTimeScheduler2);
-      var _Notification = require("@reactivex/rxjs/dist/cjs/Notification");
+      var _Notification = require('@reactivex/rxjs/dist/cjs/Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
       var TestScheduler = (function(_VirtualTimeScheduler) {
         _inherits(TestScheduler, _VirtualTimeScheduler);
@@ -23542,9 +23542,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _ImmediateAction = require("@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction");
+      var _ImmediateAction = require('@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction');
       var _ImmediateAction2 = _interopRequireDefault(_ImmediateAction);
-      var _FutureAction = require("@reactivex/rxjs/dist/cjs/schedulers/FutureAction");
+      var _FutureAction = require('@reactivex/rxjs/dist/cjs/schedulers/FutureAction');
       var _FutureAction2 = _interopRequireDefault(_FutureAction);
       var ImmediateScheduler = (function() {
         function ImmediateScheduler() {
@@ -23612,8 +23612,8 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilImmediate = require("@reactivex/rxjs/dist/cjs/util/Immediate");
-      var _ImmediateAction2 = require("@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction");
+      var _utilImmediate = require('@reactivex/rxjs/dist/cjs/util/Immediate');
+      var _ImmediateAction2 = require('@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction');
       var _ImmediateAction3 = _interopRequireDefault(_ImmediateAction2);
       var NextTickAction = (function(_ImmediateAction) {
         _inherits(NextTickAction, _ImmediateAction);
@@ -23686,11 +23686,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _ScalarObservable = require("@reactivex/rxjs/dist/cjs/observables/ScalarObservable");
+      var _ScalarObservable = require('@reactivex/rxjs/dist/cjs/observables/ScalarObservable');
       var _ScalarObservable2 = _interopRequireDefault(_ScalarObservable);
-      var _EmptyObservable = require("@reactivex/rxjs/dist/cjs/observables/EmptyObservable");
+      var _EmptyObservable = require('@reactivex/rxjs/dist/cjs/observables/EmptyObservable');
       var _EmptyObservable2 = _interopRequireDefault(_EmptyObservable);
       var ArrayObservable = (function(_Observable) {
         _inherits(ArrayObservable, _Observable);
@@ -23779,7 +23779,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = tryCatch;
-      var _errorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _errorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       var tryCatchTarget;
       function tryCatcher() {
         try {
@@ -23825,11 +23825,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _utilIsNumeric = require("@reactivex/rxjs/dist/cjs/util/isNumeric");
+      var _utilIsNumeric = require('@reactivex/rxjs/dist/cjs/util/isNumeric');
       var _utilIsNumeric2 = _interopRequireDefault(_utilIsNumeric);
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
       var IntervalObservable = (function(_Observable) {
         _inherits(IntervalObservable, _Observable);
@@ -23907,14 +23907,14 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _utilRoot = require("@reactivex/rxjs/dist/cjs/util/root");
-      var _utilSymbol_iterator = require("@reactivex/rxjs/dist/cjs/util/Symbol_iterator");
+      var _utilRoot = require('@reactivex/rxjs/dist/cjs/util/root');
+      var _utilSymbol_iterator = require('@reactivex/rxjs/dist/cjs/util/Symbol_iterator');
       var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       var IteratorObservable = (function(_Observable) {
         _inherits(IteratorObservable, _Observable);
         function IteratorObservable(iterator, project, thisArg, scheduler) {
@@ -24118,10 +24118,10 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _observablesArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _mergeSupport = require("@reactivex/rxjs/dist/cjs/operators/merge-support");
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _mergeSupport = require('@reactivex/rxjs/dist/cjs/operators/merge-support');
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       function merge() {
         var concurrent = Number.POSITIVE_INFINITY;
@@ -24156,7 +24156,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = concatMap;
-      var _flatMapSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMap-support");
+      var _flatMapSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMap-support');
       function concatMap(project, projectResult) {
         return this.lift(new _flatMapSupport.FlatMapOperator(project, projectResult, 1));
       }
@@ -24171,7 +24171,7 @@
       'use strict';
       exports.__esModule = true;
       exports['default'] = concatMapTo;
-      var _flatMapToSupport = require("@reactivex/rxjs/dist/cjs/operators/flatMapTo-support");
+      var _flatMapToSupport = require('@reactivex/rxjs/dist/cjs/operators/flatMapTo-support');
       function concatMapTo(observable, projectResult) {
         return this.lift(new _flatMapToSupport.FlatMapToOperator(observable, projectResult, 1));
       }
@@ -24207,12 +24207,12 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
-      var _utilBindCallback = require("@reactivex/rxjs/dist/cjs/util/bindCallback");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
+      var _utilBindCallback = require('@reactivex/rxjs/dist/cjs/util/bindCallback');
       var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
       function map(project, thisArg) {
         return this.lift(new MapOperator(project, thisArg));
@@ -24278,9 +24278,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _observablesArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _observablesArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _zipSupport = require("@reactivex/rxjs/dist/cjs/operators/zip-support");
+      var _zipSupport = require('@reactivex/rxjs/dist/cjs/operators/zip-support');
       function combineLatest() {
         for (var _len = arguments.length,
             observables = Array(_len),
@@ -24375,7 +24375,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _zipStatic = require("@reactivex/rxjs/dist/cjs/operators/zip-static");
+      var _zipStatic = require('@reactivex/rxjs/dist/cjs/operators/zip-static');
       var _zipStatic2 = _interopRequireDefault(_zipStatic);
       function zipProto() {
         for (var _len = arguments.length,
@@ -24400,9 +24400,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _multicast = require("@reactivex/rxjs/dist/cjs/operators/multicast");
+      var _multicast = require('@reactivex/rxjs/dist/cjs/operators/multicast');
       var _multicast2 = _interopRequireDefault(_multicast);
       function subjectFactory() {
         return new _Subject2['default']();
@@ -24424,7 +24424,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesSubscribeOnObservable = require("@reactivex/rxjs/dist/cjs/observables/SubscribeOnObservable");
+      var _observablesSubscribeOnObservable = require('@reactivex/rxjs/dist/cjs/observables/SubscribeOnObservable');
       var _observablesSubscribeOnObservable2 = _interopRequireDefault(_observablesSubscribeOnObservable);
       function subscribeOn(scheduler) {
         var delay = arguments.length <= 1 || arguments[1] === undefined ? 0 : arguments[1];
@@ -24444,9 +24444,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _utilNot = require("@reactivex/rxjs/dist/cjs/util/not");
+      var _utilNot = require('@reactivex/rxjs/dist/cjs/util/not');
       var _utilNot2 = _interopRequireDefault(_utilNot);
-      var _filter = require("@reactivex/rxjs/dist/cjs/operators/filter");
+      var _filter = require('@reactivex/rxjs/dist/cjs/operators/filter');
       var _filter2 = _interopRequireDefault(_filter);
       function partition(predicate, thisArg) {
         return [_filter2['default'].call(this, predicate), _filter2['default'].call(this, _utilNot2['default'](predicate, thisArg))];
@@ -24483,11 +24483,11 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber2 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber2 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
-      var _utilIsDate = require("@reactivex/rxjs/dist/cjs/util/isDate");
+      var _utilIsDate = require('@reactivex/rxjs/dist/cjs/util/isDate');
       var _utilIsDate2 = _interopRequireDefault(_utilIsDate);
       function timeout(due) {
         var errorToSend = arguments.length <= 1 || arguments[1] === undefined ? null : arguments[1];
@@ -24559,17 +24559,17 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber3 = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber3 = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-      var _utilMap = require("@reactivex/rxjs/dist/cjs/util/Map");
+      var _utilMap = require('@reactivex/rxjs/dist/cjs/util/Map');
       var _utilMap2 = _interopRequireDefault(_utilMap);
-      var _utilFastMap = require("@reactivex/rxjs/dist/cjs/util/FastMap");
+      var _utilFastMap = require('@reactivex/rxjs/dist/cjs/util/FastMap');
       var _utilFastMap2 = _interopRequireDefault(_utilFastMap);
-      var _subjectsGroupSubject = require("@reactivex/rxjs/dist/cjs/subjects/GroupSubject");
+      var _subjectsGroupSubject = require('@reactivex/rxjs/dist/cjs/subjects/GroupSubject');
       var _subjectsGroupSubject2 = _interopRequireDefault(_subjectsGroupSubject);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       function groupBy(keySelector, elementSelector, durationSelector) {
         return this.lift(new GroupByOperator(keySelector, durationSelector, elementSelector));
       }
@@ -24713,14 +24713,14 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var enums_1 = require("../src/http/enums");
-      var static_response_1 = require("../src/http/static_response");
-      var base_response_options_1 = require("../src/http/base_response_options");
-      var di_1 = require("../src/core/di");
-      var browser_jsonp_1 = require("../src/http/backends/browser_jsonp");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var lang_1 = require("../src/core/facade/lang");
-      var Rx = require("@reactivex/rxjs/dist/cjs/Rx");
+      var enums_1 = require('../src/http/enums');
+      var static_response_1 = require('../src/http/static_response');
+      var base_response_options_1 = require('../src/http/base_response_options');
+      var di_1 = require('../src/core/di');
+      var browser_jsonp_1 = require('../src/http/backends/browser_jsonp');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var lang_1 = require('../src/core/facade/lang');
+      var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
       var Observable = Rx.Observable;
       var JSONPConnection = (function() {
         function JSONPConnection(req, _dom, baseResponseOptions) {
@@ -24831,14 +24831,14 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var key_1 = require("../src/core/di/key");
-      var metadata_1 = require("../src/core/di/metadata");
-      var exceptions_2 = require("../src/core/di/exceptions");
-      var forward_ref_1 = require("../src/core/di/forward_ref");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var key_1 = require('../src/core/di/key');
+      var metadata_1 = require('../src/core/di/metadata');
+      var exceptions_2 = require('../src/core/di/exceptions');
+      var forward_ref_1 = require('../src/core/di/forward_ref');
       var Dependency = (function() {
         function Dependency(key, optional, lowerBoundVisibility, upperBoundVisibility, properties) {
           this.key = key;
@@ -25101,15 +25101,15 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var change_detection_util_1 = require("../src/core/change_detection/change_detection_util");
-      var change_detector_ref_1 = require("../src/core/change_detection/change_detector_ref");
-      var exceptions_2 = require("../src/core/change_detection/exceptions");
-      var constants_1 = require("../src/core/change_detection/constants");
-      var profile_1 = require("../src/core/profile/profile");
-      var observable_facade_1 = require("../src/core/change_detection/observable_facade");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var change_detection_util_1 = require('../src/core/change_detection/change_detection_util');
+      var change_detector_ref_1 = require('../src/core/change_detection/change_detector_ref');
+      var exceptions_2 = require('../src/core/change_detection/exceptions');
+      var constants_1 = require('../src/core/change_detection/constants');
+      var profile_1 = require('../src/core/profile/profile');
+      var observable_facade_1 = require('../src/core/change_detection/observable_facade');
       var _scope_check = profile_1.wtfCreateScope("ChangeDetector#check(ascii id, bool throwOnChange)");
       var _Context = (function() {
         function _Context(element, componentElement, context, locals, injector, expression) {
@@ -25363,14 +25363,14 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var abstract_change_detector_1 = require("../src/core/change_detection/abstract_change_detector");
-      var change_detection_util_1 = require("../src/core/change_detection/change_detection_util");
-      var codegen_name_util_1 = require("../src/core/change_detection/codegen_name_util");
-      var codegen_logic_util_1 = require("../src/core/change_detection/codegen_logic_util");
-      var codegen_facade_1 = require("../src/core/change_detection/codegen_facade");
-      var proto_change_detector_1 = require("../src/core/change_detection/proto_change_detector");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var abstract_change_detector_1 = require('../src/core/change_detection/abstract_change_detector');
+      var change_detection_util_1 = require('../src/core/change_detection/change_detection_util');
+      var codegen_name_util_1 = require('../src/core/change_detection/codegen_name_util');
+      var codegen_logic_util_1 = require('../src/core/change_detection/codegen_logic_util');
+      var codegen_facade_1 = require('../src/core/change_detection/codegen_facade');
+      var proto_change_detector_1 = require('../src/core/change_detection/proto_change_detector');
       var IS_CHANGED_LOCAL = "isChanged";
       var CHANGES_LOCAL = "changes";
       var ChangeDetectorJITGenerator = (function() {
@@ -25640,9 +25640,9 @@
           throw new TypeError('Cannot call a class as a function');
         }
       }
-      var _Subscriber = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber2 = _interopRequireDefault(_Subscriber);
-      var _utilSymbol_observable = require("@reactivex/rxjs/dist/cjs/util/Symbol_observable");
+      var _utilSymbol_observable = require('@reactivex/rxjs/dist/cjs/util/Symbol_observable');
       var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
       var Observable = (function() {
         function Observable(subscribe) {
@@ -25721,13 +25721,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var source_module_1 = require("../src/core/compiler/source_module");
-      var change_detection_jit_generator_1 = require("../src/core/change_detection/change_detection_jit_generator");
-      var change_definition_factory_1 = require("../src/core/compiler/change_definition_factory");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var change_detector_codegen_1 = require("../src/transform/template_compiler/change_detector_codegen");
-      var util_1 = require("../src/core/compiler/util");
-      var di_1 = require("../src/core/di");
+      var source_module_1 = require('../src/core/compiler/source_module');
+      var change_detection_jit_generator_1 = require('../src/core/change_detection/change_detection_jit_generator');
+      var change_definition_factory_1 = require('../src/core/compiler/change_definition_factory');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var change_detector_codegen_1 = require('../src/transform/template_compiler/change_detector_codegen');
+      var util_1 = require('../src/core/compiler/util');
+      var di_1 = require('../src/core/di');
       var ABSTRACT_CHANGE_DETECTOR = "AbstractChangeDetector";
       var UTIL = "ChangeDetectionUtil";
       var ABSTRACT_CHANGE_DETECTOR_MODULE = source_module_1.moduleRef("package:angular2/src/core/change_detection/abstract_change_detector" + util_1.MODULE_SUFFIX);
@@ -25811,16 +25811,16 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var source_module_1 = require("../src/core/compiler/source_module");
-      var api_1 = require("../src/core/render/api");
-      var xhr_1 = require("../src/core/compiler/xhr");
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
-      var shadow_css_1 = require("../src/core/compiler/shadow_css");
-      var url_resolver_1 = require("../src/core/compiler/url_resolver");
-      var style_url_resolver_1 = require("../src/core/compiler/style_url_resolver");
-      var util_1 = require("../src/core/compiler/util");
-      var di_1 = require("../src/core/di");
+      var source_module_1 = require('../src/core/compiler/source_module');
+      var api_1 = require('../src/core/render/api');
+      var xhr_1 = require('../src/core/compiler/xhr');
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
+      var shadow_css_1 = require('../src/core/compiler/shadow_css');
+      var url_resolver_1 = require('../src/core/compiler/url_resolver');
+      var style_url_resolver_1 = require('../src/core/compiler/style_url_resolver');
+      var util_1 = require('../src/core/compiler/util');
+      var di_1 = require('../src/core/di');
       var COMPONENT_VARIABLE = '%COMP%';
       var COMPONENT_REGEX = /%COMP%/g;
       var HOST_ATTR = "_nghost-" + COMPONENT_VARIABLE;
@@ -25964,18 +25964,18 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var html_parser_1 = require("../src/core/compiler/html_parser");
-      var template_ast_1 = require("../src/core/compiler/template_ast");
-      var selector_1 = require("../src/core/compiler/selector");
-      var element_schema_registry_1 = require("../src/core/compiler/schema/element_schema_registry");
-      var template_preparser_1 = require("../src/core/compiler/template_preparser");
-      var html_ast_1 = require("../src/core/compiler/html_ast");
-      var util_1 = require("../src/core/compiler/util");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var html_parser_1 = require('../src/core/compiler/html_parser');
+      var template_ast_1 = require('../src/core/compiler/template_ast');
+      var selector_1 = require('../src/core/compiler/selector');
+      var element_schema_registry_1 = require('../src/core/compiler/schema/element_schema_registry');
+      var template_preparser_1 = require('../src/core/compiler/template_preparser');
+      var html_ast_1 = require('../src/core/compiler/html_ast');
+      var util_1 = require('../src/core/compiler/util');
       var BIND_NAME_REGEXP = /^(?:(?:(?:(bind-)|(var-|#)|(on-)|(bindon-))(.+))|\[\(([^\)]+)\)\]|\[([^\]]+)\]|\(([^\)]+)\))$/g;
       var TEMPLATE_ELEMENT = 'template';
       var TEMPLATE_ATTR = 'template';
@@ -26500,16 +26500,16 @@
           decorator(target, key, paramIndex);
         };
       };
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var view_ref_1 = require("../src/core/linker/view_ref");
-      var api_1 = require("../src/core/render/api");
-      var view_manager_utils_1 = require("../src/core/linker/view_manager_utils");
-      var view_pool_1 = require("../src/core/linker/view_pool");
-      var view_listener_1 = require("../src/core/linker/view_listener");
-      var profile_1 = require("../src/core/profile/profile");
-      var proto_view_factory_1 = require("../src/core/linker/proto_view_factory");
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var view_ref_1 = require('../src/core/linker/view_ref');
+      var api_1 = require('../src/core/render/api');
+      var view_manager_utils_1 = require('../src/core/linker/view_manager_utils');
+      var view_pool_1 = require('../src/core/linker/view_pool');
+      var view_listener_1 = require('../src/core/linker/view_listener');
+      var profile_1 = require('../src/core/profile/profile');
+      var proto_view_factory_1 = require('../src/core/linker/proto_view_factory');
       var AppViewManager = (function() {
         function AppViewManager(_viewPool, _viewListener, _utils, _renderer, _protoViewFactory) {
           this._viewPool = _viewPool;
@@ -26716,8 +26716,8 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var css_animation_options_1 = require("../src/animate/css_animation_options");
-      var animation_1 = require("../src/animate/animation");
+      var css_animation_options_1 = require('../src/animate/css_animation_options');
+      var animation_1 = require('../src/animate/animation');
       var CssAnimationBuilder = (function() {
         function CssAnimationBuilder(browserDetails) {
           this.browserDetails = browserDetails;
@@ -26789,13 +26789,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var metadata_1 = require("../src/core/metadata");
-      var linker_1 = require("../src/core/linker");
-      var render_1 = require("../src/core/render");
-      var di_1 = require("../src/core/di");
-      var control_value_accessor_1 = require("../src/core/forms/directives/control_value_accessor");
-      var lang_1 = require("../src/core/facade/lang");
-      var shared_1 = require("../src/core/forms/directives/shared");
+      var metadata_1 = require('../src/core/metadata');
+      var linker_1 = require('../src/core/linker');
+      var render_1 = require('../src/core/render');
+      var di_1 = require('../src/core/di');
+      var control_value_accessor_1 = require('../src/core/forms/directives/control_value_accessor');
+      var lang_1 = require('../src/core/facade/lang');
+      var shared_1 = require('../src/core/forms/directives/shared');
       var DEFAULT_VALUE_ACCESSOR = lang_1.CONST_EXPR(new di_1.Binding(control_value_accessor_1.NG_VALUE_ACCESSOR, {
         toAlias: di_1.forwardRef(function() {
           return DefaultValueAccessor;
@@ -26838,9 +26838,9 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var headers_1 = require("../src/http/headers");
-      var http_utils_1 = require("../src/http/http_utils");
-      var lang_1 = require("../src/core/facade/lang");
+      var headers_1 = require('../src/http/headers');
+      var http_utils_1 = require('../src/http/http_utils');
+      var lang_1 = require('../src/core/facade/lang');
       var Request = (function() {
         function Request(requestOptions) {
           var url = requestOptions.url;
@@ -26877,7 +26877,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _ImmediateScheduler = require("@reactivex/rxjs/dist/cjs/schedulers/ImmediateScheduler");
+      var _ImmediateScheduler = require('@reactivex/rxjs/dist/cjs/schedulers/ImmediateScheduler');
       var _ImmediateScheduler2 = _interopRequireDefault(_ImmediateScheduler);
       exports['default'] = new _ImmediateScheduler2['default']();
       module.exports = exports['default'];
@@ -26911,11 +26911,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _ImmediateScheduler2 = require("@reactivex/rxjs/dist/cjs/schedulers/ImmediateScheduler");
+      var _ImmediateScheduler2 = require('@reactivex/rxjs/dist/cjs/schedulers/ImmediateScheduler');
       var _ImmediateScheduler3 = _interopRequireDefault(_ImmediateScheduler2);
-      var _NextTickAction = require("@reactivex/rxjs/dist/cjs/schedulers/NextTickAction");
+      var _NextTickAction = require('@reactivex/rxjs/dist/cjs/schedulers/NextTickAction');
       var _NextTickAction2 = _interopRequireDefault(_NextTickAction);
-      var _ImmediateAction = require("@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction");
+      var _ImmediateAction = require('@reactivex/rxjs/dist/cjs/schedulers/ImmediateAction');
       var _ImmediateAction2 = _interopRequireDefault(_ImmediateAction);
       var NextTickScheduler = (function(_ImmediateScheduler) {
         _inherits(NextTickScheduler, _ImmediateScheduler);
@@ -26960,11 +26960,11 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _utilTryCatch = require("@reactivex/rxjs/dist/cjs/util/tryCatch");
+      var _utilTryCatch = require('@reactivex/rxjs/dist/cjs/util/tryCatch');
       var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-      var _utilErrorObject = require("@reactivex/rxjs/dist/cjs/util/errorObject");
+      var _utilErrorObject = require('@reactivex/rxjs/dist/cjs/util/errorObject');
       var DeferObservable = (function(_Observable) {
         _inherits(DeferObservable, _Observable);
         function DeferObservable(observableFactory) {
@@ -27017,20 +27017,20 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _PromiseObservable = require("@reactivex/rxjs/dist/cjs/observables/PromiseObservable");
+      var _PromiseObservable = require('@reactivex/rxjs/dist/cjs/observables/PromiseObservable');
       var _PromiseObservable2 = _interopRequireDefault(_PromiseObservable);
-      var _IteratorObservable = require("@reactivex/rxjs/dist/cjs/observables/IteratorObservable");
+      var _IteratorObservable = require('@reactivex/rxjs/dist/cjs/observables/IteratorObservable');
       var _IteratorObservable2 = _interopRequireDefault(_IteratorObservable);
-      var _ArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _ArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _ArrayObservable2 = _interopRequireDefault(_ArrayObservable);
-      var _utilSymbol_observable = require("@reactivex/rxjs/dist/cjs/util/Symbol_observable");
+      var _utilSymbol_observable = require('@reactivex/rxjs/dist/cjs/util/Symbol_observable');
       var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
-      var _utilSymbol_iterator = require("@reactivex/rxjs/dist/cjs/util/Symbol_iterator");
+      var _utilSymbol_iterator = require('@reactivex/rxjs/dist/cjs/util/Symbol_iterator');
       var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _operatorsObserveOnSupport = require("@reactivex/rxjs/dist/cjs/operators/observeOn-support");
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _operatorsObserveOnSupport = require('@reactivex/rxjs/dist/cjs/operators/observeOn-support');
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       var isArray = Array.isArray;
       var FromObservable = (function(_Observable) {
@@ -27085,9 +27085,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _mergeStatic = require("@reactivex/rxjs/dist/cjs/operators/merge-static");
+      var _mergeStatic = require('@reactivex/rxjs/dist/cjs/operators/merge-static');
       var _mergeStatic2 = _interopRequireDefault(_mergeStatic);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
       function concat() {
         var scheduler = _schedulersImmediate2['default'];
@@ -27117,9 +27117,9 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _observablesArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _observablesArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _combineLatestSupport = require("@reactivex/rxjs/dist/cjs/operators/combineLatest-support");
+      var _combineLatestSupport = require('@reactivex/rxjs/dist/cjs/operators/combineLatest-support');
       function combineLatest() {
         for (var _len = arguments.length,
             observables = Array(_len),
@@ -27141,12 +27141,12 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var binding_1 = require("../src/core/di/binding");
-      var exceptions_1 = require("../src/core/di/exceptions");
-      var lang_1 = require("../src/core/facade/lang");
-      var key_1 = require("../src/core/di/key");
-      var metadata_1 = require("../src/core/di/metadata");
+      var collection_1 = require('../src/core/facade/collection');
+      var binding_1 = require('../src/core/di/binding');
+      var exceptions_1 = require('../src/core/di/exceptions');
+      var lang_1 = require('../src/core/facade/lang');
+      var key_1 = require('../src/core/di/key');
+      var metadata_1 = require('../src/core/di/metadata');
       var _MAX_CONSTRUCTION_COUNTER = 10;
       exports.UNDEFINED = lang_1.CONST_EXPR(new Object());
       (function(Visibility) {
@@ -27808,13 +27808,13 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var abstract_change_detector_1 = require("../src/core/change_detection/abstract_change_detector");
-      var change_detection_util_1 = require("../src/core/change_detection/change_detection_util");
-      var constants_1 = require("../src/core/change_detection/constants");
-      var proto_record_1 = require("../src/core/change_detection/proto_record");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var abstract_change_detector_1 = require('../src/core/change_detection/abstract_change_detector');
+      var change_detection_util_1 = require('../src/core/change_detection/change_detection_util');
+      var constants_1 = require('../src/core/change_detection/constants');
+      var proto_record_1 = require('../src/core/change_detection/proto_record');
       var DynamicChangeDetector = (function(_super) {
         __extends(DynamicChangeDetector, _super);
         function DynamicChangeDetector(id, dispatcher, numberOfPropertyProtoRecords, propertyBindingTargets, directiveIndices, strategy, _records, _eventBindings, _directiveRecords, _genConfig) {
@@ -28187,7 +28187,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var change_detection_jit_generator_1 = require("../src/core/change_detection/change_detection_jit_generator");
+      var change_detection_jit_generator_1 = require('../src/core/change_detection/change_detection_jit_generator');
       var JitProtoChangeDetector = (function() {
         function JitProtoChangeDetector(definition) {
           this.definition = definition;
@@ -28235,13 +28235,13 @@
         if (superClass)
           Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
       }
-      var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable3 = _interopRequireDefault(_Observable2);
-      var _Subscriber = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber2 = _interopRequireDefault(_Subscriber);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _subjectsSubjectSubscription = require("@reactivex/rxjs/dist/cjs/subjects/SubjectSubscription");
+      var _subjectsSubjectSubscription = require('@reactivex/rxjs/dist/cjs/subjects/SubjectSubscription');
       var _subjectsSubjectSubscription2 = _interopRequireDefault(_subjectsSubjectSubscription);
       var subscriptionAdd = _Subscription2['default'].prototype.add;
       var subscriptionRemove = _Subscription2['default'].prototype.remove;
@@ -28437,24 +28437,24 @@
           decorator(target, key, paramIndex);
         };
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var async_1 = require("../src/core/facade/async");
-      var template_commands_1 = require("../src/core/linker/template_commands");
-      var directive_metadata_1 = require("../src/core/compiler/directive_metadata");
-      var di_1 = require("../src/core/di");
-      var source_module_1 = require("../src/core/compiler/source_module");
-      var change_detector_compiler_1 = require("../src/core/compiler/change_detector_compiler");
-      var style_compiler_1 = require("../src/core/compiler/style_compiler");
-      var command_compiler_1 = require("../src/core/compiler/command_compiler");
-      var template_parser_1 = require("../src/core/compiler/template_parser");
-      var template_normalizer_1 = require("../src/core/compiler/template_normalizer");
-      var runtime_metadata_1 = require("../src/core/compiler/runtime_metadata");
-      var application_tokens_1 = require("../src/core/application_tokens");
-      var command_compiler_2 = require("../src/core/compiler/command_compiler");
-      var util_1 = require("../src/core/compiler/util");
-      var di_2 = require("../src/core/di");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var async_1 = require('../src/core/facade/async');
+      var template_commands_1 = require('../src/core/linker/template_commands');
+      var directive_metadata_1 = require('../src/core/compiler/directive_metadata');
+      var di_1 = require('../src/core/di');
+      var source_module_1 = require('../src/core/compiler/source_module');
+      var change_detector_compiler_1 = require('../src/core/compiler/change_detector_compiler');
+      var style_compiler_1 = require('../src/core/compiler/style_compiler');
+      var command_compiler_1 = require('../src/core/compiler/command_compiler');
+      var template_parser_1 = require('../src/core/compiler/template_parser');
+      var template_normalizer_1 = require('../src/core/compiler/template_normalizer');
+      var runtime_metadata_1 = require('../src/core/compiler/runtime_metadata');
+      var application_tokens_1 = require('../src/core/application_tokens');
+      var command_compiler_2 = require('../src/core/compiler/command_compiler');
+      var util_1 = require('../src/core/compiler/util');
+      var di_2 = require('../src/core/di');
       var TemplateCompiler = (function() {
         function TemplateCompiler(_runtimeMetadataResolver, _templateNormalizer, _templateParser, _styleCompiler, _commandCompiler, _cdCompiler, appId) {
           this._runtimeMetadataResolver = _runtimeMetadataResolver;
@@ -28663,26 +28663,26 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var async_1 = require("../src/core/facade/async");
-      var collection_1 = require("../src/core/facade/collection");
-      var di_1 = require("../src/core/di");
-      var injector_1 = require("../src/core/di/injector");
-      var binding_1 = require("../src/core/di/binding");
-      var di_2 = require("../src/core/metadata/di");
-      var avmModule = require("../src/core/linker/view_manager");
-      var view_container_ref_1 = require("../src/core/linker/view_container_ref");
-      var element_ref_1 = require("../src/core/linker/element_ref");
-      var template_ref_1 = require("../src/core/linker/template_ref");
-      var directives_1 = require("../src/core/metadata/directives");
-      var directive_lifecycle_reflector_1 = require("../src/core/linker/directive_lifecycle_reflector");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var query_list_1 = require("../src/core/linker/query_list");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var event_config_1 = require("../src/core/linker/event_config");
-      var pipe_binding_1 = require("../src/core/pipes/pipe_binding");
-      var interfaces_1 = require("../src/core/linker/interfaces");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var async_1 = require('../src/core/facade/async');
+      var collection_1 = require('../src/core/facade/collection');
+      var di_1 = require('../src/core/di');
+      var injector_1 = require('../src/core/di/injector');
+      var binding_1 = require('../src/core/di/binding');
+      var di_2 = require('../src/core/metadata/di');
+      var avmModule = require('../src/core/linker/view_manager');
+      var view_container_ref_1 = require('../src/core/linker/view_container_ref');
+      var element_ref_1 = require('../src/core/linker/element_ref');
+      var template_ref_1 = require('../src/core/linker/template_ref');
+      var directives_1 = require('../src/core/metadata/directives');
+      var directive_lifecycle_reflector_1 = require('../src/core/linker/directive_lifecycle_reflector');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var query_list_1 = require('../src/core/linker/query_list');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var event_config_1 = require('../src/core/linker/event_config');
+      var pipe_binding_1 = require('../src/core/pipes/pipe_binding');
+      var interfaces_1 = require('../src/core/linker/interfaces');
       var _staticKeys;
       var StaticKeys = (function() {
         function StaticKeys() {
@@ -29655,9 +29655,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var di_1 = require("../src/core/di");
-      var css_animation_builder_1 = require("../src/animate/css_animation_builder");
-      var browser_details_1 = require("../src/animate/browser_details");
+      var di_1 = require('../src/core/di');
+      var css_animation_builder_1 = require('../src/animate/css_animation_builder');
+      var browser_details_1 = require('../src/animate/browser_details');
       var AnimationBuilder = (function() {
         function AnimationBuilder(browserDetails) {
           this.browserDetails = browserDetails;
@@ -29676,13 +29676,13 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var validators_1 = require("../src/core/forms/validators");
-      var default_value_accessor_1 = require("../src/core/forms/directives/default_value_accessor");
-      var checkbox_value_accessor_1 = require("../src/core/forms/directives/checkbox_value_accessor");
-      var select_control_value_accessor_1 = require("../src/core/forms/directives/select_control_value_accessor");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var validators_1 = require('../src/core/forms/validators');
+      var default_value_accessor_1 = require('../src/core/forms/directives/default_value_accessor');
+      var checkbox_value_accessor_1 = require('../src/core/forms/directives/checkbox_value_accessor');
+      var select_control_value_accessor_1 = require('../src/core/forms/directives/select_control_value_accessor');
       function controlPath(name, parent) {
         var p = collection_1.ListWrapper.clone(parent.path);
         p.push(name);
@@ -29793,13 +29793,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var decorators_1 = require("../src/core/di/decorators");
-      var interfaces_1 = require("../src/http/interfaces");
-      var static_request_1 = require("../src/http/static_request");
-      var base_request_options_1 = require("../src/http/base_request_options");
-      var enums_1 = require("../src/http/enums");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var decorators_1 = require('../src/core/di/decorators');
+      var interfaces_1 = require('../src/http/interfaces');
+      var static_request_1 = require('../src/http/static_request');
+      var base_request_options_1 = require('../src/http/base_request_options');
+      var enums_1 = require('../src/http/enums');
       function httpRequest(backend, request) {
         return backend.createConnection(request).response;
       }
@@ -29897,7 +29897,7 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _NextTickScheduler = require("@reactivex/rxjs/dist/cjs/schedulers/NextTickScheduler");
+      var _NextTickScheduler = require('@reactivex/rxjs/dist/cjs/schedulers/NextTickScheduler');
       var _NextTickScheduler2 = _interopRequireDefault(_NextTickScheduler);
       exports['default'] = new _NextTickScheduler2['default']();
       module.exports = exports['default'];
@@ -29913,7 +29913,7 @@
           if (!exports.hasOwnProperty(p))
             exports[p] = m[p];
       }
-      var metadata_1 = require("../src/core/di/metadata");
+      var metadata_1 = require('../src/core/di/metadata');
       exports.InjectMetadata = metadata_1.InjectMetadata;
       exports.OptionalMetadata = metadata_1.OptionalMetadata;
       exports.InjectableMetadata = metadata_1.InjectableMetadata;
@@ -29921,23 +29921,23 @@
       exports.HostMetadata = metadata_1.HostMetadata;
       exports.SkipSelfMetadata = metadata_1.SkipSelfMetadata;
       exports.DependencyMetadata = metadata_1.DependencyMetadata;
-      __export(require("../src/core/di/decorators"));
-      var forward_ref_1 = require("../src/core/di/forward_ref");
+      __export(require('../src/core/di/decorators'));
+      var forward_ref_1 = require('../src/core/di/forward_ref');
       exports.forwardRef = forward_ref_1.forwardRef;
       exports.resolveForwardRef = forward_ref_1.resolveForwardRef;
-      var injector_1 = require("../src/core/di/injector");
+      var injector_1 = require('../src/core/di/injector');
       exports.Injector = injector_1.Injector;
-      var binding_1 = require("../src/core/di/binding");
+      var binding_1 = require('../src/core/di/binding');
       exports.Binding = binding_1.Binding;
       exports.BindingBuilder = binding_1.BindingBuilder;
       exports.ResolvedBinding = binding_1.ResolvedBinding;
       exports.ResolvedFactory = binding_1.ResolvedFactory;
       exports.Dependency = binding_1.Dependency;
       exports.bind = binding_1.bind;
-      var key_1 = require("../src/core/di/key");
+      var key_1 = require('../src/core/di/key');
       exports.Key = key_1.Key;
       exports.TypeLiteral = key_1.TypeLiteral;
-      var exceptions_1 = require("../src/core/di/exceptions");
+      var exceptions_1 = require('../src/core/di/exceptions');
       exports.NoBindingError = exceptions_1.NoBindingError;
       exports.AbstractBindingError = exceptions_1.AbstractBindingError;
       exports.CyclicDependencyError = exceptions_1.CyclicDependencyError;
@@ -29945,7 +29945,7 @@
       exports.InvalidBindingError = exceptions_1.InvalidBindingError;
       exports.NoAnnotationError = exceptions_1.NoAnnotationError;
       exports.OutOfBoundsError = exceptions_1.OutOfBoundsError;
-      var opaque_token_1 = require("../src/core/di/opaque_token");
+      var opaque_token_1 = require('../src/core/di/opaque_token');
       exports.OpaqueToken = opaque_token_1.OpaqueToken;
       global.define = __define;
       return module.exports;
@@ -29954,16 +29954,16 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var collection_1 = require("../src/core/facade/collection");
-      var ast_1 = require("../src/core/change_detection/parser/ast");
-      var change_detection_util_1 = require("../src/core/change_detection/change_detection_util");
-      var dynamic_change_detector_1 = require("../src/core/change_detection/dynamic_change_detector");
-      var directive_record_1 = require("../src/core/change_detection/directive_record");
-      var event_binding_1 = require("../src/core/change_detection/event_binding");
-      var coalesce_1 = require("../src/core/change_detection/coalesce");
-      var proto_record_1 = require("../src/core/change_detection/proto_record");
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var collection_1 = require('../src/core/facade/collection');
+      var ast_1 = require('../src/core/change_detection/parser/ast');
+      var change_detection_util_1 = require('../src/core/change_detection/change_detection_util');
+      var dynamic_change_detector_1 = require('../src/core/change_detection/dynamic_change_detector');
+      var directive_record_1 = require('../src/core/change_detection/directive_record');
+      var event_binding_1 = require('../src/core/change_detection/event_binding');
+      var coalesce_1 = require('../src/core/change_detection/coalesce');
+      var proto_record_1 = require('../src/core/change_detection/proto_record');
       var DynamicProtoChangeDetector = (function() {
         function DynamicProtoChangeDetector(_definition) {
           this._definition = _definition;
@@ -30354,8 +30354,8 @@
         }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var lang_1 = require('../src/core/facade/lang');
+      var Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var PromiseWrapper = (function() {
         function PromiseWrapper() {}
         PromiseWrapper.resolve = function(obj) {
@@ -30524,19 +30524,19 @@
           decorator(target, key, paramIndex);
         };
       };
-      var di_1 = require("../src/core/di");
-      var animation_builder_1 = require("../src/animate/animation_builder");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var event_manager_1 = require("../src/core/render/dom/events/event_manager");
-      var shared_styles_host_1 = require("../src/core/render/dom/shared_styles_host");
-      var profile_1 = require("../src/core/profile/profile");
-      var api_1 = require("../src/core/render/api");
-      var dom_tokens_1 = require("../src/core/render/dom/dom_tokens");
-      var view_factory_1 = require("../src/core/render/view_factory");
-      var view_1 = require("../src/core/render/view");
-      var util_1 = require("../src/core/render/dom/util");
+      var di_1 = require('../src/core/di');
+      var animation_builder_1 = require('../src/animate/animation_builder');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var event_manager_1 = require('../src/core/render/dom/events/event_manager');
+      var shared_styles_host_1 = require('../src/core/render/dom/shared_styles_host');
+      var profile_1 = require('../src/core/profile/profile');
+      var api_1 = require('../src/core/render/api');
+      var dom_tokens_1 = require('../src/core/render/dom/dom_tokens');
+      var view_factory_1 = require('../src/core/render/view_factory');
+      var view_1 = require('../src/core/render/view');
+      var util_1 = require('../src/core/render/dom/util');
       var DomRenderer = (function() {
         function DomRenderer(_eventManager, _domSharedStylesHost, _animate, document) {
           this._eventManager = _eventManager;
@@ -30799,15 +30799,15 @@
           decorator(target, key, paramIndex);
         };
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var control_container_1 = require("../src/core/forms/directives/control_container");
-      var ng_control_1 = require("../src/core/forms/directives/ng_control");
-      var control_value_accessor_1 = require("../src/core/forms/directives/control_value_accessor");
-      var shared_1 = require("../src/core/forms/directives/shared");
-      var validators_1 = require("../src/core/forms/validators");
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var control_container_1 = require('../src/core/forms/directives/control_container');
+      var ng_control_1 = require('../src/core/forms/directives/ng_control');
+      var control_value_accessor_1 = require('../src/core/forms/directives/control_value_accessor');
+      var shared_1 = require('../src/core/forms/directives/shared');
+      var validators_1 = require('../src/core/forms/validators');
       var controlNameBinding = lang_1.CONST_EXPR(new di_1.Binding(ng_control_1.NgControl, {toAlias: di_1.forwardRef(function() {
           return NgControlName;
         })}));
@@ -30888,193 +30888,193 @@
       function _interopRequireDefault(obj) {
         return obj && obj.__esModule ? obj : {'default': obj};
       }
-      var _Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+      var _Subject = require('@reactivex/rxjs/dist/cjs/Subject');
       var _Subject2 = _interopRequireDefault(_Subject);
-      var _schedulersVirtualTimeScheduler = require("@reactivex/rxjs/dist/cjs/schedulers/VirtualTimeScheduler");
+      var _schedulersVirtualTimeScheduler = require('@reactivex/rxjs/dist/cjs/schedulers/VirtualTimeScheduler');
       var _schedulersVirtualTimeScheduler2 = _interopRequireDefault(_schedulersVirtualTimeScheduler);
-      var _schedulersTestScheduler = require("@reactivex/rxjs/dist/cjs/schedulers/TestScheduler");
+      var _schedulersTestScheduler = require('@reactivex/rxjs/dist/cjs/schedulers/TestScheduler');
       var _schedulersTestScheduler2 = _interopRequireDefault(_schedulersTestScheduler);
-      var _schedulersImmediate = require("@reactivex/rxjs/dist/cjs/schedulers/immediate");
+      var _schedulersImmediate = require('@reactivex/rxjs/dist/cjs/schedulers/immediate');
       var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
-      var _schedulersNextTick = require("@reactivex/rxjs/dist/cjs/schedulers/nextTick");
+      var _schedulersNextTick = require('@reactivex/rxjs/dist/cjs/schedulers/nextTick');
       var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
-      var _Observable = require("@reactivex/rxjs/dist/cjs/Observable");
+      var _Observable = require('@reactivex/rxjs/dist/cjs/Observable');
       var _Observable2 = _interopRequireDefault(_Observable);
-      var _Subscriber = require("@reactivex/rxjs/dist/cjs/Subscriber");
+      var _Subscriber = require('@reactivex/rxjs/dist/cjs/Subscriber');
       var _Subscriber2 = _interopRequireDefault(_Subscriber);
-      var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+      var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
       var _Subscription2 = _interopRequireDefault(_Subscription);
-      var _Notification = require("@reactivex/rxjs/dist/cjs/Notification");
+      var _Notification = require('@reactivex/rxjs/dist/cjs/Notification');
       var _Notification2 = _interopRequireDefault(_Notification);
-      var _subjectsReplaySubject = require("@reactivex/rxjs/dist/cjs/subjects/ReplaySubject");
+      var _subjectsReplaySubject = require('@reactivex/rxjs/dist/cjs/subjects/ReplaySubject');
       var _subjectsReplaySubject2 = _interopRequireDefault(_subjectsReplaySubject);
-      var _subjectsBehaviorSubject = require("@reactivex/rxjs/dist/cjs/subjects/BehaviorSubject");
+      var _subjectsBehaviorSubject = require('@reactivex/rxjs/dist/cjs/subjects/BehaviorSubject');
       var _subjectsBehaviorSubject2 = _interopRequireDefault(_subjectsBehaviorSubject);
-      var _observablesConnectableObservable = require("@reactivex/rxjs/dist/cjs/observables/ConnectableObservable");
+      var _observablesConnectableObservable = require('@reactivex/rxjs/dist/cjs/observables/ConnectableObservable');
       var _observablesConnectableObservable2 = _interopRequireDefault(_observablesConnectableObservable);
-      var _observablesArrayObservable = require("@reactivex/rxjs/dist/cjs/observables/ArrayObservable");
+      var _observablesArrayObservable = require('@reactivex/rxjs/dist/cjs/observables/ArrayObservable');
       var _observablesArrayObservable2 = _interopRequireDefault(_observablesArrayObservable);
-      var _observablesDeferObservable = require("@reactivex/rxjs/dist/cjs/observables/DeferObservable");
+      var _observablesDeferObservable = require('@reactivex/rxjs/dist/cjs/observables/DeferObservable');
       var _observablesDeferObservable2 = _interopRequireDefault(_observablesDeferObservable);
-      var _observablesEmptyObservable = require("@reactivex/rxjs/dist/cjs/observables/EmptyObservable");
+      var _observablesEmptyObservable = require('@reactivex/rxjs/dist/cjs/observables/EmptyObservable');
       var _observablesEmptyObservable2 = _interopRequireDefault(_observablesEmptyObservable);
-      var _observablesErrorObservable = require("@reactivex/rxjs/dist/cjs/observables/ErrorObservable");
+      var _observablesErrorObservable = require('@reactivex/rxjs/dist/cjs/observables/ErrorObservable');
       var _observablesErrorObservable2 = _interopRequireDefault(_observablesErrorObservable);
-      var _observablesInfiniteObservable = require("@reactivex/rxjs/dist/cjs/observables/InfiniteObservable");
+      var _observablesInfiniteObservable = require('@reactivex/rxjs/dist/cjs/observables/InfiniteObservable');
       var _observablesInfiniteObservable2 = _interopRequireDefault(_observablesInfiniteObservable);
-      var _observablesIntervalObservable = require("@reactivex/rxjs/dist/cjs/observables/IntervalObservable");
+      var _observablesIntervalObservable = require('@reactivex/rxjs/dist/cjs/observables/IntervalObservable');
       var _observablesIntervalObservable2 = _interopRequireDefault(_observablesIntervalObservable);
-      var _observablesPromiseObservable = require("@reactivex/rxjs/dist/cjs/observables/PromiseObservable");
+      var _observablesPromiseObservable = require('@reactivex/rxjs/dist/cjs/observables/PromiseObservable');
       var _observablesPromiseObservable2 = _interopRequireDefault(_observablesPromiseObservable);
-      var _observablesRangeObservable = require("@reactivex/rxjs/dist/cjs/observables/RangeObservable");
+      var _observablesRangeObservable = require('@reactivex/rxjs/dist/cjs/observables/RangeObservable');
       var _observablesRangeObservable2 = _interopRequireDefault(_observablesRangeObservable);
-      var _observablesTimerObservable = require("@reactivex/rxjs/dist/cjs/observables/TimerObservable");
+      var _observablesTimerObservable = require('@reactivex/rxjs/dist/cjs/observables/TimerObservable');
       var _observablesTimerObservable2 = _interopRequireDefault(_observablesTimerObservable);
-      var _observablesFromEventPatternObservable = require("@reactivex/rxjs/dist/cjs/observables/FromEventPatternObservable");
+      var _observablesFromEventPatternObservable = require('@reactivex/rxjs/dist/cjs/observables/FromEventPatternObservable');
       var _observablesFromEventPatternObservable2 = _interopRequireDefault(_observablesFromEventPatternObservable);
-      var _observablesFromEventObservable = require("@reactivex/rxjs/dist/cjs/observables/FromEventObservable");
+      var _observablesFromEventObservable = require('@reactivex/rxjs/dist/cjs/observables/FromEventObservable');
       var _observablesFromEventObservable2 = _interopRequireDefault(_observablesFromEventObservable);
-      var _observablesForkJoinObservable = require("@reactivex/rxjs/dist/cjs/observables/ForkJoinObservable");
+      var _observablesForkJoinObservable = require('@reactivex/rxjs/dist/cjs/observables/ForkJoinObservable');
       var _observablesForkJoinObservable2 = _interopRequireDefault(_observablesForkJoinObservable);
-      var _observablesFromObservable = require("@reactivex/rxjs/dist/cjs/observables/FromObservable");
+      var _observablesFromObservable = require('@reactivex/rxjs/dist/cjs/observables/FromObservable');
       var _observablesFromObservable2 = _interopRequireDefault(_observablesFromObservable);
-      var _operatorsConcatStatic = require("@reactivex/rxjs/dist/cjs/operators/concat-static");
+      var _operatorsConcatStatic = require('@reactivex/rxjs/dist/cjs/operators/concat-static');
       var _operatorsConcatStatic2 = _interopRequireDefault(_operatorsConcatStatic);
-      var _operatorsConcat = require("@reactivex/rxjs/dist/cjs/operators/concat");
+      var _operatorsConcat = require('@reactivex/rxjs/dist/cjs/operators/concat');
       var _operatorsConcat2 = _interopRequireDefault(_operatorsConcat);
-      var _operatorsConcatAll = require("@reactivex/rxjs/dist/cjs/operators/concatAll");
+      var _operatorsConcatAll = require('@reactivex/rxjs/dist/cjs/operators/concatAll');
       var _operatorsConcatAll2 = _interopRequireDefault(_operatorsConcatAll);
-      var _operatorsConcatMap = require("@reactivex/rxjs/dist/cjs/operators/concatMap");
+      var _operatorsConcatMap = require('@reactivex/rxjs/dist/cjs/operators/concatMap');
       var _operatorsConcatMap2 = _interopRequireDefault(_operatorsConcatMap);
-      var _operatorsConcatMapTo = require("@reactivex/rxjs/dist/cjs/operators/concatMapTo");
+      var _operatorsConcatMapTo = require('@reactivex/rxjs/dist/cjs/operators/concatMapTo');
       var _operatorsConcatMapTo2 = _interopRequireDefault(_operatorsConcatMapTo);
-      var _operatorsMerge = require("@reactivex/rxjs/dist/cjs/operators/merge");
+      var _operatorsMerge = require('@reactivex/rxjs/dist/cjs/operators/merge');
       var _operatorsMerge2 = _interopRequireDefault(_operatorsMerge);
-      var _operatorsMergeStatic = require("@reactivex/rxjs/dist/cjs/operators/merge-static");
+      var _operatorsMergeStatic = require('@reactivex/rxjs/dist/cjs/operators/merge-static');
       var _operatorsMergeStatic2 = _interopRequireDefault(_operatorsMergeStatic);
-      var _operatorsMergeAll = require("@reactivex/rxjs/dist/cjs/operators/mergeAll");
+      var _operatorsMergeAll = require('@reactivex/rxjs/dist/cjs/operators/mergeAll');
       var _operatorsMergeAll2 = _interopRequireDefault(_operatorsMergeAll);
-      var _operatorsFlatMap = require("@reactivex/rxjs/dist/cjs/operators/flatMap");
+      var _operatorsFlatMap = require('@reactivex/rxjs/dist/cjs/operators/flatMap');
       var _operatorsFlatMap2 = _interopRequireDefault(_operatorsFlatMap);
-      var _operatorsFlatMapTo = require("@reactivex/rxjs/dist/cjs/operators/flatMapTo");
+      var _operatorsFlatMapTo = require('@reactivex/rxjs/dist/cjs/operators/flatMapTo');
       var _operatorsFlatMapTo2 = _interopRequireDefault(_operatorsFlatMapTo);
-      var _operatorsSwitchAll = require("@reactivex/rxjs/dist/cjs/operators/switchAll");
+      var _operatorsSwitchAll = require('@reactivex/rxjs/dist/cjs/operators/switchAll');
       var _operatorsSwitchAll2 = _interopRequireDefault(_operatorsSwitchAll);
-      var _operatorsSwitchLatest = require("@reactivex/rxjs/dist/cjs/operators/switchLatest");
+      var _operatorsSwitchLatest = require('@reactivex/rxjs/dist/cjs/operators/switchLatest');
       var _operatorsSwitchLatest2 = _interopRequireDefault(_operatorsSwitchLatest);
-      var _operatorsSwitchLatestTo = require("@reactivex/rxjs/dist/cjs/operators/switchLatestTo");
+      var _operatorsSwitchLatestTo = require('@reactivex/rxjs/dist/cjs/operators/switchLatestTo');
       var _operatorsSwitchLatestTo2 = _interopRequireDefault(_operatorsSwitchLatestTo);
-      var _operatorsExpand = require("@reactivex/rxjs/dist/cjs/operators/expand");
+      var _operatorsExpand = require('@reactivex/rxjs/dist/cjs/operators/expand');
       var _operatorsExpand2 = _interopRequireDefault(_operatorsExpand);
-      var _operatorsDo = require("@reactivex/rxjs/dist/cjs/operators/do");
+      var _operatorsDo = require('@reactivex/rxjs/dist/cjs/operators/do');
       var _operatorsDo2 = _interopRequireDefault(_operatorsDo);
-      var _operatorsMap = require("@reactivex/rxjs/dist/cjs/operators/map");
+      var _operatorsMap = require('@reactivex/rxjs/dist/cjs/operators/map');
       var _operatorsMap2 = _interopRequireDefault(_operatorsMap);
-      var _operatorsMapTo = require("@reactivex/rxjs/dist/cjs/operators/mapTo");
+      var _operatorsMapTo = require('@reactivex/rxjs/dist/cjs/operators/mapTo');
       var _operatorsMapTo2 = _interopRequireDefault(_operatorsMapTo);
-      var _operatorsToArray = require("@reactivex/rxjs/dist/cjs/operators/toArray");
+      var _operatorsToArray = require('@reactivex/rxjs/dist/cjs/operators/toArray');
       var _operatorsToArray2 = _interopRequireDefault(_operatorsToArray);
-      var _operatorsCount = require("@reactivex/rxjs/dist/cjs/operators/count");
+      var _operatorsCount = require('@reactivex/rxjs/dist/cjs/operators/count');
       var _operatorsCount2 = _interopRequireDefault(_operatorsCount);
-      var _operatorsScan = require("@reactivex/rxjs/dist/cjs/operators/scan");
+      var _operatorsScan = require('@reactivex/rxjs/dist/cjs/operators/scan');
       var _operatorsScan2 = _interopRequireDefault(_operatorsScan);
-      var _operatorsReduce = require("@reactivex/rxjs/dist/cjs/operators/reduce");
+      var _operatorsReduce = require('@reactivex/rxjs/dist/cjs/operators/reduce');
       var _operatorsReduce2 = _interopRequireDefault(_operatorsReduce);
-      var _operatorsStartWith = require("@reactivex/rxjs/dist/cjs/operators/startWith");
+      var _operatorsStartWith = require('@reactivex/rxjs/dist/cjs/operators/startWith');
       var _operatorsStartWith2 = _interopRequireDefault(_operatorsStartWith);
-      var _operatorsTake = require("@reactivex/rxjs/dist/cjs/operators/take");
+      var _operatorsTake = require('@reactivex/rxjs/dist/cjs/operators/take');
       var _operatorsTake2 = _interopRequireDefault(_operatorsTake);
-      var _operatorsSkip = require("@reactivex/rxjs/dist/cjs/operators/skip");
+      var _operatorsSkip = require('@reactivex/rxjs/dist/cjs/operators/skip');
       var _operatorsSkip2 = _interopRequireDefault(_operatorsSkip);
-      var _operatorsSkipUntil = require("@reactivex/rxjs/dist/cjs/operators/skipUntil");
+      var _operatorsSkipUntil = require('@reactivex/rxjs/dist/cjs/operators/skipUntil');
       var _operatorsSkipUntil2 = _interopRequireDefault(_operatorsSkipUntil);
-      var _operatorsTakeUntil = require("@reactivex/rxjs/dist/cjs/operators/takeUntil");
+      var _operatorsTakeUntil = require('@reactivex/rxjs/dist/cjs/operators/takeUntil');
       var _operatorsTakeUntil2 = _interopRequireDefault(_operatorsTakeUntil);
-      var _operatorsFilter = require("@reactivex/rxjs/dist/cjs/operators/filter");
+      var _operatorsFilter = require('@reactivex/rxjs/dist/cjs/operators/filter');
       var _operatorsFilter2 = _interopRequireDefault(_operatorsFilter);
-      var _operatorsDistinctUntilChanged = require("@reactivex/rxjs/dist/cjs/operators/distinctUntilChanged");
+      var _operatorsDistinctUntilChanged = require('@reactivex/rxjs/dist/cjs/operators/distinctUntilChanged');
       var _operatorsDistinctUntilChanged2 = _interopRequireDefault(_operatorsDistinctUntilChanged);
-      var _operatorsDistinctUntilKeyChanged = require("@reactivex/rxjs/dist/cjs/operators/distinctUntilKeyChanged");
+      var _operatorsDistinctUntilKeyChanged = require('@reactivex/rxjs/dist/cjs/operators/distinctUntilKeyChanged');
       var _operatorsDistinctUntilKeyChanged2 = _interopRequireDefault(_operatorsDistinctUntilKeyChanged);
-      var _operatorsCombineLatest = require("@reactivex/rxjs/dist/cjs/operators/combineLatest");
+      var _operatorsCombineLatest = require('@reactivex/rxjs/dist/cjs/operators/combineLatest');
       var _operatorsCombineLatest2 = _interopRequireDefault(_operatorsCombineLatest);
-      var _operatorsCombineLatestStatic = require("@reactivex/rxjs/dist/cjs/operators/combineLatest-static");
+      var _operatorsCombineLatestStatic = require('@reactivex/rxjs/dist/cjs/operators/combineLatest-static');
       var _operatorsCombineLatestStatic2 = _interopRequireDefault(_operatorsCombineLatestStatic);
-      var _operatorsCombineAll = require("@reactivex/rxjs/dist/cjs/operators/combineAll");
+      var _operatorsCombineAll = require('@reactivex/rxjs/dist/cjs/operators/combineAll');
       var _operatorsCombineAll2 = _interopRequireDefault(_operatorsCombineAll);
-      var _operatorsWithLatestFrom = require("@reactivex/rxjs/dist/cjs/operators/withLatestFrom");
+      var _operatorsWithLatestFrom = require('@reactivex/rxjs/dist/cjs/operators/withLatestFrom');
       var _operatorsWithLatestFrom2 = _interopRequireDefault(_operatorsWithLatestFrom);
-      var _operatorsZip = require("@reactivex/rxjs/dist/cjs/operators/zip");
+      var _operatorsZip = require('@reactivex/rxjs/dist/cjs/operators/zip');
       var _operatorsZip2 = _interopRequireDefault(_operatorsZip);
-      var _operatorsZipStatic = require("@reactivex/rxjs/dist/cjs/operators/zip-static");
+      var _operatorsZipStatic = require('@reactivex/rxjs/dist/cjs/operators/zip-static');
       var _operatorsZipStatic2 = _interopRequireDefault(_operatorsZipStatic);
-      var _operatorsZipAll = require("@reactivex/rxjs/dist/cjs/operators/zipAll");
+      var _operatorsZipAll = require('@reactivex/rxjs/dist/cjs/operators/zipAll');
       var _operatorsZipAll2 = _interopRequireDefault(_operatorsZipAll);
-      var _operatorsPublish = require("@reactivex/rxjs/dist/cjs/operators/publish");
+      var _operatorsPublish = require('@reactivex/rxjs/dist/cjs/operators/publish');
       var _operatorsPublish2 = _interopRequireDefault(_operatorsPublish);
-      var _operatorsPublishBehavior = require("@reactivex/rxjs/dist/cjs/operators/publishBehavior");
+      var _operatorsPublishBehavior = require('@reactivex/rxjs/dist/cjs/operators/publishBehavior');
       var _operatorsPublishBehavior2 = _interopRequireDefault(_operatorsPublishBehavior);
-      var _operatorsPublishReplay = require("@reactivex/rxjs/dist/cjs/operators/publishReplay");
+      var _operatorsPublishReplay = require('@reactivex/rxjs/dist/cjs/operators/publishReplay');
       var _operatorsPublishReplay2 = _interopRequireDefault(_operatorsPublishReplay);
-      var _operatorsMulticast = require("@reactivex/rxjs/dist/cjs/operators/multicast");
+      var _operatorsMulticast = require('@reactivex/rxjs/dist/cjs/operators/multicast');
       var _operatorsMulticast2 = _interopRequireDefault(_operatorsMulticast);
-      var _operatorsObserveOn = require("@reactivex/rxjs/dist/cjs/operators/observeOn");
+      var _operatorsObserveOn = require('@reactivex/rxjs/dist/cjs/operators/observeOn');
       var _operatorsObserveOn2 = _interopRequireDefault(_operatorsObserveOn);
-      var _operatorsSubscribeOn = require("@reactivex/rxjs/dist/cjs/operators/subscribeOn");
+      var _operatorsSubscribeOn = require('@reactivex/rxjs/dist/cjs/operators/subscribeOn');
       var _operatorsSubscribeOn2 = _interopRequireDefault(_operatorsSubscribeOn);
-      var _operatorsPartition = require("@reactivex/rxjs/dist/cjs/operators/partition");
+      var _operatorsPartition = require('@reactivex/rxjs/dist/cjs/operators/partition');
       var _operatorsPartition2 = _interopRequireDefault(_operatorsPartition);
-      var _operatorsToPromise = require("@reactivex/rxjs/dist/cjs/operators/toPromise");
+      var _operatorsToPromise = require('@reactivex/rxjs/dist/cjs/operators/toPromise');
       var _operatorsToPromise2 = _interopRequireDefault(_operatorsToPromise);
-      var _operatorsDefaultIfEmpty = require("@reactivex/rxjs/dist/cjs/operators/defaultIfEmpty");
+      var _operatorsDefaultIfEmpty = require('@reactivex/rxjs/dist/cjs/operators/defaultIfEmpty');
       var _operatorsDefaultIfEmpty2 = _interopRequireDefault(_operatorsDefaultIfEmpty);
-      var _operatorsMaterialize = require("@reactivex/rxjs/dist/cjs/operators/materialize");
+      var _operatorsMaterialize = require('@reactivex/rxjs/dist/cjs/operators/materialize');
       var _operatorsMaterialize2 = _interopRequireDefault(_operatorsMaterialize);
-      var _operatorsCatch = require("@reactivex/rxjs/dist/cjs/operators/catch");
+      var _operatorsCatch = require('@reactivex/rxjs/dist/cjs/operators/catch');
       var _operatorsCatch2 = _interopRequireDefault(_operatorsCatch);
-      var _operatorsRetry = require("@reactivex/rxjs/dist/cjs/operators/retry");
+      var _operatorsRetry = require('@reactivex/rxjs/dist/cjs/operators/retry');
       var _operatorsRetry2 = _interopRequireDefault(_operatorsRetry);
-      var _operatorsRetryWhen = require("@reactivex/rxjs/dist/cjs/operators/retryWhen");
+      var _operatorsRetryWhen = require('@reactivex/rxjs/dist/cjs/operators/retryWhen');
       var _operatorsRetryWhen2 = _interopRequireDefault(_operatorsRetryWhen);
-      var _operatorsRepeat = require("@reactivex/rxjs/dist/cjs/operators/repeat");
+      var _operatorsRepeat = require('@reactivex/rxjs/dist/cjs/operators/repeat');
       var _operatorsRepeat2 = _interopRequireDefault(_operatorsRepeat);
-      var _operatorsFinally = require("@reactivex/rxjs/dist/cjs/operators/finally");
+      var _operatorsFinally = require('@reactivex/rxjs/dist/cjs/operators/finally');
       var _operatorsFinally2 = _interopRequireDefault(_operatorsFinally);
-      var _operatorsTimeout = require("@reactivex/rxjs/dist/cjs/operators/timeout");
+      var _operatorsTimeout = require('@reactivex/rxjs/dist/cjs/operators/timeout');
       var _operatorsTimeout2 = _interopRequireDefault(_operatorsTimeout);
-      var _operatorsTimeoutWith = require("@reactivex/rxjs/dist/cjs/operators/timeoutWith");
+      var _operatorsTimeoutWith = require('@reactivex/rxjs/dist/cjs/operators/timeoutWith');
       var _operatorsTimeoutWith2 = _interopRequireDefault(_operatorsTimeoutWith);
-      var _operatorsGroupBy = require("@reactivex/rxjs/dist/cjs/operators/groupBy");
+      var _operatorsGroupBy = require('@reactivex/rxjs/dist/cjs/operators/groupBy');
       var _operatorsGroupBy2 = _interopRequireDefault(_operatorsGroupBy);
-      var _operatorsWindow = require("@reactivex/rxjs/dist/cjs/operators/window");
+      var _operatorsWindow = require('@reactivex/rxjs/dist/cjs/operators/window');
       var _operatorsWindow2 = _interopRequireDefault(_operatorsWindow);
-      var _operatorsWindowWhen = require("@reactivex/rxjs/dist/cjs/operators/windowWhen");
+      var _operatorsWindowWhen = require('@reactivex/rxjs/dist/cjs/operators/windowWhen');
       var _operatorsWindowWhen2 = _interopRequireDefault(_operatorsWindowWhen);
-      var _operatorsWindowToggle = require("@reactivex/rxjs/dist/cjs/operators/windowToggle");
+      var _operatorsWindowToggle = require('@reactivex/rxjs/dist/cjs/operators/windowToggle');
       var _operatorsWindowToggle2 = _interopRequireDefault(_operatorsWindowToggle);
-      var _operatorsWindowTime = require("@reactivex/rxjs/dist/cjs/operators/windowTime");
+      var _operatorsWindowTime = require('@reactivex/rxjs/dist/cjs/operators/windowTime');
       var _operatorsWindowTime2 = _interopRequireDefault(_operatorsWindowTime);
-      var _operatorsWindowCount = require("@reactivex/rxjs/dist/cjs/operators/windowCount");
+      var _operatorsWindowCount = require('@reactivex/rxjs/dist/cjs/operators/windowCount');
       var _operatorsWindowCount2 = _interopRequireDefault(_operatorsWindowCount);
-      var _operatorsDelay = require("@reactivex/rxjs/dist/cjs/operators/delay");
+      var _operatorsDelay = require('@reactivex/rxjs/dist/cjs/operators/delay');
       var _operatorsDelay2 = _interopRequireDefault(_operatorsDelay);
-      var _operatorsThrottle = require("@reactivex/rxjs/dist/cjs/operators/throttle");
+      var _operatorsThrottle = require('@reactivex/rxjs/dist/cjs/operators/throttle');
       var _operatorsThrottle2 = _interopRequireDefault(_operatorsThrottle);
-      var _operatorsDebounce = require("@reactivex/rxjs/dist/cjs/operators/debounce");
+      var _operatorsDebounce = require('@reactivex/rxjs/dist/cjs/operators/debounce');
       var _operatorsDebounce2 = _interopRequireDefault(_operatorsDebounce);
-      var _operatorsBuffer = require("@reactivex/rxjs/dist/cjs/operators/buffer");
+      var _operatorsBuffer = require('@reactivex/rxjs/dist/cjs/operators/buffer');
       var _operatorsBuffer2 = _interopRequireDefault(_operatorsBuffer);
-      var _operatorsBufferCount = require("@reactivex/rxjs/dist/cjs/operators/bufferCount");
+      var _operatorsBufferCount = require('@reactivex/rxjs/dist/cjs/operators/bufferCount');
       var _operatorsBufferCount2 = _interopRequireDefault(_operatorsBufferCount);
-      var _operatorsBufferTime = require("@reactivex/rxjs/dist/cjs/operators/bufferTime");
+      var _operatorsBufferTime = require('@reactivex/rxjs/dist/cjs/operators/bufferTime');
       var _operatorsBufferTime2 = _interopRequireDefault(_operatorsBufferTime);
-      var _operatorsBufferToggle = require("@reactivex/rxjs/dist/cjs/operators/bufferToggle");
+      var _operatorsBufferToggle = require('@reactivex/rxjs/dist/cjs/operators/bufferToggle');
       var _operatorsBufferToggle2 = _interopRequireDefault(_operatorsBufferToggle);
-      var _operatorsBufferWhen = require("@reactivex/rxjs/dist/cjs/operators/bufferWhen");
+      var _operatorsBufferWhen = require('@reactivex/rxjs/dist/cjs/operators/bufferWhen');
       var _operatorsBufferWhen2 = _interopRequireDefault(_operatorsBufferWhen);
-      var _operatorsSample = require("@reactivex/rxjs/dist/cjs/operators/sample");
+      var _operatorsSample = require('@reactivex/rxjs/dist/cjs/operators/sample');
       var _operatorsSample2 = _interopRequireDefault(_operatorsSample);
-      var _operatorsSampleTime = require("@reactivex/rxjs/dist/cjs/operators/sampleTime");
+      var _operatorsSampleTime = require('@reactivex/rxjs/dist/cjs/operators/sampleTime');
       var _operatorsSampleTime2 = _interopRequireDefault(_operatorsSampleTime);
       _Observable2['default'].defer = _observablesDeferObservable2['default'].create;
       _Observable2['default'].from = _observablesFromObservable2['default'].create;
@@ -31213,9 +31213,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
-      var metadata_1 = require("../src/core/di/metadata");
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
+      var metadata_1 = require('../src/core/di/metadata');
       var AttributeMetadata = (function(_super) {
         __extends(AttributeMetadata, _super);
         function AttributeMetadata(attributeName) {
@@ -31362,54 +31362,54 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var iterable_differs_1 = require("../src/core/change_detection/differs/iterable_differs");
-      var default_iterable_differ_1 = require("../src/core/change_detection/differs/default_iterable_differ");
-      var keyvalue_differs_1 = require("../src/core/change_detection/differs/keyvalue_differs");
-      var default_keyvalue_differ_1 = require("../src/core/change_detection/differs/default_keyvalue_differ");
-      var lang_1 = require("../src/core/facade/lang");
-      var ast_1 = require("../src/core/change_detection/parser/ast");
+      var iterable_differs_1 = require('../src/core/change_detection/differs/iterable_differs');
+      var default_iterable_differ_1 = require('../src/core/change_detection/differs/default_iterable_differ');
+      var keyvalue_differs_1 = require('../src/core/change_detection/differs/keyvalue_differs');
+      var default_keyvalue_differ_1 = require('../src/core/change_detection/differs/default_keyvalue_differ');
+      var lang_1 = require('../src/core/facade/lang');
+      var ast_1 = require('../src/core/change_detection/parser/ast');
       exports.ASTWithSource = ast_1.ASTWithSource;
       exports.AST = ast_1.AST;
       exports.AstTransformer = ast_1.AstTransformer;
       exports.PropertyRead = ast_1.PropertyRead;
       exports.LiteralArray = ast_1.LiteralArray;
       exports.ImplicitReceiver = ast_1.ImplicitReceiver;
-      var lexer_1 = require("../src/core/change_detection/parser/lexer");
+      var lexer_1 = require('../src/core/change_detection/parser/lexer');
       exports.Lexer = lexer_1.Lexer;
-      var parser_1 = require("../src/core/change_detection/parser/parser");
+      var parser_1 = require('../src/core/change_detection/parser/parser');
       exports.Parser = parser_1.Parser;
-      var locals_1 = require("../src/core/change_detection/parser/locals");
+      var locals_1 = require('../src/core/change_detection/parser/locals');
       exports.Locals = locals_1.Locals;
-      var exceptions_1 = require("../src/core/change_detection/exceptions");
+      var exceptions_1 = require('../src/core/change_detection/exceptions');
       exports.DehydratedException = exceptions_1.DehydratedException;
       exports.ExpressionChangedAfterItHasBeenCheckedException = exceptions_1.ExpressionChangedAfterItHasBeenCheckedException;
       exports.ChangeDetectionError = exceptions_1.ChangeDetectionError;
-      var interfaces_1 = require("../src/core/change_detection/interfaces");
+      var interfaces_1 = require('../src/core/change_detection/interfaces');
       exports.ChangeDetectorDefinition = interfaces_1.ChangeDetectorDefinition;
       exports.DebugContext = interfaces_1.DebugContext;
       exports.ChangeDetectorGenConfig = interfaces_1.ChangeDetectorGenConfig;
-      var constants_1 = require("../src/core/change_detection/constants");
+      var constants_1 = require('../src/core/change_detection/constants');
       exports.ChangeDetectionStrategy = constants_1.ChangeDetectionStrategy;
       exports.CHANGE_DECTION_STRATEGY_VALUES = constants_1.CHANGE_DECTION_STRATEGY_VALUES;
-      var proto_change_detector_1 = require("../src/core/change_detection/proto_change_detector");
+      var proto_change_detector_1 = require('../src/core/change_detection/proto_change_detector');
       exports.DynamicProtoChangeDetector = proto_change_detector_1.DynamicProtoChangeDetector;
-      var jit_proto_change_detector_1 = require("../src/core/change_detection/jit_proto_change_detector");
+      var jit_proto_change_detector_1 = require('../src/core/change_detection/jit_proto_change_detector');
       exports.JitProtoChangeDetector = jit_proto_change_detector_1.JitProtoChangeDetector;
-      var binding_record_1 = require("../src/core/change_detection/binding_record");
+      var binding_record_1 = require('../src/core/change_detection/binding_record');
       exports.BindingRecord = binding_record_1.BindingRecord;
       exports.BindingTarget = binding_record_1.BindingTarget;
-      var directive_record_1 = require("../src/core/change_detection/directive_record");
+      var directive_record_1 = require('../src/core/change_detection/directive_record');
       exports.DirectiveIndex = directive_record_1.DirectiveIndex;
       exports.DirectiveRecord = directive_record_1.DirectiveRecord;
-      var dynamic_change_detector_1 = require("../src/core/change_detection/dynamic_change_detector");
+      var dynamic_change_detector_1 = require('../src/core/change_detection/dynamic_change_detector');
       exports.DynamicChangeDetector = dynamic_change_detector_1.DynamicChangeDetector;
-      var change_detector_ref_1 = require("../src/core/change_detection/change_detector_ref");
+      var change_detector_ref_1 = require('../src/core/change_detection/change_detector_ref');
       exports.ChangeDetectorRef = change_detector_ref_1.ChangeDetectorRef;
-      var iterable_differs_2 = require("../src/core/change_detection/differs/iterable_differs");
+      var iterable_differs_2 = require('../src/core/change_detection/differs/iterable_differs');
       exports.IterableDiffers = iterable_differs_2.IterableDiffers;
-      var keyvalue_differs_2 = require("../src/core/change_detection/differs/keyvalue_differs");
+      var keyvalue_differs_2 = require('../src/core/change_detection/differs/keyvalue_differs');
       exports.KeyValueDiffers = keyvalue_differs_2.KeyValueDiffers;
-      var change_detection_util_1 = require("../src/core/change_detection/change_detection_util");
+      var change_detection_util_1 = require('../src/core/change_detection/change_detection_util');
       exports.WrappedValue = change_detection_util_1.WrappedValue;
       exports.SimpleChange = change_detection_util_1.SimpleChange;
       exports.keyValDiff = lang_1.CONST_EXPR([lang_1.CONST_EXPR(new default_keyvalue_differ_1.DefaultKeyValueDifferFactory())]);
@@ -31445,12 +31445,12 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var async_1 = require("../src/core/facade/async");
-      var metadata_1 = require("../src/core/metadata");
-      var di_1 = require("../src/core/di");
-      var change_detection_1 = require("../src/core/change_detection");
-      var invalid_pipe_argument_exception_1 = require("../src/core/pipes/invalid_pipe_argument_exception");
+      var lang_1 = require('../src/core/facade/lang');
+      var async_1 = require('../src/core/facade/async');
+      var metadata_1 = require('../src/core/metadata');
+      var di_1 = require('../src/core/di');
+      var change_detection_1 = require('../src/core/change_detection');
+      var invalid_pipe_argument_exception_1 = require('../src/core/pipes/invalid_pipe_argument_exception');
       var ObservableStrategy = (function() {
         function ObservableStrategy() {}
         ObservableStrategy.prototype.createSubscription = function(async, updateLatestValue) {
@@ -31558,10 +31558,10 @@
           if (!exports.hasOwnProperty(p))
             exports[p] = m[p];
       }
-      __export(require("../src/core/render/dom/shared_styles_host"));
-      __export(require("../src/core/render/dom/dom_renderer"));
-      __export(require("../src/core/render/dom/dom_tokens"));
-      __export(require("../src/core/render/api"));
+      __export(require('../src/core/render/dom/shared_styles_host'));
+      __export(require('../src/core/render/dom/dom_renderer'));
+      __export(require('../src/core/render/dom/dom_tokens'));
+      __export(require('../src/core/render/api'));
       global.define = __define;
       return module.exports;
     });
@@ -31569,49 +31569,49 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var model_1 = require("../src/core/forms/model");
+      var model_1 = require('../src/core/forms/model');
       exports.AbstractControl = model_1.AbstractControl;
       exports.Control = model_1.Control;
       exports.ControlGroup = model_1.ControlGroup;
       exports.ControlArray = model_1.ControlArray;
-      var abstract_control_directive_1 = require("../src/core/forms/directives/abstract_control_directive");
+      var abstract_control_directive_1 = require('../src/core/forms/directives/abstract_control_directive');
       exports.AbstractControlDirective = abstract_control_directive_1.AbstractControlDirective;
-      var control_container_1 = require("../src/core/forms/directives/control_container");
+      var control_container_1 = require('../src/core/forms/directives/control_container');
       exports.ControlContainer = control_container_1.ControlContainer;
-      var ng_control_name_1 = require("../src/core/forms/directives/ng_control_name");
+      var ng_control_name_1 = require('../src/core/forms/directives/ng_control_name');
       exports.NgControlName = ng_control_name_1.NgControlName;
-      var ng_form_control_1 = require("../src/core/forms/directives/ng_form_control");
+      var ng_form_control_1 = require('../src/core/forms/directives/ng_form_control');
       exports.NgFormControl = ng_form_control_1.NgFormControl;
-      var ng_model_1 = require("../src/core/forms/directives/ng_model");
+      var ng_model_1 = require('../src/core/forms/directives/ng_model');
       exports.NgModel = ng_model_1.NgModel;
-      var ng_control_1 = require("../src/core/forms/directives/ng_control");
+      var ng_control_1 = require('../src/core/forms/directives/ng_control');
       exports.NgControl = ng_control_1.NgControl;
-      var ng_control_group_1 = require("../src/core/forms/directives/ng_control_group");
+      var ng_control_group_1 = require('../src/core/forms/directives/ng_control_group');
       exports.NgControlGroup = ng_control_group_1.NgControlGroup;
-      var ng_form_model_1 = require("../src/core/forms/directives/ng_form_model");
+      var ng_form_model_1 = require('../src/core/forms/directives/ng_form_model');
       exports.NgFormModel = ng_form_model_1.NgFormModel;
-      var ng_form_1 = require("../src/core/forms/directives/ng_form");
+      var ng_form_1 = require('../src/core/forms/directives/ng_form');
       exports.NgForm = ng_form_1.NgForm;
-      var default_value_accessor_1 = require("../src/core/forms/directives/default_value_accessor");
+      var default_value_accessor_1 = require('../src/core/forms/directives/default_value_accessor');
       exports.DefaultValueAccessor = default_value_accessor_1.DefaultValueAccessor;
-      var ng_control_status_1 = require("../src/core/forms/directives/ng_control_status");
+      var ng_control_status_1 = require('../src/core/forms/directives/ng_control_status');
       exports.NgControlStatus = ng_control_status_1.NgControlStatus;
-      var checkbox_value_accessor_1 = require("../src/core/forms/directives/checkbox_value_accessor");
+      var checkbox_value_accessor_1 = require('../src/core/forms/directives/checkbox_value_accessor');
       exports.CheckboxControlValueAccessor = checkbox_value_accessor_1.CheckboxControlValueAccessor;
-      var select_control_value_accessor_1 = require("../src/core/forms/directives/select_control_value_accessor");
+      var select_control_value_accessor_1 = require('../src/core/forms/directives/select_control_value_accessor');
       exports.NgSelectOption = select_control_value_accessor_1.NgSelectOption;
       exports.SelectControlValueAccessor = select_control_value_accessor_1.SelectControlValueAccessor;
-      var directives_1 = require("../src/core/forms/directives");
+      var directives_1 = require('../src/core/forms/directives');
       exports.FORM_DIRECTIVES = directives_1.FORM_DIRECTIVES;
-      var validators_1 = require("../src/core/forms/validators");
+      var validators_1 = require('../src/core/forms/validators');
       exports.NG_VALIDATORS = validators_1.NG_VALIDATORS;
       exports.Validators = validators_1.Validators;
-      var validators_2 = require("../src/core/forms/directives/validators");
+      var validators_2 = require('../src/core/forms/directives/validators');
       exports.DefaultValidators = validators_2.DefaultValidators;
-      var form_builder_1 = require("../src/core/forms/form_builder");
+      var form_builder_1 = require('../src/core/forms/form_builder');
       exports.FormBuilder = form_builder_1.FormBuilder;
-      var form_builder_2 = require("../src/core/forms/form_builder");
-      var lang_1 = require("../src/core/facade/lang");
+      var form_builder_2 = require('../src/core/forms/form_builder');
+      var lang_1 = require('../src/core/facade/lang');
       exports.FORM_BINDINGS = lang_1.CONST_EXPR([form_builder_2.FormBuilder]);
       global.define = __define;
       return module.exports;
@@ -31642,13 +31642,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var enums_1 = require("../src/http/enums");
-      var static_response_1 = require("../src/http/static_response");
-      var base_response_options_1 = require("../src/http/base_response_options");
-      var di_1 = require("../src/core/di");
-      var browser_xhr_1 = require("../src/http/backends/browser_xhr");
-      var lang_1 = require("../src/core/facade/lang");
-      var Rx = require("@reactivex/rxjs/dist/cjs/Rx");
+      var enums_1 = require('../src/http/enums');
+      var static_response_1 = require('../src/http/static_response');
+      var base_response_options_1 = require('../src/http/base_response_options');
+      var di_1 = require('../src/core/di');
+      var browser_xhr_1 = require('../src/http/backends/browser_xhr');
+      var lang_1 = require('../src/core/facade/lang');
+      var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
       var Observable = Rx.Observable;
       var XHRConnection = (function() {
         function XHRConnection(req, browserXHR, baseResponseOptions) {
@@ -31720,7 +31720,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
       exports.ChangeDetectionStrategy = change_detection_1.ChangeDetectionStrategy;
       exports.ExpressionChangedAfterItHasBeenCheckedException = change_detection_1.ExpressionChangedAfterItHasBeenCheckedException;
       exports.ChangeDetectionError = change_detection_1.ChangeDetectionError;
@@ -31736,25 +31736,25 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var async_pipe_1 = require("../src/core/pipes/async_pipe");
+      var async_pipe_1 = require('../src/core/pipes/async_pipe');
       exports.AsyncPipe = async_pipe_1.AsyncPipe;
-      var date_pipe_1 = require("../src/core/pipes/date_pipe");
+      var date_pipe_1 = require('../src/core/pipes/date_pipe');
       exports.DatePipe = date_pipe_1.DatePipe;
-      var default_pipes_1 = require("../src/core/pipes/default_pipes");
+      var default_pipes_1 = require('../src/core/pipes/default_pipes');
       exports.DEFAULT_PIPES = default_pipes_1.DEFAULT_PIPES;
       exports.DEFAULT_PIPES_TOKEN = default_pipes_1.DEFAULT_PIPES_TOKEN;
-      var json_pipe_1 = require("../src/core/pipes/json_pipe");
+      var json_pipe_1 = require('../src/core/pipes/json_pipe');
       exports.JsonPipe = json_pipe_1.JsonPipe;
-      var slice_pipe_1 = require("../src/core/pipes/slice_pipe");
+      var slice_pipe_1 = require('../src/core/pipes/slice_pipe');
       exports.SlicePipe = slice_pipe_1.SlicePipe;
-      var lowercase_pipe_1 = require("../src/core/pipes/lowercase_pipe");
+      var lowercase_pipe_1 = require('../src/core/pipes/lowercase_pipe');
       exports.LowerCasePipe = lowercase_pipe_1.LowerCasePipe;
-      var number_pipe_1 = require("../src/core/pipes/number_pipe");
+      var number_pipe_1 = require('../src/core/pipes/number_pipe');
       exports.NumberPipe = number_pipe_1.NumberPipe;
       exports.DecimalPipe = number_pipe_1.DecimalPipe;
       exports.PercentPipe = number_pipe_1.PercentPipe;
       exports.CurrencyPipe = number_pipe_1.CurrencyPipe;
-      var uppercase_pipe_1 = require("../src/core/pipes/uppercase_pipe");
+      var uppercase_pipe_1 = require('../src/core/pipes/uppercase_pipe');
       exports.UpperCasePipe = uppercase_pipe_1.UpperCasePipe;
       global.define = __define;
       return module.exports;
@@ -31763,7 +31763,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var render_1 = require("../src/core/render/render");
+      var render_1 = require('../src/core/render/render');
       exports.Renderer = render_1.Renderer;
       exports.RenderViewRef = render_1.RenderViewRef;
       exports.RenderProtoViewRef = render_1.RenderProtoViewRef;
@@ -31777,26 +31777,26 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var forms_1 = require("../src/core/forms");
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var browser_adapter_1 = require("../src/core/dom/browser_adapter");
-      var browser_testability_1 = require("../src/core/testability/browser_testability");
-      var dom_adapter_1 = require("../src/core/dom/dom_adapter");
-      var xhr_1 = require("../src/core/compiler/xhr");
-      var xhr_impl_1 = require("../src/core/compiler/xhr_impl");
-      var event_manager_1 = require("../src/core/render/dom/events/event_manager");
-      var key_events_1 = require("../src/core/render/dom/events/key_events");
-      var hammer_gestures_1 = require("../src/core/render/dom/events/hammer_gestures");
-      var testability_1 = require("../src/core/testability/testability");
-      var api_1 = require("../src/core/render/api");
-      var render_1 = require("../src/core/render/render");
-      var shared_styles_host_1 = require("../src/core/render/dom/shared_styles_host");
-      var platform_bindings_1 = require("../src/core/platform_bindings");
-      var animation_builder_1 = require("../src/animate/animation_builder");
-      var browser_details_1 = require("../src/animate/browser_details");
-      var wtf_init_1 = require("../src/core/profile/wtf_init");
-      var application_ref_1 = require("../src/core/application_ref");
+      var forms_1 = require('../src/core/forms');
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var browser_adapter_1 = require('../src/core/dom/browser_adapter');
+      var browser_testability_1 = require('../src/core/testability/browser_testability');
+      var dom_adapter_1 = require('../src/core/dom/dom_adapter');
+      var xhr_1 = require('../src/core/compiler/xhr');
+      var xhr_impl_1 = require('../src/core/compiler/xhr_impl');
+      var event_manager_1 = require('../src/core/render/dom/events/event_manager');
+      var key_events_1 = require('../src/core/render/dom/events/key_events');
+      var hammer_gestures_1 = require('../src/core/render/dom/events/hammer_gestures');
+      var testability_1 = require('../src/core/testability/testability');
+      var api_1 = require('../src/core/render/api');
+      var render_1 = require('../src/core/render/render');
+      var shared_styles_host_1 = require('../src/core/render/dom/shared_styles_host');
+      var platform_bindings_1 = require('../src/core/platform_bindings');
+      var animation_builder_1 = require('../src/animate/animation_builder');
+      var browser_details_1 = require('../src/animate/browser_details');
+      var wtf_init_1 = require('../src/core/profile/wtf_init');
+      var application_ref_1 = require('../src/core/application_ref');
       function applicationDomBindings() {
         if (lang_1.isBlank(dom_adapter_1.DOM)) {
           throw "Must set a root DOM adapter first.";
@@ -31871,9 +31871,9 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var lang_1 = require("../src/core/facade/lang");
-      var metadata_1 = require("../src/core/di/metadata");
-      var change_detection_1 = require("../src/core/change_detection");
+      var lang_1 = require('../src/core/facade/lang');
+      var metadata_1 = require('../src/core/di/metadata');
+      var change_detection_1 = require('../src/core/change_detection');
       var DirectiveMetadata = (function(_super) {
         __extends(DirectiveMetadata, _super);
         function DirectiveMetadata(_a) {
@@ -32005,7 +32005,7 @@
           if (!exports.hasOwnProperty(p))
             exports[p] = m[p];
       }
-      __export(require("../src/core/render"));
+      __export(require('../src/core/render'));
       global.define = __define;
       return module.exports;
     });
@@ -32013,7 +32013,7 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var di_1 = require("../src/core/metadata/di");
+      var di_1 = require('../src/core/metadata/di');
       exports.QueryMetadata = di_1.QueryMetadata;
       exports.ContentChildrenMetadata = di_1.ContentChildrenMetadata;
       exports.ContentChildMetadata = di_1.ContentChildMetadata;
@@ -32021,7 +32021,7 @@
       exports.ViewQueryMetadata = di_1.ViewQueryMetadata;
       exports.ViewChildMetadata = di_1.ViewChildMetadata;
       exports.AttributeMetadata = di_1.AttributeMetadata;
-      var directives_1 = require("../src/core/metadata/directives");
+      var directives_1 = require('../src/core/metadata/directives');
       exports.ComponentMetadata = directives_1.ComponentMetadata;
       exports.DirectiveMetadata = directives_1.DirectiveMetadata;
       exports.PipeMetadata = directives_1.PipeMetadata;
@@ -32029,13 +32029,13 @@
       exports.OutputMetadata = directives_1.OutputMetadata;
       exports.HostBindingMetadata = directives_1.HostBindingMetadata;
       exports.HostListenerMetadata = directives_1.HostListenerMetadata;
-      var view_1 = require("../src/core/metadata/view");
+      var view_1 = require('../src/core/metadata/view');
       exports.ViewMetadata = view_1.ViewMetadata;
       exports.ViewEncapsulation = view_1.ViewEncapsulation;
-      var di_2 = require("../src/core/metadata/di");
-      var directives_2 = require("../src/core/metadata/directives");
-      var view_2 = require("../src/core/metadata/view");
-      var decorators_1 = require("../src/core/util/decorators");
+      var di_2 = require('../src/core/metadata/di');
+      var directives_2 = require('../src/core/metadata/directives');
+      var view_2 = require('../src/core/metadata/view');
+      var decorators_1 = require('../src/core/util/decorators');
       exports.Component = decorators_1.makeDecorator(directives_2.ComponentMetadata, function(fn) {
         return fn.View = exports.View;
       });
@@ -32089,22 +32089,22 @@
           decorator(target, key, paramIndex);
         };
       };
-      var collection_1 = require("../src/core/facade/collection");
-      var lang_1 = require("../src/core/facade/lang");
-      var api_1 = require("../src/core/render/api");
-      var di_1 = require("../src/core/di");
-      var pipe_binding_1 = require("../src/core/pipes/pipe_binding");
-      var pipes_1 = require("../src/core/pipes/pipes");
-      var view_1 = require("../src/core/linker/view");
-      var element_binder_1 = require("../src/core/linker/element_binder");
-      var element_injector_1 = require("../src/core/linker/element_injector");
-      var directive_resolver_1 = require("../src/core/linker/directive_resolver");
-      var view_resolver_1 = require("../src/core/linker/view_resolver");
-      var pipe_resolver_1 = require("../src/core/linker/pipe_resolver");
-      var pipes_2 = require("../src/core/pipes");
-      var template_commands_1 = require("../src/core/linker/template_commands");
-      var render_1 = require("../render");
-      var application_tokens_1 = require("../src/core/application_tokens");
+      var collection_1 = require('../src/core/facade/collection');
+      var lang_1 = require('../src/core/facade/lang');
+      var api_1 = require('../src/core/render/api');
+      var di_1 = require('../src/core/di');
+      var pipe_binding_1 = require('../src/core/pipes/pipe_binding');
+      var pipes_1 = require('../src/core/pipes/pipes');
+      var view_1 = require('../src/core/linker/view');
+      var element_binder_1 = require('../src/core/linker/element_binder');
+      var element_injector_1 = require('../src/core/linker/element_injector');
+      var directive_resolver_1 = require('../src/core/linker/directive_resolver');
+      var view_resolver_1 = require('../src/core/linker/view_resolver');
+      var pipe_resolver_1 = require('../src/core/linker/pipe_resolver');
+      var pipes_2 = require('../src/core/pipes');
+      var template_commands_1 = require('../src/core/linker/template_commands');
+      var render_1 = require('../render');
+      var application_tokens_1 = require('../src/core/application_tokens');
       var ProtoViewFactory = (function() {
         function ProtoViewFactory(_renderer, defaultPipes, _directiveResolver, _viewResolver, _pipeResolver, appId) {
           this._renderer = _renderer;
@@ -32375,13 +32375,13 @@
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
           return Reflect.metadata(k, v);
       };
-      var proto_view_factory_1 = require("../src/core/linker/proto_view_factory");
-      var di_1 = require("../src/core/di");
-      var lang_1 = require("../src/core/facade/lang");
-      var exceptions_1 = require("../src/core/facade/exceptions");
-      var async_1 = require("../src/core/facade/async");
-      var reflection_1 = require("../src/core/reflection/reflection");
-      var template_commands_1 = require("../src/core/linker/template_commands");
+      var proto_view_factory_1 = require('../src/core/linker/proto_view_factory');
+      var di_1 = require('../src/core/di');
+      var lang_1 = require('../src/core/facade/lang');
+      var exceptions_1 = require('../src/core/facade/exceptions');
+      var async_1 = require('../src/core/facade/async');
+      var reflection_1 = require('../src/core/reflection/reflection');
+      var template_commands_1 = require('../src/core/linker/template_commands');
       var Compiler = (function() {
         function Compiler(_protoViewFactory) {
           this._protoViewFactory = _protoViewFactory;
@@ -32422,34 +32422,34 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var template_compiler_1 = require("../src/core/compiler/template_compiler");
+      var template_compiler_1 = require('../src/core/compiler/template_compiler');
       exports.TemplateCompiler = template_compiler_1.TemplateCompiler;
-      var directive_metadata_1 = require("../src/core/compiler/directive_metadata");
+      var directive_metadata_1 = require('../src/core/compiler/directive_metadata');
       exports.CompileDirectiveMetadata = directive_metadata_1.CompileDirectiveMetadata;
       exports.CompileTypeMetadata = directive_metadata_1.CompileTypeMetadata;
       exports.CompileTemplateMetadata = directive_metadata_1.CompileTemplateMetadata;
-      var source_module_1 = require("../src/core/compiler/source_module");
+      var source_module_1 = require('../src/core/compiler/source_module');
       exports.SourceModule = source_module_1.SourceModule;
       exports.SourceWithImports = source_module_1.SourceWithImports;
-      var lang_1 = require("../src/core/facade/lang");
-      var di_1 = require("../src/core/di");
-      var template_parser_1 = require("../src/core/compiler/template_parser");
-      var html_parser_1 = require("../src/core/compiler/html_parser");
-      var template_normalizer_1 = require("../src/core/compiler/template_normalizer");
-      var runtime_metadata_1 = require("../src/core/compiler/runtime_metadata");
-      var change_detector_compiler_1 = require("../src/core/compiler/change_detector_compiler");
-      var style_compiler_1 = require("../src/core/compiler/style_compiler");
-      var command_compiler_1 = require("../src/core/compiler/command_compiler");
-      var template_compiler_2 = require("../src/core/compiler/template_compiler");
-      var change_detection_1 = require("../src/core/change_detection/change_detection");
-      var compiler_1 = require("../src/core/linker/compiler");
-      var runtime_compiler_1 = require("../src/core/compiler/runtime_compiler");
-      var element_schema_registry_1 = require("../src/core/compiler/schema/element_schema_registry");
-      var dom_element_schema_registry_1 = require("../src/core/compiler/schema/dom_element_schema_registry");
-      var url_resolver_1 = require("../src/core/compiler/url_resolver");
-      var app_root_url_1 = require("../src/core/compiler/app_root_url");
-      var anchor_based_app_root_url_1 = require("../src/core/compiler/anchor_based_app_root_url");
-      var change_detection_2 = require("../src/core/change_detection/change_detection");
+      var lang_1 = require('../src/core/facade/lang');
+      var di_1 = require('../src/core/di');
+      var template_parser_1 = require('../src/core/compiler/template_parser');
+      var html_parser_1 = require('../src/core/compiler/html_parser');
+      var template_normalizer_1 = require('../src/core/compiler/template_normalizer');
+      var runtime_metadata_1 = require('../src/core/compiler/runtime_metadata');
+      var change_detector_compiler_1 = require('../src/core/compiler/change_detector_compiler');
+      var style_compiler_1 = require('../src/core/compiler/style_compiler');
+      var command_compiler_1 = require('../src/core/compiler/command_compiler');
+      var template_compiler_2 = require('../src/core/compiler/template_compiler');
+      var change_detection_1 = require('../src/core/change_detection/change_detection');
+      var compiler_1 = require('../src/core/linker/compiler');
+      var runtime_compiler_1 = require('../src/core/compiler/runtime_compiler');
+      var element_schema_registry_1 = require('../src/core/compiler/schema/element_schema_registry');
+      var dom_element_schema_registry_1 = require('../src/core/compiler/schema/dom_element_schema_registry');
+      var url_resolver_1 = require('../src/core/compiler/url_resolver');
+      var app_root_url_1 = require('../src/core/compiler/app_root_url');
+      var anchor_based_app_root_url_1 = require('../src/core/compiler/anchor_based_app_root_url');
+      var change_detection_2 = require('../src/core/change_detection/change_detection');
       function compilerBindings() {
         return [change_detection_2.Lexer, change_detection_2.Parser, html_parser_1.HtmlParser, template_parser_1.TemplateParser, template_normalizer_1.TemplateNormalizer, runtime_metadata_1.RuntimeMetadataResolver, style_compiler_1.StyleCompiler, command_compiler_1.CommandCompiler, change_detector_compiler_1.ChangeDetectionCompiler, di_1.bind(change_detection_1.ChangeDetectorGenConfig).toValue(new change_detection_1.ChangeDetectorGenConfig(lang_1.assertionsEnabled(), lang_1.assertionsEnabled(), false, true)), template_compiler_2.TemplateCompiler, runtime_compiler_1.RuntimeCompiler, di_1.bind(compiler_1.Compiler).toAlias(runtime_compiler_1.RuntimeCompiler), dom_element_schema_registry_1.DomElementSchemaRegistry, di_1.bind(element_schema_registry_1.ElementSchemaRegistry).toAlias(dom_element_schema_registry_1.DomElementSchemaRegistry), anchor_based_app_root_url_1.AnchorBasedAppRootUrl, di_1.bind(app_root_url_1.AppRootUrl).toAlias(anchor_based_app_root_url_1.AnchorBasedAppRootUrl), url_resolver_1.UrlResolver];
       }
@@ -32461,15 +32461,15 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var lang_1 = require("../src/core/facade/lang");
-      var compiler_1 = require("../src/core/compiler/compiler");
-      var application_common_1 = require("../src/core/application_common");
-      var application_tokens_1 = require("../src/core/application_tokens");
+      var lang_1 = require('../src/core/facade/lang');
+      var compiler_1 = require('../src/core/compiler/compiler');
+      var application_common_1 = require('../src/core/application_common');
+      var application_tokens_1 = require('../src/core/application_tokens');
       exports.APP_COMPONENT = application_tokens_1.APP_COMPONENT;
       exports.APP_ID = application_tokens_1.APP_ID;
-      var application_common_2 = require("../src/core/application_common");
+      var application_common_2 = require('../src/core/application_common');
       exports.platform = application_common_2.platform;
-      var application_ref_1 = require("../src/core/application_ref");
+      var application_ref_1 = require('../src/core/application_ref');
       exports.PlatformRef = application_ref_1.PlatformRef;
       exports.ApplicationRef = application_ref_1.ApplicationRef;
       exports.applicationCommonBindings = application_ref_1.applicationCommonBindings;
@@ -32499,22 +32499,22 @@
           if (!exports.hasOwnProperty(p))
             exports[p] = m[p];
       }
-      __export(require("../src/core/metadata"));
-      __export(require("../src/core/util"));
-      __export(require("../src/core/di"));
-      __export(require("../src/core/pipes"));
-      __export(require("../src/core/facade"));
-      __export(require("../src/core/application"));
-      __export(require("../src/core/bootstrap"));
-      __export(require("../src/core/services"));
-      __export(require("../src/core/linker"));
-      __export(require("../src/core/lifecycle"));
-      __export(require("../src/core/zone"));
-      __export(require("../src/core/render"));
-      __export(require("../src/core/directives"));
-      __export(require("../src/core/forms"));
-      __export(require("../src/core/debug"));
-      __export(require("../src/core/change_detection"));
+      __export(require('../src/core/metadata'));
+      __export(require('../src/core/util'));
+      __export(require('../src/core/di'));
+      __export(require('../src/core/pipes'));
+      __export(require('../src/core/facade'));
+      __export(require('../src/core/application'));
+      __export(require('../src/core/bootstrap'));
+      __export(require('../src/core/services'));
+      __export(require('../src/core/linker'));
+      __export(require('../src/core/lifecycle'));
+      __export(require('../src/core/zone'));
+      __export(require('../src/core/render'));
+      __export(require('../src/core/directives'));
+      __export(require('../src/core/forms'));
+      __export(require('../src/core/debug'));
+      __export(require('../src/core/change_detection'));
       global.define = __define;
       return module.exports;
     });
@@ -32522,48 +32522,48 @@
       var global = System.global,
           __define = global.define;
       global.define = undefined;
-      var core_1 = require("../core");
-      var http_1 = require("../src/http/http");
-      var xhr_backend_1 = require("../src/http/backends/xhr_backend");
-      var jsonp_backend_1 = require("../src/http/backends/jsonp_backend");
-      var browser_xhr_1 = require("../src/http/backends/browser_xhr");
-      var browser_jsonp_1 = require("../src/http/backends/browser_jsonp");
-      var base_request_options_1 = require("../src/http/base_request_options");
-      var base_response_options_1 = require("../src/http/base_response_options");
-      var mock_backend_1 = require("../src/http/backends/mock_backend");
+      var core_1 = require('../core');
+      var http_1 = require('../src/http/http');
+      var xhr_backend_1 = require('../src/http/backends/xhr_backend');
+      var jsonp_backend_1 = require('../src/http/backends/jsonp_backend');
+      var browser_xhr_1 = require('../src/http/backends/browser_xhr');
+      var browser_jsonp_1 = require('../src/http/backends/browser_jsonp');
+      var base_request_options_1 = require('../src/http/base_request_options');
+      var base_response_options_1 = require('../src/http/base_response_options');
+      var mock_backend_1 = require('../src/http/backends/mock_backend');
       exports.MockConnection = mock_backend_1.MockConnection;
       exports.MockBackend = mock_backend_1.MockBackend;
-      var static_request_1 = require("../src/http/static_request");
+      var static_request_1 = require('../src/http/static_request');
       exports.Request = static_request_1.Request;
-      var static_response_1 = require("../src/http/static_response");
+      var static_response_1 = require('../src/http/static_response');
       exports.Response = static_response_1.Response;
-      var interfaces_1 = require("../src/http/interfaces");
+      var interfaces_1 = require('../src/http/interfaces');
       exports.Connection = interfaces_1.Connection;
       exports.ConnectionBackend = interfaces_1.ConnectionBackend;
-      var browser_xhr_2 = require("../src/http/backends/browser_xhr");
+      var browser_xhr_2 = require('../src/http/backends/browser_xhr');
       exports.BrowserXhr = browser_xhr_2.BrowserXhr;
-      var base_request_options_2 = require("../src/http/base_request_options");
+      var base_request_options_2 = require('../src/http/base_request_options');
       exports.BaseRequestOptions = base_request_options_2.BaseRequestOptions;
       exports.RequestOptions = base_request_options_2.RequestOptions;
-      var base_response_options_2 = require("../src/http/base_response_options");
+      var base_response_options_2 = require('../src/http/base_response_options');
       exports.BaseResponseOptions = base_response_options_2.BaseResponseOptions;
       exports.ResponseOptions = base_response_options_2.ResponseOptions;
-      var xhr_backend_2 = require("../src/http/backends/xhr_backend");
+      var xhr_backend_2 = require('../src/http/backends/xhr_backend');
       exports.XHRBackend = xhr_backend_2.XHRBackend;
       exports.XHRConnection = xhr_backend_2.XHRConnection;
-      var jsonp_backend_2 = require("../src/http/backends/jsonp_backend");
+      var jsonp_backend_2 = require('../src/http/backends/jsonp_backend');
       exports.JSONPBackend = jsonp_backend_2.JSONPBackend;
       exports.JSONPConnection = jsonp_backend_2.JSONPConnection;
-      var http_2 = require("../src/http/http");
+      var http_2 = require('../src/http/http');
       exports.Http = http_2.Http;
       exports.Jsonp = http_2.Jsonp;
-      var headers_1 = require("../src/http/headers");
+      var headers_1 = require('../src/http/headers');
       exports.Headers = headers_1.Headers;
-      var enums_1 = require("../src/http/enums");
+      var enums_1 = require('../src/http/enums');
       exports.ResponseTypes = enums_1.ResponseTypes;
       exports.ReadyStates = enums_1.ReadyStates;
       exports.RequestMethods = enums_1.RequestMethods;
-      var url_search_params_1 = require("../src/http/url_search_params");
+      var url_search_params_1 = require('../src/http/url_search_params');
       exports.URLSearchParams = url_search_params_1.URLSearchParams;
       exports.HTTP_BINDINGS = [core_1.bind(http_1.Http).toFactory(function(xhrBackend, requestOptions) {
         return new http_1.Http(xhrBackend, requestOptions);
@@ -32575,4 +32575,4 @@
       return module.exports;
     });
   });
-})(require("buffer").Buffer, require("process"));
+})(require('buffer').Buffer, require('process'));

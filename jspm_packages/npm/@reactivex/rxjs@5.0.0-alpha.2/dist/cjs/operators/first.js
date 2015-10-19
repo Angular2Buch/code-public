@@ -23,14 +23,14 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
-var _utilBindCallback = require("../util/bindCallback");
+var _utilErrorObject = require('../util/errorObject');
+var _utilBindCallback = require('../util/bindCallback');
 var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
-var _utilEmptyError = require("../util/EmptyError");
+var _utilEmptyError = require('../util/EmptyError');
 var _utilEmptyError2 = _interopRequireDefault(_utilEmptyError);
 function first(predicate, thisArg, defaultValue) {
   return this.lift(new FirstOperator(predicate, thisArg, defaultValue, this));

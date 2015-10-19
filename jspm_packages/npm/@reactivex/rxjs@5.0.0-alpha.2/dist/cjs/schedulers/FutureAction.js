@@ -22,7 +22,7 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _ImmediateAction2 = require("./ImmediateAction");
+var _ImmediateAction2 = require('./ImmediateAction');
 var _ImmediateAction3 = _interopRequireDefault(_ImmediateAction2);
 var FutureAction = (function(_ImmediateAction) {
   _inherits(FutureAction, _ImmediateAction);

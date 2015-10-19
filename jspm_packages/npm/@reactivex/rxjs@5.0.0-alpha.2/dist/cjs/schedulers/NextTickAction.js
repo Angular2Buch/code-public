@@ -22,8 +22,8 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _utilImmediate = require("../util/Immediate");
-var _ImmediateAction2 = require("./ImmediateAction");
+var _utilImmediate = require('../util/Immediate');
+var _ImmediateAction2 = require('./ImmediateAction');
 var _ImmediateAction3 = _interopRequireDefault(_ImmediateAction2);
 var NextTickAction = (function(_ImmediateAction) {
   _inherits(NextTickAction, _ImmediateAction);

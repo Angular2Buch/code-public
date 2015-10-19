@@ -22,14 +22,14 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../../core/facade/lang");
-var exceptions_1 = require("../../core/facade/exceptions");
-var collection_1 = require("../../core/facade/collection");
-var api_1 = require("../../core/render/api");
-var api_2 = require("./api");
-var di_1 = require("../../core/di");
-var render_proto_view_ref_store_1 = require("./render_proto_view_ref_store");
-var render_view_with_fragments_store_1 = require("./render_view_with_fragments_store");
+var lang_1 = require('../../core/facade/lang');
+var exceptions_1 = require('../../core/facade/exceptions');
+var collection_1 = require('../../core/facade/collection');
+var api_1 = require('../../core/render/api');
+var api_2 = require('./api');
+var di_1 = require('../../core/di');
+var render_proto_view_ref_store_1 = require('./render_proto_view_ref_store');
+var render_view_with_fragments_store_1 = require('./render_view_with_fragments_store');
 exports.PRIMITIVE = String;
 var Serializer = (function() {
   function Serializer(_protoViewStore, _renderViewStore) {

@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
-var serializer_1 = require("../shared/serializer");
-var messaging_api_1 = require("../shared/messaging_api");
-var xhr_1 = require("../../core/compiler/xhr");
-var service_message_broker_1 = require("../shared/service_message_broker");
-var bind_1 = require("./bind");
+var di_1 = require('../../core/di');
+var serializer_1 = require('../shared/serializer');
+var messaging_api_1 = require('../shared/messaging_api');
+var xhr_1 = require('../../core/compiler/xhr');
+var service_message_broker_1 = require('../shared/service_message_broker');
+var bind_1 = require('./bind');
 var MessageBasedXHRImpl = (function() {
   function MessageBasedXHRImpl(_brokerFactory, _xhr) {
     this._brokerFactory = _brokerFactory;

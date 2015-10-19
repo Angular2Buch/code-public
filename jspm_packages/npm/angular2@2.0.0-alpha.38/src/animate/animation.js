@@ -1,10 +1,10 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var math_1 = require("../core/facade/math");
-var util_1 = require("../core/render/dom/util");
-var collection_1 = require("../core/facade/collection");
-var dom_adapter_1 = require("../core/dom/dom_adapter");
+var lang_1 = require('../core/facade/lang');
+var math_1 = require('../core/facade/math');
+var util_1 = require('../core/render/dom/util');
+var collection_1 = require('../core/facade/collection');
+var dom_adapter_1 = require('../core/dom/dom_adapter');
 var Animation = (function() {
   function Animation(element, data, browserDetails) {
     var _this = this;

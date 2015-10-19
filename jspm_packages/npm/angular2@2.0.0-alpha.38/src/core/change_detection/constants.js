@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 (function(ChangeDetectionStrategy) {
   ChangeDetectionStrategy[ChangeDetectionStrategy["CheckOnce"] = 0] = "CheckOnce";
   ChangeDetectionStrategy[ChangeDetectionStrategy["Checked"] = 1] = "Checked";

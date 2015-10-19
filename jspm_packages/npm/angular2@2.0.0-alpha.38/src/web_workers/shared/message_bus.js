@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var async_1 = require("../../core/facade/async");
+var async_1 = require('../../core/facade/async');
 exports.EventEmitter = async_1.EventEmitter;
 exports.Observable = async_1.Observable;
 var MessageBus = (function() {

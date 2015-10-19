@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
-var xhr_1 = require("../../core/compiler/xhr");
-var client_message_broker_1 = require("../shared/client_message_broker");
-var messaging_api_1 = require("../shared/messaging_api");
+var di_1 = require('../../core/di');
+var xhr_1 = require('../../core/compiler/xhr');
+var client_message_broker_1 = require('../shared/client_message_broker');
+var messaging_api_1 = require('../shared/messaging_api');
 var WebWorkerXHRImpl = (function(_super) {
   __extends(WebWorkerXHRImpl, _super);
   function WebWorkerXHRImpl(messageBrokerFactory) {

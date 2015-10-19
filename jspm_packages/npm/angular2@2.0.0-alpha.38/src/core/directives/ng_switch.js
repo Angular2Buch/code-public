@@ -27,11 +27,11 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var metadata_1 = require("../metadata");
-var di_1 = require("../di");
-var linker_1 = require("../linker");
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
+var metadata_1 = require('../metadata');
+var di_1 = require('../di');
+var linker_1 = require('../linker');
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
 var _WHEN_DEFAULT = lang_1.CONST_EXPR(new Object());
 var SwitchView = (function() {
   function SwitchView(_viewContainerRef, _templateRef) {

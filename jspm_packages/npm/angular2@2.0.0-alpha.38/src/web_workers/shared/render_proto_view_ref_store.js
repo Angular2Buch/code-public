@@ -36,9 +36,9 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var di_1 = require("../../core/di");
-var api_1 = require("../../core/render/api");
-var api_2 = require("./api");
+var di_1 = require('../../core/di');
+var api_1 = require('../../core/render/api');
+var api_2 = require('./api');
 var RenderProtoViewRefStore = (function() {
   function RenderProtoViewRefStore(onWebworker) {
     this._lookupByIndex = new Map();

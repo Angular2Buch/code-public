@@ -31,9 +31,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var dom_adapter_1 = require("../core/dom/dom_adapter");
-var di_1 = require("../core/di");
-var location_strategy_1 = require("./location_strategy");
+var dom_adapter_1 = require('../core/dom/dom_adapter');
+var di_1 = require('../core/di');
+var location_strategy_1 = require('./location_strategy');
 var HashLocationStrategy = (function(_super) {
   __extends(HashLocationStrategy, _super);
   function HashLocationStrategy() {

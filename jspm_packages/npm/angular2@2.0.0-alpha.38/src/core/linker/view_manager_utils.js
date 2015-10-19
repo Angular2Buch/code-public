@@ -22,15 +22,15 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var collection_1 = require("../facade/collection");
-var eli = require("./element_injector");
-var lang_1 = require("../facade/lang");
-var viewModule = require("./view");
-var element_ref_1 = require("./element_ref");
-var template_ref_1 = require("./template_ref");
-var pipes_1 = require("../pipes/pipes");
-var api_1 = require("../render/api");
+var di_1 = require('../di');
+var collection_1 = require('../facade/collection');
+var eli = require('./element_injector');
+var lang_1 = require('../facade/lang');
+var viewModule = require('./view');
+var element_ref_1 = require('./element_ref');
+var template_ref_1 = require('./template_ref');
+var pipes_1 = require('../pipes/pipes');
+var api_1 = require('../render/api');
 var AppViewManagerUtils = (function() {
   function AppViewManagerUtils() {}
   AppViewManagerUtils.prototype.getComponentInstance = function(parentView, boundElementIndex) {

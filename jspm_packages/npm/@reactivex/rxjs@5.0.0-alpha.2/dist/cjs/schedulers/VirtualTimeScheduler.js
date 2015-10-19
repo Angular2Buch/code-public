@@ -22,7 +22,7 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError("Cannot call a class as a function");
   }
 }
-var _Subscription2 = require("../Subscription");
+var _Subscription2 = require('../Subscription');
 var _Subscription3 = _interopRequireDefault(_Subscription2);
 var VirtualTimeScheduler = (function() {
   function VirtualTimeScheduler() {

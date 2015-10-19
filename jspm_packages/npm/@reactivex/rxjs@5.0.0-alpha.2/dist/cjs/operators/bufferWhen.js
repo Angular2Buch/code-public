@@ -24,11 +24,11 @@
       throw new TypeError('Cannot call a class as a function');
     }
   }
-  var _Subscriber3 = require("../Subscriber");
+  var _Subscriber3 = require('../Subscriber');
   var _Subscriber4 = _interopRequireDefault(_Subscriber3);
-  var _utilTryCatch = require("../util/tryCatch");
+  var _utilTryCatch = require('../util/tryCatch');
   var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-  var _utilErrorObject = require("../util/errorObject");
+  var _utilErrorObject = require('../util/errorObject');
   function bufferWhen(closingSelector) {
     return this.lift(new BufferWhenOperator(closingSelector));
   }
@@ -102,4 +102,4 @@
     return BufferClosingNotifierSubscriber;
   })(_Subscriber4['default']);
   module.exports = exports['default'];
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

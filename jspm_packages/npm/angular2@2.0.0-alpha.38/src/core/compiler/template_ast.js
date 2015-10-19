@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 var TextAst = (function() {
   function TextAst(value, ngContentIndex, sourceInfo) {
     this.value = value;

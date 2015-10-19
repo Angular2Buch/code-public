@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var keys = require("./keys");
+var keys = require('./keys');
 function bindArguments(args) {
   for (var i = args.length - 1; i >= 0; i--) {
     if (typeof args[i] === 'function') {

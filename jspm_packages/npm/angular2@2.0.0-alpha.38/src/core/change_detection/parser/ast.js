@@ -9,8 +9,8 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var lang_1 = require("../../facade/lang");
-var collection_1 = require("../../facade/collection");
+var lang_1 = require('../../facade/lang');
+var collection_1 = require('../../facade/collection');
 var AST = (function() {
   function AST() {}
   AST.prototype.visit = function(visitor) {

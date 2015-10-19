@@ -838,9 +838,9 @@
         };
       }
       function getNodeSystem() {
-        var _fs = require("fs");
-        var _path = require("path");
-        var _os = require("os");
+        var _fs = require('fs');
+        var _path = require('path');
+        var _os = require('os');
         var platform = _os.platform();
         var useCaseSensitiveFileNames = platform !== "win32" && platform !== "win64" && platform !== "darwin";
         function readFile(fileName, encoding) {
@@ -44414,10 +44414,10 @@
   (function(ts) {
     var server;
     (function(server) {
-      var nodeproto = require("../../../../../build/Angular2Buch/code/_debugger");
-      var readline = require("readline");
-      var path = require("path");
-      var fs = require("fs");
+      var nodeproto = require('_debugger');
+      var readline = require('readline');
+      var path = require('path');
+      var fs = require('fs');
       var rl = readline.createInterface({
         input: process.stdin,
         output: process.stdout,
@@ -45291,4 +45291,4 @@
     })(Services = TypeScript.Services || (TypeScript.Services = {}));
   })(TypeScript || (TypeScript = {}));
   var toolsVersion = "1.6";
-})(require("buffer").Buffer, require("process"));
+})(require('buffer').Buffer, require('process'));

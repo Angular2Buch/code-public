@@ -9,10 +9,10 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var dom_adapter_1 = require("./dom_adapter");
-var generic_browser_adapter_1 = require("./generic_browser_adapter");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var dom_adapter_1 = require('./dom_adapter');
+var generic_browser_adapter_1 = require('./generic_browser_adapter');
 var _attrToPropMap = {
   'class': 'className',
   'innerHtml': 'innerHTML',

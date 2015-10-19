@@ -31,9 +31,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var di_1 = require("../di");
-var metadata_1 = require("../di/metadata");
+var lang_1 = require('../facade/lang');
+var di_1 = require('../di');
+var metadata_1 = require('../di/metadata');
 var AttributeMetadata = (function(_super) {
   __extends(AttributeMetadata, _super);
   function AttributeMetadata(attributeName) {

@@ -22,10 +22,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var metadata_1 = require("../metadata");
-var change_detection_1 = require("../change_detection");
-var linker_1 = require("../linker");
-var lang_1 = require("../facade/lang");
+var metadata_1 = require('../metadata');
+var change_detection_1 = require('../change_detection');
+var linker_1 = require('../linker');
+var lang_1 = require('../facade/lang');
 var NgFor = (function() {
   function NgFor(_viewContainer, _templateRef, _iterableDiffers, _cdr) {
     this._viewContainer = _viewContainer;

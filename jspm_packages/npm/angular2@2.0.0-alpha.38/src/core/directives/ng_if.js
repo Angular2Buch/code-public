@@ -22,9 +22,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var metadata_1 = require("../metadata");
-var linker_1 = require("../linker");
-var lang_1 = require("../facade/lang");
+var metadata_1 = require('../metadata');
+var linker_1 = require('../linker');
+var lang_1 = require('../facade/lang');
 var NgIf = (function() {
   function NgIf(_viewContainer, _templateRef) {
     this._viewContainer = _viewContainer;

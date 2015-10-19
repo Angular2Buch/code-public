@@ -9,16 +9,16 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var parse5 = require("parse5/index");
+var parse5 = require('parse5/index');
 var parser = new parse5.Parser(parse5.TreeAdapters.htmlparser2);
 var serializer = new parse5.Serializer(parse5.TreeAdapters.htmlparser2);
 var treeAdapter = parser.treeAdapter;
-var cssParse = require("css/lib/parse/index");
-var collection_1 = require("../facade/collection");
-var dom_adapter_1 = require("./dom_adapter");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var selector_1 = require("../compiler/selector");
+var cssParse = require('css/lib/parse/index');
+var collection_1 = require('../facade/collection');
+var dom_adapter_1 = require('./dom_adapter');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var selector_1 = require('../compiler/selector');
 var _attrToPropMap = {
   'class': 'className',
   'innerHtml': 'innerHTML',

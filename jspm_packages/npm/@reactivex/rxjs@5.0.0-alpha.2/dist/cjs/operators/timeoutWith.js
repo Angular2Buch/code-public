@@ -23,11 +23,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-var _schedulersImmediate = require("../schedulers/immediate");
+var _schedulersImmediate = require('../schedulers/immediate');
 var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
-var _utilIsDate = require("../util/isDate");
+var _utilIsDate = require('../util/isDate');
 var _utilIsDate2 = _interopRequireDefault(_utilIsDate);
 function timeoutWith(due, withObservable) {
   var scheduler = arguments.length <= 2 || arguments[2] === undefined ? _schedulersImmediate2['default'] : arguments[2];

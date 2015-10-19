@@ -9,8 +9,8 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var exception_handler_1 = require("./exception_handler");
-var exception_handler_2 = require("./exception_handler");
+var exception_handler_1 = require('./exception_handler');
+var exception_handler_2 = require('./exception_handler');
 exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
 var BaseException = (function(_super) {
   __extends(BaseException, _super);

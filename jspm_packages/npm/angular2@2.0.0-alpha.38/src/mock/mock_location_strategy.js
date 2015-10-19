@@ -9,8 +9,8 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var async_1 = require("../core/facade/async");
-var location_strategy_1 = require("../router/location_strategy");
+var async_1 = require('../core/facade/async');
+var location_strategy_1 = require('../router/location_strategy');
 var MockLocationStrategy = (function(_super) {
   __extends(MockLocationStrategy, _super);
   function MockLocationStrategy() {

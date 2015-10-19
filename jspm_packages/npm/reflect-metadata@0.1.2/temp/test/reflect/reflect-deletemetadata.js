@@ -1,6 +1,6 @@
 /* */ 
-require("../../Reflect");
-var assert = require("assert");
+require('../../Reflect');
+var assert = require('assert');
 function ReflectDeleteMetadataInvalidTarget() {
   assert.throws(function() {
     return Reflect.deleteMetadata("key", undefined, undefined);

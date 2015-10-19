@@ -22,13 +22,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var source_module_1 = require("./source_module");
-var change_detection_jit_generator_1 = require("../change_detection/change_detection_jit_generator");
-var change_definition_factory_1 = require("./change_definition_factory");
-var change_detection_1 = require("../change_detection/change_detection");
-var change_detector_codegen_1 = require("../../transform/template_compiler/change_detector_codegen");
-var util_1 = require("./util");
-var di_1 = require("../di");
+var source_module_1 = require('./source_module');
+var change_detection_jit_generator_1 = require('../change_detection/change_detection_jit_generator');
+var change_definition_factory_1 = require('./change_definition_factory');
+var change_detection_1 = require('../change_detection/change_detection');
+var change_detector_codegen_1 = require('../../transform/template_compiler/change_detector_codegen');
+var util_1 = require('./util');
+var di_1 = require('../di');
 var ABSTRACT_CHANGE_DETECTOR = "AbstractChangeDetector";
 var UTIL = "ChangeDetectionUtil";
 var ABSTRACT_CHANGE_DETECTOR_MODULE = source_module_1.moduleRef("package:angular2/src/core/change_detection/abstract_change_detector" + util_1.MODULE_SUFFIX);

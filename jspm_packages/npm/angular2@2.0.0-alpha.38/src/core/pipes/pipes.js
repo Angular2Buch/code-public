@@ -1,9 +1,9 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var cd = require("../change_detection/pipes");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var cd = require('../change_detection/pipes');
 var ProtoPipes = (function() {
   function ProtoPipes(config) {
     this.config = config;

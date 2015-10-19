@@ -1,12 +1,12 @@
 /* */ 
 'use strict';
-var dom_adapter_1 = require("../core/dom/dom_adapter");
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
-var di_1 = require("../core/di");
-var test_injector_1 = require("./test_injector");
-var utils_1 = require("./utils");
-var test_injector_2 = require("./test_injector");
+var dom_adapter_1 = require('../core/dom/dom_adapter');
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
+var di_1 = require('../core/di');
+var test_injector_1 = require('./test_injector');
+var utils_1 = require('./utils');
+var test_injector_2 = require('./test_injector');
 exports.inject = test_injector_2.inject;
 exports.proxy = function(t) {
   return t;

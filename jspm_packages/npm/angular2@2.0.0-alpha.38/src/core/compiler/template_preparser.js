@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 var NG_CONTENT_SELECT_ATTR = 'select';
 var NG_CONTENT_ELEMENT = 'ng-content';
 var LINK_ELEMENT = 'link';

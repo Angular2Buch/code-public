@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var async_1 = require("../core/facade/async");
+var async_1 = require('../core/facade/async');
 var SpyLocation = (function() {
   function SpyLocation() {
     this.urlChanges = [];

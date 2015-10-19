@@ -1,14 +1,14 @@
 /* */ 
 'use strict';
-var lang_1 = require("./facade/lang");
-var compiler_1 = require("./compiler/compiler");
-var application_common_1 = require("./application_common");
-var application_tokens_1 = require("./application_tokens");
+var lang_1 = require('./facade/lang');
+var compiler_1 = require('./compiler/compiler');
+var application_common_1 = require('./application_common');
+var application_tokens_1 = require('./application_tokens');
 exports.APP_COMPONENT = application_tokens_1.APP_COMPONENT;
 exports.APP_ID = application_tokens_1.APP_ID;
-var application_common_2 = require("./application_common");
+var application_common_2 = require('./application_common');
 exports.platform = application_common_2.platform;
-var application_ref_1 = require("./application_ref");
+var application_ref_1 = require('./application_ref');
 exports.PlatformRef = application_ref_1.PlatformRef;
 exports.ApplicationRef = application_ref_1.ApplicationRef;
 exports.applicationCommonBindings = application_ref_1.applicationCommonBindings;

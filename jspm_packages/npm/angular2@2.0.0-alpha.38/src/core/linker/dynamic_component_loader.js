@@ -22,10 +22,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var compiler_1 = require("./compiler");
-var lang_1 = require("../facade/lang");
-var view_manager_1 = require("./view_manager");
+var di_1 = require('../di');
+var compiler_1 = require('./compiler');
+var lang_1 = require('../facade/lang');
+var view_manager_1 = require('./view_manager');
 var ComponentRef = (function() {
   function ComponentRef(location, instance, componentType, injector, _dispose) {
     this._dispose = _dispose;

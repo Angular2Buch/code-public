@@ -22,7 +22,7 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Subscriber2 = require("./Subscriber");
+var _Subscriber2 = require('./Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
 var OuterSubscriber = (function(_Subscriber) {
   _inherits(OuterSubscriber, _Subscriber);

@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var bn = require("bn.js");
-var elliptic = require("../../elliptic");
+var bn = require('bn.js');
+var elliptic = require('../../elliptic');
 var utils = elliptic.utils;
 function KeyPair(ec, options) {
   this.ec = ec;

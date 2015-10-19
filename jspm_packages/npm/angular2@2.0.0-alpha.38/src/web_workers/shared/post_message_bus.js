@@ -22,10 +22,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var exceptions_1 = require("../../core/facade/exceptions");
-var async_1 = require("../../core/facade/async");
-var collection_1 = require("../../core/facade/collection");
-var di_1 = require("../../core/di");
+var exceptions_1 = require('../../core/facade/exceptions');
+var async_1 = require('../../core/facade/async');
+var collection_1 = require('../../core/facade/collection');
+var di_1 = require('../../core/di');
 var PostMessageBus = (function() {
   function PostMessageBus(sink, source) {
     this.sink = sink;

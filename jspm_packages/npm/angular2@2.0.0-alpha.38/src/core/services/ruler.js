@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var async_1 = require("../facade/async");
+var async_1 = require('../facade/async');
 var Rectangle = (function() {
   function Rectangle(left, top, width, height) {
     this.left = left;

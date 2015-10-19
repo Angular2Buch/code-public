@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var constants_1 = require("./constants");
+var constants_1 = require('./constants');
 var ChangeDetectorRef = (function() {
   function ChangeDetectorRef(_cd) {
     this._cd = _cd;

@@ -29,10 +29,10 @@
     1: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var core = require("../core");
-        var microtask = require("../microtask");
-        var browserPatch = require("../patch/browser");
-        var es6Promise = require("es6-promise");
+        var core = require('../core');
+        var microtask = require('../microtask');
+        var browserPatch = require('../patch/browser');
+        var es6Promise = require('es6-promise');
         if (global.Zone) {
           console.warn('Zone already exported on window the object!');
         }
@@ -50,7 +50,7 @@
     2: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var keys = require("./keys");
+        var keys = require('./keys');
         function Zone(parentZone, data) {
           var zone = (arguments.length) ? Object.create(parentZone) : this;
           zone.parent = parentZone || null;
@@ -143,7 +143,7 @@
           }
         };
         Zone.nextId = 1;
-        Zone.bindPromiseFn = require("./patch/promise").bindPromiseFn;
+        Zone.bindPromiseFn = require('./patch/promise').bindPromiseFn;
         module.exports = {Zone: Zone};
       }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
     }, {
@@ -172,7 +172,7 @@
     4: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var es6Promise = require("es6-promise").Promise;
+        var es6Promise = require('es6-promise').Promise;
         es6Promise._setAsap(function(fn, arg) {
           global.zone.scheduleMicrotask(function() {
             fn(arg);
@@ -199,16 +199,16 @@
     5: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var fnPatch = require("./functions");
-        var promisePatch = require("./promise");
-        var mutationObserverPatch = require("./mutation-observer");
-        var definePropertyPatch = require("./define-property");
-        var registerElementPatch = require("./register-element");
-        var webSocketPatch = require("./websocket");
-        var eventTargetPatch = require("./event-target");
-        var propertyDescriptorPatch = require("./property-descriptor");
-        var geolocationPatch = require("./geolocation");
-        var fileReaderPatch = require("./file-reader");
+        var fnPatch = require('./functions');
+        var promisePatch = require('./promise');
+        var mutationObserverPatch = require('./mutation-observer');
+        var definePropertyPatch = require('./define-property');
+        var registerElementPatch = require('./register-element');
+        var webSocketPatch = require('./websocket');
+        var eventTargetPatch = require('./event-target');
+        var propertyDescriptorPatch = require('./property-descriptor');
+        var geolocationPatch = require('./geolocation');
+        var fileReaderPatch = require('./file-reader');
         function apply() {
           fnPatch.patchSetClearFunction(global, ['timeout', 'interval', 'immediate']);
           fnPatch.patchRequestAnimationFrame(global, ['requestAnimationFrame', 'mozRequestAnimationFrame', 'webkitRequestAnimationFrame']);
@@ -239,7 +239,7 @@
     }],
     6: [function(require, module, exports) {
       'use strict';
-      var keys = require("../keys");
+      var keys = require('../keys');
       var _defineProperty = Object.defineProperty;
       var _getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
       var _create = Object.create;
@@ -306,7 +306,7 @@
     7: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function apply() {
           if (global.EventTarget) {
             utils.patchEventTargetMethods(global.EventTarget.prototype);
@@ -328,7 +328,7 @@
     }, {"../utils": 16}],
     8: [function(require, module, exports) {
       'use strict';
-      var utils = require("../utils");
+      var utils = require('../utils');
       function apply() {
         utils.patchClass('FileReader');
       }
@@ -337,7 +337,7 @@
     9: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function patchSetClearFunction(obj, fnNames) {
           fnNames.map(function(name) {
             return name[0].toUpperCase() + name.substr(1);
@@ -439,7 +439,7 @@
     10: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function apply() {
           if (global.navigator && global.navigator.geolocation) {
             utils.patchPrototype(global.navigator.geolocation, ['getCurrentPosition', 'watchPosition']);
@@ -451,7 +451,7 @@
     11: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var keys = require("../keys");
+        var keys = require('../keys');
         var originalInstanceKey = keys.create('originalInstance');
         var creationZoneKey = keys.create('creationZone');
         var isActiveKey = keys.create('isActive');
@@ -513,7 +513,7 @@
     12: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         var bindPromiseFn;
         if (global.Promise) {
           bindPromiseFn = function(delegate) {
@@ -583,9 +583,9 @@
     13: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var webSocketPatch = require("./websocket");
-        var utils = require("../utils");
-        var keys = require("../keys");
+        var webSocketPatch = require('./websocket');
+        var utils = require('../utils');
+        var keys = require('../keys');
         var eventNames = 'copy cut paste abort blur focus canplay canplaythrough change click contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop durationchange emptied ended input invalid keydown keypress keyup load loadeddata loadedmetadata loadstart message mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup pause play playing progress ratechange reset scroll seeked seeking select show stalled submit suspend timeupdate volumechange waiting mozfullscreenchange mozfullscreenerror mozpointerlockchange mozpointerlockerror error webglcontextrestored webglcontextlost webglcontextcreationerror'.split(' ');
         function apply() {
           if (utils.isWebWorker()) {
@@ -653,8 +653,8 @@
     14: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var _redefineProperty = require("./define-property")._redefineProperty;
-        var utils = require("../utils");
+        var _redefineProperty = require('./define-property')._redefineProperty;
+        var utils = require('../utils');
         function apply() {
           if (utils.isWebWorker() || !('registerElement' in global.document)) {
             return;
@@ -689,7 +689,7 @@
     15: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function apply() {
           var WS = global.WebSocket;
           utils.patchEventTargetMethods(WS.prototype);
@@ -717,7 +717,7 @@
     16: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var keys = require("./keys");
+        var keys = require('./keys');
         function bindArguments(args) {
           for (var i = args.length - 1; i >= 0; i--) {
             if (typeof args[i] === 'function') {
@@ -1426,4 +1426,4 @@
       }).call(this, {}, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
     }, {}]
   }, {}, [1]);
-})(require("process"));
+})(require('process'));

@@ -22,17 +22,17 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var route_recognizer_1 = require("./route_recognizer");
-var instruction_1 = require("./instruction");
-var collection_1 = require("../core/facade/collection");
-var async_1 = require("../core/facade/async");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var route_config_impl_1 = require("./route_config_impl");
-var reflection_1 = require("../core/reflection/reflection");
-var di_1 = require("../core/di");
-var route_config_nomalizer_1 = require("./route_config_nomalizer");
-var url_parser_1 = require("./url_parser");
+var route_recognizer_1 = require('./route_recognizer');
+var instruction_1 = require('./instruction');
+var collection_1 = require('../core/facade/collection');
+var async_1 = require('../core/facade/async');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var route_config_impl_1 = require('./route_config_impl');
+var reflection_1 = require('../core/reflection/reflection');
+var di_1 = require('../core/di');
+var route_config_nomalizer_1 = require('./route_config_nomalizer');
+var url_parser_1 = require('./url_parser');
 var _resolveToNull = async_1.PromiseWrapper.resolve(null);
 var RouteRegistry = (function() {
   function RouteRegistry() {

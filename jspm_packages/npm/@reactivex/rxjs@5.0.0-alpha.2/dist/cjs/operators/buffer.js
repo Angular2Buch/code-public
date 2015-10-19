@@ -24,7 +24,7 @@
       throw new TypeError('Cannot call a class as a function');
     }
   }
-  var _Subscriber3 = require("../Subscriber");
+  var _Subscriber3 = require('../Subscriber');
   var _Subscriber4 = _interopRequireDefault(_Subscriber3);
   function buffer(closingNotifier) {
     return this.lift(new BufferOperator(closingNotifier));
@@ -83,4 +83,4 @@
     return BufferClosingNotifierSubscriber;
   })(_Subscriber4['default']);
   module.exports = exports['default'];
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

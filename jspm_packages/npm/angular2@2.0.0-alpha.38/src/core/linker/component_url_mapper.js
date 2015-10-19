@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
-var reflection_1 = require("../reflection/reflection");
+var di_1 = require('../di');
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
+var reflection_1 = require('../reflection/reflection');
 var ComponentUrlMapper = (function() {
   function ComponentUrlMapper() {}
   ComponentUrlMapper.prototype.getUrl = function(component) {

@@ -22,13 +22,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var dom_adapter_1 = require("../dom/dom_adapter");
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var ng_zone_1 = require("../zone/ng_zone");
-var async_1 = require("../facade/async");
+var di_1 = require('../di');
+var dom_adapter_1 = require('../dom/dom_adapter');
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var ng_zone_1 = require('../zone/ng_zone');
+var async_1 = require('../facade/async');
 var Testability = (function() {
   function Testability(_ngZone) {
     this._ngZone = _ngZone;

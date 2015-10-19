@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var http_utils_1 = require("./http_utils");
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var http_utils_1 = require('./http_utils');
 var Response = (function() {
   function Response(responseOptions) {
     this._body = responseOptions.body;

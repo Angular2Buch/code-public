@@ -22,9 +22,9 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Subject2 = require("../Subject");
+var _Subject2 = require('../Subject');
 var _Subject3 = _interopRequireDefault(_Subject2);
-var _schedulersImmediate = require("../schedulers/immediate");
+var _schedulersImmediate = require('../schedulers/immediate');
 var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
 var ReplaySubject = (function(_Subject) {
   _inherits(ReplaySubject, _Subject);

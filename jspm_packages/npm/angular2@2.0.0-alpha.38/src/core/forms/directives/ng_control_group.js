@@ -36,11 +36,11 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var metadata_1 = require("../../metadata");
-var di_1 = require("../../di");
-var lang_1 = require("../../facade/lang");
-var control_container_1 = require("./control_container");
-var shared_1 = require("./shared");
+var metadata_1 = require('../../metadata');
+var di_1 = require('../../di');
+var lang_1 = require('../../facade/lang');
+var control_container_1 = require('./control_container');
+var shared_1 = require('./shared');
 var controlGroupBinding = lang_1.CONST_EXPR(new di_1.Binding(control_container_1.ControlContainer, {toAlias: di_1.forwardRef(function() {
     return NgControlGroup;
   })}));

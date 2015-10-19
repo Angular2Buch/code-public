@@ -22,11 +22,11 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _utilIsNumeric = require("../util/isNumeric");
+var _utilIsNumeric = require('../util/isNumeric');
 var _utilIsNumeric2 = _interopRequireDefault(_utilIsNumeric);
-var _Observable2 = require("../Observable");
+var _Observable2 = require('../Observable');
 var _Observable3 = _interopRequireDefault(_Observable2);
-var _schedulersNextTick = require("../schedulers/nextTick");
+var _schedulersNextTick = require('../schedulers/nextTick');
 var _schedulersNextTick2 = _interopRequireDefault(_schedulersNextTick);
 var IntervalObservable = (function(_Observable) {
   _inherits(IntervalObservable, _Observable);

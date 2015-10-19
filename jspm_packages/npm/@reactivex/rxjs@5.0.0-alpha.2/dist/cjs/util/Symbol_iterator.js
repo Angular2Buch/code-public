@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
 exports.__esModule = true;
-var _root = require("./root");
+var _root = require('./root');
 if (!_root.root.Symbol) {
   _root.root.Symbol = {};
 }

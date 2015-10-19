@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
-var proto_record_1 = require("./proto_record");
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
+var proto_record_1 = require('./proto_record');
 function coalesce(records) {
   var res = [];
   var indexMap = new collection_1.Map();

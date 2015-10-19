@@ -22,13 +22,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
-var di_1 = require("../di");
-var view_listener_1 = require("../linker/view_listener");
-var dom_adapter_1 = require("../dom/dom_adapter");
-var api_1 = require("../render/api");
-var debug_element_1 = require("./debug_element");
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
+var di_1 = require('../di');
+var view_listener_1 = require('../linker/view_listener');
+var dom_adapter_1 = require('../dom/dom_adapter');
+var api_1 = require('../render/api');
+var debug_element_1 = require('./debug_element');
 var NG_ID_PROPERTY = 'ngid';
 var INSPECT_GLOBAL_NAME = 'ng.probe';
 var NG_ID_SEPARATOR = '#';

@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
+var lang_1 = require('../facade/lang');
 var HtmlTextAst = (function() {
   function HtmlTextAst(value, sourceInfo) {
     this.value = value;

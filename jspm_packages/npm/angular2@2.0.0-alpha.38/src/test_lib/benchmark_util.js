@@ -1,9 +1,9 @@
 /* */ 
 'use strict';
-var browser_adapter_1 = require("../core/dom/browser_adapter");
-var browser_1 = require("../core/facade/browser");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
+var browser_adapter_1 = require('../core/dom/browser_adapter');
+var browser_1 = require('../core/facade/browser');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
 var DOM = new browser_adapter_1.BrowserDomAdapter();
 function getIntParameter(name) {
   return lang_1.NumberWrapper.parseInt(getStringParameter(name), 10);

@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var di_1 = require("../di");
-var invalid_pipe_argument_exception_1 = require("./invalid_pipe_argument_exception");
-var metadata_1 = require("../metadata");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var di_1 = require('../di');
+var invalid_pipe_argument_exception_1 = require('./invalid_pipe_argument_exception');
+var metadata_1 = require('../metadata');
 var SlicePipe = (function() {
   function SlicePipe() {}
   SlicePipe.prototype.transform = function(value, args) {

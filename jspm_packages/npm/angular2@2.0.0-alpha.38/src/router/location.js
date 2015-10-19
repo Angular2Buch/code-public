@@ -27,12 +27,12 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var location_strategy_1 = require("./location_strategy");
-var lang_1 = require("../core/facade/lang");
-var async_1 = require("../core/facade/async");
-var lang_2 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var di_1 = require("../core/di");
+var location_strategy_1 = require('./location_strategy');
+var lang_1 = require('../core/facade/lang');
+var async_1 = require('../core/facade/async');
+var lang_2 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var di_1 = require('../core/di');
 exports.APP_BASE_HREF = lang_1.CONST_EXPR(new di_1.OpaqueToken('appBaseHref'));
 var Location = (function() {
   function Location(platformStrategy, href) {

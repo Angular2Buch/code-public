@@ -22,7 +22,7 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
+var di_1 = require('../../core/di');
 var BrowserXhr = (function() {
   function BrowserXhr() {}
   BrowserXhr.prototype.build = function() {

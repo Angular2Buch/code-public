@@ -27,10 +27,10 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var metadata_1 = require("../../metadata");
-var di_1 = require("../../di");
-var ng_control_1 = require("./ng_control");
-var lang_1 = require("../../facade/lang");
+var metadata_1 = require('../../metadata');
+var di_1 = require('../../di');
+var ng_control_1 = require('./ng_control');
+var lang_1 = require('../../facade/lang');
 var NgControlStatus = (function() {
   function NgControlStatus(cd) {
     this._cd = cd;

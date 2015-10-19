@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
 var ElementBinder = (function() {
   function ElementBinder(index, parent, distanceToParent, protoElementInjector, componentDirective, nestedProtoView) {
     this.index = index;

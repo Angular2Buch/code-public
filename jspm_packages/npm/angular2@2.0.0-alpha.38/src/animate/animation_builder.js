@@ -22,9 +22,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../core/di");
-var css_animation_builder_1 = require("./css_animation_builder");
-var browser_details_1 = require("./browser_details");
+var di_1 = require('../core/di');
+var css_animation_builder_1 = require('./css_animation_builder');
+var browser_details_1 = require('./browser_details');
 var AnimationBuilder = (function() {
   function AnimationBuilder(browserDetails) {
     this.browserDetails = browserDetails;

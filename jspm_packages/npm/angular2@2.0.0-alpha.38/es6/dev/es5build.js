@@ -1,14 +1,14 @@
 /* */ 
-var gulp = require("gulp");
-var traceur = require("gulp-traceur");
-var rename = require("gulp-rename");
-var sourcemaps = require("gulp-sourcemaps");
-var through2 = require("through2");
-var fs = require("fs");
-var path = require("path");
+var gulp = require('gulp');
+var traceur = require('gulp-traceur');
+var rename = require('gulp-rename');
+var sourcemaps = require('gulp-sourcemaps');
+var through2 = require('through2');
+var fs = require('fs');
+var path = require('path');
 module.exports = run;
 if (!module.parent) {
-  var argv = require("yargs").usage('Transpile to es5.\n\n' + 'Usage: $0 -m [format] -s [folder] -d [folder]').example('$0 -d tmp', 'transpile in `instantate` format to tmp/').options({
+  var argv = require('yargs').usage('Transpile to es5.\n\n' + 'Usage: $0 -m [format] -s [folder] -d [folder]').example('$0 -d tmp', 'transpile in `instantate` format to tmp/').options({
     's': {
       alias: 'source',
       describe: 'source folder',

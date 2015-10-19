@@ -23,10 +23,10 @@
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
       return Reflect.metadata(k, v);
   };
-  var di_1 = require("../di");
-  var lang_1 = require("../facade/lang");
-  var exceptions_1 = require("../facade/exceptions");
-  var profile_1 = require("../profile/profile");
+  var di_1 = require('../di');
+  var lang_1 = require('../facade/lang');
+  var exceptions_1 = require('../facade/exceptions');
+  var profile_1 = require('../profile/profile');
   var LifeCycle = (function() {
     function LifeCycle(changeDetector, enforceNoNewChanges) {
       if (changeDetector === void 0) {
@@ -79,4 +79,4 @@
     return LifeCycle;
   })();
   exports.LifeCycle = LifeCycle;
-})(require("process"));
+})(require('process'));

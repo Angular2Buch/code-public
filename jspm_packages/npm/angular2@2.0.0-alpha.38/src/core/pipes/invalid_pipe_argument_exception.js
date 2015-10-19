@@ -9,7 +9,7 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var exceptions_1 = require("../facade/exceptions");
+var exceptions_1 = require('../facade/exceptions');
 var InvalidPipeArgumentException = (function(_super) {
   __extends(InvalidPipeArgumentException, _super);
   function InvalidPipeArgumentException(type, value) {

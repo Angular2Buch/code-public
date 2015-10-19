@@ -22,9 +22,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../core/di");
-var math_1 = require("../core/facade/math");
-var dom_adapter_1 = require("../core/dom/dom_adapter");
+var di_1 = require('../core/di');
+var math_1 = require('../core/facade/math');
+var dom_adapter_1 = require('../core/dom/dom_adapter');
 var BrowserDetails = (function() {
   function BrowserDetails() {
     this.elapsedTimeIncludesDelay = false;

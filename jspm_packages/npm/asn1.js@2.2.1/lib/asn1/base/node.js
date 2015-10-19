@@ -1,7 +1,7 @@
 /* */ 
-var Reporter = require("./index").Reporter;
-var EncoderBuffer = require("./index").EncoderBuffer;
-var assert = require("minimalistic-assert");
+var Reporter = require('./index').Reporter;
+var EncoderBuffer = require('./index').EncoderBuffer;
+var assert = require('minimalistic-assert');
 var tags = ['seq', 'seqof', 'set', 'setof', 'octstr', 'bitstr', 'objid', 'bool', 'gentime', 'utctime', 'null_', 'enum', 'int', 'ia5str', 'utf8str'];
 var methods = ['key', 'obj', 'use', 'optional', 'explicit', 'implicit', 'def', 'choice', 'any'].concat(tags);
 var overrided = ['_peekTag', '_decodeTag', '_use', '_decodeStr', '_decodeObjid', '_decodeTime', '_decodeNull', '_decodeInt', '_decodeBool', '_decodeList', '_encodeComposite', '_encodeStr', '_encodeObjid', '_encodeTime', '_encodeNull', '_encodeInt', '_encodeBool'];

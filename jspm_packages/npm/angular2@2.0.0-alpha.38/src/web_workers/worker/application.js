@@ -5,10 +5,10 @@ function __export(m) {
     if (!exports.hasOwnProperty(p))
       exports[p] = m[p];
 }
-var post_message_bus_1 = require("../shared/post_message_bus");
-var application_common_1 = require("./application_common");
-__export(require("../shared/message_bus"));
-var parse5_adapter_1 = require("../../core/dom/parse5_adapter");
+var post_message_bus_1 = require('../shared/post_message_bus');
+var application_common_1 = require('./application_common');
+__export(require('../shared/message_bus'));
+var parse5_adapter_1 = require('../../core/dom/parse5_adapter');
 var _postMessage = postMessage;
 function bootstrapWebWorker(appComponentType, componentInjectableBindings) {
   if (componentInjectableBindings === void 0) {

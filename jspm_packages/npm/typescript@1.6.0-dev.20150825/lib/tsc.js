@@ -838,9 +838,9 @@
         };
       }
       function getNodeSystem() {
-        var _fs = require("fs");
-        var _path = require("path");
-        var _os = require("os");
+        var _fs = require('fs');
+        var _path = require('path');
+        var _os = require('os');
         var platform = _os.platform();
         var useCaseSensitiveFileNames = platform !== "win32" && platform !== "win64" && platform !== "darwin";
         function readFile(fileName, encoding) {
@@ -32168,4 +32168,4 @@
     }
   })(ts || (ts = {}));
   ts.executeCommandLine(ts.sys.args);
-})(require("buffer").Buffer, require("process"));
+})(require('buffer').Buffer, require('process'));

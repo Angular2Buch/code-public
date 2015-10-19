@@ -23,9 +23,9 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _OuterSubscriber2 = require("../OuterSubscriber");
+var _OuterSubscriber2 = require('../OuterSubscriber');
 var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-var _utilSubscribeToResult = require("../util/subscribeToResult");
+var _utilSubscribeToResult = require('../util/subscribeToResult');
 var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
 function _switch() {
   return this.lift(new SwitchOperator());

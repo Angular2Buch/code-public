@@ -22,12 +22,12 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var async_1 = require("../facade/async");
-var metadata_1 = require("../metadata");
-var di_1 = require("../di");
-var change_detection_1 = require("../change_detection");
-var invalid_pipe_argument_exception_1 = require("./invalid_pipe_argument_exception");
+var lang_1 = require('../facade/lang');
+var async_1 = require('../facade/async');
+var metadata_1 = require('../metadata');
+var di_1 = require('../di');
+var change_detection_1 = require('../change_detection');
+var invalid_pipe_argument_exception_1 = require('./invalid_pipe_argument_exception');
 var ObservableStrategy = (function() {
   function ObservableStrategy() {}
   ObservableStrategy.prototype.createSubscription = function(async, updateLatestValue) {

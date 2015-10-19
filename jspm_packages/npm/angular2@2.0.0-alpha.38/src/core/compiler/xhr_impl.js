@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
-var async_1 = require("../facade/async");
-var lang_1 = require("../facade/lang");
-var xhr_1 = require("./xhr");
+var di_1 = require('../di');
+var async_1 = require('../facade/async');
+var lang_1 = require('../facade/lang');
+var xhr_1 = require('./xhr');
 var XHRImpl = (function(_super) {
   __extends(XHRImpl, _super);
   function XHRImpl() {

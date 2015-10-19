@@ -30,7 +30,7 @@
       if (!global.Zone) {
         throw new Error('zone.js should be installed before loading the long stack trace zone');
       }
-      global.Zone.longStackTraceZone = require("../zones/long-stack-trace");
+      global.Zone.longStackTraceZone = require('../zones/long-stack-trace');
     }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
   }, {"../zones/long-stack-trace.js": 2}],
   2: [function(require, module, exports) {

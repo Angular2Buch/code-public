@@ -20,7 +20,7 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _mergeMapToSupport = require("./mergeMapTo-support");
+var _mergeMapToSupport = require('./mergeMapTo-support');
 function switchMapTo(observable, projectResult) {
   return this.lift(new SwitchMapToOperator(observable, projectResult));
 }

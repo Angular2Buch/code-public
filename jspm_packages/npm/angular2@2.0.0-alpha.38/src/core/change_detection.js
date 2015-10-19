@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var change_detection_1 = require("./change_detection/change_detection");
+var change_detection_1 = require('./change_detection/change_detection');
 exports.ChangeDetectionStrategy = change_detection_1.ChangeDetectionStrategy;
 exports.ExpressionChangedAfterItHasBeenCheckedException = change_detection_1.ExpressionChangedAfterItHasBeenCheckedException;
 exports.ChangeDetectionError = change_detection_1.ChangeDetectionError;

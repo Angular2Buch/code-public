@@ -36,12 +36,12 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var lang_1 = require("../../../facade/lang");
-var exceptions_1 = require("../../../facade/exceptions");
-var collection_1 = require("../../../facade/collection");
-var dom_adapter_1 = require("../../../dom/dom_adapter");
-var ng_zone_1 = require("../../../zone/ng_zone");
-var di_1 = require("../../../di");
+var lang_1 = require('../../../facade/lang');
+var exceptions_1 = require('../../../facade/exceptions');
+var collection_1 = require('../../../facade/collection');
+var dom_adapter_1 = require('../../../dom/dom_adapter');
+var ng_zone_1 = require('../../../zone/ng_zone');
+var di_1 = require('../../../di');
 exports.EVENT_MANAGER_PLUGINS = lang_1.CONST_EXPR(new di_1.OpaqueToken("EventManagerPlugins"));
 var EventManager = (function() {
   function EventManager(plugins, _zone) {

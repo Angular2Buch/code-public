@@ -22,13 +22,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var enums_1 = require("../enums");
-var static_response_1 = require("../static_response");
-var base_response_options_1 = require("../base_response_options");
-var di_1 = require("../../core/di");
-var browser_xhr_1 = require("./browser_xhr");
-var lang_1 = require("../../core/facade/lang");
-var Rx = require("@reactivex/rxjs/dist/cjs/Rx");
+var enums_1 = require('../enums');
+var static_response_1 = require('../static_response');
+var base_response_options_1 = require('../base_response_options');
+var di_1 = require('../../core/di');
+var browser_xhr_1 = require('./browser_xhr');
+var lang_1 = require('../../core/facade/lang');
+var Rx = require('@reactivex/rxjs/dist/cjs/Rx');
 var Observable = Rx.Observable;
 var XHRConnection = (function() {
   function XHRConnection(req, browserXHR, baseResponseOptions) {

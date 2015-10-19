@@ -27,18 +27,18 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var async_1 = require("../core/facade/async");
-var collection_1 = require("../core/facade/collection");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
-var metadata_1 = require("../core/metadata");
-var linker_1 = require("../core/linker");
-var di_1 = require("../core/di");
-var routerMod = require("./router");
-var instruction_1 = require("./instruction");
-var route_data_1 = require("./route_data");
-var hookMod = require("./lifecycle_annotations");
-var route_lifecycle_reflector_1 = require("./route_lifecycle_reflector");
+var async_1 = require('../core/facade/async');
+var collection_1 = require('../core/facade/collection');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
+var metadata_1 = require('../core/metadata');
+var linker_1 = require('../core/linker');
+var di_1 = require('../core/di');
+var routerMod = require('./router');
+var instruction_1 = require('./instruction');
+var route_data_1 = require('./route_data');
+var hookMod = require('./lifecycle_annotations');
+var route_lifecycle_reflector_1 = require('./route_lifecycle_reflector');
 var _resolveToTrue = async_1.PromiseWrapper.resolve(true);
 var RouterOutlet = (function() {
   function RouterOutlet(_elementRef, _loader, _parentRouter, nameAttr) {

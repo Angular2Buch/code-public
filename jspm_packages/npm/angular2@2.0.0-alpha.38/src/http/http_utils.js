@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../core/facade/lang");
-var enums_1 = require("./enums");
-var exceptions_1 = require("../core/facade/exceptions");
+var lang_1 = require('../core/facade/lang');
+var enums_1 = require('./enums');
+var exceptions_1 = require('../core/facade/exceptions');
 function normalizeMethodName(method) {
   if (lang_1.isString(method)) {
     var originalMethod = method;
@@ -16,5 +16,5 @@ function normalizeMethodName(method) {
   return method;
 }
 exports.normalizeMethodName = normalizeMethodName;
-var lang_2 = require("../core/facade/lang");
+var lang_2 = require('../core/facade/lang');
 exports.isJsObject = lang_2.isJsObject;

@@ -1,9 +1,9 @@
 /* */ 
 (function(process) {
   'use strict';
-  var collection_1 = require("../facade/collection");
-  var lang_1 = require("../facade/lang");
-  var profile_1 = require("../profile/profile");
+  var collection_1 = require('../facade/collection');
+  var lang_1 = require('../facade/lang');
+  var profile_1 = require('../profile/profile');
   var NgZone = (function() {
     function NgZone(_a) {
       var enableLongStackTrace = _a.enableLongStackTrace;
@@ -172,4 +172,4 @@
     return NgZone;
   })();
   exports.NgZone = NgZone;
-})(require("process"));
+})(require('process'));

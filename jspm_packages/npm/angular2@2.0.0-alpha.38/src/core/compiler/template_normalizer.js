@@ -22,18 +22,18 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var directive_metadata_1 = require("./directive_metadata");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var async_1 = require("../facade/async");
-var xhr_1 = require("./xhr");
-var url_resolver_1 = require("./url_resolver");
-var style_url_resolver_1 = require("./style_url_resolver");
-var di_1 = require("../di");
-var api_1 = require("../render/api");
-var html_ast_1 = require("./html_ast");
-var html_parser_1 = require("./html_parser");
-var template_preparser_1 = require("./template_preparser");
+var directive_metadata_1 = require('./directive_metadata');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var async_1 = require('../facade/async');
+var xhr_1 = require('./xhr');
+var url_resolver_1 = require('./url_resolver');
+var style_url_resolver_1 = require('./style_url_resolver');
+var di_1 = require('../di');
+var api_1 = require('../render/api');
+var html_ast_1 = require('./html_ast');
+var html_parser_1 = require('./html_parser');
+var template_preparser_1 = require('./template_preparser');
 var TemplateNormalizer = (function() {
   function TemplateNormalizer(_xhr, _urlResolver, _domParser) {
     this._xhr = _xhr;

@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var di_1 = require("./metadata/di");
+var di_1 = require('./metadata/di');
 exports.QueryMetadata = di_1.QueryMetadata;
 exports.ContentChildrenMetadata = di_1.ContentChildrenMetadata;
 exports.ContentChildMetadata = di_1.ContentChildMetadata;
@@ -8,7 +8,7 @@ exports.ViewChildrenMetadata = di_1.ViewChildrenMetadata;
 exports.ViewQueryMetadata = di_1.ViewQueryMetadata;
 exports.ViewChildMetadata = di_1.ViewChildMetadata;
 exports.AttributeMetadata = di_1.AttributeMetadata;
-var directives_1 = require("./metadata/directives");
+var directives_1 = require('./metadata/directives');
 exports.ComponentMetadata = directives_1.ComponentMetadata;
 exports.DirectiveMetadata = directives_1.DirectiveMetadata;
 exports.PipeMetadata = directives_1.PipeMetadata;
@@ -16,13 +16,13 @@ exports.InputMetadata = directives_1.InputMetadata;
 exports.OutputMetadata = directives_1.OutputMetadata;
 exports.HostBindingMetadata = directives_1.HostBindingMetadata;
 exports.HostListenerMetadata = directives_1.HostListenerMetadata;
-var view_1 = require("./metadata/view");
+var view_1 = require('./metadata/view');
 exports.ViewMetadata = view_1.ViewMetadata;
 exports.ViewEncapsulation = view_1.ViewEncapsulation;
-var di_2 = require("./metadata/di");
-var directives_2 = require("./metadata/directives");
-var view_2 = require("./metadata/view");
-var decorators_1 = require("./util/decorators");
+var di_2 = require('./metadata/di');
+var directives_2 = require('./metadata/directives');
+var view_2 = require('./metadata/view');
+var decorators_1 = require('./util/decorators');
 exports.Component = decorators_1.makeDecorator(directives_2.ComponentMetadata, function(fn) {
   return fn.View = exports.View;
 });

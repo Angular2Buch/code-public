@@ -27,16 +27,16 @@ var __param = (this && this.__param) || function(paramIndex, decorator) {
     decorator(target, key, paramIndex);
   };
 };
-var di_1 = require("../di");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var view_ref_1 = require("./view_ref");
-var api_1 = require("../render/api");
-var view_manager_utils_1 = require("./view_manager_utils");
-var view_pool_1 = require("./view_pool");
-var view_listener_1 = require("./view_listener");
-var profile_1 = require("../profile/profile");
-var proto_view_factory_1 = require("./proto_view_factory");
+var di_1 = require('../di');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var view_ref_1 = require('./view_ref');
+var api_1 = require('../render/api');
+var view_manager_utils_1 = require('./view_manager_utils');
+var view_pool_1 = require('./view_pool');
+var view_listener_1 = require('./view_listener');
+var profile_1 = require('../profile/profile');
+var proto_view_factory_1 = require('./proto_view_factory');
 var AppViewManager = (function() {
   function AppViewManager(_viewPool, _viewListener, _utils, _renderer, _protoViewFactory) {
     this._viewPool = _viewPool;

@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var collection_1 = require("../core/facade/collection");
-var dom_adapter_1 = require("../core/dom/dom_adapter");
-var lang_1 = require("../core/facade/lang");
+var collection_1 = require('../core/facade/collection');
+var dom_adapter_1 = require('../core/dom/dom_adapter');
+var lang_1 = require('../core/facade/lang');
 var Log = (function() {
   function Log() {
     this._result = [];

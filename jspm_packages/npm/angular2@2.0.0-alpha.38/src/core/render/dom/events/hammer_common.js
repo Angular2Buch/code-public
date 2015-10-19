@@ -9,8 +9,8 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var event_manager_1 = require("./event_manager");
-var collection_1 = require("../../../facade/collection");
+var event_manager_1 = require('./event_manager');
+var collection_1 = require('../../../facade/collection');
 var _eventNames = {
   'pan': true,
   'panstart': true,

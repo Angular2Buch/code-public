@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var keys = require("./keys");
+var keys = require('./keys');
 function Zone(parentZone, data) {
   var zone = (arguments.length) ? Object.create(parentZone) : this;
   zone.parent = parentZone || null;
@@ -93,5 +93,5 @@ Zone.prototype = {
   }
 };
 Zone.nextId = 1;
-Zone.bindPromiseFn = require("./patch/promise").bindPromiseFn;
+Zone.bindPromiseFn = require('./patch/promise').bindPromiseFn;
 module.exports = {Zone: Zone};

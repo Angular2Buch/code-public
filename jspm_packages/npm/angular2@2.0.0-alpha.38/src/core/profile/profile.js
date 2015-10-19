@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var impl = require("./wtf_impl");
+var impl = require('./wtf_impl');
 exports.wtfEnabled = impl.detectWTF();
 function noopScope(arg0, arg1) {
   return null;

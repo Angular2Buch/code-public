@@ -22,14 +22,14 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var message_bus_1 = require("./message_bus");
-var lang_1 = require("../../core/facade/lang");
-var async_1 = require("../../core/facade/async");
-var collection_1 = require("../../core/facade/collection");
-var serializer_1 = require("./serializer");
-var di_1 = require("../../core/di");
-var lang_2 = require("../../core/facade/lang");
-var lang_3 = require("../../core/facade/lang");
+var message_bus_1 = require('./message_bus');
+var lang_1 = require('../../core/facade/lang');
+var async_1 = require('../../core/facade/async');
+var collection_1 = require('../../core/facade/collection');
+var serializer_1 = require('./serializer');
+var di_1 = require('../../core/di');
+var lang_2 = require('../../core/facade/lang');
+var lang_3 = require('../../core/facade/lang');
 exports.Type = lang_3.Type;
 var ClientMessageBrokerFactory = (function() {
   function ClientMessageBrokerFactory(_messageBus, _serializer) {

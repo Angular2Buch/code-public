@@ -23,12 +23,12 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
-var _utilBindCallback = require("../util/bindCallback");
+var _utilErrorObject = require('../util/errorObject');
+var _utilBindCallback = require('../util/bindCallback');
 var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
 function distinctUntilChanged(compare, thisArg) {
   return this.lift(new DistinctUntilChangedOperator(thisArg ? _utilBindCallback2['default'](compare, thisArg, 2) : compare));

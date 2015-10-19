@@ -9,10 +9,10 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber = require("./Subscriber");
+var _Subscriber = require('./Subscriber');
 var _Subscriber2 = _interopRequireDefault(_Subscriber);
-var _utilRoot = require("./util/root");
-var _utilSymbol_observable = require("./util/Symbol_observable");
+var _utilRoot = require('./util/root');
+var _utilSymbol_observable = require('./util/Symbol_observable');
 var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
 var Observable = (function() {
   function Observable(subscribe) {

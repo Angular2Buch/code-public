@@ -9,7 +9,7 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var abstract_control_directive_1 = require("./abstract_control_directive");
+var abstract_control_directive_1 = require('./abstract_control_directive');
 var NgControl = (function(_super) {
   __extends(NgControl, _super);
   function NgControl() {

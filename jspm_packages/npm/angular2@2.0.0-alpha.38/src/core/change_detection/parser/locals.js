@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var lang_1 = require("../../facade/lang");
-var exceptions_1 = require("../../facade/exceptions");
-var collection_1 = require("../../facade/collection");
+var lang_1 = require('../../facade/lang');
+var exceptions_1 = require('../../facade/exceptions');
+var collection_1 = require('../../facade/collection');
 var Locals = (function() {
   function Locals(parent, current) {
     this.parent = parent;

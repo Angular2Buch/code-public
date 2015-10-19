@@ -5,4 +5,4 @@ function __export(m) {
     if (!exports.hasOwnProperty(p))
       exports[p] = m[p];
 }
-__export(require("./src/core/render"));
+__export(require('./src/core/render'));

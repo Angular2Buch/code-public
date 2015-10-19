@@ -22,15 +22,15 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
-var template_commands_1 = require("../linker/template_commands");
-var template_ast_1 = require("./template_ast");
-var source_module_1 = require("./source_module");
-var api_1 = require("../render/api");
-var style_compiler_1 = require("./style_compiler");
-var util_1 = require("./util");
-var di_1 = require("../di");
+var lang_1 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
+var template_commands_1 = require('../linker/template_commands');
+var template_ast_1 = require('./template_ast');
+var source_module_1 = require('./source_module');
+var api_1 = require('../render/api');
+var style_compiler_1 = require('./style_compiler');
+var util_1 = require('./util');
+var di_1 = require('../di');
 exports.TEMPLATE_COMMANDS_MODULE_REF = source_module_1.moduleRef("package:angular2/src/core/linker/template_commands" + util_1.MODULE_SUFFIX);
 var IMPLICIT_TEMPLATE_VAR = '\$implicit';
 var CommandCompiler = (function() {

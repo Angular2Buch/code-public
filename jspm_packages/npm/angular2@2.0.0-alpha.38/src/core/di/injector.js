@@ -1,12 +1,12 @@
 /* */ 
 (function(process) {
   'use strict';
-  var collection_1 = require("../facade/collection");
-  var binding_1 = require("./binding");
-  var exceptions_1 = require("./exceptions");
-  var lang_1 = require("../facade/lang");
-  var key_1 = require("./key");
-  var metadata_1 = require("./metadata");
+  var collection_1 = require('../facade/collection');
+  var binding_1 = require('./binding');
+  var exceptions_1 = require('./exceptions');
+  var lang_1 = require('../facade/lang');
+  var key_1 = require('./key');
+  var metadata_1 = require('./metadata');
   var _MAX_CONSTRUCTION_COUNTER = 10;
   exports.UNDEFINED = lang_1.CONST_EXPR(new Object());
   (function(Visibility) {
@@ -652,4 +652,4 @@
     }
     return res;
   }
-})(require("process"));
+})(require('process'));

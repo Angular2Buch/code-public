@@ -22,11 +22,11 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Observable2 = require("../Observable");
+var _Observable2 = require('../Observable');
 var _Observable3 = _interopRequireDefault(_Observable2);
-var _Subscription = require("../Subscription");
+var _Subscription = require('../Subscription');
 var _Subscription2 = _interopRequireDefault(_Subscription);
-var _schedulersImmediate = require("../schedulers/immediate");
+var _schedulersImmediate = require('../schedulers/immediate');
 var _schedulersImmediate2 = _interopRequireDefault(_schedulersImmediate);
 var PromiseObservable = (function(_Observable) {
   _inherits(PromiseObservable, _Observable);

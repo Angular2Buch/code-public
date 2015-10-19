@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var collection_1 = require("../facade/collection");
-var lang_1 = require("../facade/lang");
-var view_ref_1 = require("./view_ref");
+var collection_1 = require('../facade/collection');
+var lang_1 = require('../facade/lang');
+var view_ref_1 = require('./view_ref');
 var ViewContainerRef = (function() {
   function ViewContainerRef(viewManager, element) {
     this.viewManager = viewManager;

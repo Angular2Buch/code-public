@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var view_1 = require("./view");
+var lang_1 = require('../facade/lang');
+var view_1 = require('./view');
 function createRenderView(fragmentCmds, inplaceElement, nodeFactory) {
   var builders = [];
   visitAll(new RenderViewBuilder(null, null, inplaceElement, builders, nodeFactory), fragmentCmds);

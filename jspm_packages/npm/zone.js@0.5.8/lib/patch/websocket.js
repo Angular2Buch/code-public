@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var utils = require("../utils");
+var utils = require('../utils');
 function apply() {
   var WS = global.WebSocket;
   utils.patchEventTargetMethods(WS.prototype);

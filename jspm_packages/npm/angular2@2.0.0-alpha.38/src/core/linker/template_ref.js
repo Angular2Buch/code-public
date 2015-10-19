@@ -1,6 +1,6 @@
 /* */ 
 'use strict';
-var view_ref_1 = require("./view_ref");
+var view_ref_1 = require('./view_ref');
 var TemplateRef = (function() {
   function TemplateRef(elementRef) {
     this.elementRef = elementRef;

@@ -41,13 +41,13 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _utilNoop = require("./util/noop");
+var _utilNoop = require('./util/noop');
 var _utilNoop2 = _interopRequireDefault(_utilNoop);
-var _utilThrowError = require("./util/throwError");
+var _utilThrowError = require('./util/throwError');
 var _utilThrowError2 = _interopRequireDefault(_utilThrowError);
-var _utilTryOrOnError = require("./util/tryOrOnError");
+var _utilTryOrOnError = require('./util/tryOrOnError');
 var _utilTryOrOnError2 = _interopRequireDefault(_utilTryOrOnError);
-var _Subscription2 = require("./Subscription");
+var _Subscription2 = require('./Subscription');
 var _Subscription3 = _interopRequireDefault(_Subscription2);
 var Subscriber = (function(_Subscription) {
   _inherits(Subscriber, _Subscription);

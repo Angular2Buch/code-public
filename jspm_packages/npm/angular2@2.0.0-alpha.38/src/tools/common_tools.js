@@ -1,9 +1,9 @@
 /* */ 
 'use strict';
-var angular2_1 = require("../../angular2");
-var lang_1 = require("../core/facade/lang");
-var browser_1 = require("../core/facade/browser");
-var dom_adapter_1 = require("../core/dom/dom_adapter");
+var angular2_1 = require('../../angular2');
+var lang_1 = require('../core/facade/lang');
+var browser_1 = require('../core/facade/browser');
+var dom_adapter_1 = require('../core/dom/dom_adapter');
 var AngularTools = (function() {
   function AngularTools(ref) {
     this.profiler = new AngularProfiler(ref);

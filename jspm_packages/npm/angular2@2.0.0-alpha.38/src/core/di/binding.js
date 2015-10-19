@@ -22,14 +22,14 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var reflection_1 = require("../reflection/reflection");
-var key_1 = require("./key");
-var metadata_1 = require("./metadata");
-var exceptions_2 = require("./exceptions");
-var forward_ref_1 = require("./forward_ref");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var reflection_1 = require('../reflection/reflection');
+var key_1 = require('./key');
+var metadata_1 = require('./metadata');
+var exceptions_2 = require('./exceptions');
+var forward_ref_1 = require('./forward_ref');
 var Dependency = (function() {
   function Dependency(key, optional, lowerBoundVisibility, upperBoundVisibility, properties) {
     this.key = key;

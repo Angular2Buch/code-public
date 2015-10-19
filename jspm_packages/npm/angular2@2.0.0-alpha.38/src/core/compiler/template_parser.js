@@ -23,18 +23,18 @@
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
       return Reflect.metadata(k, v);
   };
-  var collection_1 = require("../facade/collection");
-  var lang_1 = require("../facade/lang");
-  var di_1 = require("../di");
-  var exceptions_1 = require("../facade/exceptions");
-  var change_detection_1 = require("../change_detection/change_detection");
-  var html_parser_1 = require("./html_parser");
-  var template_ast_1 = require("./template_ast");
-  var selector_1 = require("./selector");
-  var element_schema_registry_1 = require("./schema/element_schema_registry");
-  var template_preparser_1 = require("./template_preparser");
-  var html_ast_1 = require("./html_ast");
-  var util_1 = require("./util");
+  var collection_1 = require('../facade/collection');
+  var lang_1 = require('../facade/lang');
+  var di_1 = require('../di');
+  var exceptions_1 = require('../facade/exceptions');
+  var change_detection_1 = require('../change_detection/change_detection');
+  var html_parser_1 = require('./html_parser');
+  var template_ast_1 = require('./template_ast');
+  var selector_1 = require('./selector');
+  var element_schema_registry_1 = require('./schema/element_schema_registry');
+  var template_preparser_1 = require('./template_preparser');
+  var html_ast_1 = require('./html_ast');
+  var util_1 = require('./util');
   var BIND_NAME_REGEXP = /^(?:(?:(?:(bind-)|(var-|#)|(on-)|(bindon-))(.+))|\[\(([^\)]+)\)\]|\[([^\]]+)\]|\(([^\)]+)\))$/g;
   var TEMPLATE_ELEMENT = 'template';
   var TEMPLATE_ATTR = 'template';
@@ -525,4 +525,4 @@
   }
   var EMPTY_COMPONENT = new Component(new selector_1.SelectorMatcher(), null);
   var NON_BINDABLE_VISITOR = new NonBindableVisitor();
-})(require("process"));
+})(require('process'));

@@ -1,9 +1,9 @@
 /* */ 
 (function(process) {
   'use strict';
-  var collection_1 = require("../facade/collection");
-  var lang_1 = require("../facade/lang");
-  var exceptions_1 = require("../facade/exceptions");
+  var collection_1 = require('../facade/collection');
+  var lang_1 = require('../facade/lang');
+  var exceptions_1 = require('../facade/exceptions');
   var _EMPTY_ATTR_VALUE = '';
   var _SELECTOR_REGEXP = lang_1.RegExpWrapper.create('(\\:not\\()|' + '([-\\w]+)|' + '(?:\\.([-\\w]+))|' + '(?:\\[([-\\w*]+)(?:=([^\\]]*))?\\])|' + '(\\))|' + '(\\s*,\\s*)');
   var CssSelector = (function() {
@@ -317,4 +317,4 @@
     return SelectorContext;
   })();
   exports.SelectorContext = SelectorContext;
-})(require("process"));
+})(require('process'));

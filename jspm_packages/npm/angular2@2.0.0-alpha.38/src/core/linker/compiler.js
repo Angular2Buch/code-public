@@ -22,13 +22,13 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var proto_view_factory_1 = require("./proto_view_factory");
-var di_1 = require("../di");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var async_1 = require("../facade/async");
-var reflection_1 = require("../reflection/reflection");
-var template_commands_1 = require("./template_commands");
+var proto_view_factory_1 = require('./proto_view_factory');
+var di_1 = require('../di');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var async_1 = require('../facade/async');
+var reflection_1 = require('../reflection/reflection');
+var template_commands_1 = require('./template_commands');
 var Compiler = (function() {
   function Compiler(_protoViewFactory) {
     this._protoViewFactory = _protoViewFactory;

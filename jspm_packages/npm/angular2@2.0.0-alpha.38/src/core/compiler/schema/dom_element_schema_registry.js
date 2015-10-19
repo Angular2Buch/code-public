@@ -31,11 +31,11 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../di");
-var lang_1 = require("../../facade/lang");
-var collection_1 = require("../../facade/collection");
-var dom_adapter_1 = require("../../dom/dom_adapter");
-var element_schema_registry_1 = require("./element_schema_registry");
+var di_1 = require('../../di');
+var lang_1 = require('../../facade/lang');
+var collection_1 = require('../../facade/collection');
+var dom_adapter_1 = require('../../dom/dom_adapter');
+var element_schema_registry_1 = require('./element_schema_registry');
 var DomElementSchemaRegistry = (function(_super) {
   __extends(DomElementSchemaRegistry, _super);
   function DomElementSchemaRegistry() {

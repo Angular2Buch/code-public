@@ -1,14 +1,14 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var collection_1 = require("../facade/collection");
-var change_detection_util_1 = require("./change_detection_util");
-var change_detector_ref_1 = require("./change_detector_ref");
-var exceptions_2 = require("./exceptions");
-var constants_1 = require("./constants");
-var profile_1 = require("../profile/profile");
-var observable_facade_1 = require("./observable_facade");
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var collection_1 = require('../facade/collection');
+var change_detection_util_1 = require('./change_detection_util');
+var change_detector_ref_1 = require('./change_detector_ref');
+var exceptions_2 = require('./exceptions');
+var constants_1 = require('./constants');
+var profile_1 = require('../profile/profile');
+var observable_facade_1 = require('./observable_facade');
 var _scope_check = profile_1.wtfCreateScope("ChangeDetector#check(ascii id, bool throwOnChange)");
 var _Context = (function() {
   function _Context(element, componentElement, context, locals, injector, expression) {

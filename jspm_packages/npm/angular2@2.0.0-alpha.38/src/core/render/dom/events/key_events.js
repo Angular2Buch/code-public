@@ -32,11 +32,11 @@
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
       return Reflect.metadata(k, v);
   };
-  var dom_adapter_1 = require("../../../dom/dom_adapter");
-  var lang_1 = require("../../../facade/lang");
-  var collection_1 = require("../../../facade/collection");
-  var event_manager_1 = require("./event_manager");
-  var di_1 = require("../../../di");
+  var dom_adapter_1 = require('../../../dom/dom_adapter');
+  var lang_1 = require('../../../facade/lang');
+  var collection_1 = require('../../../facade/collection');
+  var event_manager_1 = require('./event_manager');
+  var di_1 = require('../../../di');
   var modifierKeys = ['alt', 'control', 'meta', 'shift'];
   var modifierKeyGetters = {
     'alt': function(event) {
@@ -131,4 +131,4 @@
     return KeyEventsPlugin;
   })(event_manager_1.EventManagerPlugin);
   exports.KeyEventsPlugin = KeyEventsPlugin;
-})(require("process"));
+})(require('process'));

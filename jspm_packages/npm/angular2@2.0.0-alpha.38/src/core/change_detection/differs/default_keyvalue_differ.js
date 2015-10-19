@@ -22,9 +22,9 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var collection_1 = require("../../facade/collection");
-var lang_1 = require("../../facade/lang");
-var exceptions_1 = require("../../facade/exceptions");
+var collection_1 = require('../../facade/collection');
+var lang_1 = require('../../facade/lang');
+var exceptions_1 = require('../../facade/exceptions');
 var DefaultKeyValueDifferFactory = (function() {
   function DefaultKeyValueDifferFactory() {}
   DefaultKeyValueDifferFactory.prototype.supports = function(obj) {

@@ -29,10 +29,10 @@
     1: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var core = require("../core");
-        var microtask = require("../microtask");
-        var browserPatch = require("../patch/browser");
-        var es6Promise = require("es6-promise");
+        var core = require('../core');
+        var microtask = require('../microtask');
+        var browserPatch = require('../patch/browser');
+        var es6Promise = require('es6-promise');
         if (global.Zone) {
           console.warn('Zone already exported on window the object!');
         }
@@ -50,7 +50,7 @@
     2: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var keys = require("./keys");
+        var keys = require('./keys');
         function Zone(parentZone, data) {
           var zone = (arguments.length) ? Object.create(parentZone) : this;
           zone.parent = parentZone || null;
@@ -143,7 +143,7 @@
           }
         };
         Zone.nextId = 1;
-        Zone.bindPromiseFn = require("./patch/promise").bindPromiseFn;
+        Zone.bindPromiseFn = require('./patch/promise').bindPromiseFn;
         module.exports = {Zone: Zone};
       }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
     }, {
@@ -172,7 +172,7 @@
     4: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var es6Promise = require("es6-promise").Promise;
+        var es6Promise = require('es6-promise').Promise;
         es6Promise._setAsap(function(fn, arg) {
           global.zone.scheduleMicrotask(function() {
             fn(arg);
@@ -199,16 +199,16 @@
     5: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var fnPatch = require("./functions");
-        var promisePatch = require("./promise");
-        var mutationObserverPatch = require("./mutation-observer");
-        var definePropertyPatch = require("./define-property");
-        var registerElementPatch = require("./register-element");
-        var webSocketPatch = require("./websocket");
-        var eventTargetPatch = require("./event-target");
-        var propertyDescriptorPatch = require("./property-descriptor");
-        var geolocationPatch = require("./geolocation");
-        var fileReaderPatch = require("./file-reader");
+        var fnPatch = require('./functions');
+        var promisePatch = require('./promise');
+        var mutationObserverPatch = require('./mutation-observer');
+        var definePropertyPatch = require('./define-property');
+        var registerElementPatch = require('./register-element');
+        var webSocketPatch = require('./websocket');
+        var eventTargetPatch = require('./event-target');
+        var propertyDescriptorPatch = require('./property-descriptor');
+        var geolocationPatch = require('./geolocation');
+        var fileReaderPatch = require('./file-reader');
         function apply() {
           fnPatch.patchSetClearFunction(global, ['timeout', 'interval', 'immediate']);
           fnPatch.patchRequestAnimationFrame(global, ['requestAnimationFrame', 'mozRequestAnimationFrame', 'webkitRequestAnimationFrame']);
@@ -239,7 +239,7 @@
     }],
     6: [function(require, module, exports) {
       'use strict';
-      var keys = require("../keys");
+      var keys = require('../keys');
       var _defineProperty = Object.defineProperty;
       var _getOwnPropertyDescriptor = Object.getOwnPropertyDescriptor;
       var _create = Object.create;
@@ -306,7 +306,7 @@
     7: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function apply() {
           if (global.EventTarget) {
             utils.patchEventTargetMethods(global.EventTarget.prototype);
@@ -325,7 +325,7 @@
     }, {"../utils": 16}],
     8: [function(require, module, exports) {
       'use strict';
-      var utils = require("../utils");
+      var utils = require('../utils');
       function apply() {
         utils.patchClass('FileReader');
       }
@@ -334,7 +334,7 @@
     9: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function patchSetClearFunction(obj, fnNames) {
           fnNames.map(function(name) {
             return name[0].toUpperCase() + name.substr(1);
@@ -436,7 +436,7 @@
     10: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function apply() {
           if (global.navigator && global.navigator.geolocation) {
             utils.patchPrototype(global.navigator.geolocation, ['getCurrentPosition', 'watchPosition']);
@@ -448,7 +448,7 @@
     11: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var keys = require("../keys");
+        var keys = require('../keys');
         var originalInstanceKey = keys.create('originalInstance');
         var creationZoneKey = keys.create('creationZone');
         var isActiveKey = keys.create('isActive');
@@ -510,7 +510,7 @@
     12: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         var bindPromiseFn;
         if (global.Promise) {
           bindPromiseFn = function(delegate) {
@@ -580,9 +580,9 @@
     13: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var webSocketPatch = require("./websocket");
-        var utils = require("../utils");
-        var keys = require("../keys");
+        var webSocketPatch = require('./websocket');
+        var utils = require('../utils');
+        var keys = require('../keys');
         var eventNames = 'copy cut paste abort blur focus canplay canplaythrough change click contextmenu dblclick drag dragend dragenter dragleave dragover dragstart drop durationchange emptied ended input invalid keydown keypress keyup load loadeddata loadedmetadata loadstart message mousedown mouseenter mouseleave mousemove mouseout mouseover mouseup pause play playing progress ratechange reset scroll seeked seeking select show stalled submit suspend timeupdate volumechange waiting mozfullscreenchange mozfullscreenerror mozpointerlockchange mozpointerlockerror error webglcontextrestored webglcontextlost webglcontextcreationerror'.split(' ');
         function apply() {
           if (utils.isWebWorker()) {
@@ -650,8 +650,8 @@
     14: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var _redefineProperty = require("./define-property")._redefineProperty;
-        var utils = require("../utils");
+        var _redefineProperty = require('./define-property')._redefineProperty;
+        var utils = require('../utils');
         function apply() {
           if (utils.isWebWorker() || !('registerElement' in global.document)) {
             return;
@@ -686,7 +686,7 @@
     15: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var utils = require("../utils");
+        var utils = require('../utils');
         function apply() {
           var WS = global.WebSocket;
           utils.patchEventTargetMethods(WS.prototype);
@@ -714,7 +714,7 @@
     16: [function(require, module, exports) {
       (function(global) {
         'use strict';
-        var keys = require("./keys");
+        var keys = require('./keys');
         function bindArguments(args) {
           for (var i = args.length - 1; i >= 0; i--) {
             if (typeof args[i] === 'function') {
@@ -1454,7 +1454,7 @@
         if (!global.Zone) {
           throw new Error('zone.js should be installed before loading the long stack trace zone');
         }
-        global.Zone.longStackTraceZone = require("../zones/long-stack-trace");
+        global.Zone.longStackTraceZone = require('../zones/long-stack-trace');
       }).call(this, typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {});
     }, {"../zones/long-stack-trace.js": 2}],
     2: [function(require, module, exports) {
@@ -1946,7 +1946,7 @@
     function CreateWeakMapPolyfill() {
       var UUID_SIZE = 16;
       var isNode = typeof global !== "undefined" && Object.prototype.toString.call(global.process) === '[object process]';
-      var nodeCrypto = isNode && require("crypto");
+      var nodeCrypto = isNode && require('crypto');
       var hasOwn = Object.prototype.hasOwnProperty;
       var keys = {};
       var rootKey = CreateUniqueKey();
@@ -2661,7 +2661,7 @@
       if (superClass)
         Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
-    var _Subscription2 = require("@reactivex/rxjs/dist/cjs/Subscription");
+    var _Subscription2 = require('@reactivex/rxjs/dist/cjs/Subscription');
     var _Subscription3 = _interopRequireDefault(_Subscription2);
     var SubjectSubscription = (function(_Subscription) {
       _inherits(SubjectSubscription, _Subscription);
@@ -2699,7 +2699,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     exports.Map = lang_1.global.Map;
     exports.Set = lang_1.global.Set;
     exports.StringMap = lang_1.global.Object;
@@ -3113,7 +3113,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     var trace;
     var events;
     function detectWTF() {
@@ -3177,7 +3177,7 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     var InjectMetadata = (function() {
       function InjectMetadata(token) {
         this.token = token;
@@ -3251,7 +3251,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     function extractAnnotation(annotation) {
       if (lang_1.isFunction(annotation) && annotation.hasOwnProperty('annotation')) {
         annotation = annotation.annotation;
@@ -3412,7 +3412,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     function forwardRef(forwardRefFn) {
       forwardRefFn.__forward_ref__ = forwardRef;
       forwardRefFn.toString = function() {
@@ -3436,9 +3436,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
     var ReflectionInfo = (function() {
       function ReflectionInfo(annotations, parameters, factory, interfaces, propMetadata) {
         this.annotations = annotations;
@@ -3578,9 +3578,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
     var ReflectionCapabilities = (function() {
       function ReflectionCapabilities(reflect) {
         this._reflect = lang_1.isPresent(reflect) ? reflect : lang_1.global.Reflect;
@@ -3796,9 +3796,9 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     function findFirstClosedCycle(keys) {
       var res = [];
       for (var i = 0; i < keys.length; ++i) {
@@ -3977,7 +3977,7 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     var OpaqueToken = (function() {
       function OpaqueToken(_desc) {
         this._desc = _desc;
@@ -4027,9 +4027,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
-    var metadata_1 = require("../../src/core/di/metadata");
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
+    var metadata_1 = require('../../src/core/di/metadata');
     var AttributeMetadata = (function(_super) {
       __extends(AttributeMetadata, _super);
       function AttributeMetadata(attributeName) {
@@ -4198,10 +4198,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var di_1 = require("../../src/core/di");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var di_1 = require('../../src/core/di');
     var IterableDiffers = (function() {
       function IterableDiffers(factories) {
         this.factories = factories;
@@ -4269,10 +4269,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_2 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_2 = require('../../src/core/facade/lang');
     var DefaultIterableDifferFactory = (function() {
       function DefaultIterableDifferFactory() {}
       DefaultIterableDifferFactory.prototype.supports = function(obj) {
@@ -4743,10 +4743,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var di_1 = require("../../src/core/di");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var di_1 = require('../../src/core/di');
     var KeyValueDiffers = (function() {
       function KeyValueDiffers(factories) {
         this.factories = factories;
@@ -4814,9 +4814,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     var DefaultKeyValueDifferFactory = (function() {
       function DefaultKeyValueDifferFactory() {}
       DefaultKeyValueDifferFactory.prototype.supports = function(obj) {
@@ -5095,8 +5095,8 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var collection_1 = require("../../src/core/facade/collection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var collection_1 = require('../../src/core/facade/collection');
     var AST = (function() {
       function AST() {}
       AST.prototype.visit = function(visitor) {
@@ -5599,10 +5599,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var decorators_1 = require("../../src/core/di/decorators");
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var decorators_1 = require('../../src/core/di/decorators');
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     (function(TokenType) {
       TokenType[TokenType["Character"] = 0] = "Character";
       TokenType[TokenType["Identifier"] = 1] = "Identifier";
@@ -6043,13 +6043,13 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var decorators_1 = require("../../src/core/di/decorators");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var lexer_1 = require("../../src/core/change_detection/parser/lexer");
-    var reflection_1 = require("../../src/core/reflection/reflection");
-    var ast_1 = require("../../src/core/change_detection/parser/ast");
+    var decorators_1 = require('../../src/core/di/decorators');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var lexer_1 = require('../../src/core/change_detection/parser/lexer');
+    var reflection_1 = require('../../src/core/reflection/reflection');
+    var ast_1 = require('../../src/core/change_detection/parser/ast');
     var _implicitReceiver = new ast_1.ImplicitReceiver();
     var INTERPOLATION_REGEXP = /\{\{(.*?)\}\}/g;
     var ParseException = (function(_super) {
@@ -6658,9 +6658,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
     var Locals = (function() {
       function Locals(parent, current) {
         this.parent = parent;
@@ -6713,7 +6713,7 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     var ExpressionChangedAfterItHasBeenCheckedException = (function(_super) {
       __extends(ExpressionChangedAfterItHasBeenCheckedException, _super);
       function ExpressionChangedAfterItHasBeenCheckedException(exp, oldValue, currValue, context) {
@@ -6788,7 +6788,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     (function(ChangeDetectionStrategy) {
       ChangeDetectionStrategy[ChangeDetectionStrategy["CheckOnce"] = 0] = "CheckOnce";
       ChangeDetectionStrategy[ChangeDetectionStrategy["Checked"] = 1] = "Checked";
@@ -6822,7 +6822,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     var DIRECTIVE_LIFECYCLE = "directiveLifecycle";
     var BINDING = "native";
     var DIRECTIVE = "directive";
@@ -6950,8 +6950,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var constants_1 = require("../../src/core/change_detection/constants");
+    var lang_1 = require('../../src/core/facade/lang');
+    var constants_1 = require('../../src/core/change_detection/constants');
     var DirectiveIndex = (function() {
       function DirectiveIndex(elementIndex, directiveIndex) {
         this.elementIndex = elementIndex;
@@ -7002,7 +7002,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var constants_1 = require("../../src/core/change_detection/constants");
+    var constants_1 = require('../../src/core/change_detection/constants');
     var ChangeDetectorRef = (function() {
       function ChangeDetectorRef(_cd) {
         this._cd = _cd;
@@ -7120,9 +7120,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var collection_1 = require("../../src/core/facade/collection");
-    var proto_record_1 = require("../../src/core/change_detection/proto_record");
+    var lang_1 = require('../../src/core/facade/lang');
+    var collection_1 = require('../../src/core/facade/collection');
+    var proto_record_1 = require('../../src/core/change_detection/proto_record');
     function coalesce(records) {
       var res = [];
       var indexMap = new collection_1.Map();
@@ -7180,8 +7180,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var collection_1 = require("../../src/core/facade/collection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var collection_1 = require('../../src/core/facade/collection');
     var _ALREADY_CHECKED_ACCESSOR = "alreadyChecked";
     var _CONTEXT_ACCESSOR = "context";
     var _PROP_BINDING_INDEX = "propertyBindingIndex";
@@ -7462,7 +7462,7 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     var InvalidPipeArgumentException = (function(_super) {
       __extends(InvalidPipeArgumentException, _super);
       function InvalidPipeArgumentException(type, value) {
@@ -7618,10 +7618,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var metadata_1 = require("../../src/core/metadata");
-    var di_1 = require("../../src/core/di");
-    var invalid_pipe_argument_exception_1 = require("../../src/core/pipes/invalid_pipe_argument_exception");
+    var lang_1 = require('../../src/core/facade/lang');
+    var metadata_1 = require('../../src/core/metadata');
+    var di_1 = require('../../src/core/di');
+    var invalid_pipe_argument_exception_1 = require('../../src/core/pipes/invalid_pipe_argument_exception');
     var UpperCasePipe = (function() {
       function UpperCasePipe() {}
       UpperCasePipe.prototype.transform = function(value, args) {
@@ -7668,10 +7668,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
-    var metadata_1 = require("../../src/core/metadata");
-    var invalid_pipe_argument_exception_1 = require("../../src/core/pipes/invalid_pipe_argument_exception");
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
+    var metadata_1 = require('../../src/core/metadata');
+    var invalid_pipe_argument_exception_1 = require('../../src/core/pipes/invalid_pipe_argument_exception');
     var LowerCasePipe = (function() {
       function LowerCasePipe() {}
       LowerCasePipe.prototype.transform = function(value, args) {
@@ -7718,9 +7718,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
-    var metadata_1 = require("../../src/core/metadata");
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
+    var metadata_1 = require('../../src/core/metadata');
     var JsonPipe = (function() {
       function JsonPipe() {}
       JsonPipe.prototype.transform = function(value, args) {
@@ -7762,12 +7762,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var di_1 = require("../../src/core/di");
-    var invalid_pipe_argument_exception_1 = require("../../src/core/pipes/invalid_pipe_argument_exception");
-    var metadata_1 = require("../../src/core/metadata");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var di_1 = require('../../src/core/di');
+    var invalid_pipe_argument_exception_1 = require('../../src/core/pipes/invalid_pipe_argument_exception');
+    var metadata_1 = require('../../src/core/metadata');
     var SlicePipe = (function() {
       function SlicePipe() {}
       SlicePipe.prototype.transform = function(value, args) {
@@ -7834,13 +7834,13 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var intl_1 = require("../../src/core/facade/intl");
-    var di_1 = require("../../src/core/di");
-    var metadata_1 = require("../../src/core/metadata");
-    var collection_1 = require("../../src/core/facade/collection");
-    var invalid_pipe_argument_exception_1 = require("../../src/core/pipes/invalid_pipe_argument_exception");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var intl_1 = require('../../src/core/facade/intl');
+    var di_1 = require('../../src/core/di');
+    var metadata_1 = require('../../src/core/metadata');
+    var collection_1 = require('../../src/core/facade/collection');
+    var invalid_pipe_argument_exception_1 = require('../../src/core/pipes/invalid_pipe_argument_exception');
     var defaultLocale = 'en-US';
     var _re = lang_1.RegExpWrapper.create('^(\\d+)?\\.((\\d+)(\\-(\\d+))?)?$');
     var NumberPipe = (function() {
@@ -7951,7 +7951,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     exports.Math = lang_1.global.Math;
     exports.NaN = typeof exports.NaN;
     global.define = __define;
@@ -7961,7 +7961,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     var CAMEL_CASE_REGEXP = /([A-Z])/g;
     var DASH_CASE_REGEXP = /-([a-z])/g;
     function camelCaseToDashCase(input) {
@@ -7983,7 +7983,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     function setRootDomAdapter(adapter) {
       if (lang_1.isBlank(exports.DOM)) {
         exports.DOM = adapter;
@@ -8024,9 +8024,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var math_1 = require("../../src/core/facade/math");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
+    var di_1 = require('../../src/core/di');
+    var math_1 = require('../../src/core/facade/math');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
     var BrowserDetails = (function() {
       function BrowserDetails() {
         this.elapsedTimeIncludesDelay = false;
@@ -8127,12 +8127,12 @@
         decorator(target, key, paramIndex);
       };
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var ng_zone_1 = require("../../src/core/zone/ng_zone");
-    var di_1 = require("../../src/core/di");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var ng_zone_1 = require('../../src/core/zone/ng_zone');
+    var di_1 = require('../../src/core/di');
     exports.EVENT_MANAGER_PLUGINS = lang_1.CONST_EXPR(new di_1.OpaqueToken("EventManagerPlugins"));
     var EventManager = (function() {
       function EventManager(plugins, _zone) {
@@ -8233,8 +8233,8 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var binding_1 = require("../../src/core/di/binding");
-    var di_1 = require("../../src/core/di");
+    var binding_1 = require('../../src/core/di/binding');
+    var di_1 = require('../../src/core/di');
     var PipeBinding = (function(_super) {
       __extends(PipeBinding, _super);
       function PipeBinding(name, pure, key, resolvedFactories, multiBinding) {
@@ -8272,7 +8272,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     function internalView(viewRef) {
       return viewRef._view;
     }
@@ -8333,8 +8333,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     var ElementBinder = (function() {
       function ElementBinder(index, parent, distanceToParent, protoElementInjector, componentDirective, nestedProtoView) {
         this.index = index;
@@ -8357,7 +8357,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     var ElementRef = (function() {
       function ElementRef(parentView, boundElementIndex, _renderer) {
         this._renderer = _renderer;
@@ -8391,7 +8391,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var view_ref_1 = require("../../src/core/linker/view_ref");
+    var view_ref_1 = require('../../src/core/linker/view_ref');
     var TemplateRef = (function() {
       function TemplateRef(elementRef) {
         this.elementRef = elementRef;
@@ -8447,9 +8447,9 @@
         decorator(target, key, paramIndex);
       };
     };
-    var di_1 = require("../../src/core/di");
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
+    var di_1 = require('../../src/core/di');
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
     exports.APP_VIEW_POOL_CAPACITY = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppViewPool.viewPoolCapacity'));
     var AppViewPool = (function() {
       function AppViewPool(poolCapacityPerProtoView) {
@@ -8509,7 +8509,7 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
+    var di_1 = require('../../src/core/di');
     var AppViewListener = (function() {
       function AppViewListener() {}
       AppViewListener.prototype.viewCreated = function(view) {};
@@ -8525,9 +8525,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var view_ref_1 = require("../../src/core/linker/view_ref");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var view_ref_1 = require('../../src/core/linker/view_ref');
     var ViewContainerRef = (function() {
       function ViewContainerRef(viewManager, element) {
         this.viewManager = viewManager;
@@ -8630,9 +8630,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var async_1 = require("../../src/core/facade/async");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var async_1 = require('../../src/core/facade/async');
     var QueryList = (function() {
       function QueryList() {
         this._results = [];
@@ -8691,7 +8691,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     exports.EVENT_TARGET_SEPARATOR = ':';
     var EventConfig = (function() {
       function EventConfig(fieldName, eventName, isLongForm) {
@@ -8746,12 +8746,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var metadata_1 = require("../../src/core/metadata");
-    var reflection_1 = require("../../src/core/reflection/reflection");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var metadata_1 = require('../../src/core/metadata');
+    var reflection_1 = require('../../src/core/reflection/reflection');
     var DirectiveResolver = (function() {
       function DirectiveResolver() {}
       DirectiveResolver.prototype.resolve = function(type) {
@@ -8883,12 +8883,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var view_1 = require("../../src/core/metadata/view");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var reflection_1 = require("../../src/core/reflection/reflection");
+    var di_1 = require('../../src/core/di');
+    var view_1 = require('../../src/core/metadata/view');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var reflection_1 = require('../../src/core/reflection/reflection');
     var ViewResolver = (function() {
       function ViewResolver() {
         this._cache = new collection_1.Map();
@@ -8944,11 +8944,11 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var metadata_1 = require("../../src/core/metadata");
-    var reflection_1 = require("../../src/core/reflection/reflection");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var metadata_1 = require('../../src/core/metadata');
+    var reflection_1 = require('../../src/core/reflection/reflection');
     var PipeResolver = (function() {
       function PipeResolver() {}
       PipeResolver.prototype.resolve = function(type) {
@@ -8996,7 +8996,7 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     var _nextTemplateId = 0;
     function nextTemplateId() {
       return _nextTemplateId++;
@@ -9172,8 +9172,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
     exports.DOCUMENT = lang_1.CONST_EXPR(new di_1.OpaqueToken('DocumentToken'));
     global.define = __define;
     return module.exports;
@@ -9191,10 +9191,10 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var api_1 = require("../../src/core/render/api");
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var api_1 = require('../../src/core/render/api');
     var DefaultProtoViewRef = (function(_super) {
       __extends(DefaultProtoViewRef, _super);
       function DefaultProtoViewRef(cmds) {
@@ -9266,8 +9266,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
     exports.APP_COMPONENT_REF_PROMISE = lang_1.CONST_EXPR(new di_1.OpaqueToken('Promise<ComponentRef>'));
     exports.APP_COMPONENT = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppComponent'));
     exports.APP_ID = lang_1.CONST_EXPR(new di_1.OpaqueToken('AppId'));
@@ -9297,9 +9297,9 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
     var GenericBrowserDomAdapter = (function(_super) {
       __extends(GenericBrowserDomAdapter, _super);
       function GenericBrowserDomAdapter() {
@@ -9417,11 +9417,11 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var lang_1 = require("../../src/core/facade/lang");
-    var collection_1 = require("../../src/core/facade/collection");
-    var event_manager_1 = require("../../src/core/render/dom/events/event_manager");
-    var di_1 = require("../../src/core/di");
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var lang_1 = require('../../src/core/facade/lang');
+    var collection_1 = require('../../src/core/facade/collection');
+    var event_manager_1 = require('../../src/core/render/dom/events/event_manager');
+    var di_1 = require('../../src/core/di');
     var modifierKeys = ['alt', 'control', 'meta', 'shift'];
     var modifierKeyGetters = {
       'alt': function(event) {
@@ -9532,8 +9532,8 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var event_manager_1 = require("../../src/core/render/dom/events/event_manager");
-    var collection_1 = require("../../src/core/facade/collection");
+    var event_manager_1 = require('../../src/core/render/dom/events/event_manager');
+    var collection_1 = require('../../src/core/facade/collection');
     var _eventNames = {
       'pan': true,
       'panstart': true,
@@ -9606,7 +9606,7 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
+    var di_1 = require('../../src/core/di');
     var AppRootUrl = (function() {
       function AppRootUrl(value) {
         this._value = value;
@@ -9681,11 +9681,11 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var collection_1 = require("../../src/core/facade/collection");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var element_schema_registry_1 = require("../../src/core/compiler/schema/element_schema_registry");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var collection_1 = require('../../src/core/facade/collection');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var element_schema_registry_1 = require('../../src/core/compiler/schema/element_schema_registry');
     var DomElementSchemaRegistry = (function(_super) {
       __extends(DomElementSchemaRegistry, _super);
       function DomElementSchemaRegistry() {
@@ -9745,13 +9745,13 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var proto_view_factory_1 = require("../../src/core/linker/proto_view_factory");
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var async_1 = require("../../src/core/facade/async");
-    var reflection_1 = require("../../src/core/reflection/reflection");
-    var template_commands_1 = require("../../src/core/linker/template_commands");
+    var proto_view_factory_1 = require('../../src/core/linker/proto_view_factory');
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var async_1 = require('../../src/core/facade/async');
+    var reflection_1 = require('../../src/core/reflection/reflection');
+    var template_commands_1 = require('../../src/core/linker/template_commands');
     var Compiler = (function() {
       function Compiler(_protoViewFactory) {
         this._protoViewFactory = _protoViewFactory;
@@ -9814,9 +9814,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var collection_1 = require("../../src/core/facade/collection");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var collection_1 = require('../../src/core/facade/collection');
     var UrlResolver = (function() {
       function UrlResolver() {}
       UrlResolver.prototype.resolve = function(baseUrl, url) {
@@ -9959,13 +9959,13 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var ng_zone_1 = require("../../src/core/zone/ng_zone");
-    var async_1 = require("../../src/core/facade/async");
+    var di_1 = require('../../src/core/di');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var ng_zone_1 = require('../../src/core/zone/ng_zone');
+    var async_1 = require('../../src/core/facade/async');
     var Testability = (function() {
       function Testability(_ngZone) {
         this._ngZone = _ngZone;
@@ -10123,10 +10123,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var async_1 = require("../../src/core/facade/async");
-    var lang_1 = require("../../src/core/facade/lang");
-    var xhr_1 = require("../../src/core/compiler/xhr");
+    var di_1 = require('../../src/core/di');
+    var async_1 = require('../../src/core/facade/async');
+    var lang_1 = require('../../src/core/facade/lang');
+    var xhr_1 = require('../../src/core/compiler/xhr');
     var XHRImpl = (function(_super) {
       __extends(XHRImpl, _super);
       function XHRImpl() {
@@ -10166,8 +10166,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
     exports.ON_WEB_WORKER = lang_1.CONST_EXPR(new di_1.OpaqueToken('WebWorker.onWebWorker'));
     var WebWorkerElementRef = (function() {
       function WebWorkerElementRef(renderView, boundElementIndex) {
@@ -10312,9 +10312,9 @@
         decorator(target, key, paramIndex);
       };
     };
-    var di_1 = require("../../src/core/di");
-    var api_1 = require("../../src/core/render/api");
-    var api_2 = require("../../src/web_workers/shared/api");
+    var di_1 = require('../../src/core/di');
+    var api_1 = require('../../src/core/render/api');
+    var api_2 = require('../../src/web_workers/shared/api');
     var RenderProtoViewRefStore = (function() {
       function RenderProtoViewRefStore(onWebworker) {
         this._lookupByIndex = new Map();
@@ -10404,10 +10404,10 @@
         decorator(target, key, paramIndex);
       };
     };
-    var di_1 = require("../../src/core/di");
-    var api_1 = require("../../src/core/render/api");
-    var api_2 = require("../../src/web_workers/shared/api");
-    var collection_1 = require("../../src/core/facade/collection");
+    var di_1 = require('../../src/core/di');
+    var api_1 = require('../../src/core/render/api');
+    var api_2 = require('../../src/web_workers/shared/api');
+    var collection_1 = require('../../src/core/facade/collection');
     var RenderViewWithFragmentsStore = (function() {
       function RenderViewWithFragmentsStore(onWebWorker) {
         this._nextIndex = 0;
@@ -10594,9 +10594,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var app_root_url_1 = require("../../src/core/compiler/app_root_url");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var di_1 = require("../../src/core/di");
+    var app_root_url_1 = require('../../src/core/compiler/app_root_url');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var di_1 = require('../../src/core/di');
     var AnchorBasedAppRootUrl = (function(_super) {
       __extends(AnchorBasedAppRootUrl, _super);
       function AnchorBasedAppRootUrl() {
@@ -10618,7 +10618,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var async_1 = require("../../src/core/facade/async");
+    var async_1 = require('../../src/core/facade/async');
     exports.EventEmitter = async_1.EventEmitter;
     exports.Observable = async_1.Observable;
     var MessageBus = (function() {
@@ -10655,8 +10655,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
     var MOUSE_EVENT_PROPERTIES = ["altKey", "button", "clientX", "clientY", "metaKey", "movementX", "movementY", "offsetX", "offsetY", "region", "screenX", "screenY", "shiftKey"];
     var KEYBOARD_EVENT_PROPERTIES = ['altkey', 'charCode', 'code', 'ctrlKey', 'isComposing', 'key', 'keyCode', 'location', 'metaKey', 'repeat', 'shiftKey', 'which'];
     var EVENT_PROPERTIES = ['type', 'bubbles', 'cancelable'];
@@ -10726,12 +10726,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var collection_1 = require("../../src/core/facade/collection");
-    var serializer_1 = require("../../src/web_workers/shared/serializer");
-    var lang_1 = require("../../src/core/facade/lang");
-    var message_bus_1 = require("../../src/web_workers/shared/message_bus");
-    var async_1 = require("../../src/core/facade/async");
+    var di_1 = require('../../src/core/di');
+    var collection_1 = require('../../src/core/facade/collection');
+    var serializer_1 = require('../../src/web_workers/shared/serializer');
+    var lang_1 = require('../../src/core/facade/lang');
+    var message_bus_1 = require('../../src/web_workers/shared/message_bus');
+    var async_1 = require('../../src/core/facade/async');
     var ServiceMessageBrokerFactory = (function() {
       function ServiceMessageBrokerFactory(_messageBus, _serializer) {
         this._messageBus = _messageBus;
@@ -10833,12 +10833,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var serializer_1 = require("../../src/web_workers/shared/serializer");
-    var messaging_api_1 = require("../../src/web_workers/shared/messaging_api");
-    var xhr_1 = require("../../src/core/compiler/xhr");
-    var service_message_broker_1 = require("../../src/web_workers/shared/service_message_broker");
-    var bind_1 = require("../../src/web_workers/ui/bind");
+    var di_1 = require('../../src/core/di');
+    var serializer_1 = require('../../src/web_workers/shared/serializer');
+    var messaging_api_1 = require('../../src/web_workers/shared/messaging_api');
+    var xhr_1 = require('../../src/core/compiler/xhr');
+    var service_message_broker_1 = require('../../src/web_workers/shared/service_message_broker');
+    var bind_1 = require('../../src/web_workers/ui/bind');
     var MessageBasedXHRImpl = (function() {
       function MessageBasedXHRImpl(_brokerFactory, _xhr) {
         this._brokerFactory = _brokerFactory;
@@ -10881,12 +10881,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var messaging_api_1 = require("../../src/web_workers/shared/messaging_api");
-    var async_1 = require("../../src/core/facade/async");
-    var message_bus_1 = require("../../src/web_workers/shared/message_bus");
-    var anchor_based_app_root_url_1 = require("../../src/core/compiler/anchor_based_app_root_url");
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
+    var messaging_api_1 = require('../../src/web_workers/shared/messaging_api');
+    var async_1 = require('../../src/core/facade/async');
+    var message_bus_1 = require('../../src/web_workers/shared/message_bus');
+    var anchor_based_app_root_url_1 = require('../../src/core/compiler/anchor_based_app_root_url');
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
     var WebWorkerSetup = (function() {
       function WebWorkerSetup(_bus, anchorBasedAppRootUrl) {
         this._bus = _bus;
@@ -10936,14 +10936,14 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var message_bus_1 = require("../../src/web_workers/shared/message_bus");
-    var lang_1 = require("../../src/core/facade/lang");
-    var async_1 = require("../../src/core/facade/async");
-    var collection_1 = require("../../src/core/facade/collection");
-    var serializer_1 = require("../../src/web_workers/shared/serializer");
-    var di_1 = require("../../src/core/di");
-    var lang_2 = require("../../src/core/facade/lang");
-    var lang_3 = require("../../src/core/facade/lang");
+    var message_bus_1 = require('../../src/web_workers/shared/message_bus');
+    var lang_1 = require('../../src/core/facade/lang');
+    var async_1 = require('../../src/core/facade/async');
+    var collection_1 = require('../../src/core/facade/collection');
+    var serializer_1 = require('../../src/web_workers/shared/serializer');
+    var di_1 = require('../../src/core/di');
+    var lang_2 = require('../../src/core/facade/lang');
+    var lang_3 = require('../../src/core/facade/lang');
     exports.Type = lang_3.Type;
     var ClientMessageBrokerFactory = (function() {
       function ClientMessageBrokerFactory(_messageBus, _serializer) {
@@ -11102,10 +11102,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var profile_1 = require("../../src/core/profile/profile");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var profile_1 = require('../../src/core/profile/profile');
     var LifeCycle = (function() {
       function LifeCycle(changeDetector, enforceNoNewChanges) {
         if (changeDetector === void 0) {
@@ -11216,13 +11216,13 @@
       if (superClass)
         Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
-    var _utilNoop = require("@reactivex/rxjs/dist/cjs/util/noop");
+    var _utilNoop = require('@reactivex/rxjs/dist/cjs/util/noop');
     var _utilNoop2 = _interopRequireDefault(_utilNoop);
-    var _utilThrowError = require("@reactivex/rxjs/dist/cjs/util/throwError");
+    var _utilThrowError = require('@reactivex/rxjs/dist/cjs/util/throwError');
     var _utilThrowError2 = _interopRequireDefault(_utilThrowError);
-    var _utilTryOrOnError = require("@reactivex/rxjs/dist/cjs/util/tryOrOnError");
+    var _utilTryOrOnError = require('@reactivex/rxjs/dist/cjs/util/tryOrOnError');
     var _utilTryOrOnError2 = _interopRequireDefault(_utilTryOrOnError);
-    var _Subscription2 = require("@reactivex/rxjs/dist/cjs/Subscription");
+    var _Subscription2 = require('@reactivex/rxjs/dist/cjs/Subscription');
     var _Subscription3 = _interopRequireDefault(_Subscription2);
     var Subscriber = (function(_Subscription) {
       _inherits(Subscriber, _Subscription);
@@ -11330,7 +11330,7 @@
     global.define = undefined;
     'use strict';
     exports.__esModule = true;
-    var _root = require("@reactivex/rxjs/dist/cjs/util/root");
+    var _root = require('@reactivex/rxjs/dist/cjs/util/root');
     if (!_root.root.Symbol) {
       _root.root.Symbol = {};
     }
@@ -11350,9 +11350,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
     var _ArrayLogger = (function() {
       function _ArrayLogger() {
         this.res = [];
@@ -11470,7 +11470,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var impl = require("../../src/core/profile/wtf_impl");
+    var impl = require('../../src/core/profile/wtf_impl');
     exports.wtfEnabled = impl.detectWTF();
     function noopScope(arg0, arg1) {
       return null;
@@ -11494,8 +11494,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var metadata_1 = require("../../src/core/di/metadata");
-    var decorators_1 = require("../../src/core/util/decorators");
+    var metadata_1 = require('../../src/core/di/metadata');
+    var decorators_1 = require('../../src/core/util/decorators');
     exports.Inject = decorators_1.makeParamDecorator(metadata_1.InjectMetadata);
     exports.Optional = decorators_1.makeParamDecorator(metadata_1.OptionalMetadata);
     exports.Injectable = decorators_1.makeDecorator(metadata_1.InjectableMetadata);
@@ -11509,11 +11509,11 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var reflector_1 = require("../../src/core/reflection/reflector");
-    var reflector_2 = require("../../src/core/reflection/reflector");
+    var reflector_1 = require('../../src/core/reflection/reflector');
+    var reflector_2 = require('../../src/core/reflection/reflector');
     exports.Reflector = reflector_2.Reflector;
     exports.ReflectionInfo = reflector_2.ReflectionInfo;
-    var reflection_capabilities_1 = require("../../src/core/reflection/reflection_capabilities");
+    var reflection_capabilities_1 = require('../../src/core/reflection/reflection_capabilities');
     exports.reflector = new reflector_1.Reflector(new reflection_capabilities_1.ReflectionCapabilities());
     global.define = __define;
     return module.exports;
@@ -11522,12 +11522,12 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var type_literal_1 = require("../../src/core/di/type_literal");
-    var forward_ref_1 = require("../../src/core/di/forward_ref");
-    var type_literal_2 = require("../../src/core/di/type_literal");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var type_literal_1 = require('../../src/core/di/type_literal');
+    var forward_ref_1 = require('../../src/core/di/forward_ref');
+    var type_literal_2 = require('../../src/core/di/type_literal');
     exports.TypeLiteral = type_literal_2.TypeLiteral;
     var Key = (function() {
       function Key(token, id) {
@@ -11594,13 +11594,13 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var constants_1 = require("../../src/core/change_detection/constants");
-    var pipe_lifecycle_reflector_1 = require("../../src/core/change_detection/pipe_lifecycle_reflector");
-    var binding_record_1 = require("../../src/core/change_detection/binding_record");
-    var directive_record_1 = require("../../src/core/change_detection/directive_record");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var constants_1 = require('../../src/core/change_detection/constants');
+    var pipe_lifecycle_reflector_1 = require('../../src/core/change_detection/pipe_lifecycle_reflector');
+    var binding_record_1 = require('../../src/core/change_detection/binding_record');
+    var directive_record_1 = require('../../src/core/change_detection/directive_record');
     var WrappedValue = (function() {
       function WrappedValue(wrapped) {
         this.wrapped = wrapped;
@@ -11818,15 +11818,15 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var change_detection_util_1 = require("../../src/core/change_detection/change_detection_util");
-    var change_detector_ref_1 = require("../../src/core/change_detection/change_detector_ref");
-    var exceptions_2 = require("../../src/core/change_detection/exceptions");
-    var constants_1 = require("../../src/core/change_detection/constants");
-    var profile_1 = require("../../src/core/profile/profile");
-    var observable_facade_1 = require("../../src/core/change_detection/observable_facade");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var change_detection_util_1 = require('../../src/core/change_detection/change_detection_util');
+    var change_detector_ref_1 = require('../../src/core/change_detection/change_detector_ref');
+    var exceptions_2 = require('../../src/core/change_detection/exceptions');
+    var constants_1 = require('../../src/core/change_detection/constants');
+    var profile_1 = require('../../src/core/profile/profile');
+    var observable_facade_1 = require('../../src/core/change_detection/observable_facade');
     var _scope_check = profile_1.wtfCreateScope("ChangeDetector#check(ascii id, bool throwOnChange)");
     var _Context = (function() {
       function _Context(element, componentElement, context, locals, injector, expression) {
@@ -12080,12 +12080,12 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var codegen_facade_1 = require("../../src/core/change_detection/codegen_facade");
-    var proto_record_1 = require("../../src/core/change_detection/proto_record");
-    var constants_1 = require("../../src/core/change_detection/constants");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var codegen_facade_1 = require('../../src/core/change_detection/codegen_facade');
+    var proto_record_1 = require('../../src/core/change_detection/proto_record');
+    var constants_1 = require('../../src/core/change_detection/constants');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     var CodegenLogicUtil = (function() {
       function CodegenLogicUtil(_names, _utilName, _changeDetection) {
         this._names = _names;
@@ -12279,8 +12279,8 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var api_1 = require("../../src/core/render/api");
+    var lang_1 = require('../../src/core/facade/lang');
+    var api_1 = require('../../src/core/render/api');
     exports.ViewEncapsulation = api_1.ViewEncapsulation;
     var ViewMetadata = (function() {
       function ViewMetadata(_a) {
@@ -12333,12 +12333,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var intl_1 = require("../../src/core/facade/intl");
-    var di_1 = require("../../src/core/di");
-    var metadata_1 = require("../../src/core/metadata");
-    var collection_1 = require("../../src/core/facade/collection");
-    var invalid_pipe_argument_exception_1 = require("../../src/core/pipes/invalid_pipe_argument_exception");
+    var lang_1 = require('../../src/core/facade/lang');
+    var intl_1 = require('../../src/core/facade/intl');
+    var di_1 = require('../../src/core/di');
+    var metadata_1 = require('../../src/core/metadata');
+    var collection_1 = require('../../src/core/facade/collection');
+    var invalid_pipe_argument_exception_1 = require('../../src/core/pipes/invalid_pipe_argument_exception');
     var defaultLocale = 'en-US';
     var DatePipe = (function() {
       function DatePipe() {}
@@ -12381,15 +12381,15 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var async_pipe_1 = require("../../src/core/pipes/async_pipe");
-    var uppercase_pipe_1 = require("../../src/core/pipes/uppercase_pipe");
-    var lowercase_pipe_1 = require("../../src/core/pipes/lowercase_pipe");
-    var json_pipe_1 = require("../../src/core/pipes/json_pipe");
-    var slice_pipe_1 = require("../../src/core/pipes/slice_pipe");
-    var date_pipe_1 = require("../../src/core/pipes/date_pipe");
-    var number_pipe_1 = require("../../src/core/pipes/number_pipe");
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
+    var async_pipe_1 = require('../../src/core/pipes/async_pipe');
+    var uppercase_pipe_1 = require('../../src/core/pipes/uppercase_pipe');
+    var lowercase_pipe_1 = require('../../src/core/pipes/lowercase_pipe');
+    var json_pipe_1 = require('../../src/core/pipes/json_pipe');
+    var slice_pipe_1 = require('../../src/core/pipes/slice_pipe');
+    var date_pipe_1 = require('../../src/core/pipes/date_pipe');
+    var number_pipe_1 = require('../../src/core/pipes/number_pipe');
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
     var DEFAULT_PIPES_LIST = lang_1.CONST_EXPR([async_pipe_1.AsyncPipe, uppercase_pipe_1.UpperCasePipe, lowercase_pipe_1.LowerCasePipe, json_pipe_1.JsonPipe, slice_pipe_1.SlicePipe, number_pipe_1.DecimalPipe, number_pipe_1.PercentPipe, number_pipe_1.CurrencyPipe, date_pipe_1.DatePipe]);
     exports.DEFAULT_PIPES_TOKEN = lang_1.CONST_EXPR(new di_1.OpaqueToken("Default Pipes"));
     exports.DEFAULT_PIPES = lang_1.CONST_EXPR(new di_1.Binding(exports.DEFAULT_PIPES_TOKEN, {toValue: DEFAULT_PIPES_LIST}));
@@ -12400,11 +12400,11 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var math_1 = require("../../src/core/facade/math");
-    var util_1 = require("../../src/core/render/dom/util");
-    var collection_1 = require("../../src/core/facade/collection");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
+    var lang_1 = require('../../src/core/facade/lang');
+    var math_1 = require('../../src/core/facade/math');
+    var util_1 = require('../../src/core/render/dom/util');
+    var collection_1 = require('../../src/core/facade/collection');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
     var Animation = (function() {
       function Animation(element, data, browserDetails) {
         var _this = this;
@@ -12541,10 +12541,10 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var cd = require("../../src/core/change_detection/pipes");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var cd = require('../../src/core/change_detection/pipes');
     var ProtoPipes = (function() {
       function ProtoPipes(config) {
         this.config = config;
@@ -12603,14 +12603,14 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var collection_1 = require("../../src/core/facade/collection");
-    var change_detection_1 = require("../../src/core/change_detection/change_detection");
-    var interfaces_1 = require("../../src/core/change_detection/interfaces");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var view_ref_1 = require("../../src/core/linker/view_ref");
-    var util_1 = require("../../src/core/render/dom/util");
-    var interfaces_2 = require("../../src/core/change_detection/interfaces");
+    var collection_1 = require('../../src/core/facade/collection');
+    var change_detection_1 = require('../../src/core/change_detection/change_detection');
+    var interfaces_1 = require('../../src/core/change_detection/interfaces');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var view_ref_1 = require('../../src/core/linker/view_ref');
+    var util_1 = require('../../src/core/render/dom/util');
+    var interfaces_2 = require('../../src/core/change_detection/interfaces');
     exports.DebugContext = interfaces_2.DebugContext;
     var REFLECT_PREFIX = 'ng-reflect-';
     var AppViewContainer = (function() {
@@ -12872,15 +12872,15 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var collection_1 = require("../../src/core/facade/collection");
-    var eli = require("../../src/core/linker/element_injector");
-    var lang_1 = require("../../src/core/facade/lang");
-    var viewModule = require("../../src/core/linker/view");
-    var element_ref_1 = require("../../src/core/linker/element_ref");
-    var template_ref_1 = require("../../src/core/linker/template_ref");
-    var pipes_1 = require("../../src/core/pipes/pipes");
-    var api_1 = require("../../src/core/render/api");
+    var di_1 = require('../../src/core/di');
+    var collection_1 = require('../../src/core/facade/collection');
+    var eli = require('../../src/core/linker/element_injector');
+    var lang_1 = require('../../src/core/facade/lang');
+    var viewModule = require('../../src/core/linker/view');
+    var element_ref_1 = require('../../src/core/linker/element_ref');
+    var template_ref_1 = require('../../src/core/linker/template_ref');
+    var pipes_1 = require('../../src/core/pipes/pipes');
+    var api_1 = require('../../src/core/render/api');
     var AppViewManagerUtils = (function() {
       function AppViewManagerUtils() {}
       AppViewManagerUtils.prototype.getComponentInstance = function(parentView, boundElementIndex) {
@@ -13083,8 +13083,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var interfaces_1 = require("../../src/core/linker/interfaces");
+    var lang_1 = require('../../src/core/facade/lang');
+    var interfaces_1 = require('../../src/core/linker/interfaces');
     function hasLifecycleHook(lcInterface, token) {
       if (!(token instanceof lang_1.Type))
         return false;
@@ -13154,10 +13154,10 @@
         decorator(target, key, paramIndex);
       };
     };
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var di_1 = require("../../src/core/di");
-    var collection_1 = require("../../src/core/facade/collection");
-    var dom_tokens_1 = require("../../src/core/render/dom/dom_tokens");
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var di_1 = require('../../src/core/di');
+    var collection_1 = require('../../src/core/facade/collection');
+    var dom_tokens_1 = require('../../src/core/render/dom/dom_tokens');
     var SharedStylesHost = (function() {
       function SharedStylesHost() {
         this._styles = [];
@@ -13220,8 +13220,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var view_1 = require("../../src/core/render/view");
+    var lang_1 = require('../../src/core/facade/lang');
+    var view_1 = require('../../src/core/render/view');
     function createRenderView(fragmentCmds, inplaceElement, nodeFactory) {
       var builders = [];
       visitAll(new RenderViewBuilder(null, null, inplaceElement, builders, nodeFactory), fragmentCmds);
@@ -13440,10 +13440,10 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var generic_browser_adapter_1 = require("../../src/core/dom/generic_browser_adapter");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var generic_browser_adapter_1 = require('../../src/core/dom/generic_browser_adapter');
     var _attrToPropMap = {
       'class': 'className',
       'innerHtml': 'innerHTML',
@@ -13984,10 +13984,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var hammer_common_1 = require("../../src/core/render/dom/events/hammer_common");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var di_1 = require("../../src/core/di");
+    var hammer_common_1 = require('../../src/core/render/dom/events/hammer_common');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var di_1 = require('../../src/core/di');
     var HammerGesturesPlugin = (function(_super) {
       __extends(HammerGesturesPlugin, _super);
       function HammerGesturesPlugin() {
@@ -14048,10 +14048,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var compiler_1 = require("../../src/core/linker/compiler");
-    var lang_1 = require("../../src/core/facade/lang");
-    var view_manager_1 = require("../../src/core/linker/view_manager");
+    var di_1 = require('../../src/core/di');
+    var compiler_1 = require('../../src/core/linker/compiler');
+    var lang_1 = require('../../src/core/facade/lang');
+    var view_manager_1 = require('../../src/core/linker/view_manager');
     var ComponentRef = (function() {
       function ComponentRef(location, instance, componentType, injector, _dispose) {
         this._dispose = _dispose;
@@ -14165,14 +14165,14 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var api_1 = require("../../src/core/render/api");
-    var api_2 = require("../../src/web_workers/shared/api");
-    var di_1 = require("../../src/core/di");
-    var render_proto_view_ref_store_1 = require("../../src/web_workers/shared/render_proto_view_ref_store");
-    var render_view_with_fragments_store_1 = require("../../src/web_workers/shared/render_view_with_fragments_store");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var api_1 = require('../../src/core/render/api');
+    var api_2 = require('../../src/web_workers/shared/api');
+    var di_1 = require('../../src/core/di');
+    var render_proto_view_ref_store_1 = require('../../src/web_workers/shared/render_proto_view_ref_store');
+    var render_view_with_fragments_store_1 = require('../../src/web_workers/shared/render_view_with_fragments_store');
     exports.PRIMITIVE = String;
     var Serializer = (function() {
       function Serializer(_protoViewStore, _renderViewStore) {
@@ -14382,11 +14382,11 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var api_1 = require("../../src/core/render/api");
-    var event_serializer_1 = require("../../src/web_workers/ui/event_serializer");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var async_1 = require("../../src/core/facade/async");
+    var api_1 = require('../../src/core/render/api');
+    var event_serializer_1 = require('../../src/web_workers/ui/event_serializer');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var async_1 = require('../../src/core/facade/async');
     var EventDispatcher = (function() {
       function EventDispatcher(_viewRef, _sink, _serializer) {
         this._viewRef = _viewRef;
@@ -14492,30 +14492,30 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var ng_zone_1 = require("../../src/core/zone/ng_zone");
-    var lang_1 = require("../../src/core/facade/lang");
-    var di_1 = require("../../src/core/di");
-    var application_tokens_1 = require("../../src/core/application_tokens");
-    var async_1 = require("../../src/core/facade/async");
-    var collection_1 = require("../../src/core/facade/collection");
-    var reflection_1 = require("../../src/core/reflection/reflection");
-    var testability_1 = require("../../src/core/testability/testability");
-    var dynamic_component_loader_1 = require("../../src/core/linker/dynamic_component_loader");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var view_ref_1 = require("../../src/core/linker/view_ref");
-    var life_cycle_1 = require("../../src/core/life_cycle/life_cycle");
-    var change_detection_1 = require("../../src/core/change_detection/change_detection");
-    var view_pool_1 = require("../../src/core/linker/view_pool");
-    var view_manager_1 = require("../../src/core/linker/view_manager");
-    var view_manager_utils_1 = require("../../src/core/linker/view_manager_utils");
-    var view_listener_1 = require("../../src/core/linker/view_listener");
-    var proto_view_factory_1 = require("../../src/core/linker/proto_view_factory");
-    var pipes_1 = require("../../src/core/pipes");
-    var view_resolver_1 = require("../../src/core/linker/view_resolver");
-    var directive_resolver_1 = require("../../src/core/linker/directive_resolver");
-    var pipe_resolver_1 = require("../../src/core/linker/pipe_resolver");
-    var compiler_1 = require("../../src/core/linker/compiler");
+    var ng_zone_1 = require('../../src/core/zone/ng_zone');
+    var lang_1 = require('../../src/core/facade/lang');
+    var di_1 = require('../../src/core/di');
+    var application_tokens_1 = require('../../src/core/application_tokens');
+    var async_1 = require('../../src/core/facade/async');
+    var collection_1 = require('../../src/core/facade/collection');
+    var reflection_1 = require('../../src/core/reflection/reflection');
+    var testability_1 = require('../../src/core/testability/testability');
+    var dynamic_component_loader_1 = require('../../src/core/linker/dynamic_component_loader');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var view_ref_1 = require('../../src/core/linker/view_ref');
+    var life_cycle_1 = require('../../src/core/life_cycle/life_cycle');
+    var change_detection_1 = require('../../src/core/change_detection/change_detection');
+    var view_pool_1 = require('../../src/core/linker/view_pool');
+    var view_manager_1 = require('../../src/core/linker/view_manager');
+    var view_manager_utils_1 = require('../../src/core/linker/view_manager_utils');
+    var view_listener_1 = require('../../src/core/linker/view_listener');
+    var proto_view_factory_1 = require('../../src/core/linker/proto_view_factory');
+    var pipes_1 = require('../../src/core/pipes');
+    var view_resolver_1 = require('../../src/core/linker/view_resolver');
+    var directive_resolver_1 = require('../../src/core/linker/directive_resolver');
+    var pipe_resolver_1 = require('../../src/core/linker/pipe_resolver');
+    var compiler_1 = require('../../src/core/linker/compiler');
     function platformBindings() {
       return [di_1.bind(reflection_1.Reflector).toValue(reflection_1.reflector), testability_1.TestabilityRegistry];
     }
@@ -14715,9 +14715,9 @@
         throw new TypeError('Cannot call a class as a function');
       }
     }
-    var _Subscriber = require("@reactivex/rxjs/dist/cjs/Subscriber");
+    var _Subscriber = require('@reactivex/rxjs/dist/cjs/Subscriber');
     var _Subscriber2 = _interopRequireDefault(_Subscriber);
-    var _utilSymbol_observable = require("@reactivex/rxjs/dist/cjs/util/Symbol_observable");
+    var _utilSymbol_observable = require('@reactivex/rxjs/dist/cjs/util/Symbol_observable');
     var _utilSymbol_observable2 = _interopRequireDefault(_utilSymbol_observable);
     var Observable = (function() {
       function Observable(subscribe) {
@@ -14783,8 +14783,8 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var exception_handler_1 = require("../../src/core/facade/exception_handler");
-    var exception_handler_2 = require("../../src/core/facade/exception_handler");
+    var exception_handler_1 = require('../../src/core/facade/exception_handler');
+    var exception_handler_2 = require('../../src/core/facade/exception_handler');
     exports.ExceptionHandler = exception_handler_2.ExceptionHandler;
     var BaseException = (function(_super) {
       __extends(BaseException, _super);
@@ -14871,9 +14871,9 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var profile_1 = require("../../src/core/profile/profile");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var profile_1 = require('../../src/core/profile/profile');
     var NgZone = (function() {
       function NgZone(_a) {
         var enableLongStackTrace = _a.enableLongStackTrace;
@@ -15071,14 +15071,14 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var reflection_1 = require("../../src/core/reflection/reflection");
-    var key_1 = require("../../src/core/di/key");
-    var metadata_1 = require("../../src/core/di/metadata");
-    var exceptions_2 = require("../../src/core/di/exceptions");
-    var forward_ref_1 = require("../../src/core/di/forward_ref");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var reflection_1 = require('../../src/core/reflection/reflection');
+    var key_1 = require('../../src/core/di/key');
+    var metadata_1 = require('../../src/core/di/metadata');
+    var exceptions_2 = require('../../src/core/di/exceptions');
+    var forward_ref_1 = require('../../src/core/di/forward_ref');
     var Dependency = (function() {
       function Dependency(key, optional, lowerBoundVisibility, upperBoundVisibility, properties) {
         this.key = key;
@@ -15350,13 +15350,13 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var abstract_change_detector_1 = require("../../src/core/change_detection/abstract_change_detector");
-    var change_detection_util_1 = require("../../src/core/change_detection/change_detection_util");
-    var constants_1 = require("../../src/core/change_detection/constants");
-    var proto_record_1 = require("../../src/core/change_detection/proto_record");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var abstract_change_detector_1 = require('../../src/core/change_detection/abstract_change_detector');
+    var change_detection_util_1 = require('../../src/core/change_detection/change_detection_util');
+    var constants_1 = require('../../src/core/change_detection/constants');
+    var proto_record_1 = require('../../src/core/change_detection/proto_record');
     var DynamicChangeDetector = (function(_super) {
       __extends(DynamicChangeDetector, _super);
       function DynamicChangeDetector(id, dispatcher, numberOfPropertyProtoRecords, propertyBindingTargets, directiveIndices, strategy, _records, _eventBindings, _directiveRecords, _genConfig) {
@@ -15729,14 +15729,14 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var abstract_change_detector_1 = require("../../src/core/change_detection/abstract_change_detector");
-    var change_detection_util_1 = require("../../src/core/change_detection/change_detection_util");
-    var codegen_name_util_1 = require("../../src/core/change_detection/codegen_name_util");
-    var codegen_logic_util_1 = require("../../src/core/change_detection/codegen_logic_util");
-    var codegen_facade_1 = require("../../src/core/change_detection/codegen_facade");
-    var proto_change_detector_1 = require("../../src/core/change_detection/proto_change_detector");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var abstract_change_detector_1 = require('../../src/core/change_detection/abstract_change_detector');
+    var change_detection_util_1 = require('../../src/core/change_detection/change_detection_util');
+    var codegen_name_util_1 = require('../../src/core/change_detection/codegen_name_util');
+    var codegen_logic_util_1 = require('../../src/core/change_detection/codegen_logic_util');
+    var codegen_facade_1 = require('../../src/core/change_detection/codegen_facade');
+    var proto_change_detector_1 = require('../../src/core/change_detection/proto_change_detector');
     var IS_CHANGED_LOCAL = "isChanged";
     var CHANGES_LOCAL = "changes";
     var ChangeDetectorJITGenerator = (function() {
@@ -15996,8 +15996,8 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var css_animation_options_1 = require("../../src/animate/css_animation_options");
-    var animation_1 = require("../../src/animate/animation");
+    var css_animation_options_1 = require('../../src/animate/css_animation_options');
+    var animation_1 = require('../../src/animate/animation');
     var CssAnimationBuilder = (function() {
       function CssAnimationBuilder(browserDetails) {
         this.browserDetails = browserDetails;
@@ -16074,16 +16074,16 @@
         decorator(target, key, paramIndex);
       };
     };
-    var di_1 = require("../../src/core/di");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var view_ref_1 = require("../../src/core/linker/view_ref");
-    var api_1 = require("../../src/core/render/api");
-    var view_manager_utils_1 = require("../../src/core/linker/view_manager_utils");
-    var view_pool_1 = require("../../src/core/linker/view_pool");
-    var view_listener_1 = require("../../src/core/linker/view_listener");
-    var profile_1 = require("../../src/core/profile/profile");
-    var proto_view_factory_1 = require("../../src/core/linker/proto_view_factory");
+    var di_1 = require('../../src/core/di');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var view_ref_1 = require('../../src/core/linker/view_ref');
+    var api_1 = require('../../src/core/render/api');
+    var view_manager_utils_1 = require('../../src/core/linker/view_manager_utils');
+    var view_pool_1 = require('../../src/core/linker/view_pool');
+    var view_listener_1 = require('../../src/core/linker/view_listener');
+    var profile_1 = require('../../src/core/profile/profile');
+    var proto_view_factory_1 = require('../../src/core/linker/proto_view_factory');
     var AppViewManager = (function() {
       function AppViewManager(_viewPool, _viewListener, _utils, _renderer, _protoViewFactory) {
         this._viewPool = _viewPool;
@@ -16317,19 +16317,19 @@
         decorator(target, key, paramIndex);
       };
     };
-    var di_1 = require("../../src/core/di");
-    var animation_builder_1 = require("../../src/animate/animation_builder");
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var event_manager_1 = require("../../src/core/render/dom/events/event_manager");
-    var shared_styles_host_1 = require("../../src/core/render/dom/shared_styles_host");
-    var profile_1 = require("../../src/core/profile/profile");
-    var api_1 = require("../../src/core/render/api");
-    var dom_tokens_1 = require("../../src/core/render/dom/dom_tokens");
-    var view_factory_1 = require("../../src/core/render/view_factory");
-    var view_1 = require("../../src/core/render/view");
-    var util_1 = require("../../src/core/render/dom/util");
+    var di_1 = require('../../src/core/di');
+    var animation_builder_1 = require('../../src/animate/animation_builder');
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var event_manager_1 = require('../../src/core/render/dom/events/event_manager');
+    var shared_styles_host_1 = require('../../src/core/render/dom/shared_styles_host');
+    var profile_1 = require('../../src/core/profile/profile');
+    var api_1 = require('../../src/core/render/api');
+    var dom_tokens_1 = require('../../src/core/render/dom/dom_tokens');
+    var view_factory_1 = require('../../src/core/render/view_factory');
+    var view_1 = require('../../src/core/render/view');
+    var util_1 = require('../../src/core/render/dom/util');
     var DomRenderer = (function() {
       function DomRenderer(_eventManager, _domSharedStylesHost, _animate, document) {
         this._eventManager = _eventManager;
@@ -16578,17 +16578,17 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var message_bus_1 = require("../../src/web_workers/shared/message_bus");
-    var serializer_1 = require("../../src/web_workers/shared/serializer");
-    var api_1 = require("../../src/core/render/api");
-    var api_2 = require("../../src/web_workers/shared/api");
-    var messaging_api_1 = require("../../src/web_workers/shared/messaging_api");
-    var bind_1 = require("../../src/web_workers/ui/bind");
-    var event_dispatcher_1 = require("../../src/web_workers/ui/event_dispatcher");
-    var render_proto_view_ref_store_1 = require("../../src/web_workers/shared/render_proto_view_ref_store");
-    var render_view_with_fragments_store_1 = require("../../src/web_workers/shared/render_view_with_fragments_store");
-    var service_message_broker_1 = require("../../src/web_workers/shared/service_message_broker");
+    var di_1 = require('../../src/core/di');
+    var message_bus_1 = require('../../src/web_workers/shared/message_bus');
+    var serializer_1 = require('../../src/web_workers/shared/serializer');
+    var api_1 = require('../../src/core/render/api');
+    var api_2 = require('../../src/web_workers/shared/api');
+    var messaging_api_1 = require('../../src/web_workers/shared/messaging_api');
+    var bind_1 = require('../../src/web_workers/ui/bind');
+    var event_dispatcher_1 = require('../../src/web_workers/ui/event_dispatcher');
+    var render_proto_view_ref_store_1 = require('../../src/web_workers/shared/render_proto_view_ref_store');
+    var render_view_with_fragments_store_1 = require('../../src/web_workers/shared/render_view_with_fragments_store');
+    var service_message_broker_1 = require('../../src/web_workers/shared/service_message_broker');
     var MessageBasedRenderer = (function() {
       function MessageBasedRenderer(_brokerFactory, _bus, _serializer, _renderProtoViewRefStore, _renderViewWithFragmentsStore, _renderer) {
         this._brokerFactory = _brokerFactory;
@@ -16673,13 +16673,13 @@
       if (superClass)
         Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
     }
-    var _Observable2 = require("@reactivex/rxjs/dist/cjs/Observable");
+    var _Observable2 = require('@reactivex/rxjs/dist/cjs/Observable');
     var _Observable3 = _interopRequireDefault(_Observable2);
-    var _Subscriber = require("@reactivex/rxjs/dist/cjs/Subscriber");
+    var _Subscriber = require('@reactivex/rxjs/dist/cjs/Subscriber');
     var _Subscriber2 = _interopRequireDefault(_Subscriber);
-    var _Subscription = require("@reactivex/rxjs/dist/cjs/Subscription");
+    var _Subscription = require('@reactivex/rxjs/dist/cjs/Subscription');
     var _Subscription2 = _interopRequireDefault(_Subscription);
-    var _subjectsSubjectSubscription = require("@reactivex/rxjs/dist/cjs/subjects/SubjectSubscription");
+    var _subjectsSubjectSubscription = require('@reactivex/rxjs/dist/cjs/subjects/SubjectSubscription');
     var _subjectsSubjectSubscription2 = _interopRequireDefault(_subjectsSubjectSubscription);
     var subscriptionAdd = _Subscription2['default'].prototype.add;
     var subscriptionRemove = _Subscription2['default'].prototype.remove;
@@ -16848,7 +16848,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var ng_zone_1 = require("../../src/core/zone/ng_zone");
+    var ng_zone_1 = require('../../src/core/zone/ng_zone');
     exports.NgZone = ng_zone_1.NgZone;
     global.define = __define;
     return module.exports;
@@ -16857,12 +16857,12 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var collection_1 = require("../../src/core/facade/collection");
-    var binding_1 = require("../../src/core/di/binding");
-    var exceptions_1 = require("../../src/core/di/exceptions");
-    var lang_1 = require("../../src/core/facade/lang");
-    var key_1 = require("../../src/core/di/key");
-    var metadata_1 = require("../../src/core/di/metadata");
+    var collection_1 = require('../../src/core/facade/collection');
+    var binding_1 = require('../../src/core/di/binding');
+    var exceptions_1 = require('../../src/core/di/exceptions');
+    var lang_1 = require('../../src/core/facade/lang');
+    var key_1 = require('../../src/core/di/key');
+    var metadata_1 = require('../../src/core/di/metadata');
     var _MAX_CONSTRUCTION_COUNTER = 10;
     exports.UNDEFINED = lang_1.CONST_EXPR(new Object());
     (function(Visibility) {
@@ -17515,16 +17515,16 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var collection_1 = require("../../src/core/facade/collection");
-    var ast_1 = require("../../src/core/change_detection/parser/ast");
-    var change_detection_util_1 = require("../../src/core/change_detection/change_detection_util");
-    var dynamic_change_detector_1 = require("../../src/core/change_detection/dynamic_change_detector");
-    var directive_record_1 = require("../../src/core/change_detection/directive_record");
-    var event_binding_1 = require("../../src/core/change_detection/event_binding");
-    var coalesce_1 = require("../../src/core/change_detection/coalesce");
-    var proto_record_1 = require("../../src/core/change_detection/proto_record");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var collection_1 = require('../../src/core/facade/collection');
+    var ast_1 = require('../../src/core/change_detection/parser/ast');
+    var change_detection_util_1 = require('../../src/core/change_detection/change_detection_util');
+    var dynamic_change_detector_1 = require('../../src/core/change_detection/dynamic_change_detector');
+    var directive_record_1 = require('../../src/core/change_detection/directive_record');
+    var event_binding_1 = require('../../src/core/change_detection/event_binding');
+    var coalesce_1 = require('../../src/core/change_detection/coalesce');
+    var proto_record_1 = require('../../src/core/change_detection/proto_record');
     var DynamicProtoChangeDetector = (function() {
       function DynamicProtoChangeDetector(_definition) {
         this._definition = _definition;
@@ -17906,7 +17906,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var change_detection_jit_generator_1 = require("../../src/core/change_detection/change_detection_jit_generator");
+    var change_detection_jit_generator_1 = require('../../src/core/change_detection/change_detection_jit_generator');
     var JitProtoChangeDetector = (function() {
       function JitProtoChangeDetector(definition) {
         this.definition = definition;
@@ -17953,9 +17953,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_1 = require("../../src/core/di");
-    var css_animation_builder_1 = require("../../src/animate/css_animation_builder");
-    var browser_details_1 = require("../../src/animate/browser_details");
+    var di_1 = require('../../src/core/di');
+    var css_animation_builder_1 = require('../../src/animate/css_animation_builder');
+    var browser_details_1 = require('../../src/animate/browser_details');
     var AnimationBuilder = (function() {
       function AnimationBuilder(browserDetails) {
         this.browserDetails = browserDetails;
@@ -17983,26 +17983,26 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var async_1 = require("../../src/core/facade/async");
-    var collection_1 = require("../../src/core/facade/collection");
-    var di_1 = require("../../src/core/di");
-    var injector_1 = require("../../src/core/di/injector");
-    var binding_1 = require("../../src/core/di/binding");
-    var di_2 = require("../../src/core/metadata/di");
-    var avmModule = require("../../src/core/linker/view_manager");
-    var view_container_ref_1 = require("../../src/core/linker/view_container_ref");
-    var element_ref_1 = require("../../src/core/linker/element_ref");
-    var template_ref_1 = require("../../src/core/linker/template_ref");
-    var directives_1 = require("../../src/core/metadata/directives");
-    var directive_lifecycle_reflector_1 = require("../../src/core/linker/directive_lifecycle_reflector");
-    var change_detection_1 = require("../../src/core/change_detection/change_detection");
-    var query_list_1 = require("../../src/core/linker/query_list");
-    var reflection_1 = require("../../src/core/reflection/reflection");
-    var event_config_1 = require("../../src/core/linker/event_config");
-    var pipe_binding_1 = require("../../src/core/pipes/pipe_binding");
-    var interfaces_1 = require("../../src/core/linker/interfaces");
+    var lang_1 = require('../../src/core/facade/lang');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var async_1 = require('../../src/core/facade/async');
+    var collection_1 = require('../../src/core/facade/collection');
+    var di_1 = require('../../src/core/di');
+    var injector_1 = require('../../src/core/di/injector');
+    var binding_1 = require('../../src/core/di/binding');
+    var di_2 = require('../../src/core/metadata/di');
+    var avmModule = require('../../src/core/linker/view_manager');
+    var view_container_ref_1 = require('../../src/core/linker/view_container_ref');
+    var element_ref_1 = require('../../src/core/linker/element_ref');
+    var template_ref_1 = require('../../src/core/linker/template_ref');
+    var directives_1 = require('../../src/core/metadata/directives');
+    var directive_lifecycle_reflector_1 = require('../../src/core/linker/directive_lifecycle_reflector');
+    var change_detection_1 = require('../../src/core/change_detection/change_detection');
+    var query_list_1 = require('../../src/core/linker/query_list');
+    var reflection_1 = require('../../src/core/reflection/reflection');
+    var event_config_1 = require('../../src/core/linker/event_config');
+    var pipe_binding_1 = require('../../src/core/pipes/pipe_binding');
+    var interfaces_1 = require('../../src/core/linker/interfaces');
     var _staticKeys;
     var StaticKeys = (function() {
       function StaticKeys() {
@@ -18958,10 +18958,10 @@
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
-    __export(require("../../src/core/render/dom/shared_styles_host"));
-    __export(require("../../src/core/render/dom/dom_renderer"));
-    __export(require("../../src/core/render/dom/dom_tokens"));
-    __export(require("../../src/core/render/api"));
+    __export(require('../../src/core/render/dom/shared_styles_host'));
+    __export(require('../../src/core/render/dom/dom_renderer'));
+    __export(require('../../src/core/render/dom/dom_tokens'));
+    __export(require('../../src/core/render/api'));
     global.define = __define;
     return module.exports;
   });
@@ -18978,8 +18978,8 @@
       }
       d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var Subject = require("@reactivex/rxjs/dist/cjs/Subject");
+    var lang_1 = require('../../src/core/facade/lang');
+    var Subject = require('@reactivex/rxjs/dist/cjs/Subject');
     var PromiseWrapper = (function() {
       function PromiseWrapper() {}
       PromiseWrapper.resolve = function(obj) {
@@ -19126,7 +19126,7 @@
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
-    var metadata_1 = require("../../src/core/di/metadata");
+    var metadata_1 = require('../../src/core/di/metadata');
     exports.InjectMetadata = metadata_1.InjectMetadata;
     exports.OptionalMetadata = metadata_1.OptionalMetadata;
     exports.InjectableMetadata = metadata_1.InjectableMetadata;
@@ -19134,23 +19134,23 @@
     exports.HostMetadata = metadata_1.HostMetadata;
     exports.SkipSelfMetadata = metadata_1.SkipSelfMetadata;
     exports.DependencyMetadata = metadata_1.DependencyMetadata;
-    __export(require("../../src/core/di/decorators"));
-    var forward_ref_1 = require("../../src/core/di/forward_ref");
+    __export(require('../../src/core/di/decorators'));
+    var forward_ref_1 = require('../../src/core/di/forward_ref');
     exports.forwardRef = forward_ref_1.forwardRef;
     exports.resolveForwardRef = forward_ref_1.resolveForwardRef;
-    var injector_1 = require("../../src/core/di/injector");
+    var injector_1 = require('../../src/core/di/injector');
     exports.Injector = injector_1.Injector;
-    var binding_1 = require("../../src/core/di/binding");
+    var binding_1 = require('../../src/core/di/binding');
     exports.Binding = binding_1.Binding;
     exports.BindingBuilder = binding_1.BindingBuilder;
     exports.ResolvedBinding = binding_1.ResolvedBinding;
     exports.ResolvedFactory = binding_1.ResolvedFactory;
     exports.Dependency = binding_1.Dependency;
     exports.bind = binding_1.bind;
-    var key_1 = require("../../src/core/di/key");
+    var key_1 = require('../../src/core/di/key');
     exports.Key = key_1.Key;
     exports.TypeLiteral = key_1.TypeLiteral;
-    var exceptions_1 = require("../../src/core/di/exceptions");
+    var exceptions_1 = require('../../src/core/di/exceptions');
     exports.NoBindingError = exceptions_1.NoBindingError;
     exports.AbstractBindingError = exceptions_1.AbstractBindingError;
     exports.CyclicDependencyError = exceptions_1.CyclicDependencyError;
@@ -19158,7 +19158,7 @@
     exports.InvalidBindingError = exceptions_1.InvalidBindingError;
     exports.NoAnnotationError = exceptions_1.NoAnnotationError;
     exports.OutOfBoundsError = exceptions_1.OutOfBoundsError;
-    var opaque_token_1 = require("../../src/core/di/opaque_token");
+    var opaque_token_1 = require('../../src/core/di/opaque_token');
     exports.OpaqueToken = opaque_token_1.OpaqueToken;
     global.define = __define;
     return module.exports;
@@ -19167,54 +19167,54 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var iterable_differs_1 = require("../../src/core/change_detection/differs/iterable_differs");
-    var default_iterable_differ_1 = require("../../src/core/change_detection/differs/default_iterable_differ");
-    var keyvalue_differs_1 = require("../../src/core/change_detection/differs/keyvalue_differs");
-    var default_keyvalue_differ_1 = require("../../src/core/change_detection/differs/default_keyvalue_differ");
-    var lang_1 = require("../../src/core/facade/lang");
-    var ast_1 = require("../../src/core/change_detection/parser/ast");
+    var iterable_differs_1 = require('../../src/core/change_detection/differs/iterable_differs');
+    var default_iterable_differ_1 = require('../../src/core/change_detection/differs/default_iterable_differ');
+    var keyvalue_differs_1 = require('../../src/core/change_detection/differs/keyvalue_differs');
+    var default_keyvalue_differ_1 = require('../../src/core/change_detection/differs/default_keyvalue_differ');
+    var lang_1 = require('../../src/core/facade/lang');
+    var ast_1 = require('../../src/core/change_detection/parser/ast');
     exports.ASTWithSource = ast_1.ASTWithSource;
     exports.AST = ast_1.AST;
     exports.AstTransformer = ast_1.AstTransformer;
     exports.PropertyRead = ast_1.PropertyRead;
     exports.LiteralArray = ast_1.LiteralArray;
     exports.ImplicitReceiver = ast_1.ImplicitReceiver;
-    var lexer_1 = require("../../src/core/change_detection/parser/lexer");
+    var lexer_1 = require('../../src/core/change_detection/parser/lexer');
     exports.Lexer = lexer_1.Lexer;
-    var parser_1 = require("../../src/core/change_detection/parser/parser");
+    var parser_1 = require('../../src/core/change_detection/parser/parser');
     exports.Parser = parser_1.Parser;
-    var locals_1 = require("../../src/core/change_detection/parser/locals");
+    var locals_1 = require('../../src/core/change_detection/parser/locals');
     exports.Locals = locals_1.Locals;
-    var exceptions_1 = require("../../src/core/change_detection/exceptions");
+    var exceptions_1 = require('../../src/core/change_detection/exceptions');
     exports.DehydratedException = exceptions_1.DehydratedException;
     exports.ExpressionChangedAfterItHasBeenCheckedException = exceptions_1.ExpressionChangedAfterItHasBeenCheckedException;
     exports.ChangeDetectionError = exceptions_1.ChangeDetectionError;
-    var interfaces_1 = require("../../src/core/change_detection/interfaces");
+    var interfaces_1 = require('../../src/core/change_detection/interfaces');
     exports.ChangeDetectorDefinition = interfaces_1.ChangeDetectorDefinition;
     exports.DebugContext = interfaces_1.DebugContext;
     exports.ChangeDetectorGenConfig = interfaces_1.ChangeDetectorGenConfig;
-    var constants_1 = require("../../src/core/change_detection/constants");
+    var constants_1 = require('../../src/core/change_detection/constants');
     exports.ChangeDetectionStrategy = constants_1.ChangeDetectionStrategy;
     exports.CHANGE_DECTION_STRATEGY_VALUES = constants_1.CHANGE_DECTION_STRATEGY_VALUES;
-    var proto_change_detector_1 = require("../../src/core/change_detection/proto_change_detector");
+    var proto_change_detector_1 = require('../../src/core/change_detection/proto_change_detector');
     exports.DynamicProtoChangeDetector = proto_change_detector_1.DynamicProtoChangeDetector;
-    var jit_proto_change_detector_1 = require("../../src/core/change_detection/jit_proto_change_detector");
+    var jit_proto_change_detector_1 = require('../../src/core/change_detection/jit_proto_change_detector');
     exports.JitProtoChangeDetector = jit_proto_change_detector_1.JitProtoChangeDetector;
-    var binding_record_1 = require("../../src/core/change_detection/binding_record");
+    var binding_record_1 = require('../../src/core/change_detection/binding_record');
     exports.BindingRecord = binding_record_1.BindingRecord;
     exports.BindingTarget = binding_record_1.BindingTarget;
-    var directive_record_1 = require("../../src/core/change_detection/directive_record");
+    var directive_record_1 = require('../../src/core/change_detection/directive_record');
     exports.DirectiveIndex = directive_record_1.DirectiveIndex;
     exports.DirectiveRecord = directive_record_1.DirectiveRecord;
-    var dynamic_change_detector_1 = require("../../src/core/change_detection/dynamic_change_detector");
+    var dynamic_change_detector_1 = require('../../src/core/change_detection/dynamic_change_detector');
     exports.DynamicChangeDetector = dynamic_change_detector_1.DynamicChangeDetector;
-    var change_detector_ref_1 = require("../../src/core/change_detection/change_detector_ref");
+    var change_detector_ref_1 = require('../../src/core/change_detection/change_detector_ref');
     exports.ChangeDetectorRef = change_detector_ref_1.ChangeDetectorRef;
-    var iterable_differs_2 = require("../../src/core/change_detection/differs/iterable_differs");
+    var iterable_differs_2 = require('../../src/core/change_detection/differs/iterable_differs');
     exports.IterableDiffers = iterable_differs_2.IterableDiffers;
-    var keyvalue_differs_2 = require("../../src/core/change_detection/differs/keyvalue_differs");
+    var keyvalue_differs_2 = require('../../src/core/change_detection/differs/keyvalue_differs');
     exports.KeyValueDiffers = keyvalue_differs_2.KeyValueDiffers;
-    var change_detection_util_1 = require("../../src/core/change_detection/change_detection_util");
+    var change_detection_util_1 = require('../../src/core/change_detection/change_detection_util');
     exports.WrappedValue = change_detection_util_1.WrappedValue;
     exports.SimpleChange = change_detection_util_1.SimpleChange;
     exports.keyValDiff = lang_1.CONST_EXPR([lang_1.CONST_EXPR(new default_keyvalue_differ_1.DefaultKeyValueDifferFactory())]);
@@ -19228,7 +19228,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var render_1 = require("../../src/core/render/render");
+    var render_1 = require('../../src/core/render/render');
     exports.Renderer = render_1.Renderer;
     exports.RenderViewRef = render_1.RenderViewRef;
     exports.RenderProtoViewRef = render_1.RenderProtoViewRef;
@@ -19242,12 +19242,12 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var lang_1 = require("../../src/core/facade/lang");
+    var lang_1 = require('../../src/core/facade/lang');
     exports.Type = lang_1.Type;
-    var async_1 = require("../../src/core/facade/async");
+    var async_1 = require('../../src/core/facade/async');
     exports.Observable = async_1.Observable;
     exports.EventEmitter = async_1.EventEmitter;
-    var exceptions_1 = require("../../src/core/facade/exceptions");
+    var exceptions_1 = require('../../src/core/facade/exceptions');
     exports.WrappedException = exceptions_1.WrappedException;
     global.define = __define;
     return module.exports;
@@ -19278,10 +19278,10 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var async_1 = require("../../src/core/facade/async");
-    var collection_1 = require("../../src/core/facade/collection");
-    var di_1 = require("../../src/core/di");
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var async_1 = require('../../src/core/facade/async');
+    var collection_1 = require('../../src/core/facade/collection');
+    var di_1 = require('../../src/core/di');
     var PostMessageBus = (function() {
       function PostMessageBus(sink, source) {
         this.sink = sink;
@@ -19432,7 +19432,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var change_detection_1 = require("../../src/core/change_detection/change_detection");
+    var change_detection_1 = require('../../src/core/change_detection/change_detection');
     exports.ChangeDetectionStrategy = change_detection_1.ChangeDetectionStrategy;
     exports.ExpressionChangedAfterItHasBeenCheckedException = change_detection_1.ExpressionChangedAfterItHasBeenCheckedException;
     exports.ChangeDetectionError = change_detection_1.ChangeDetectionError;
@@ -19453,7 +19453,7 @@
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
-    __export(require("../../src/core/render"));
+    __export(require('../../src/core/render'));
     global.define = __define;
     return module.exports;
   });
@@ -19492,9 +19492,9 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var metadata_1 = require("../../src/core/di/metadata");
-    var change_detection_1 = require("../../src/core/change_detection");
+    var lang_1 = require('../../src/core/facade/lang');
+    var metadata_1 = require('../../src/core/di/metadata');
+    var change_detection_1 = require('../../src/core/change_detection');
     var DirectiveMetadata = (function(_super) {
       __extends(DirectiveMetadata, _super);
       function DirectiveMetadata(_a) {
@@ -19648,22 +19648,22 @@
         decorator(target, key, paramIndex);
       };
     };
-    var collection_1 = require("../../src/core/facade/collection");
-    var lang_1 = require("../../src/core/facade/lang");
-    var api_1 = require("../../src/core/render/api");
-    var di_1 = require("../../src/core/di");
-    var pipe_binding_1 = require("../../src/core/pipes/pipe_binding");
-    var pipes_1 = require("../../src/core/pipes/pipes");
-    var view_1 = require("../../src/core/linker/view");
-    var element_binder_1 = require("../../src/core/linker/element_binder");
-    var element_injector_1 = require("../../src/core/linker/element_injector");
-    var directive_resolver_1 = require("../../src/core/linker/directive_resolver");
-    var view_resolver_1 = require("../../src/core/linker/view_resolver");
-    var pipe_resolver_1 = require("../../src/core/linker/pipe_resolver");
-    var pipes_2 = require("../../src/core/pipes");
-    var template_commands_1 = require("../../src/core/linker/template_commands");
-    var render_1 = require("../../render");
-    var application_tokens_1 = require("../../src/core/application_tokens");
+    var collection_1 = require('../../src/core/facade/collection');
+    var lang_1 = require('../../src/core/facade/lang');
+    var api_1 = require('../../src/core/render/api');
+    var di_1 = require('../../src/core/di');
+    var pipe_binding_1 = require('../../src/core/pipes/pipe_binding');
+    var pipes_1 = require('../../src/core/pipes/pipes');
+    var view_1 = require('../../src/core/linker/view');
+    var element_binder_1 = require('../../src/core/linker/element_binder');
+    var element_injector_1 = require('../../src/core/linker/element_injector');
+    var directive_resolver_1 = require('../../src/core/linker/directive_resolver');
+    var view_resolver_1 = require('../../src/core/linker/view_resolver');
+    var pipe_resolver_1 = require('../../src/core/linker/pipe_resolver');
+    var pipes_2 = require('../../src/core/pipes');
+    var template_commands_1 = require('../../src/core/linker/template_commands');
+    var render_1 = require('../../render');
+    var application_tokens_1 = require('../../src/core/application_tokens');
     var ProtoViewFactory = (function() {
       function ProtoViewFactory(_renderer, defaultPipes, _directiveResolver, _viewResolver, _pipeResolver, appId) {
         this._renderer = _renderer;
@@ -19912,7 +19912,7 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var di_1 = require("../../src/core/metadata/di");
+    var di_1 = require('../../src/core/metadata/di');
     exports.QueryMetadata = di_1.QueryMetadata;
     exports.ContentChildrenMetadata = di_1.ContentChildrenMetadata;
     exports.ContentChildMetadata = di_1.ContentChildMetadata;
@@ -19920,7 +19920,7 @@
     exports.ViewQueryMetadata = di_1.ViewQueryMetadata;
     exports.ViewChildMetadata = di_1.ViewChildMetadata;
     exports.AttributeMetadata = di_1.AttributeMetadata;
-    var directives_1 = require("../../src/core/metadata/directives");
+    var directives_1 = require('../../src/core/metadata/directives');
     exports.ComponentMetadata = directives_1.ComponentMetadata;
     exports.DirectiveMetadata = directives_1.DirectiveMetadata;
     exports.PipeMetadata = directives_1.PipeMetadata;
@@ -19928,13 +19928,13 @@
     exports.OutputMetadata = directives_1.OutputMetadata;
     exports.HostBindingMetadata = directives_1.HostBindingMetadata;
     exports.HostListenerMetadata = directives_1.HostListenerMetadata;
-    var view_1 = require("../../src/core/metadata/view");
+    var view_1 = require('../../src/core/metadata/view');
     exports.ViewMetadata = view_1.ViewMetadata;
     exports.ViewEncapsulation = view_1.ViewEncapsulation;
-    var di_2 = require("../../src/core/metadata/di");
-    var directives_2 = require("../../src/core/metadata/directives");
-    var view_2 = require("../../src/core/metadata/view");
-    var decorators_1 = require("../../src/core/util/decorators");
+    var di_2 = require('../../src/core/metadata/di');
+    var directives_2 = require('../../src/core/metadata/directives');
+    var view_2 = require('../../src/core/metadata/view');
+    var decorators_1 = require('../../src/core/util/decorators');
     exports.Component = decorators_1.makeDecorator(directives_2.ComponentMetadata, function(fn) {
       return fn.View = exports.View;
     });
@@ -19983,12 +19983,12 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var lang_1 = require("../../src/core/facade/lang");
-    var async_1 = require("../../src/core/facade/async");
-    var metadata_1 = require("../../src/core/metadata");
-    var di_1 = require("../../src/core/di");
-    var change_detection_1 = require("../../src/core/change_detection");
-    var invalid_pipe_argument_exception_1 = require("../../src/core/pipes/invalid_pipe_argument_exception");
+    var lang_1 = require('../../src/core/facade/lang');
+    var async_1 = require('../../src/core/facade/async');
+    var metadata_1 = require('../../src/core/metadata');
+    var di_1 = require('../../src/core/di');
+    var change_detection_1 = require('../../src/core/change_detection');
+    var invalid_pipe_argument_exception_1 = require('../../src/core/pipes/invalid_pipe_argument_exception');
     var ObservableStrategy = (function() {
       function ObservableStrategy() {}
       ObservableStrategy.prototype.createSubscription = function(async, updateLatestValue) {
@@ -20091,25 +20091,25 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var async_pipe_1 = require("../../src/core/pipes/async_pipe");
+    var async_pipe_1 = require('../../src/core/pipes/async_pipe');
     exports.AsyncPipe = async_pipe_1.AsyncPipe;
-    var date_pipe_1 = require("../../src/core/pipes/date_pipe");
+    var date_pipe_1 = require('../../src/core/pipes/date_pipe');
     exports.DatePipe = date_pipe_1.DatePipe;
-    var default_pipes_1 = require("../../src/core/pipes/default_pipes");
+    var default_pipes_1 = require('../../src/core/pipes/default_pipes');
     exports.DEFAULT_PIPES = default_pipes_1.DEFAULT_PIPES;
     exports.DEFAULT_PIPES_TOKEN = default_pipes_1.DEFAULT_PIPES_TOKEN;
-    var json_pipe_1 = require("../../src/core/pipes/json_pipe");
+    var json_pipe_1 = require('../../src/core/pipes/json_pipe');
     exports.JsonPipe = json_pipe_1.JsonPipe;
-    var slice_pipe_1 = require("../../src/core/pipes/slice_pipe");
+    var slice_pipe_1 = require('../../src/core/pipes/slice_pipe');
     exports.SlicePipe = slice_pipe_1.SlicePipe;
-    var lowercase_pipe_1 = require("../../src/core/pipes/lowercase_pipe");
+    var lowercase_pipe_1 = require('../../src/core/pipes/lowercase_pipe');
     exports.LowerCasePipe = lowercase_pipe_1.LowerCasePipe;
-    var number_pipe_1 = require("../../src/core/pipes/number_pipe");
+    var number_pipe_1 = require('../../src/core/pipes/number_pipe');
     exports.NumberPipe = number_pipe_1.NumberPipe;
     exports.DecimalPipe = number_pipe_1.DecimalPipe;
     exports.PercentPipe = number_pipe_1.PercentPipe;
     exports.CurrencyPipe = number_pipe_1.CurrencyPipe;
-    var uppercase_pipe_1 = require("../../src/core/pipes/uppercase_pipe");
+    var uppercase_pipe_1 = require('../../src/core/pipes/uppercase_pipe');
     exports.UpperCasePipe = uppercase_pipe_1.UpperCasePipe;
     global.define = __define;
     return module.exports;
@@ -20118,50 +20118,50 @@
     var global = System.global,
         __define = global.define;
     global.define = undefined;
-    var di_1 = require("../../src/core/di");
-    var pipes_1 = require("../../src/core/pipes");
-    var animation_builder_1 = require("../../src/animate/animation_builder");
-    var browser_details_1 = require("../../src/animate/browser_details");
-    var reflection_1 = require("../../src/core/reflection/reflection");
-    var change_detection_1 = require("../../src/core/change_detection/change_detection");
-    var event_manager_1 = require("../../src/core/render/dom/events/event_manager");
-    var proto_view_factory_1 = require("../../src/core/linker/proto_view_factory");
-    var browser_adapter_1 = require("../../src/core/dom/browser_adapter");
-    var key_events_1 = require("../../src/core/render/dom/events/key_events");
-    var hammer_gestures_1 = require("../../src/core/render/dom/events/hammer_gestures");
-    var view_pool_1 = require("../../src/core/linker/view_pool");
-    var api_1 = require("../../src/core/render/api");
-    var app_root_url_1 = require("../../src/core/compiler/app_root_url");
-    var render_1 = require("../../src/core/render/render");
-    var application_tokens_1 = require("../../src/core/application_tokens");
-    var element_schema_registry_1 = require("../../src/core/compiler/schema/element_schema_registry");
-    var dom_element_schema_registry_1 = require("../../src/core/compiler/schema/dom_element_schema_registry");
-    var shared_styles_host_1 = require("../../src/core/render/dom/shared_styles_host");
-    var dom_adapter_1 = require("../../src/core/dom/dom_adapter");
-    var ng_zone_1 = require("../../src/core/zone/ng_zone");
-    var view_manager_1 = require("../../src/core/linker/view_manager");
-    var view_manager_utils_1 = require("../../src/core/linker/view_manager_utils");
-    var view_listener_1 = require("../../src/core/linker/view_listener");
-    var view_resolver_1 = require("../../src/core/linker/view_resolver");
-    var directive_resolver_1 = require("../../src/core/linker/directive_resolver");
-    var exceptions_1 = require("../../src/core/facade/exceptions");
-    var dynamic_component_loader_1 = require("../../src/core/linker/dynamic_component_loader");
-    var url_resolver_1 = require("../../src/core/compiler/url_resolver");
-    var testability_1 = require("../../src/core/testability/testability");
-    var xhr_1 = require("../../src/core/compiler/xhr");
-    var xhr_impl_1 = require("../../src/core/compiler/xhr_impl");
-    var serializer_1 = require("../../src/web_workers/shared/serializer");
-    var api_2 = require("../../src/web_workers/shared/api");
-    var render_proto_view_ref_store_1 = require("../../src/web_workers/shared/render_proto_view_ref_store");
-    var render_view_with_fragments_store_1 = require("../../src/web_workers/shared/render_view_with_fragments_store");
-    var anchor_based_app_root_url_1 = require("../../src/core/compiler/anchor_based_app_root_url");
-    var impl_1 = require("../../src/web_workers/ui/impl");
-    var message_bus_1 = require("../../src/web_workers/shared/message_bus");
-    var renderer_1 = require("../../src/web_workers/ui/renderer");
-    var xhr_impl_2 = require("../../src/web_workers/ui/xhr_impl");
-    var setup_1 = require("../../src/web_workers/ui/setup");
-    var service_message_broker_1 = require("../../src/web_workers/shared/service_message_broker");
-    var client_message_broker_1 = require("../../src/web_workers/shared/client_message_broker");
+    var di_1 = require('../../src/core/di');
+    var pipes_1 = require('../../src/core/pipes');
+    var animation_builder_1 = require('../../src/animate/animation_builder');
+    var browser_details_1 = require('../../src/animate/browser_details');
+    var reflection_1 = require('../../src/core/reflection/reflection');
+    var change_detection_1 = require('../../src/core/change_detection/change_detection');
+    var event_manager_1 = require('../../src/core/render/dom/events/event_manager');
+    var proto_view_factory_1 = require('../../src/core/linker/proto_view_factory');
+    var browser_adapter_1 = require('../../src/core/dom/browser_adapter');
+    var key_events_1 = require('../../src/core/render/dom/events/key_events');
+    var hammer_gestures_1 = require('../../src/core/render/dom/events/hammer_gestures');
+    var view_pool_1 = require('../../src/core/linker/view_pool');
+    var api_1 = require('../../src/core/render/api');
+    var app_root_url_1 = require('../../src/core/compiler/app_root_url');
+    var render_1 = require('../../src/core/render/render');
+    var application_tokens_1 = require('../../src/core/application_tokens');
+    var element_schema_registry_1 = require('../../src/core/compiler/schema/element_schema_registry');
+    var dom_element_schema_registry_1 = require('../../src/core/compiler/schema/dom_element_schema_registry');
+    var shared_styles_host_1 = require('../../src/core/render/dom/shared_styles_host');
+    var dom_adapter_1 = require('../../src/core/dom/dom_adapter');
+    var ng_zone_1 = require('../../src/core/zone/ng_zone');
+    var view_manager_1 = require('../../src/core/linker/view_manager');
+    var view_manager_utils_1 = require('../../src/core/linker/view_manager_utils');
+    var view_listener_1 = require('../../src/core/linker/view_listener');
+    var view_resolver_1 = require('../../src/core/linker/view_resolver');
+    var directive_resolver_1 = require('../../src/core/linker/directive_resolver');
+    var exceptions_1 = require('../../src/core/facade/exceptions');
+    var dynamic_component_loader_1 = require('../../src/core/linker/dynamic_component_loader');
+    var url_resolver_1 = require('../../src/core/compiler/url_resolver');
+    var testability_1 = require('../../src/core/testability/testability');
+    var xhr_1 = require('../../src/core/compiler/xhr');
+    var xhr_impl_1 = require('../../src/core/compiler/xhr_impl');
+    var serializer_1 = require('../../src/web_workers/shared/serializer');
+    var api_2 = require('../../src/web_workers/shared/api');
+    var render_proto_view_ref_store_1 = require('../../src/web_workers/shared/render_proto_view_ref_store');
+    var render_view_with_fragments_store_1 = require('../../src/web_workers/shared/render_view_with_fragments_store');
+    var anchor_based_app_root_url_1 = require('../../src/core/compiler/anchor_based_app_root_url');
+    var impl_1 = require('../../src/web_workers/ui/impl');
+    var message_bus_1 = require('../../src/web_workers/shared/message_bus');
+    var renderer_1 = require('../../src/web_workers/ui/renderer');
+    var xhr_impl_2 = require('../../src/web_workers/ui/xhr_impl');
+    var setup_1 = require('../../src/web_workers/ui/setup');
+    var service_message_broker_1 = require('../../src/web_workers/shared/service_message_broker');
+    var client_message_broker_1 = require('../../src/web_workers/shared/client_message_broker');
     var _rootInjector;
     var _rootBindings = [di_1.bind(reflection_1.Reflector).toValue(reflection_1.reflector)];
     function _injectorBindings() {
@@ -20215,16 +20215,16 @@
       if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
         return Reflect.metadata(k, v);
     };
-    var di_bindings_1 = require("../../src/web_workers/ui/di_bindings");
-    var application_ref_1 = require("../../src/core/application_ref");
-    var di_1 = require("../../src/core/di");
-    var browser_adapter_1 = require("../../src/core/dom/browser_adapter");
-    var wtf_init_1 = require("../../src/core/profile/wtf_init");
-    var setup_1 = require("../../src/web_workers/ui/setup");
-    var renderer_1 = require("../../src/web_workers/ui/renderer");
-    var xhr_impl_1 = require("../../src/web_workers/ui/xhr_impl");
-    var client_message_broker_1 = require("../../src/web_workers/shared/client_message_broker");
-    var service_message_broker_1 = require("../../src/web_workers/shared/service_message_broker");
+    var di_bindings_1 = require('../../src/web_workers/ui/di_bindings');
+    var application_ref_1 = require('../../src/core/application_ref');
+    var di_1 = require('../../src/core/di');
+    var browser_adapter_1 = require('../../src/core/dom/browser_adapter');
+    var wtf_init_1 = require('../../src/core/profile/wtf_init');
+    var setup_1 = require('../../src/web_workers/ui/setup');
+    var renderer_1 = require('../../src/web_workers/ui/renderer');
+    var xhr_impl_1 = require('../../src/web_workers/ui/xhr_impl');
+    var client_message_broker_1 = require('../../src/web_workers/shared/client_message_broker');
+    var service_message_broker_1 = require('../../src/web_workers/shared/service_message_broker');
     function bootstrapUICommon(bus) {
       browser_adapter_1.BrowserDomAdapter.makeCurrent();
       var zone = application_ref_1.createNgZone();
@@ -20272,11 +20272,11 @@
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
-    var post_message_bus_1 = require("../../src/web_workers/shared/post_message_bus");
-    var impl_1 = require("../../src/web_workers/ui/impl");
-    var impl_2 = require("../../src/web_workers/ui/impl");
+    var post_message_bus_1 = require('../../src/web_workers/shared/post_message_bus');
+    var impl_1 = require('../../src/web_workers/ui/impl');
+    var impl_2 = require('../../src/web_workers/ui/impl');
     exports.WebWorkerApplication = impl_2.WebWorkerApplication;
-    __export(require("../../src/web_workers/shared/message_bus"));
+    __export(require('../../src/web_workers/shared/message_bus'));
     function bootstrap(uri) {
       var instance = spawnWebWorker(uri);
       instance.app = impl_1.bootstrapUICommon(instance.bus);
@@ -20312,14 +20312,14 @@
         if (!exports.hasOwnProperty(p))
           exports[p] = m[p];
     }
-    __export(require("../../src/core/facade"));
-    __export(require("../../src/core/zone"));
-    __export(require("../../src/web_workers/ui/application"));
-    __export(require("../../src/web_workers/shared/client_message_broker"));
-    __export(require("../../src/web_workers/shared/service_message_broker"));
-    var serializer_1 = require("../../src/web_workers/shared/serializer");
+    __export(require('../../src/core/facade'));
+    __export(require('../../src/core/zone'));
+    __export(require('../../src/web_workers/ui/application'));
+    __export(require('../../src/web_workers/shared/client_message_broker'));
+    __export(require('../../src/web_workers/shared/service_message_broker'));
+    var serializer_1 = require('../../src/web_workers/shared/serializer');
     exports.PRIMITIVE = serializer_1.PRIMITIVE;
     global.define = __define;
     return module.exports;
   });
-})(require("process"));
+})(require('process'));

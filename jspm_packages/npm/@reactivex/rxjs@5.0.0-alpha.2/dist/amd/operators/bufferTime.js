@@ -123,4 +123,4 @@
       subscriber.closeBuffer(buffer);
     }
   });
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

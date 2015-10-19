@@ -23,12 +23,12 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
-var _OuterSubscriber2 = require("../OuterSubscriber");
+var _utilErrorObject = require('../util/errorObject');
+var _OuterSubscriber2 = require('../OuterSubscriber');
 var _OuterSubscriber3 = _interopRequireDefault(_OuterSubscriber2);
-var _utilSubscribeToResult = require("../util/subscribeToResult");
+var _utilSubscribeToResult = require('../util/subscribeToResult');
 var _utilSubscribeToResult2 = _interopRequireDefault(_utilSubscribeToResult);
 function withLatestFrom() {
   var project = undefined;

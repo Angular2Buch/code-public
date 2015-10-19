@@ -142,4 +142,4 @@
       }(root_1.root, exports.Immediate));
     }
   });
-})(require("process"));
+})(require('process'));

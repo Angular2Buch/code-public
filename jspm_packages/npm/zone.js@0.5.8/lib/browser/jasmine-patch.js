@@ -1,3 +1,3 @@
 /* */ 
-var jasminePatch = require("../jasmine/patch");
+var jasminePatch = require('../jasmine/patch');
 jasminePatch.apply();

@@ -24,13 +24,13 @@
       throw new TypeError('Cannot call a class as a function');
     }
   }
-  var _Subscriber4 = require("../Subscriber");
+  var _Subscriber4 = require('../Subscriber');
   var _Subscriber5 = _interopRequireDefault(_Subscriber4);
-  var _Subscription = require("../Subscription");
+  var _Subscription = require('../Subscription');
   var _Subscription2 = _interopRequireDefault(_Subscription);
-  var _utilTryCatch = require("../util/tryCatch");
+  var _utilTryCatch = require('../util/tryCatch');
   var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-  var _utilErrorObject = require("../util/errorObject");
+  var _utilErrorObject = require('../util/errorObject');
   function bufferToggle(openings, closingSelector) {
     return this.lift(new BufferToggleOperator(openings, closingSelector));
   }
@@ -136,4 +136,4 @@
     return BufferToggleOpeningsSubscriber;
   })(_Subscriber5['default']);
   module.exports = exports['default'];
-})(require("buffer").Buffer);
+})(require('buffer').Buffer);

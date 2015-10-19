@@ -1,9 +1,9 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var lang_2 = require("../facade/lang");
-var collection_1 = require("../facade/collection");
-var di_1 = require("../di");
+var lang_1 = require('../facade/lang');
+var lang_2 = require('../facade/lang');
+var collection_1 = require('../facade/collection');
+var di_1 = require('../di');
 exports.NG_VALIDATORS = lang_2.CONST_EXPR(new di_1.OpaqueToken("NgValidators"));
 var Validators = (function() {
   function Validators() {}

@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var route_config_decorator_1 = require("./route_config_decorator");
-var lang_1 = require("../core/facade/lang");
-var exceptions_1 = require("../core/facade/exceptions");
+var route_config_decorator_1 = require('./route_config_decorator');
+var lang_1 = require('../core/facade/lang');
+var exceptions_1 = require('../core/facade/exceptions');
 function normalizeRouteConfig(config) {
   if (config instanceof route_config_decorator_1.Route || config instanceof route_config_decorator_1.Redirect || config instanceof route_config_decorator_1.AsyncRoute || config instanceof route_config_decorator_1.AuxRoute) {
     return config;

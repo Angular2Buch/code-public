@@ -22,10 +22,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var metadata_1 = require("../core/metadata");
-var router_1 = require("./router");
-var location_1 = require("./location");
-var instruction_1 = require("./instruction");
+var metadata_1 = require('../core/metadata');
+var router_1 = require('./router');
+var location_1 = require('./location');
+var instruction_1 = require('./instruction');
 var RouterLink = (function() {
   function RouterLink(_router, _location) {
     this._router = _router;

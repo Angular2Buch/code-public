@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var collection_1 = require("../../core/facade/collection");
-var lang_1 = require("../../core/facade/lang");
+var collection_1 = require('../../core/facade/collection');
+var lang_1 = require('../../core/facade/lang');
 var MOUSE_EVENT_PROPERTIES = ["altKey", "button", "clientX", "clientY", "metaKey", "movementX", "movementY", "offsetX", "offsetY", "region", "screenX", "screenY", "shiftKey"];
 var KEYBOARD_EVENT_PROPERTIES = ['altkey', 'charCode', 'code', 'ctrlKey', 'isComposing', 'key', 'keyCode', 'location', 'metaKey', 'repeat', 'shiftKey', 'which'];
 var EVENT_PROPERTIES = ['type', 'bubbles', 'cancelable'];

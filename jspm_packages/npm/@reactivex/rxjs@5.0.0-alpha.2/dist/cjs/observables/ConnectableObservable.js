@@ -22,9 +22,9 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Observable3 = require("../Observable");
+var _Observable3 = require('../Observable');
 var _Observable4 = _interopRequireDefault(_Observable3);
-var _Subscription3 = require("../Subscription");
+var _Subscription3 = require('../Subscription');
 var _Subscription4 = _interopRequireDefault(_Subscription3);
 var ConnectableObservable = (function(_Observable) {
   _inherits(ConnectableObservable, _Observable);

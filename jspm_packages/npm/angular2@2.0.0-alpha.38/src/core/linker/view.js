@@ -9,14 +9,14 @@ var __extends = (this && this.__extends) || function(d, b) {
   }
   d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-var collection_1 = require("../facade/collection");
-var change_detection_1 = require("../change_detection/change_detection");
-var interfaces_1 = require("../change_detection/interfaces");
-var lang_1 = require("../facade/lang");
-var exceptions_1 = require("../facade/exceptions");
-var view_ref_1 = require("./view_ref");
-var util_1 = require("../render/dom/util");
-var interfaces_2 = require("../change_detection/interfaces");
+var collection_1 = require('../facade/collection');
+var change_detection_1 = require('../change_detection/change_detection');
+var interfaces_1 = require('../change_detection/interfaces');
+var lang_1 = require('../facade/lang');
+var exceptions_1 = require('../facade/exceptions');
+var view_ref_1 = require('./view_ref');
+var util_1 = require('../render/dom/util');
+var interfaces_2 = require('../change_detection/interfaces');
 exports.DebugContext = interfaces_2.DebugContext;
 var REFLECT_PREFIX = 'ng-reflect-';
 var AppViewContainer = (function() {

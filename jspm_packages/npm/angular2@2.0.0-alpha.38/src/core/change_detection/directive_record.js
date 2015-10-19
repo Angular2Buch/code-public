@@ -1,7 +1,7 @@
 /* */ 
 'use strict';
-var lang_1 = require("../facade/lang");
-var constants_1 = require("./constants");
+var lang_1 = require('../facade/lang');
+var constants_1 = require('./constants');
 var DirectiveIndex = (function() {
   function DirectiveIndex(elementIndex, directiveIndex) {
     this.elementIndex = elementIndex;

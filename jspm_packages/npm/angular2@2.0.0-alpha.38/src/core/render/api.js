@@ -69,4 +69,4 @@
     return Renderer;
   })();
   exports.Renderer = Renderer;
-})(require("process"));
+})(require('process'));

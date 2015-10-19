@@ -31,10 +31,10 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../core/di");
-var lang_1 = require("../core/facade/lang");
-var headers_1 = require("./headers");
-var enums_1 = require("./enums");
+var di_1 = require('../core/di');
+var lang_1 = require('../core/facade/lang');
+var headers_1 = require('./headers');
+var enums_1 = require('./enums');
 var ResponseOptions = (function() {
   function ResponseOptions(_a) {
     var _b = _a === void 0 ? {} : _a,

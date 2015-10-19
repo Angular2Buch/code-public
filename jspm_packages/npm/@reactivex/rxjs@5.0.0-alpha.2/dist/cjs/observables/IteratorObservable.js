@@ -22,14 +22,14 @@ function _inherits(subClass, superClass) {
   if (superClass)
     Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
 }
-var _Observable2 = require("../Observable");
+var _Observable2 = require('../Observable');
 var _Observable3 = _interopRequireDefault(_Observable2);
-var _utilRoot = require("../util/root");
-var _utilSymbol_iterator = require("../util/Symbol_iterator");
+var _utilRoot = require('../util/root');
+var _utilSymbol_iterator = require('../util/Symbol_iterator');
 var _utilSymbol_iterator2 = _interopRequireDefault(_utilSymbol_iterator);
-var _utilTryCatch = require("../util/tryCatch");
+var _utilTryCatch = require('../util/tryCatch');
 var _utilTryCatch2 = _interopRequireDefault(_utilTryCatch);
-var _utilErrorObject = require("../util/errorObject");
+var _utilErrorObject = require('../util/errorObject');
 var IteratorObservable = (function(_Observable) {
   _inherits(IteratorObservable, _Observable);
   function IteratorObservable(iterator, project, thisArg, scheduler) {

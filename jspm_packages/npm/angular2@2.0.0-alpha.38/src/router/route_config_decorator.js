@@ -1,8 +1,8 @@
 /* */ 
 'use strict';
-var route_config_impl_1 = require("./route_config_impl");
-var decorators_1 = require("../core/util/decorators");
-var route_config_impl_2 = require("./route_config_impl");
+var route_config_impl_1 = require('./route_config_impl');
+var decorators_1 = require('../core/util/decorators');
+var route_config_impl_2 = require('./route_config_impl');
 exports.Route = route_config_impl_2.Route;
 exports.Redirect = route_config_impl_2.Redirect;
 exports.AuxRoute = route_config_impl_2.AuxRoute;

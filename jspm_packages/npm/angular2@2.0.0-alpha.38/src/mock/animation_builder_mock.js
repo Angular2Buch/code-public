@@ -31,11 +31,11 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../core/di");
-var animation_builder_1 = require("../animate/animation_builder");
-var css_animation_builder_1 = require("../animate/css_animation_builder");
-var animation_1 = require("../animate/animation");
-var browser_details_1 = require("../animate/browser_details");
+var di_1 = require('../core/di');
+var animation_builder_1 = require('../animate/animation_builder');
+var css_animation_builder_1 = require('../animate/css_animation_builder');
+var animation_1 = require('../animate/animation');
+var browser_details_1 = require('../animate/browser_details');
 var MockAnimationBuilder = (function(_super) {
   __extends(MockAnimationBuilder, _super);
   function MockAnimationBuilder() {

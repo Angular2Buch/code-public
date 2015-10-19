@@ -22,8 +22,8 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../../core/di");
-var lang_1 = require("../../core/facade/lang");
+var di_1 = require('../../core/di');
+var lang_1 = require('../../core/facade/lang');
 var _nextRequestId = 0;
 exports.JSONP_HOME = '__ng_jsonp__';
 var _jsonpConnections = null;

@@ -23,11 +23,11 @@ function _classCallCheck(instance, Constructor) {
     throw new TypeError('Cannot call a class as a function');
   }
 }
-var _Subscriber2 = require("../Subscriber");
+var _Subscriber2 = require('../Subscriber');
 var _Subscriber3 = _interopRequireDefault(_Subscriber2);
-var _Subscription = require("../Subscription");
+var _Subscription = require('../Subscription');
 var _Subscription2 = _interopRequireDefault(_Subscription);
-var _utilBindCallback = require("../util/bindCallback");
+var _utilBindCallback = require('../util/bindCallback');
 var _utilBindCallback2 = _interopRequireDefault(_utilBindCallback);
 function _finally(finallySelector, thisArg) {
   return this.lift(new FinallyOperator(thisArg ? _utilBindCallback2['default'](finallySelector, thisArg, 2) : finallySelector));

@@ -22,7 +22,7 @@ var __metadata = (this && this.__metadata) || function(k, v) {
   if (typeof Reflect === "object" && typeof Reflect.metadata === "function")
     return Reflect.metadata(k, v);
 };
-var di_1 = require("../di");
+var di_1 = require('../di');
 var AppRootUrl = (function() {
   function AppRootUrl(value) {
     this._value = value;
