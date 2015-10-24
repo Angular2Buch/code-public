@@ -121,7 +121,7 @@ System.config({
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:brace-expansion@1.1.1": {
-      "balanced-match": "npm:balanced-match@0.2.0",
+      "balanced-match": "npm:balanced-match@0.2.1",
       "concat-map": "npm:concat-map@0.0.1"
     },
     "npm:browserify-aes@1.0.5": {
