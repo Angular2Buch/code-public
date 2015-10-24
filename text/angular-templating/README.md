@@ -28,7 +28,7 @@ class Car() {
 }
 ```
 
-Anstatt der eckigen Klammern, kann auch folgende Syntax für Property-Bindings verwendet werden.
+Anstatt eckiger Klammern, können Property-Bindings mit `bind-{property-name}="{value}"` werden.
 
 ```html
 <car bind-id="token"></car>
@@ -39,7 +39,7 @@ Anstatt der eckigen Klammern, kann auch folgende Syntax für Property-Bindings v
 Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren.
 
 ```html
-<car (damaged)="report(damage)"></car>
+<car (damaged)="report(damage, $event)"></car>
 ```
 
 ```javascript
@@ -51,7 +51,20 @@ class Dashboard() {
 }
 ```
 
-Anstatt der runden Klammern, kann auch folgende Syntax für Event-Bindings verwendet werden.
+Bei der Verwendung von Event-Bindings kann das Event-Objekt `$event` verwendet werden, um detailierte Informationen über das ausgelöste Ereignis zu erhalten.
+
+```javascript
+@Component({ /* ... */ })
+class Dashboard() {
+  /* ... */
+
+  report(damage, $event) {
+    console.log($event.type) // click, hover, change, ...
+  }
+}
+```
+
+Neben der Verwendung runder Klammern, können Event-Bindings auch mit dem Ausdruck `on-{Event-Name}="{callback()}"`.
 
 ```html
 <car on-damaged="report(damage)"></car>
@@ -59,7 +72,49 @@ Anstatt der runden Klammern, kann auch folgende Syntax für Event-Bindings verwe
 
 ### Two-Way Bindings
 
-## Was hat das noch mit HTML zu tun?
+## Lokale Variablen
+
+Innerhalb eines Templates können Referenzen auf HTML-Elemente, Komponenten und Datenbindungen erzeugt werden, um mit ihnen zu arbeiten.
+
+```html
+<input #id type="text"/>
+{{ id }}
+
+<car #car ></car>
+<button (click)="car.getTankCapicity()">Ermittle Tankinhalt</button>
+```
+
+```html
+<car *ng-for="#c in cars" [model]="c">
+```
+
+> Bei dem * vor der ng-for Direktive handelt es sich um eine Kurzschreibweise. Näheres erfahren Sie im nächsten Abschnitt.
+
+## * und &lt;template&gt;
+
+## Der Pipe-Operator `|`
+
+Pipes korrespondieren zu den `filters` in AngularJS 1.x und  werden genutzt, um Daten zu für die Anzeige zu transformieren. Sie nehmen Eingabeargumente entgegen und liefern das transfornierte Ergebnis zurück.
+In einem Binding-Expression werden sie durch das Symbol `|` (Pipe) eingeleitet.
+
+```html
+/* Der Wert von name wird in Großbuchstaben ausgegeben */
+<p>{{ name | uppercase}}</p>
+```
+
+Pipes können auch aneinander gehangen werden, um mehrere Transformationen durchzuführen.
+
+```html
+<p>{{ name | uppercase | lowercase}}</p>
+```
+
+## Der Elvis-Operator `?`
+
+Die Bezeichnung "Elvis Operator" ist eine Ode an den populären Mythos, ob Elvis tatsächlich tot ist oder nicht.
+
+Er ist ein nützliches Instrument, um zu prüfen, ob ein Wert `null` ist oder nicht. So können Fehlermeldungen bei der Template-Erzeugung vermieden werden.
+
+## Was hat das mit HTML zu tun?
 
 Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [[6], [8]] In der HTML Spezifikation des W3C heißt es:
 
@@ -93,7 +148,7 @@ Diesr Prozess heißt Template Transformation. In Angular 2.0 wird es möglich se
 
 # Fazit
 
-In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret beschrieben. Dadurch wird es möglich mit einem Blick auf ein Template zu erkennen wie sich eine Komponente verhält.
+In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret definiert. Daher ist es mit einem Blick auf ein Template möglich, zu erkennen, wie sich eine Komponente verhält. Somit können, im Gegensatz zur Vorgängerversion AngularJS, Templates in Angular 2.0 diffiziler und genauer beschrieben werden.
 
 <hr>
 
