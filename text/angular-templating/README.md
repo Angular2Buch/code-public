@@ -61,7 +61,7 @@ Anstatt der runden Klammern, kann auch folgende Syntax für Event-Bindings verwe
 
 ## Was hat das noch mit HTML zu tun?
 
-Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [8] In der HTML Spezifikation des W3C heißt es:
+Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [[6], [8]] In der HTML Spezifikation des W3C heißt es:
 
 > Attribute names must consist of one or more characters other than the space characters, U+0000 NULL, """, "'", ">", "/", "=", the control characters, and any characters that are not defined by Unicode.
 
@@ -80,17 +80,32 @@ Diese Schrebweise ist eine Vereinfachung. Bevor dieses Template im Browser ausge
 <p [textContent]="interpolate(['Gregor'], [name])"></p>
 ```
 
-Diesr Prozess heißt Template Transformation. In Angular 2.0 wird es möglich sein, eigene Transformationen zu schreiben, um beispielsweise komplexe Datenbindungen syntaktisch zu vereinfachen. [7]
+Diesr Prozess heißt Template Transformation. In Angular 2.0 wird es möglich sein, eigene Transformationen zu schreiben, um beispielsweise komplexe Datenbindungen syntaktisch zu vereinfachen. [[7]]
 
-
-# Fazit
+# Kurz
 
 - Input- und Output-Properties beschreiben die API einer Komponente
 - Über Inputs "fließen" Daten in die Komponente hinein.
 - Inputs werden über Property-Bindings aktualisiert ([property])
 - Über Outputs "fließen" Daten aus der Komponente heraus.
 - Outputs werden mithilfe von Event-Bindings abonniert ((event)).
-- Ein Property-Binding und Event-Binding können kompiniert werden, um ein Two-Way-Binding zu beschreiben ([(twoWay)]).
+- Ein Property-Binding und Event-Binding können kompiniert werden, um ein Two-Way-Binding zu beschreiben ([(twoWay)]). [[2]]
+
+# Fazit
+
+In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret beschrieben. Dadurch wird es möglich mit einem Blick auf ein Template zu erkennen wie sich eine Komponente verhält.
+
+<hr>
+
+## Über die Autoren
+
+![Johannes Hoppe](images/johannes-hoppe.png)
+**Johannes Hoppe** ist selbstständiger IT-Berater, Softwareentwickler und Trainer. Er arbeitet derzeit als Architekt für ein Portal auf Basis von .NET und AngularJS. Er bloggt unter http://blog.johanneshoppe.de/ .
+
+![Gregor Woiwode](images/gregor-woiwode.png)
+**Gregor Woiwode** ist als Softwareentwickler im Bereich des Competitive Intelligence bzw. Enterprise Knowledge Managements für ein Softwareunternehmen in Leipzig tätig. Er veranstaltet Trainings AngularJS. Er bloggt unter http://www.woiwode.info/blog/ .
+
+<hr>
 
 # Quellen
 
@@ -99,9 +114,6 @@ Diesr Prozess heißt Template Transformation. In Angular 2.0 wird es möglich se
 [3]: https://www.youtube.com/watch?v=-dMBcqwvYA0 "ng-conf 2015 Keynote 2"
 [4]: ng-book "2 - The Complete Book on AngularJS 2 by Ari Lerner, Felipe Coury, Nate Murray, Carlos Taborda"
 [5]: https://angular.io/docs/ts/latest/guide/template-syntax.html "angular.io - Template-Syntax"
-
-
-http://blog.thoughtram.io/angular/2015/08/11/angular-2-template-syntax-demystified-part-1.html
-
+[6]:  http://blog.thoughtram.io/angular/2015/08/11/angular-2-template-syntax-demystified-part-1.html "Template-Syntax demystified"
 [7]: https://youtu.be/bVI5gGTEQ_U "Angular 2 Data Flow – Jeff Cross, Rob Wormald and Alex Rickabaugh"
 [8]: http://www.w3.org/TR/html-markup/syntax.html "W3C - HTML: The Markup Language (an HTML language reference)"
