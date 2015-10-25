@@ -44,7 +44,7 @@ Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren.
 
 ```javascript
 @Component({
-  selector: 'schadens-dashboard'
+  selector: 'damage-dashboard'
 })
 class Dashboard() {
   Car:Car;
@@ -78,10 +78,19 @@ Innerhalb eines Templates können Referenzen auf HTML-Elemente, Komponenten und 
 
 ```html
 <input #id type="text"/>
-{{ id }}
+{{ id.value }}
+```
 
-<car #car ></car>
-<button (click)="car.getTankCapicity()">Ermittle Tankinhalt</button>
+Anstatt der # können lokale Variablen auch mit dem Prefix `var-` deklariert werden.
+
+```html
+<input var-id type="text"/>
+{{ id }}
+```
+
+```html
+<car #car></car>
+<button (click)="car.getTankCapicity()">Get tank capacity</button>
 ```
 
 ```html
@@ -91,6 +100,27 @@ Innerhalb eines Templates können Referenzen auf HTML-Elemente, Komponenten und 
 > Bei dem * vor der ng-for Direktive handelt es sich um eine Kurzschreibweise. Näheres erfahren Sie im nächsten Abschnitt.
 
 ## * und &lt;template&gt;
+
+Direktiven wie `ng-for`,`ng-if` und `ng-switch` werden zusammen mit einem `*`
+verwendet. Diese Direktiven werden strukturelle Direktiven (Structural Directives) genannt, da sie DOM-Elemente hinzufügen oder entfernen.
+
+```html
+<div *ng-if="totalDamages > 0">{{ totalDamages }}</div>
+```
+
+In diesem Beispiel wird das &lt;div&gt; Element nur in den DOM-Tree gezeichnet,
+wenn die Bedingung von `ng-if` wahr ist.
+Bei dem `*` handelt es sich, um eine Kurzschreibweise, die das Schreiben des Templates vereinfachen soll.
+Diese Schrebweise wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die uns bekannten Bindings umsetzt.
+Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
+
+```html
+<template [ng-if]="totalDamages > 0">
+  <div>{{ totalDamages }}</div>
+</template>
+```
+
+Angular übersetzt die Mikro Syntax in ein Property-Binding und umschließt das Template mit einem &lt;template&gt;-Tag. [[5]]
 
 ## Der Pipe-Operator `|`
 
@@ -149,6 +179,7 @@ Diesr Prozess heißt Template Transformation. In Angular 2.0 wird es möglich se
 # Fazit
 
 In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret definiert. Daher ist es mit einem Blick auf ein Template möglich, zu erkennen, wie sich eine Komponente verhält. Somit können, im Gegensatz zur Vorgängerversion AngularJS, Templates in Angular 2.0 diffiziler und genauer beschrieben werden.
+Allerdings sind auch mehere Möglichkeiten vorhanden Templates und Bindings zu definieren. Daher ist es ratsam, sich im Team auf jeweils eine der angebotenen Schreibweisen zu einigen, um ein vertrautes und homogenes Bild im Markup zu schaffen.
 
 <hr>
 
@@ -164,7 +195,7 @@ In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Da
 
 # Quellen
 
-[1]: https://angular.io/docs/js/latest/quickstart.html "5 Minuten Schnellstart"
+[1]: https://angular.io/docs/ts/latest/quickstart.html "5 Min Quickstart"
 [2]: http://victorsavkin.com/post/119943127151/angular-2-template-syntax "Angular 2 Template Syntax"
 [3]: https://www.youtube.com/watch?v=-dMBcqwvYA0 "ng-conf 2015 Keynote 2"
 [4]: ng-book "2 - The Complete Book on AngularJS 2 by Ari Lerner, Felipe Coury, Nate Murray, Carlos Taborda"
