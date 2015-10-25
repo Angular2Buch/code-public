@@ -70,7 +70,24 @@ Neben der Verwendung runder Klammern, können Event-Bindings auch mit dem Ausdru
 <car on-damaged="report(damage)"></car>
 ```
 
-### Two-Way Bindings
+## Interpolation
+
+Bereits in AngularJS 1.x konnten Daten mithilfe zweier geschweifter Klammern an das HTML Template gebunden werden. Der Wert wurde mittels Interpolation ausgewertet und angezeigt.
+Dieses Konzept bleibt in Angulars neuer Version erhalten.
+
+```html
+<p>{{ name }}</p>
+```
+
+Diese Schrebweise ist eine Vereinfachung. Bevor dieses Template im Browser ausgegeben wird es durch Angular folgender Maßen verarbeitet.
+
+```html
+<p [text-content]="interpolate(['Gregor'], [name])"></p>
+```
+
+Die Bracket-Syntax wird ebenfalls in ein Property-Binding übersetzt. Das erspart uns Entwicklern einige Tipparbeit. [[6]]
+
+### Two-Way Bindings mit `ng-model`
 
 ## Lokale Variablen
 
@@ -149,23 +166,6 @@ Er ist ein nützliches Instrument, um zu prüfen, ob ein Wert `null` ist oder ni
 Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [[6], [8]] In der HTML Spezifikation des W3C heißt es:
 
 > Attribute names must consist of one or more characters other than the space characters, U+0000 NULL, """, "'", ">", "/", "=", the control characters, and any characters that are not defined by Unicode.
-
-## Interpolation
-
-Bereits in AngularJS 1.x konnten Daten mithilfe zweier geschweifter Klammern an das HTML Template gebunden werden. Der Wert wurde mittels Interpolation ausgewertet und angezeigt.
-Dieses Konzept bleibt in Angulars neuer Version erhalten.
-
-```html
-<p>{{ name }}</p>
-```
-
-Diese Schrebweise ist eine Vereinfachung. Bevor dieses Template im Browser ausgegeben wird es durch Angular folgender Maßen verarbeitet.
-
-```html
-<p [textContent]="interpolate(['Gregor'], [name])"></p>
-```
-
-Diesr Prozess heißt Template Transformation. In Angular 2.0 wird es möglich sein, eigene Transformationen zu schreiben, um beispielsweise komplexe Datenbindungen syntaktisch zu vereinfachen. [[7]]
 
 # Kurz
 
