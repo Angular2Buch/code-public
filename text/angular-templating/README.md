@@ -1,5 +1,7 @@
 # Angular Template-Syntax
 
+## Das Templating mit AngularJS war bereits ein mächtiges Werkzeug. Mit Angular 2.0 legen die Entwickler nun kräftig nach.
+
 > *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
 
 > *Code-Beispiele* Sie finden die hier vorgestellten Beispiele auf GitHub unter: https://github.com/Angular2Buch/template-syntax
