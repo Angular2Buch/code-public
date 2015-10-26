@@ -23,11 +23,28 @@ Angular 2 Anwendungen bestehen aus verschiedenen Komponenten (Components), die m
 
 Für das Dashboard wird also eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass wir hierfür ebenfalls eine Komponente implementieren werden.
 
-Die Komponente für das Dashboard sieht, wie folgt, aus.
+Eine Angular 2.0 Kompoenente ist wie folgt aufgebaut
 
+```javascript
+import { Component, View } from 'angular2/angular2';
+
+@Component({ selector: 'dashboard' })
+@View({
+    template: `<p>{{ car }}</p>`
+})
+export default class DashboardComponent {
+    car: string = 'NG-Car 2015';
+}
 ```
 
-```
+Von Angular importieren wir zunächst zwei Module `@Component()` und `@View()`. Sie
+werden als Annotationen bezeichnet. Annotationen ermöglichen es Klassen zu
+erweitern. Hier deklarieren wir über @Component(), dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wid.
+In @View() definieren wir das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `car` der Klasse `DashboardComponent` im Template gebunden und angezeigt. And dieser Stelle bekommt man ein Gefühl, was eine Kompoenente ist.
+
+> Eine Kompoenete ist ein Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Nutzungsverhalten, das in Angular 2.0 durch Typescript beschrieben wird.
+
+Im folgenden konzentrieren wir uns darauf, was in der Eigenschaft `template` möglich ist.
 
 ## Input- und Output-Properties
 
