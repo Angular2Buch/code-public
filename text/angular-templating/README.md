@@ -107,6 +107,24 @@ Im wesentlichen haben wir drei Anpassungen vorgenommen.
 
 Wir haben eine erste Interaktion zwischen zwei Komponenten realisiert.
 
+Es ist möglich, neben Basistypen, auch komplexe Objekte an eine Komponente zu binden. Da die `CarComponent` im Verlauf dieses Artikels  weitere funktionen dazugewinnt, setzen wir folgende Klasse als Datenmodell ein.
+
+```
+export default class Car {
+  id: string;
+  driver: string;
+  tankCapacity: number;
+  hasDamage: boolean;
+
+  constructor(id) {
+    this.id = id;
+    this.driver = '';
+    this.tankCapacity = 100;
+    this.hasDamage = false;
+  }
+}
+```
+
 ## Input- und Output-Properties
 
 Input- und Output-Properties sind Eigenschaften die die API einer Angular-Komponente beschreiben. Über Inputs der Komponente übergeben. Mit Outputs kommuniziert die Komponente Änderungen nach außen.
@@ -194,6 +212,8 @@ Mit Property-Bindings haben wir schreibende und den Event-Bidings lesende Operat
 ```
 
 Die eckigen Klammern legen fest, dass wir einen gegeben Wert an das &lt;input&gt;-Element binden. Über runde Klammern drücken wir aus, dass wir an Änderungen der Eigenschaft interessiert sind und diese mithilfe der Direktive `ng-model` wieder in die Eigenschaft zurückschreiben.
+
+Die `CarComponent` gewinnt an Komplexität. Durch die Zwei-Wege-Bindung ist es möglich, einen Fahrer anzugeben und diesen direkt in unserem `CarModel` zu speichern.
 
 Wie in den vorangehenden Beispielen können wir auch hier eine alternative Schreibweise verwenden.
 
