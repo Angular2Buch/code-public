@@ -2,13 +2,13 @@
 
 > *Hinweis* Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
 
-> *Code-Beispile* Sie finden die hier vorgestellten Beispiele aug GitHub unter: https://github.com/Angular2Buch/template-synt
+> *Code-Beispiele* Sie finden die hier vorgestellten Beispiele auf GitHub unter: https://github.com/Angular2Buch/template-syntax
 
-In Angular 2.0 halten neue Möglichkeiten Einzug Oberflächen Templates zu beschreiben. Das Ziel des Entwicklerteams von Angular ist, das Konzept der Templates eindeutiger zu formulieren. Das soll auch dafür sorgen, dass der Support durch IDEs verbessert wird. Beispielsweise soll bessere Car-Vervollständigung Einzughalten, um die Produktivität des Entwicklers zu steigern.
+In Angular 2.0 halten neue Möglichkeiten Einzug, um Oberflächen Templates zu beschreiben. Das Ziel des Entwicklerteams von Angular ist, das Konzept der Templates eindeutiger zu formulieren. Das soll auch dafür sorgen, dass der Support durch IDEs verbessert wird. Beispielsweise soll bessere Auto-Vervollständigung Einzug halten, um die Produktivität des Entwicklers zu steigern.
 
 ## Input- und Output-Properties
 
-Input- und Output-Properties sind Eigenschaften die die API einer Angular Komponente beschreiben. Über Inputs der Komponente übergeben. Mit Outputs kommuniziert die Komponente Änderungen nach Außen.
+Input- und Output-Properties sind Eigenschaften die die API einer Angular-Komponente beschreiben. Über Inputs der Komponente übergeben. Mit Outputs kommuniziert die Komponente Änderungen nach außen.
 Inputs werden durch `Property-Bindings` beschrieben. Outputs können über `Event-Bindings` abonniert werden
 
 ### Property-Bindings
@@ -51,7 +51,7 @@ class Dashboard() {
 }
 ```
 
-Bei der Verwendung von Event-Bindings kann das Event-Objekt `$event` verwendet werden, um detailierte Informationen über das ausgelöste Ereignis zu erhalten.
+Bei der Verwendung von Event-Bindings kann das Event-Objekt `$event` verwendet werden, um detaillierte Informationen über das ausgelöste Ereignis zu erhalten.
 
 ```javascript
 @Component({ /* ... */ })
@@ -79,7 +79,7 @@ Dieses Konzept bleibt in Angulars neuer Version erhalten.
 <p>{{ name }}</p>
 ```
 
-Diese Schrebweise ist eine Vereinfachung. Bevor dieses Template im Browser ausgegeben wird es durch Angular folgender Maßen verarbeitet.
+Diese Schreibweise ist eine Vereinfachung. Bevor dieses Template im Browser ausgegeben wird es durch Angular folgender Maßen verarbeitet.
 
 ```html
 <p [text-content]="interpolate(['Gregor'], [name])"></p>
@@ -128,7 +128,7 @@ verwendet. Diese Direktiven werden strukturelle Direktiven (Structural Directive
 In diesem Beispiel wird das &lt;div&gt; Element nur in den DOM-Tree gezeichnet,
 wenn die Bedingung von `ng-if` wahr ist.
 Bei dem `*` handelt es sich, um eine Kurzschreibweise, die das Schreiben des Templates vereinfachen soll.
-Diese Schrebweise wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die uns bekannten Bindings umsetzt.
+Diese Schreibweise wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die uns bekannten Bindings umsetzt.
 Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
 
 ```html
@@ -141,7 +141,7 @@ Angular übersetzt die Mikro Syntax in ein Property-Binding und umschließt das 
 
 ## Der Pipe-Operator `|`
 
-Pipes korrespondieren zu den `filters` in AngularJS 1.x und  werden genutzt, um Daten zu für die Anzeige zu transformieren. Sie nehmen Eingabeargumente entgegen und liefern das transfornierte Ergebnis zurück.
+Pipes korrespondieren zu den `filters` in AngularJS 1.x und  werden genutzt, um Daten zu für die Anzeige zu transformieren. Sie nehmen Eingabeargumente entgegen und liefern das transformierte Ergebnis zurück.
 In einem Binding-Expression werden sie durch das Symbol `|` (Pipe) eingeleitet.
 
 ```html
@@ -163,7 +163,7 @@ Er ist ein nützliches Instrument, um zu prüfen, ob ein Wert `null` ist oder ni
 
 ## Was hat das mit HTML zu tun?
 
-Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [[6], [8]] In der HTML Spezifikation des W3C heißt es:
+Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [[6], [8]] In der HTML Spezifikation des W3C heist es:
 
 > Attribute names must consist of one or more characters other than the space characters, U+0000 NULL, """, "'", ">", "/", "=", the control characters, and any characters that are not defined by Unicode.
 
@@ -174,12 +174,12 @@ Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um va
 - Inputs werden über Property-Bindings aktualisiert ([property])
 - Über Outputs "fließen" Daten aus der Komponente heraus.
 - Outputs werden mithilfe von Event-Bindings abonniert ((event)).
-- Ein Property-Binding und Event-Binding können kompiniert werden, um ein Two-Way-Binding zu beschreiben ([(twoWay)]). [[2]]
+- Ein Property-Binding und Event-Binding können kombiniert werden, um ein Two-Way-Binding zu beschreiben ([(twoWay)]). [[2]]
 
 # Fazit
 
 In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret definiert. Daher ist es mit einem Blick auf ein Template möglich, zu erkennen, wie sich eine Komponente verhält. Somit können, im Gegensatz zur Vorgängerversion AngularJS, Templates in Angular 2.0 diffiziler und genauer beschrieben werden.
-Allerdings sind auch mehere Möglichkeiten vorhanden Templates und Bindings zu definieren. Daher ist es ratsam, sich im Team auf jeweils eine der angebotenen Schreibweisen zu einigen, um ein vertrautes und homogenes Bild im Markup zu schaffen.
+Allerdings sind auch mehrere Möglichkeiten vorhanden Templates und Bindings zu definieren. Daher ist es ratsam, sich im Team auf jeweils eine der angebotenen Schreibweisen zu einigen, um ein vertrautes und homogenes Bild im Markup zu schaffen.
 
 <hr>
 
