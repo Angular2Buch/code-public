@@ -26,25 +26,66 @@ Für das Dashboard wird also eine Komponente benötigt. Im Dashboard wird eine L
 Eine Angular 2.0 Kompoenente ist wie folgt aufgebaut
 
 ```javascript
+// dashboard.component.ts
 import { Component, View } from 'angular2/angular2';
 
 @Component({ selector: 'dashboard' })
 @View({
-    template: `<p>{{ car }}</p>`
+    template: `<p>{{ id }}</p>`
 })
 export default class DashboardComponent {
-    car: string = 'NG-Car 2015';
+    id: string = 'NG-Car 2015';
 }
 ```
 
 Von Angular importieren wir zunächst zwei Module `@Component()` und `@View()`. Sie
 werden als Annotationen bezeichnet. Annotationen ermöglichen es Klassen zu
 erweitern. Hier deklarieren wir über @Component(), dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wid.
-In @View() definieren wir das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `car` der Klasse `DashboardComponent` im Template gebunden und angezeigt. And dieser Stelle bekommt man ein Gefühl, was eine Kompoenente ist.
+In @View() definieren wir das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. And dieser Stelle bekommt man ein Gefühl, was eine Kompoenente ist.
 
-> Eine Kompoenete ist ein Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Nutzungsverhalten, das in Angular 2.0 durch Typescript beschrieben wird.
+> Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch Typescript beschrieben wird.
 
-Im folgenden konzentrieren wir uns darauf, was in der Eigenschaft `template` möglich ist.
+Um in dem Dashboard nun ein Auto abbilden zu können wird eine weitere Komponente benötigt.
+
+```javascript
+// car.component.ts
+import { Component, View, Input } from 'angular2/angular2';
+
+@Component({ selector: 'car' })
+@View({
+    template: `<p>{{ id }}</p>`
+})
+export default class CarComponent {
+    @Input() id: string;
+}
+```
+
+Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben.
+Die @Input() Annotation bietet uns hierbei die Möglichkeit Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
+
+Nun können wir die CarComponent in unserem Dashboard refrenzieren und im Template verwenden.
+
+```javascript
+// dashboard.component.ts
+import { Component, View } from 'angular2/angular2';
+import { CarComponent } from '../car/car.component';
+
+@Component({ selector: 'dashboard' })
+@View({
+    directives: [CarCompoent],
+    template: `<car [id]="id"></car>`
+})
+export default class DashboardComponent {
+    id: string = 'NG-Car 2015';
+}
+```
+
+Im wesentlichen haben wir drei Anpassungen vorgenommen.
+1. Über ein weiteres import statement laden wir die  `CarComponent`
+2. @View() wird durch die Eigenschaft `directives` ergänzt, damit wir `CarCompoennt` im Template verwenden können.
+3. Wir binden (genannt Property-Binding) das Feld `id` and die gleichnamige Eigenschaft der `CarComponent`
+
+Wir haben eine erste Interaktion zwischen zwei Komponenten realisiert.
 
 ## Input- und Output-Properties
 
