@@ -38,7 +38,8 @@ Auf der neuen Website unter **angular.io** findet man einen kurzen [5 Minuten Sc
   <body>
     <my-app></my-app>
     <!-- Zeile 4 --> <script>System.import('app');</script>
-  </body
+  </body>
+</html>
 ```
 > Listing 1a: [index.html](angular_quickstart-alpha28/index.html) - Quickstart mit Markierung der relevanten Zeilen
 
