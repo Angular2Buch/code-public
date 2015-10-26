@@ -184,6 +184,11 @@ Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um va
 In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret definiert. Daher ist es mit einem Blick auf ein Template möglich, zu erkennen, wie sich eine Komponente verhält. Somit können, im Gegensatz zur Vorgängerversion AngularJS, Templates in Angular 2.0 diffiziler und genauer beschrieben werden.
 Allerdings sind auch mehrere Möglichkeiten vorhanden Templates und Bindings zu definieren. Daher ist es ratsam, sich im Team auf jeweils eine der angebotenen Schreibweisen zu einigen, um ein vertrautes und homogenes Bild im Markup zu schaffen.
 
+# Ausblick
+
+Im nächsten Artikel wenden wir uns der Dependency Injection und dem Unit-Testing mit Angular 2.0 zu. Denn wie AngularJS 1.x, können bei dessem ambitionierten Nachfolger Komponenten und Dienste über Angulars integrierten IoC-Container miteinander kombiniert werden und dennoch für sich isoliert getestet werden.
+Wie das alles funktioniert schauen wir in der nächsten Ausgabe an.
+
 <hr>
 
 ## Über die Autoren
