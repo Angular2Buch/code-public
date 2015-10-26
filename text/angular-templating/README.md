@@ -107,24 +107,6 @@ Im wesentlichen haben wir drei Anpassungen vorgenommen.
 
 Wir haben eine erste Interaktion zwischen zwei Komponenten realisiert.
 
-Es ist möglich, neben Basistypen, auch komplexe Objekte an eine Komponente zu binden. Da die `CarComponent` im Verlauf dieses Artikels  weitere funktionen dazugewinnt, setzen wir folgende Klasse als Datenmodell ein.
-
-```
-export default class Car {
-  id: string;
-  driver: string;
-  tankCapacity: number;
-  hasDamage: boolean;
-
-  constructor(id) {
-    this.id = id;
-    this.driver = '';
-    this.tankCapacity = 100;
-    this.hasDamage = false;
-  }
-}
-```
-
 ## Input- und Output-Properties
 
 Input- und Output-Properties sind Eigenschaften die die API einer Angular-Komponente beschreiben. Über Inputs der Komponente übergeben. Mit Outputs kommuniziert die Komponente Änderungen nach außen.
@@ -187,7 +169,7 @@ Neben der Verwendung runder Klammern, können Event-Bindings auch mit dem Ausdru
 <car on-damaged="report(damage)"></car>
 ```
 
-In der Dashboard Komponente muss lediglich eine Methode ergänzt werden die nach dem Ausläsen des Events `(damaged)` ausgeführt wird.
+In der Dashboard Komponente muss lediglich eine Methode ergänzt werden, die nach dem Ausläsen des Events `(damaged)`, ausgeführt wird.
 
 ```javascript
 // dashboard.component.ts
@@ -205,28 +187,28 @@ In unserem Fall zählen wir im Dashboard die Anzahl der gemeldeten Schadensfäll
 
 ### Two-Way Bindings mit `ng-model`
 
+> **ACHTUNG** Um die Direktive `[(ng-model)]` zu verwenden, muss vorher das Modul { FORM_DIRECTIVES } importiert werden.
+
 Mit Property-Bindings haben wir schreibende und den Event-Bidings lesende Operationen  kennen gelernt. Wie in AngularJS 1.x, ist es auch möglich Zwei-Wege-Bindungen (Two-Way-Bindings) zu realisieren. In der Template-Syntax von Angular 2.0 werden hierfür die Schreibweisen beider Binding-Arten kombiniert.
 
 ```html
-<input [(ng-model)]="model.driver">
+<input [(id)]="id">
 ```
 
 Die eckigen Klammern legen fest, dass wir einen gegeben Wert an das &lt;input&gt;-Element binden. Über runde Klammern drücken wir aus, dass wir an Änderungen der Eigenschaft interessiert sind und diese mithilfe der Direktive `ng-model` wieder in die Eigenschaft zurückschreiben.
 
-Die `CarComponent` gewinnt an Komplexität. Durch die Zwei-Wege-Bindung ist es möglich, einen Fahrer anzugeben und diesen direkt in unserem `CarModel` zu speichern.
-
 Wie in den vorangehenden Beispielen können wir auch hier eine alternative Schreibweise verwenden.
 
 ```html
-<input bindon-ng-model= "model.driver">
+<input bindon-ng-model= "id">
 ```
 
 Die Zwei-Wege-Bindung lässt sich auch ohne ng-model realisieren. Das Markup wird so allerdings etwas komplexer.
 
 ```html
 <input
-  [value]="model.driver"
-  (input)="model.driver=$event.target.value">
+  [value]="id"
+  (input)="id=$event.target.value">
 ```
 
 Hier wenden wir ein Property-Binding
