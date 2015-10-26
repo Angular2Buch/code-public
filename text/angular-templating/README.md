@@ -4,7 +4,10 @@
 
 > *Code-Beispiele* Sie finden die hier vorgestellten Beispiele auf GitHub unter: https://github.com/Angular2Buch/template-syntax
 
-In Angular 2.0 halten neue Möglichkeiten Einzug, um Oberflächen Templates zu beschreiben. Das Ziel des Entwicklerteams von Angular ist, das Konzept der Templates eindeutiger zu formulieren. Das soll auch dafür sorgen, dass der Support durch IDEs verbessert wird. Beispielsweise soll bessere Auto-Vervollständigung Einzug halten, um die Produktivität des Entwicklers zu steigern.
+## Einleitung
+
+Im vorangegangenen Artikel sind wir detailliert auf die Modularisierung eingegangen, die mit Angular 2.0 einhergehen wird. Es wurde erläutert, wie mit `SystemJS` Bibliotheken und eigen Client-Side-Skripte geladen und ausgeführt werden. Selbst die Ausführung von ECMAScript 6 Modulen ist nun keine Hürde mehr. Wir können nun tiefer in das Framework eintauchen.
+Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächen zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch IDEs, wie zum Beispiel bessere Auto-Completion, soll dadurch verbessert werden und die Produktivität des Entwicklers steigern.
 
 ## Input- und Output-Properties
 
