@@ -2,18 +2,18 @@
 
 ## Das Templating mit AngularJS war bereits ein mächtiges Werkzeug. Mit Angular 2.0 legen die Entwickler nun kräftig nach.
 
-> **Hinweis** Das hier gezeigte Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
+> **Hinweis** Das hier gezeigte Beispiel nutzt eine Vorschauversion von Angular 2.0. Der gezeigte Code muss für spätere Versionen wahrscheinlich angepasst werden.
 
 ## Einleitung
 
-Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Ein erstes Hello-World Beispiel mit Angular 2.0 wurde entwickelt. Das heißt, dass die Ausführung von ECMAScript 6 Modulen nun keine Hürde mehr ist. Es wird Zeit tiefer in das Framework eintauchen.
-Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächenelemente zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch IDEs, wie zum Beispiel bessere Auto-Completion, soll dadurch verbessert werden und die Produktivität des Entwicklers steigern.
+Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Ein erstes Hello-World Beispiel mit Angular 2.0 wurde entwickelt. Das heißt, dass die Ausführung von ECMAScript 6 Modulen nun keine Hürde mehr ist. Es wird Zeit tiefer in das Framework einzutauchen.
+Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächenelemente zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch Editoren, etwa durch bessere automatische Vervollständigung, soll nun verbessert werden und die Produktivität des Entwicklers steigern.
 
 Zur näheren Erläuterung wird ein Prototyp genutzt, der als Dashboard für Schäden an Autos dienen soll.
 
 ![damage-dashboard](images/app-screenshot-01.png)
 
-Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahrzeugs abgefragt werden. Des weiteren kann mit einem Klick ein Steinschlag (engl: "rockfall") gemeldet werden.
+Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahrzeugs abgefragt werden. Des Weiteren kann mit einem Klick ein Steinschlag (engl: "rockfall") gemeldet werden.
 
 > **Übrigens** Sie finden das hier vorgestellten Beispiel auf GitHub unter: https://github.com/Angular2Buch/template-syntax
 
@@ -39,8 +39,8 @@ export default class DashboardComponent {
 ```
 
 Von Angular werden zunächst zwei Module `@Component()` und `@View()` importiert. Sie werden als Dekoratoren bezeichnet. Dekoratoren ermöglichen es Klassen zu
-erweitern. `@Component()` spezifiziert, dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wid.
-Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. And dieser Stelle wird deutlich, was eine Komponente ist.
+erweitern. `@Component()` spezifiziert, dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wird.
+Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. An dieser Stelle wird deutlich, was eine Komponente ist.
 
 > Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch TypeScript beschrieben wird.
 
@@ -78,7 +78,7 @@ export default class CarComponent {
 ```
 
 Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben.
-Die @Input() Decorator bietet die Möglichkeit, Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
+Die @Input()-Dekorator bietet die Möglichkeit, Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
 
 Nun kann die CarComponent im Dashboard referenziert und im Template verwendet werden.
 
@@ -97,7 +97,7 @@ export default class DashboardComponent {
 }
 ```
 
-Im wesentlichen wurden drei Anpassungen vorgenommen.
+Im Wesentlichen wurden drei Anpassungen vorgenommen.
 1. Über ein weiteres import statement wird `CarComponent` geladen
 2. @View() wird durch die Eigenschaft `directives` ergänzt, damit `CarCompoennt` im Template verwendet werden kann.
 3. Das Feld `id` wird and die gleichnamige Eigenschaft der `CarComponent` gebunden (Hierbei handelt es sich um ein Porperty-Binding)
@@ -115,7 +115,7 @@ Mit Properties werden einer Komponente Daten übermittelt.
 
 ![data-flow-in](images/data-flows-in.png)
 
-Property-Bindgins zeichnens sich durch eckicke Klammern aus (`[id]`)
+Property-Bindgins zeichnen sich durch eckicke Klammern aus (`[id]`)
 
 ```html
 // dashboard.component.ts
@@ -131,7 +131,7 @@ Anstatt eckiger Klammern, können Property-Bindings mit `bind-{property-name}="{
 
 ### Event-Bindings
 
-Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren. Sie bieten einer Kompoente die Möglichkeit mit ihrer Außenwelt zu kommunzieren.
+Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren. Sie bieten einer Komponente die Möglichkeit mit ihrer Außenwelt zu kommunizieren.
 
 ![data-flows-out](images/data-flows-out.png)
 
@@ -186,13 +186,13 @@ In diesem Fall wird im Dashboard die Anzahl der gemeldeten Schadensfälle zusamm
 
 > **ACHTUNG** Um die Direktive `[(ng-model)]` zu verwenden, muss vorher das Modul { FORM_DIRECTIVES } importiert werden.
 
-Aus Sicht einer Komponente werden mit Property-Bindings schreibende und den Event-Bidings lesende Operationen spezifiziert. Wie in AngularJS 1.x, ist es auch möglich Zwei-Wege-Bindungen (Two-Way-Bindings) zu realisieren. In der Template-Syntax von Angular 2.0 werden hierfür die Schreibweisen beider Binding-Arten kombiniert.
+Aus Sicht einer Komponente werden mit Property-Bindings schreibende und den Event-Bindings lesende Operationen spezifiziert. Wie in AngularJS 1.x, ist es auch möglich Zwei-Wege-Bindungen (Two-Way-Bindings) zu realisieren. In der Template-Syntax von Angular 2.0 werden hierfür die Schreibweisen beider Binding-Arten kombiniert.
 
 ```html
 <input [(id)]="id">
 ```
 
-Die eckigen Klammern legen fest, dass ein gegeber Wert an das &lt;input&gt;-Element gebunden wird. Die runden Klammern machen deutlich, dass Änderungen der Eigenschaft überwacht werden und diese mithilfe der Direktive `ng-model` in die Eigenschaft zurückschreiben werden.
+Die eckigen Klammern legen fest, dass ein gegebener Wert an das &lt;input&gt;-Element gebunden wird. Die runden Klammern machen deutlich, dass Änderungen der Eigenschaft überwacht werden und diese mithilfe der Direktive `ng-model` in die Eigenschaft zurückschreiben werden.
 
 Wie in den vorangehenden Beispielen können gibt es auch hier eine alternative Schreibweise.
 
@@ -219,7 +219,7 @@ Innerhalb eines Templates können Referenzen auf HTML-Elemente, Komponenten und 
 {{ id.value }}
 ```
 
-> Das Binding {{ id.value }} macht deutlich, dass die lokale Referenz das HTML-ELement referenziert und nicht nur dessen Wert.
+> Das Binding {{ id.value }} macht deutlich, dass die lokale Referenz das HTML-Element referenziert und nicht nur dessen Wert.
 
 Anstatt der # können lokale Variablen auch mit dem Prefix `var-` deklariert werden.
 
