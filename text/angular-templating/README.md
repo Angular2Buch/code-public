@@ -19,9 +19,7 @@ Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahr
 
 ## Components & Views
 
-Angular 2 Anwendungen bestehen aus verschiedenen Komponenten (Components), die miteinander agieren können.
-
-Für das Dashboard wird eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass hierfür eine weitere Komponente implementiert wird.
+Angular 2 Anwendungen bestehen aus verschiedenen Komponenten (Components), die miteinander agieren können. Für das Dashboard wird eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass hierfür eine weitere Komponente implementiert wird.
 
 Eine Angular 2.0 Komponente ist wie folgt aufgebaut.
 
@@ -38,15 +36,15 @@ export default class DashboardComponent {
 }
 ```
 
-Von Angular werden zunächst zwei Module `@Component()` und `@View()` importiert. Sie werden als Dekoratoren bezeichnet. Dekoratoren ermöglichen es Klassen zu
-erweitern. `@Component()` spezifiziert, dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wird.
-Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. An dieser Stelle wird deutlich, was eine Komponente ist.
+Von Angular werden zunächst zwei Module `@Component()` und `@View()` importiert. Diese beiden Module sind im Speziellen TypeScript-Dekoratoren. Dekoratoren ermöglichen es Klassen zu
+durch Meta-Angaben erweitern. `@Component()` spezifiziert, dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im DOM des HTML-Dokuments eingesetzt wird.
+Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. An dieser Stelle wird deutlich, was eine Komponente ist: Komponenten sind die neuen zentralen Bausteine von Angular 2.0. Sie übernehmen die Rolle von Direktiven und Controllern aus AngularJS. 
 
-> Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch TypeScript beschrieben wird.
+> Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch TypeScript-Dekoratoren beschrieben wird.
 
 ## Interpolation
 
-Wie wird nun aus dem Ausdruck `{{ id }}` ein angezeigtes Datenfeld im Browser?
+Wie wird nun aus dem Ausdruck `{{ id }}` ein angezeigter Text im Browser?
 Bereits in AngularJS 1.x konnten Daten mithilfe zweier geschweifter Klammern an ein HTML Template gebunden werden. Der Wert wurde mittels Interpolation ausgewertet und angezeigt.
 Dieses Konzept bleibt in Angular 2.0 erhalten.
 
@@ -54,7 +52,7 @@ Dieses Konzept bleibt in Angular 2.0 erhalten.
 <p>{{ id }}</p>
 ```
 
-Diese Schreibweise ist eine Vereinfachung. Denn bevor dieses Template im Browser ausgegeben wird, setzt Angular diesen Ausdruck in ein Property-Binding um. [[6]]
+Diese Schreibweise ist eine Vereinfachung der tatsächlichen Syntax. Denn bevor dieses Template im Browser ausgegeben wird, setzt Angular diesen Ausdruck in ein Property-Binding um. [[6]]
 
 ```html
 <p [text-content]="interpolate(['Gregor'], [name])"></p>
@@ -77,8 +75,7 @@ export default class CarComponent {
 }
 ```
 
-Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben.
-Die @Input()-Dekorator bietet die Möglichkeit, Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
+Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben. Die @Input()-Dekorator bietet die Möglichkeit, Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
 
 Nun kann die CarComponent im Dashboard referenziert und im Template verwendet werden.
 
@@ -98,16 +95,16 @@ export default class DashboardComponent {
 ```
 
 Im Wesentlichen wurden drei Anpassungen vorgenommen.
-1. Über ein weiteres import statement wird `CarComponent` geladen
-2. @View() wird durch die Eigenschaft `directives` ergänzt, damit `CarCompoennt` im Template verwendet werden kann.
-3. Das Feld `id` wird and die gleichnamige Eigenschaft der `CarComponent` gebunden (Hierbei handelt es sich um ein Porperty-Binding)
+1. Über ein weiteres import statement wird `CarComponent` geladen.  
+2. @View() wird durch die Eigenschaft `directives` ergänzt, damit `CarCompoennt` im Template verwendet werden kann.  
+3. Das Feld `id` wird and die gleichnamige Eigenschaft der `CarComponent` gebunden (Hierbei handelt es sich um ein Porperty-Binding).  
 
 So wurde über die Datenbindung die erste Interaktion zwischen zwei Komponenten realisiert.
 
 ## Input- und Output-Properties
 
-Input- und Output-Properties sind Eigenschaften die die API einer Angular-Komponente beschreiben. Über Inputs der Komponente übergeben. Mit Outputs kommuniziert die Komponente Änderungen nach außen.
-Inputs werden durch `Property-Bindings` beschrieben. Outputs können über `Event-Bindings` abonniert werden
+Input- und Output-Properties sind Eigenschaften die die API einer Angular-Komponente beschreiben. Über Inputs werden Informationen an eine Komponente übergeben. Mit Outputs kommuniziert die Komponente Änderungen nach außen.
+Inputs werden durch `Property-Bindings` beschrieben. Outputs können über `Event-Bindings` abonniert werden.
 
 ### Property-Bindings
 
@@ -122,7 +119,7 @@ Property-Bindgins zeichnen sich durch eckicke Klammern aus (`[id]`)
 <car [id]="id"></car>
 ```
 
-Anstatt eckiger Klammern, können Property-Bindings mit `bind-{property-name}="{value}"` werden.
+Anstatt eckiger Klammern können Property-Bindings auch mit der vollständigen Syntax `bind-{property-name}="{value}"` beschrieben werden.
 
 ```html
 // dashboard.component.ts
@@ -135,13 +132,20 @@ Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren.
 
 ![data-flows-out](images/data-flows-out.png)
 
-Property-Bindgins zeichnen sich durch eckige Klammern aus (`(damaged)`)
+Event-Bindings zeichnen sich durch runde Klammern aus (`(damaged)`). Sie triggern die Ausführung eines Ausdrucks.
 
 ```html
 <car (damaged)="report(damage)"></car>
 ```
 
-Um solch ein Event aus einer Komponente heraus zu erzeugen, wird der Decorator `@Output()` verwendet. Das dazugehörige Feld ist ein `EventEmitter`, der Ereignisse auslösen kann.
+Auch für diese Syntax existiert eine längere Syntax in der Form `on-{event-name}="{expression}"></ANY>`:
+
+```html
+<car on-damaged="report(damage)"></car>
+```
+
+
+Um solch ein Event aus einer Komponente heraus zu erzeugen, wird der Dekorator `@Output()` verwendet. Das dazugehörige Property ist ein `EventEmitter`, der Ereignisse auslösen kann.
 
 ```javascript
 // car.component.ts
@@ -194,13 +198,13 @@ Aus Sicht einer Komponente werden mit Property-Bindings schreibende und den Even
 
 Die eckigen Klammern legen fest, dass ein gegebener Wert an das &lt;input&gt;-Element gebunden wird. Die runden Klammern machen deutlich, dass Änderungen der Eigenschaft überwacht werden und diese mithilfe der Direktive `ng-model` in die Eigenschaft zurückschreiben werden.
 
-Wie in den vorangehenden Beispielen können gibt es auch hier eine alternative Schreibweise.
+Wie in den vorangehenden Beispielen gibt es auch hier eine alternative Schreibweise.
 
 ```html
-<input bindon-ng-model= "id">
+<input bindon-ng-model="id">
 ```
 
-Die Zwei-Wege-Bindung lässt sich auch ohne ng-model realisieren. Das Markup wird so allerdings etwas komplexer.
+Die Zwei-Wege-Bindung lässt sich auch ohne `ng-model` realisieren. Das Markup wird so allerdings etwas komplexer.
 
 ```html
 <input
@@ -241,12 +245,11 @@ Lokale Referenzen können auch auf Objekte zeigen. Im folgenden Beispiel wird de
 <car *ng-for="#c in cars" [model]="c">
 ```
 
-> Bei dem * vor der ng-for Direktive handelt es sich um eine Kurzschreibweise. Näheres erfahren Sie im nächsten Abschnitt.
+> Bei dem Stern (`*`) vor der ng-for Direktive handelt es sich um eine Kurzschreibweise. Näheres erfahren Sie im nächsten Abschnitt.
 
 ## * und &lt;template&gt;
 
-Direktiven wie `ng-for`,`ng-if` und `ng-switch` werden zusammen mit einem `*`
-verwendet. Diese Direktiven werden strukturelle Direktiven (Structural Directives) genannt, da sie DOM-Elemente hinzufügen oder entfernen.
+Direktiven wie `ng-for`,`ng-if` und `ng-switch` werden zusammen mit einem Stern (`*`) verwendet. Diese Direktiven werden strukturelle Direktiven (Structural Directives) genannt, da sie DOM-Elemente hinzufügen oder entfernen.
 
 ```html
 <div *ng-if="totalDamages > 0">{{ totalDamages }}</div>
@@ -272,7 +275,7 @@ In einem Binding-Ausdruck werden sie durch das Symbol `|` (genannt Pipe) eingele
 <p>{{ id | uppercase}}</p>
 ```
 
-Pipes können auch aneinander gehangen werden, um mehrere Transformationen durchzuführen.
+Pipes können auch < gehangen werden, um mehrere Transformationen durchzuführen.
 
 ```html
 <p>{{ id | uppercase | lowercase}}</p>
@@ -300,6 +303,10 @@ Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um va
 
 > Attribute names must consist of one or more characters other than the space characters, U+0000 NULL, """, "'", ">", "/", "=", the control characters, and any characters that are not defined by Unicode.
 
+## Vollständige Beispiel
+
+TODO: ich würde hier noch das komplette Beispiel rein machen. Wenn du die Zeitschrift aufm Klo liest, kommst du nicht an die Quelltexte ran und stirbst womöglich dumm! ;-) 
+
 # Zusammengefasst
 
 - Input- und Output-Properties beschreiben die API einer Komponente
@@ -316,7 +323,7 @@ Allerdings sind auch mehrere Möglichkeiten vorhanden Templates und Bindings zu 
 
 # Ausblick
 
-Im nächsten Artikel werden die Themen Dependency Injection und Unit-Testing mit Angular 2.0 behandelt. Denn wie AngularJS 1.x, können bei dessem ambitionierten Nachfolger Komponenten und Dienste über Angulars integrierten IoC-Container miteinander kombiniert werden und dennoch für sich isoliert getestet werden.
+Im nächsten Artikel werden die Themen Dependency Injection und Unit-Testing mit Angular 2.0 behandelt. Denn wie AngularJS 1.x, können bei dessen ambitionierten Nachfolger Komponenten und Dienste über Angulars integrierten IoC-Container miteinander kombiniert werden und dennoch für sich isoliert getestet werden.
 Wie das alles funktioniert sehen Sie in der nächsten Ausgabe.
 
 <hr>
