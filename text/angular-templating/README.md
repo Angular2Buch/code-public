@@ -6,14 +6,14 @@
 
 ## Einleitung
 
-Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Ein erstes Hello-Wordl Beispiel mit Angular 2.0 wurde entwickelt. Das heißt, dass die Ausführung von ECMAScript 6 Modulen nun keine Hürde mehr ist. Es wird Zeit tiefer in das Framework eintauchen.
+Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Ein erstes Hello-World Beispiel mit Angular 2.0 wurde entwickelt. Das heißt, dass die Ausführung von ECMAScript 6 Modulen nun keine Hürde mehr ist. Es wird Zeit tiefer in das Framework eintauchen.
 Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächenelemente zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch IDEs, wie zum Beispiel bessere Auto-Completion, soll dadurch verbessert werden und die Produktivität des Entwicklers steigern.
 
 Zur näheren Erläuterung wird ein Prototyp genutzt, der als Dashboard für Schäden an Autos dienen soll.
 
 ![damage-dashboard](images/app-screenshot-01.png)
 
-Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahrzeugs abgefragt werden. Des weiteren kann mit einem Klick ein Steinschalg (engl: "rockfall") gemeldet werden.
+Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahrzeugs abgefragt werden. Des weiteren kann mit einem Klick ein Steinschlag (engl: "rockfall") gemeldet werden.
 
 > **Übrigens** Sie finden das hier vorgestellten Beispiel auf GitHub unter: https://github.com/Angular2Buch/template-syntax
 
@@ -23,7 +23,7 @@ Angular 2 Anwendungen bestehen aus verschiedenen Komponenten (Components), die m
 
 Für das Dashboard wird eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass hierfür eine weitere Komponente implementiert wird.
 
-Eine Angular 2.0 Kompoenente ist wie folgt aufgebaut.
+Eine Angular 2.0 Komponente ist wie folgt aufgebaut.
 
 ```javascript
 // dashboard.component.ts
@@ -38,15 +38,15 @@ export default class DashboardComponent {
 }
 ```
 
-Von Angular werden zunächst zwei Module `@Component()` und `@View()` importiert. Sie werden als Decoratoren bezeichnet. Decoratoren ermöglichen es Klassen zu
+Von Angular werden zunächst zwei Module `@Component()` und `@View()` importiert. Sie werden als Dekoratoren bezeichnet. Dekoratoren ermöglichen es Klassen zu
 erweitern. `@Component()` spezifiziert, dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wid.
-Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. And dieser Stelle wird deutlich, was eine Kompoenente ist.
+Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. And dieser Stelle wird deutlich, was eine Komponente ist.
 
-> Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch Typescript beschrieben wird.
+> Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch TypeScript beschrieben wird.
 
 ## Interpolation
 
-Wie wird nun aus dem Ausdruck `{{ id }}` ein angezeigtes Datenfeld im Brwoser?
+Wie wird nun aus dem Ausdruck `{{ id }}` ein angezeigtes Datenfeld im Browser?
 Bereits in AngularJS 1.x konnten Daten mithilfe zweier geschweifter Klammern an ein HTML Template gebunden werden. Der Wert wurde mittels Interpolation ausgewertet und angezeigt.
 Dieses Konzept bleibt in Angular 2.0 erhalten.
 
@@ -80,7 +80,7 @@ export default class CarComponent {
 Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben.
 Die @Input() Decorator bietet die Möglichkeit, Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
 
-Nun kann die CarComponent im Dashboard refrenziert und im Template verwendet werden.
+Nun kann die CarComponent im Dashboard referenziert und im Template verwendet werden.
 
 ```javascript
 // dashboard.component.ts
@@ -264,7 +264,7 @@ Angular übersetzt die Micro Syntax in ein Property-Binding und umschließt das 
 
 ## Der Pipe-Operator `|`
 
-Pipes korrespondieren zu `filters` aus AngularJS 1.x und werden genutzt, um Daten zu für die Anzeige zu transformieren. Sie nehmen Eingabeargumente entgegen und liefern das transfornierte Ergebnis zurück.
+Pipes korrespondieren zu `filters` aus AngularJS 1.x und werden genutzt, um Daten zu für die Anzeige zu transformieren. Sie nehmen Eingabeargumente entgegen und liefern das transformierte Ergebnis zurück.
 In einem Binding-Ausdruck werden sie durch das Symbol `|` (genannt Pipe) eingeleitet.
 
 ```html
