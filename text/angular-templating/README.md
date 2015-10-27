@@ -6,10 +6,10 @@
 
 ## Einleitung
 
-Im vorangegangenen Artikel sind wir detailliert auf die Modularisierung eingegangen, die mit Angular 2.0 einhergehen wird. Es wurde erläutert, wie mit `SystemJS` Bibliotheken und eigen Client-Side-Skripte geladen und ausgeführt werden. Selbst die Ausführung von ECMAScript 6 Modulen ist nun keine Hürde mehr. Wir können nun tiefer in das Framework eintauchen.
+Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Selbst die Ausführung von ECMAScript 6 Modulen ist nun keine Hürde mehr. Es wird Zeit tiefer in das Framework eintauchen.
 Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächen zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch IDEs, wie zum Beispiel bessere Auto-Completion, soll dadurch verbessert werden und die Produktivität des Entwicklers steigern.
 
-Im folgenden werden anhand eines Beispiels die neuen Bestandteile der in Angular 2.0 verwendeten Syntax erläutert. Wir nehmen an, dass in einem Prototypen für ein künftiges Dashboard Schäden an Autos registriert und angezeigt werden.
+Im folgenden werden anhand eines Beispiels die neuen Bestandteile der in Angular 2.0 verwendeten Syntax erläutert. Zur näheren Erläuterung wird ein Prototyp genutzt, der als Dashboard für Schäden an Autos dienen soll.
 
 ![damage-dashboard](images/app-screenshot-01.png)
 
@@ -21,7 +21,7 @@ Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahr
 
 Angular 2 Anwendungen bestehen aus verschiedenen Komponenten (Components), die miteinander agieren können.
 
-Für das Dashboard wird also eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass wir hierfür ebenfalls eine Komponente implementieren werden.
+Für das Dashboard wird also eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass hierfür ebenfalls eine Komponente implementiert wird.
 
 Eine Angular 2.0 Kompoenente ist wie folgt aufgebaut
 
@@ -38,10 +38,9 @@ export default class DashboardComponent {
 }
 ```
 
-Von Angular importieren wir zunächst zwei Module `@Component()` und `@View()`. Sie
-werden als Annotationen bezeichnet. Annotationen ermöglichen es Klassen zu
-erweitern. Hier deklarieren wir über @Component(), dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wid.
-In @View() definieren wir das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. And dieser Stelle wird deutlich, was eine Kompoenente ist.
+Von Angular werden zunächst zwei Module `@Component()` und `@View()` importiert. Sie werden als Decoratoren bezeichnet. Decoratoren ermöglichen es Klassen zu
+erweitern. `@Component()` spezifiziert, dass die Dashboard-Komponente über den `selector` &lt;dashboard&gt; im HTML eingesetzt wid.
+Mit @View() definiert man das Template, das mit der Komponenten verknüpft ist. In diesem Beispiel wird das Feld `id`, aus der Klasse `DashboardComponent`, im Template gebunden und angezeigt. And dieser Stelle wird deutlich, was eine Kompoenente ist.
 
 > Eine Komponente ist ein angereichertes Template, das im Browser zur Anzeige gebracht wird. Das Template verfügt über ein spezifisches Verhalten, das in Angular 2.0 durch Typescript beschrieben wird.
 
@@ -81,9 +80,9 @@ export default class CarComponent {
 ```
 
 Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben.
-Die @Input() Annotation bietet uns hierbei die Möglichkeit Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
+Die @Input() Decorator bietet uns hierbei die Möglichkeit Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
 
-Nun können wir die CarComponent in unserem Dashboard refrenzieren und im Template verwenden.
+Nun kann die CarComponent im Dashboard refrenziert und im Template verwendet werden.
 
 ```javascript
 // dashboard.component.ts
@@ -100,12 +99,12 @@ export default class DashboardComponent {
 }
 ```
 
-Im wesentlichen haben wir drei Anpassungen vorgenommen.
-1. Über ein weiteres import statement laden wir die  `CarComponent`
-2. @View() wird durch die Eigenschaft `directives` ergänzt, damit wir `CarCompoennt` im Template verwenden können.
-3. Wir binden (genannt Property-Binding) das Feld `id` and die gleichnamige Eigenschaft der `CarComponent`
+Im wesentlichen wurden drei Anpassungen vorgenommen.
+1. Über ein weiteres import statement wird `CarComponent` geladen
+2. @View() wird durch die Eigenschaft `directives` ergänzt, damit `CarCompoennt` im Template verwendet werden kann.
+3. Das Feld `id` wird and die gleichnamige Eigenschaft der `CarComponent` gebunden (Hierbei handelt es sich um ein Porperty-Binding)
 
-Wir haben eine erste Interaktion zwischen zwei Komponenten realisiert.
+So wurde über die Datenbindung die erste Interaktion zwischen zwei Komponenten realisiert.
 
 ## Input- und Output-Properties
 
@@ -138,13 +137,13 @@ Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren.
 
 ![data-flows-out](images/data-flows-out.png)
 
-Property-Bindgins zeichnens sich durch eckicke Klammern aus (`(damaged)`)
+Property-Bindgins zeichnen sich durch eckige Klammern aus (`(damaged)`)
 
 ```html
 <car (damaged)="report(damage)"></car>
 ```
 
-Um solch ein Event aus einer Kompoente heraus zu erzeugen, verwenden wir die Annotation `@Output()`. Das dazugehörige Feld ist ein `EventEmitter`, der Ereignisse auslösen kann.
+Um solch ein Event aus einer Komponente heraus zu erzeugen, wird der Decorator `@Output()` verwendet. Das dazugehörige Feld ist ein `EventEmitter`, der Ereignisse auslösen kann.
 
 ```javascript
 // car.component.ts
@@ -181,7 +180,7 @@ export default class DashboardComponent {
 }
 ```
 
-In unserem Fall zählen wir im Dashboard die Anzahl der gemeldeten Schadensfälle zusammen.
+In unserem Fall wird im Dashboard die Anzahl der gemeldeten Schadensfälle zusammengezählt.
 
 ![dashboard-counter](images/app-screenshot-02.png)
 
@@ -189,15 +188,15 @@ In unserem Fall zählen wir im Dashboard die Anzahl der gemeldeten Schadensfäll
 
 > **ACHTUNG** Um die Direktive `[(ng-model)]` zu verwenden, muss vorher das Modul { FORM_DIRECTIVES } importiert werden.
 
-Mit Property-Bindings haben wir schreibende und den Event-Bidings lesende Operationen  kennen gelernt. Wie in AngularJS 1.x, ist es auch möglich Zwei-Wege-Bindungen (Two-Way-Bindings) zu realisieren. In der Template-Syntax von Angular 2.0 werden hierfür die Schreibweisen beider Binding-Arten kombiniert.
+Aus Sicht einer Komponente werden mit Property-Bindings schreibende und den Event-Bidings lesende Operationen spezifiziert. Wie in AngularJS 1.x, ist es auch möglich Zwei-Wege-Bindungen (Two-Way-Bindings) zu realisieren. In der Template-Syntax von Angular 2.0 werden hierfür die Schreibweisen beider Binding-Arten kombiniert.
 
 ```html
 <input [(id)]="id">
 ```
 
-Die eckigen Klammern legen fest, dass wir einen gegeben Wert an das &lt;input&gt;-Element binden. Über runde Klammern drücken wir aus, dass wir an Änderungen der Eigenschaft interessiert sind und diese mithilfe der Direktive `ng-model` wieder in die Eigenschaft zurückschreiben.
+Die eckigen Klammern legen fest, dass ein gegeber Wert an das &lt;input&gt;-Element gebunden wird. Die runden Klammern machen deutlich, dass Änderungen der Eigenschaft überwacht werden und diese mithilfe der Direktive `ng-model` in die Eigenschaft zurückschreiben werden.
 
-Wie in den vorangehenden Beispielen können wir auch hier eine alternative Schreibweise verwenden.
+Wie in den vorangehenden Beispielen können gibt es auch hier eine alternative Schreibweise.
 
 ```html
 <input bindon-ng-model= "id">
@@ -211,7 +210,7 @@ Die Zwei-Wege-Bindung lässt sich auch ohne ng-model realisieren. Das Markup wir
   (input)="id=$event.target.value">
 ```
 
-Hier wenden wir ein Property-Binding
+Hierbei gibt `$event` Zugriff auf das auslösende Ereignis. Es ist ein natives Javascript-Event. Daher kann dessen API verwendete werden, um auf das betroffene Element zuzugreifen und dessen werden auszulesen (`id=$event.target.value`).
 
 ## Lokale Variablen
 
@@ -231,7 +230,7 @@ Anstatt der # können lokale Variablen auch mit dem Prefix `var-` deklariert wer
 {{ id }}
 ```
 
-Lokale Referenzen auf Komponenten unterscheiden syntaktisch nicht im Vergleich zu den HTML-ELementen. Allerdings erhalten wir hier den Zugriff auf die Methoden einer Komponente und können so mit ihr interagieren.
+Lokale Referenzen auf Komponenten unterscheiden syntaktisch nicht im Vergleich zu den HTML-ELementen. Zusätzlich können die Methoden der Komponente genutzt werden, um so mit ihr zu interagieren.
 
 ```html
 <car #car></car>
@@ -295,7 +294,7 @@ Der `?`-Operator ist ein nützliches Instrument, um zu prüfen, ob ein Wert `nul
 <p>{{ car?.driver }}</p>
 ```
 
-Hier prüfen wir, ob das Objekt `car` existiert. Wenn ja, geben wir den Namen des Fahrers aus. Der `?`-Operator funktioniert ebenfalls in komplexeren Objektbäumen.
+Hier wird geprüft, ob das Objekt `car` existiert. Wenn ja, wird der Namen des Fahrers ausgegeben. Der `?`-Operator funktioniert ebenfalls in komplexeren Objektbäumen.
 
 ```html
 <p>{{ car?.driver?.licences?.B1 }}</p>
@@ -323,8 +322,8 @@ Allerdings sind auch mehrere Möglichkeiten vorhanden Templates und Bindings zu 
 
 # Ausblick
 
-Im nächsten Artikel wenden wir uns der Dependency Injection und dem Unit-Testing mit Angular 2.0 zu. Denn wie AngularJS 1.x, können bei dessem ambitionierten Nachfolger Komponenten und Dienste über Angulars integrierten IoC-Container miteinander kombiniert werden und dennoch für sich isoliert getestet werden.
-Wie das alles funktioniert schauen wir in der nächsten Ausgabe an.
+Im nächsten Artikel werden die Themen Dependency Injection und Unit-Testing mit Angular 2.0 behandelt. Denn wie AngularJS 1.x, können bei dessem ambitionierten Nachfolger Komponenten und Dienste über Angulars integrierten IoC-Container miteinander kombiniert werden und dennoch für sich isoliert getestet werden.
+Wie das alles funktioniert sehen Sie in der nächsten Ausgabe.
 
 <hr>
 
