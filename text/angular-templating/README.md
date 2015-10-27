@@ -2,14 +2,14 @@
 
 ## Das Templating mit AngularJS war bereits ein mächtiges Werkzeug. Mit Angular 2.0 legen die Entwickler nun kräftig nach.
 
-> **Hinweis** Das hier gezeigt Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
+> **Hinweis** Das hier gezeigte Beispiel nutzt eine Vorschauversion von Angular 2.0. Der hier gezeigte Code muss für spätere Versionen gegebenen Falls angepasst werden.
 
 ## Einleitung
 
-Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Selbst die Ausführung von ECMAScript 6 Modulen ist nun keine Hürde mehr. Es wird Zeit tiefer in das Framework eintauchen.
-Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächen zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch IDEs, wie zum Beispiel bessere Auto-Completion, soll dadurch verbessert werden und die Produktivität des Entwicklers steigern.
+Im vorangegangenen Artikel "Angular 2.0 und modularer Code" wurde erläutert, wie mit `SystemJS` Bibliotheken und eigene Client-Side-Skripte geladen und ausgeführt werden können. Ein erstes Hello-Wordl Beispiel mit Angular 2.0 wurde entwickelt. Das heißt, dass die Ausführung von ECMAScript 6 Modulen nun keine Hürde mehr ist. Es wird Zeit tiefer in das Framework eintauchen.
+Dieser Artikel stellt die neue Template-Syntax von Angular 2.0 vor. Es halten zahlreiche, neue Möglichkeiten Einzug, um Oberflächenelemente zu beschreiben. Die Entwickler von Angular verfolgen hierbei ein großes Ziel: Das Konzept der Template-Syntax eindeutiger und nachvollziehbarer zu formulieren, als es bei der Vorgängerversion der Fall ist. Auch der Support durch IDEs, wie zum Beispiel bessere Auto-Completion, soll dadurch verbessert werden und die Produktivität des Entwicklers steigern.
 
-Im folgenden werden anhand eines Beispiels die neuen Bestandteile der in Angular 2.0 verwendeten Syntax erläutert. Zur näheren Erläuterung wird ein Prototyp genutzt, der als Dashboard für Schäden an Autos dienen soll.
+Zur näheren Erläuterung wird ein Prototyp genutzt, der als Dashboard für Schäden an Autos dienen soll.
 
 ![damage-dashboard](images/app-screenshot-01.png)
 
@@ -21,9 +21,9 @@ Neben einer ID und dem Schadensstatus kann auch der aktuelle Füllstand des Fahr
 
 Angular 2 Anwendungen bestehen aus verschiedenen Komponenten (Components), die miteinander agieren können.
 
-Für das Dashboard wird also eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass hierfür ebenfalls eine Komponente implementiert wird.
+Für das Dashboard wird eine Komponente benötigt. Im Dashboard wird eine Liste von Autos abgebildet werden. Das bedeutet, dass hierfür eine weitere Komponente implementiert wird.
 
-Eine Angular 2.0 Kompoenente ist wie folgt aufgebaut
+Eine Angular 2.0 Kompoenente ist wie folgt aufgebaut.
 
 ```javascript
 // dashboard.component.ts
@@ -54,13 +54,11 @@ Dieses Konzept bleibt in Angular 2.0 erhalten.
 <p>{{ id }}</p>
 ```
 
-Diese Schreibweise ist eine Vereinfachung. Bevor dieses Template im Browser ausgegeben wird, setzt Angular diesen Ausdruck in einem Property-Binding um.
+Diese Schreibweise ist eine Vereinfachung. Denn bevor dieses Template im Browser ausgegeben wird, setzt Angular diesen Ausdruck in ein Property-Binding um. [[6]]
 
 ```html
 <p [text-content]="interpolate(['Gregor'], [name])"></p>
 ```
-
-Das erspart uns Entwicklern einige Tipparbeit. [[6]]
 
 ## Komponenten miteinander verknüpfen
 
@@ -80,7 +78,7 @@ export default class CarComponent {
 ```
 
 Im ersten Schritt soll diese Komponente lediglich die zugewiesene Identifikationsnummer ausgeben.
-Die @Input() Decorator bietet uns hierbei die Möglichkeit Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
+Die @Input() Decorator bietet die Möglichkeit, Werte an die `CarComponent` zu übergeben. Näheres wird im folgenden Abschnitt erläutert.
 
 Nun kann die CarComponent im Dashboard refrenziert und im Template verwendet werden.
 
@@ -180,7 +178,7 @@ export default class DashboardComponent {
 }
 ```
 
-In unserem Fall wird im Dashboard die Anzahl der gemeldeten Schadensfälle zusammengezählt.
+In diesem Fall wird im Dashboard die Anzahl der gemeldeten Schadensfälle zusammengezählt.
 
 ![dashboard-counter](images/app-screenshot-02.png)
 
@@ -254,11 +252,7 @@ verwendet. Diese Direktiven werden strukturelle Direktiven (Structural Directive
 <div *ng-if="totalDamages > 0">{{ totalDamages }}</div>
 ```
 
-In diesem Beispiel wird das &lt;div&gt; Element nur in den DOM-Tree gezeichnet,
-wenn die Bedingung von `ng-if` wahr ist.
-Bei dem `*` handelt es sich, um eine Kurzschreibweise, die das Schreiben des Templates vereinfachen soll.
-Sie wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die uns bekannten Bindings umsetzt.
-Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
+In diesem Beispiel wird das &lt;div&gt; Element nur in den DOM-Tree gezeichnet, wenn die Bedingung von `ng-if` wahr ist. Bei dem `*` handelt es sich, um eine Kurzschreibweise, die das Schreiben des Templates vereinfachen soll. Sie wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die bekannten Bindings umsetzt. Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
 
 ```html
 <template [ng-if]="totalDamages > 0">
@@ -266,7 +260,7 @@ Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
 </template>
 ```
 
-Angular übersetzt die Micro Syntax in ein Property-Binding und umschließt das Template mit einem &lt;template&gt;-Tag. Somit entfällt der `*` , vor dem `ng-if`.[[5]]
+Angular übersetzt die Micro Syntax in ein Property-Binding und umschließt das Template mit einem &lt;template&gt;-Tag. Dadurch entfällt der `*` , vor dem `ng-if`.[[5]]
 
 ## Der Pipe-Operator `|`
 
@@ -275,13 +269,13 @@ In einem Binding-Ausdruck werden sie durch das Symbol `|` (genannt Pipe) eingele
 
 ```html
 /* Der Wert von name wird in Großbuchstaben ausgegeben */
-<p>{{ name | uppercase}}</p>
+<p>{{ id | uppercase}}</p>
 ```
 
 Pipes können auch aneinander gehangen werden, um mehrere Transformationen durchzuführen.
 
 ```html
-<p>{{ name | uppercase | lowercase}}</p>
+<p>{{ id | uppercase | lowercase}}</p>
 ```
 
 ## Der Elvis-Operator `?`
@@ -344,6 +338,6 @@ Wie das alles funktioniert sehen Sie in der nächsten Ausgabe.
 [3]: https://www.youtube.com/watch?v=-dMBcqwvYA0 "ng-conf 2015 Keynote 2"
 [4]: ng-book "2 - The Complete Book on AngularJS 2 by Ari Lerner, Felipe Coury, Nate Murray, Carlos Taborda"
 [5]: https://angular.io/docs/ts/latest/guide/template-syntax.html "angular.io - Template-Syntax"
-[6]:  http://blog.thoughtram.io/angular/2015/08/11/angular-2-template-syntax-demystified-part-1.html "Template-Syntax demystified"
+[6]: http://blog.thoughtram.io/angular/2015/08/11/angular-2-template-syntax-demystified-part-1.html "Template-Syntax demystified"
 [7]: https://youtu.be/bVI5gGTEQ_U "Angular 2 Data Flow – Jeff Cross, Rob Wormald and Alex Rickabaugh"
 [8]: http://www.w3.org/TR/html-markup/syntax.html "W3C - HTML: The Markup Language (an HTML language reference)"
