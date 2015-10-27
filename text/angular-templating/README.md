@@ -303,9 +303,9 @@ Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um va
 
 > Attribute names must consist of one or more characters other than the space characters, U+0000 NULL, """, "'", ">", "/", "=", the control characters, and any characters that are not defined by Unicode.
 
-## Vollständige Beispiel
+## Vollständiges Beispiel
 
-TODO: ich würde hier noch das komplette Beispiel rein machen. Wenn du die Zeitschrift aufm Klo liest, kommst du nicht an die Quelltexte ran und stirbst womöglich dumm! ;-) 
+__TODO: ich würde hier noch das komplette Beispiel rein machen. Wenn du die Zeitschrift aufm Klo liest, kommst du nicht an die Quelltexte ran und stirbst womöglich dumm! ;-)__ 
 
 # Zusammengefasst
 
