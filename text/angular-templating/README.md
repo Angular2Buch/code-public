@@ -339,7 +339,7 @@ export default class CarComponent {
 
 ```javascript
 import { Component, View, NgIf } from 'angular2/angular2';
-import CarComponent from '../car/car.component';
+import CarComponent from '../car/car.component.ts';
 
 @Component({ selector: 'dashboard' })
 @View({
@@ -372,7 +372,7 @@ export default class DashboardComponent {
 
 ```javascript
 import {bootstrap} from 'angular2/angular2';
-import Dashboard   from './components/dashboard/dashboard.component';
+import Dashboard   from './components/dashboard/dashboard.component.ts';
 
 bootstrap(Dashboard);
 ```
@@ -381,11 +381,15 @@ bootstrap(Dashboard);
 <html>
   <head>
     <title>Demo | Template-Syntax</title>
-    <script src="../node_modules/systemjs/dist/system.src.js"></script>
-    <script src="../node_modules/angular2/bundles/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/tools/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.44/angular2.dev.js"></script>
     <script>
-      System.config({ packages: {'app': { defaultExtension: 'js' } } });
-      System.import('app/app');
+      System.config({
+        transpiler: 'typescript',
+        typescriptOptions: { emitDecoratorMetadata: true }
+      });
+      System.import('./app/app.ts');
     </script>
   </head>
   <body>
