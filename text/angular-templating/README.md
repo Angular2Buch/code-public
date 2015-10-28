@@ -275,7 +275,7 @@ In einem Binding-Ausdruck werden sie durch das Symbol `|` (genannt Pipe) eingele
 <p>{{ id | uppercase}}</p>
 ```
 
-Pipes können auch < gehangen werden, um mehrere Transformationen durchzuführen.
+Pipes können auch aneinander gehangen werden, um mehrere Transformationen durchzuführen.
 
 ```html
 <p>{{ id | uppercase | lowercase}}</p>
