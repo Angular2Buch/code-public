@@ -236,7 +236,7 @@ Lokale Referenzen auf Komponenten unterscheiden syntaktisch nicht im Vergleich z
 
 ```html
 <car #car></car>
-<button (click)="car.getTankCapicity()">Get tank capacity</button>
+<button (click)="car.getTankCapacity()">Get tank capacity</button>
 ```
 
 Lokale Referenzen können auch auf Objekte zeigen. Im folgenden Beispiel wird der Platzhalte `#c` genutzt, um für jedes Element der Liste `cars` die Komponente `Car` zu rendern.
@@ -329,7 +329,7 @@ export default class CarComponent {
     this.damaged.next(this.id);
   }
 
-  getTankCapicity() {
+  getTankCapacity() {
     this.tankCapacity = Math.floor(Math.random() * 100);
   }
 }
@@ -348,7 +348,7 @@ import CarComponent from '../car/car.component.ts';
     <car #car
          [id]="id" [tank-capacity]="tankCapacity"
          (damaged)="notifyCarDamaged()"></car>
-    <button (click)="car.getTankCapicity()">Get tank capacity</button>
+    <button (click)="car.getTankCapacity()">Get tank capacity</button>
   `
 })
 export default class DashboardComponent {
@@ -375,6 +375,7 @@ import Dashboard   from './components/dashboard/dashboard.component.ts';
 
 bootstrap(Dashboard);
 ```
+[app.ts]
 
 ```html
 <html>
