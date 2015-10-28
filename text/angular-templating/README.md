@@ -120,7 +120,7 @@ Property-Bindgins zeichnen sich durch eckicke Klammern aus (`[id]`)
 <car [id]="id"></car>
 ```
 
-Anstatt eckiger Klammern können Property-Bindings auch mit der vollständigen Syntax `bind-{property-name}="{value}"` beschrieben werden.
+Anstatt eckiger Klammern können Property-Bindings auch mit der vollständigen Syntax `bind-{property-name}="{expression}"` beschrieben werden.
 
 ```html
 // dashboard.component.ts
@@ -139,12 +139,11 @@ Event-Bindings zeichnen sich durch runde Klammern aus (`(damaged)`). Sie trigger
 <car (damaged)="report(damage)"></car>
 ```
 
-Auch für diese Syntax existiert eine längere Syntax in der Form `on-{event-name}="{statement}"></ANY>`:
+Auch für diese Syntax existiert eine längere Syntax in der Form `on-{event-name}="{statement}"`:
 
 ```html
 <car on-damaged="report(damage)"></car>
 ```
-
 
 Um solch ein Event aus einer Komponente heraus zu erzeugen, wird der Dekorator `@Output()` verwendet. Das dazugehörige Property ist ein `EventEmitter`, der Ereignisse auslösen kann.
 
@@ -215,7 +214,7 @@ Die Zwei-Wege-Bindung lässt sich auch ohne `ng-model` realisieren. Das Markup w
 
 Hierbei gibt `$event` Zugriff auf das auslösende Ereignis. Es ist ein natives Javascript-Event. Daher kann dessen API verwendete werden, um auf das betroffene Element zuzugreifen und dessen werden auszulesen (`id=$event.target.value`).
 
-## Lokale Variablen
+## Template Referenzen
 
 Innerhalb eines Templates können Referenzen auf HTML-Elemente, Komponenten und Datenbindungen erzeugt werden, um mit ihnen zu arbeiten.
 
@@ -226,7 +225,7 @@ Innerhalb eines Templates können Referenzen auf HTML-Elemente, Komponenten und 
 
 > Das Binding {{ id.value }} macht deutlich, dass die lokale Referenz das HTML-Element referenziert und nicht nur dessen Wert.
 
-Anstatt der # können lokale Variablen auch mit dem Prefix `var-` deklariert werden.
+Anstatt der # können lokale Refrenzen auch mit dem Prefix `var-` deklariert werden.
 
 ```html
 <input var-id type="text"/>
@@ -240,7 +239,7 @@ Lokale Referenzen auf Komponenten unterscheiden syntaktisch nicht im Vergleich z
 <button (click)="car.getTankCapicity()">Get tank capacity</button>
 ```
 
-Lokale Referenzen können auch auf Objekte zeigen. Im folgenden Beispiel wird der Platzhalte `#c` genutzt, um für jedes Element der Liste `cars` die Komponente `Car`zu rendern.
+Lokale Referenzen können auch auf Objekte zeigen. Im folgenden Beispiel wird der Platzhalte `#c` genutzt, um für jedes Element der Liste `cars` die Komponente `Car` zu rendern.
 
 ```html
 <car *ng-for="#c in cars" [model]="c">
