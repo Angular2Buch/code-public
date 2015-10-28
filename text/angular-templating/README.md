@@ -239,7 +239,22 @@ Lokale Referenzen auf Komponenten unterscheiden syntaktisch nicht im Vergleich z
 <button (click)="car.getTankCapacity()">Get tank capacity</button>
 ```
 
-Lokale Referenzen können auch auf Objekte zeigen. Im folgenden Beispiel wird der Platzhalte `#c` genutzt, um für jedes Element der Liste `cars` die Komponente `Car` zu rendern.
+In diesem Fall wird bei einem Click-Event die Methode `getTankCapicity` ausgeführt.
+In dieser Demo reduziert sich der Tankinhalt des Fahrzeug jedes Mal im 5%, wenn dieser angefragt wird.
+
+```javascript
+// car.component.ts
+export default class CarCmp {
+  /* ... */
+  getTankCapicity() {
+    this.model.tankCapacity -= 5;
+  }
+}
+```
+
+![app-screenshot-03](images/app-screenshot-03.png)
+
+Lokale Referenzen können auch auf Objekte zeigen. Im folgenden Beispiel wird der Platzhalte `#c` genutzt, um für jedes Element einer Liste `cars` die Komponente `Car`zu rendern (Hier lohnt sich ein Blick, in das erwähnte GitHub Code-Repository).
 
 ```html
 <car *ng-for="#c in cars" [model]="c">
@@ -255,7 +270,10 @@ Direktiven wie `ng-for`,`ng-if` und `ng-switch` werden zusammen mit einem Stern 
 <div *ng-if="totalDamages > 0">{{ totalDamages }}</div>
 ```
 
-In diesem Beispiel wird das &lt;div&gt; Element nur in den DOM-Tree gezeichnet, wenn die Bedingung von `ng-if` wahr ist. Bei dem `*` handelt es sich, um eine Kurzschreibweise, die das Schreiben des Templates vereinfachen soll. Sie wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die bekannten Bindings umsetzt. Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
+In diesem Beispiel wird die Anzahl aller gemeldeten Schäden nur dann im Dashboard angezeigt, wenn derenz Anzahl größer 0 ist.
+Bei dem `*` handelt es sich, um eine Kurzschreibweise, die das Schreiben des Templates vereinfachen soll.
+Sie wird als _Micro Syntax_ bezeichnet, da Angular 2.0 diesen Ausdruck interpretiert und wieder in die uns bekannten Bindings umsetzt.
+Beispielsweise ist auch folgende Verwendung der ng-if Direktive zulässig.
 
 ```html
 <template [ng-if]="totalDamages > 0">
