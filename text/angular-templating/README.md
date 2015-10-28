@@ -132,13 +132,13 @@ Events bieten die Möglichkeit auf Veränderungen einer Komponente zu reagieren.
 
 ![data-flows-out](images/data-flows-out.png)
 
-Event-Bindings zeichnen sich durch runde Klammern aus (`(damaged)`). Sie triggern die Ausführung eines Ausdrucks.
+Event-Bindings zeichnen sich durch runde Klammern aus (`(damaged)`). Sie triggern die Ausführung eines Statements.
 
 ```html
 <car (damaged)="report(damage)"></car>
 ```
 
-Auch für diese Syntax existiert eine längere Syntax in der Form `on-{event-name}="{expression}"></ANY>`:
+Auch für diese Syntax existiert eine längere Syntax in der Form `on-{event-name}="{statement}"></ANY>`:
 
 ```html
 <car on-damaged="report(damage)"></car>
