@@ -95,9 +95,10 @@ export default class DashboardComponent {
 ```
 
 Im Wesentlichen wurden drei Anpassungen vorgenommen.
-1. Über ein weiteres import statement wird `CarComponent` geladen.  
-2. @View() wird durch die Eigenschaft `directives` ergänzt, damit `CarCompoennt` im Template verwendet werden kann.  
-3. Das Feld `id` wird and die gleichnamige Eigenschaft der `CarComponent` gebunden (Hierbei handelt es sich um ein Porperty-Binding).  
+
+1. Über ein weiteres import statement wird `CarComponent` geladen.
+2. @View() wird durch die Eigenschaft `directives` ergänzt, damit `CarCompoennt` im Template verwendet werden kann.
+3. Das Feld `id` wird and die gleichnamige Eigenschaft der `CarComponent` gebunden (Hierbei handelt es sich um ein Porperty-Binding).
 
 So wurde über die Datenbindung die erste Interaktion zwischen zwei Komponenten realisiert.
 
