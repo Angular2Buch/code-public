@@ -297,7 +297,7 @@ Hier wird geprüft, ob das Objekt `car` existiert. Wenn ja, wird der Namen des F
 <p>{{ car?.driver?.licences?.B1 }}</p>
 ```
 
-## Was hat das mit HTML zu tun?
+## W3C-Konformität
 
 Auch wenn sich die Syntax zu Beginn ungewohnt ist, handelt es sich hierbei um valides HTML. [[6], [8]] In der HTML Spezifikation des W3C heist es:
 
