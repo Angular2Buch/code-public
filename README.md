@@ -38,6 +38,7 @@ $ tsc --watch
 ## Texte
 
 * [angular-module](text/angular-module)
+* [angular-templating](text/angular-templating) ** NEU **
 * [angular-forms](text/angular-forms)
 
 ## Externe Ressourcen
