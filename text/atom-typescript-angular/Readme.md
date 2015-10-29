@@ -107,7 +107,7 @@ Die Erzeugung jener Dateien holen wir nach, indem wir eine Dateie Namens `tsconf
     "experimentalDecorators": true,
     "newLine": "LF"
   }
-}**
+}
 ```
 > tsconfig.json
 
