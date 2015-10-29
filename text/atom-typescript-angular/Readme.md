@@ -133,7 +133,7 @@ Das war gar nicht schwer! :-)
 <a name="typings"></a>
 ## 4. Angular2 Type Definitions
 
-TypScript wird die eigenen TS-Dateien zwar transpilieren, jedoch erscheint ein Fehler, dass Angular nicht gefunden werden kann (`TS: Error: Cannot find module 'angular2/angular2'`). 
+TypeScript wird die eigenen TS-Dateien zwar transpilieren, jedoch erscheint ein Fehler, dass Angular nicht gefunden werden kann (`TS: Error: Cannot find module 'angular2/angular2'`). 
 
 ![Screenshot](img/typings_error.png)
 
