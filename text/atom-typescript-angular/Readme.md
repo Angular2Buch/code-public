@@ -148,7 +148,7 @@ Ein wenig Bauchschmerzen macht mir übrigens die direkte Verwendung des `node_mo
 Man kann nun eine lokale Kopie der beiden Frameworks verwenden. Bei dieser Gelegenheit lassen wir auch die Einstellung für die `defaultExtension: 'js'` weg, da diese für ein definiertes Paket die Standardeinstellung ist. 
 
 ```html
-<!-- index.html -->
+<!-- index_local.html -->
 <!DOCTYPE html>
 <html>
   <head>
