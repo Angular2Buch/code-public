@@ -400,7 +400,7 @@ bootstrap(Dashboard);
   <head>
     <title>Demo | Template-Syntax</title>
     <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.44/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.45/angular2.dev.js"></script>
     <script>
       System.config({ packages: { app: { defaultExtension: 'js'}}});
       System.import('./app/app');
