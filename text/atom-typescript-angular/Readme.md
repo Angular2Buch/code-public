@@ -111,7 +111,7 @@ Die Erzeugung jener Dateien holen wir nach, indem wir eine Dateie Namens `tsconf
 ```
 > tsconfig.json
 
-Sobald die Konfiguration-Datei vorliegt, wandelt Atom alle TypeScript-Dateien beim Speichern automatisch um. 
+Sobald die Konfigurations-Datei vorliegt, wandelt Atom alle TypeScript-Dateien beim Speichern automatisch um. 
 
 
 ![Screenshot](img/screenshot_atom_folders2.png)
@@ -121,7 +121,7 @@ Das Ergebnis lässt sich mit einem Webserver kontrollieren:
 
 ```cmd
 npm install -g live-server
-live server
+live-server
 
 ```
 
