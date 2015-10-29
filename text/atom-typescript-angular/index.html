@@ -1,0 +1,26 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 Demo</title>
+
+    <!--
+    <script src="https://code.angularjs.org/tools/system.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-alpha.45/angular2.dev.js"></script>
+    -->
+
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+
+    <script>
+        System.config({
+            packages: {'app': {defaultExtension: 'js'}}
+        });
+        System.import('./app/app');
+    </script>
+
+  </head>
+  <body>
+    <my-app>loading...</my-app>
+  </body>
+</html>
