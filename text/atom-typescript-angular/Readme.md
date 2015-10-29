@@ -2,20 +2,17 @@
 
 Manfred Steyer hat in einem Blogpost beschrieben, wie man ein [Setup für Visual Studio Code, TypeScript und Angular 2.0](http://www.softwarearchitekt.at/post/2015/07/21/visual-studio-code-mit-typescript-und-angular-2-nutzen.aspx) aufstellt. Ganz ähnlich hierzu will ich kurz beschreiben, wie man ein schnelles Setup für den Editor Atom aufbaut. Ich gehe davon aus, das das [5 Min Quickstart](https://angular.io/docs/ts/latest/quickstart.html) Tutorial bekannt ist.
 
-Folgende Prämissen gelten für diesen Post:
+Es soll kein Transpiling von TypeScript zur Laufzeit statt finden. Wandelt man TypeScript direkt im Browser um, so erhält man logischerweise keine komfortable Hilfestellungen durch den Compiler beim Entwickeln. Weiterhin ist das Transpiling zur Laufzeit kein Lösung für den produktiven Einsatz. Es soll in diesem in diesem Post ausschließlich um die Integration mit Atom und atom-typescript gehen.
 
-1. es soll kein Transpiling von TypeScript zur Laufzeit statt finden 
-2. es soll kein JSPM eingesetzt werden
-
-Zu 1.
-
-Wandelt man TypeScript direkt im Browser um, so erhält man logischerweise keine komfortable Hilfestellungen durch den Compiler beim Entwickeln. Außerdem geht es in diesem Post gerade um die Integration in Atom. Zu guter Letzt ist das Transpiling - je nach Hardware und Browser - auch furchtbar langsam!
-
-Zu 2.
-
-JSPM ist schon ein genialer Paketmanager, hat aber auch ein paar Einstiegshürden. Wen dieses Thema interessiert, der sei auf folgendes auf das ["Angular2 + JSPM cheat sheet" Gist](https://gist.github.com/robwormald/429e01c6d802767441ec) verwiesen. Forschergeist und vor allem Geduld sind hier Voraussetzung. Dies soll ein Einstieg ohne eine komplexes Tool werden.
+### Inhalt
+1. [Atom und atom-typescript installieren](#installieren)
+2. [Projekt anlegen](#projekt)
+3. [Transpilieren](#transpilieren)
+4. [Angular2 Type Definitions](#typings)
+5. [Off Topic: Angular 2.0 asynchron laden](#systemjs)
 
 
+<a name="installieren"></a>
 ## 1. Atom und atom-typescript installieren
 
 1. [Atom](https://atom.io/) installieren - Admin-Rechte sind übrigens nicht notwendig
@@ -23,6 +20,7 @@ JSPM ist schon ein genialer Paketmanager, hat aber auch ein paar Einstiegshürde
 `apm install atom-typescript`
 
 
+<a name="projekt"></a>
 ## 2. Projekt anlegen
 
 Der Aufbau orientiert sich am Angular 2 Quickstart. Wir werden drei Dateien erstellen:
@@ -44,10 +42,10 @@ Wichtig ist die Tatsache, dass man alle TypeScript-Dateien in einen Unterordner 
     <script src="https://code.angularjs.org/2.0.0-alpha.45/angular2.dev.js"></script>
 
     <script>
-        System.config({
-            packages: {'app': {defaultExtension: 'js'}}
-        });
-        System.import('./app/app');
+      System.config({
+        packages: { app: { defaultExtension: 'js'}}
+      });
+      System.import('./app/app');
     </script>
 
   </head>
@@ -91,13 +89,15 @@ export default class MyAppComponent {
 
 ![Screenshot](img/screenshot_atom_folders.png)
 
+
+<a name="transpilieren"></a>
 ## 3. Transpilieren
 
 Würden wir jetzt schon den Entwicklungsstand kontrollieren, so würden wie eine Fehlermeldung erhalten. Die ganze Logik liegt nämlich nur in Form von TypeScript-Dateien vor. Der Browser soll jedoch JavaScript-Dateien laden und ausführen.
 
 Die Erzeugung jener Dateien holen wir nach, indem wir eine Dateie Namens `tsconfig.json` in das Projektverzeichnis einfügen. Hierfür kann man `cmd(ctrl)+shift+p` drücken (Liste der Kommandos) und den Befehl `tsconfig` auswählen ("TypeScript: Create tsconfig.json Project File").
 
-```
+```javascript
 {
   "compilerOptions": {
     "target": "es5",
@@ -129,6 +129,8 @@ live server
 
 Das war gar nicht schwer! :-)
 
+
+<a name="typings"></a>
 ## 4. Angular2 Type Definitions
 
 TypScript wird die eigenen TS-Dateien zwar transpilieren, jedoch erscheint ein Fehler, dass Angular nicht gefunden werden kann (`TS: Error: Cannot find module 'angular2/angular2'`). 
@@ -143,7 +145,7 @@ npm install angular2@2.0.0-alpha.45 systemjs@0.19.5
 
 Ein wenig Bauchschmerzen macht mir übrigens die direkte Verwendung des `node_modules` Ordners. Es ist eine ewige Streitfrage, ob man diesen Ordner unter Versionsverwaltung stellt oder nicht. Den Ordner nun auch noch im Webserver verfügbar zu machen, ist eine neue Qualität. Ich bin damit noch nicht wirklich glücklich. Nun denn, was solls, YOLO!
 
-Man kann nun eine lokale Version der beiden Frameworks verwenden:
+Man kann nun eine lokale Kopie der beiden Frameworks verwenden. Bei dieser Gelegenheit lassen wir auch die Einstellung für die `defaultExtension: 'js'` weg, da diese für ein definiertes Paket die Standardeinstellung ist. 
 
 ```html
 <!-- index.html -->
@@ -152,19 +154,12 @@ Man kann nun eine lokale Version der beiden Frameworks verwenden:
   <head>
     <title>Angular 2 Demo</title>
 
-    <!--
-    <script src="https://code.angularjs.org/tools/system.js"></script>
-    <script src="https://code.angularjs.org/2.0.0-alpha.45/angular2.dev.js"></script>
-    -->
-
     <script src="node_modules/systemjs/dist/system.js"></script>
     <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
 
     <script>
-        System.config({
-            packages: {'app': {defaultExtension: 'js'}}
-        });
-        System.import('./app/app');
+      System.config({ packages: { app: {}}});
+      System.import('./app/app');
     </script>
 
   </head>
@@ -173,10 +168,11 @@ Man kann nun eine lokale Version der beiden Frameworks verwenden:
   </body>
 </html>
 ```
+> index_local.html
 
-Weiterhin kann man nun TypeScript die korrekten Pfade aufzeigen. Eine geniale Erfindung ist die [`filesGlob`](https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md#filesglob)-Einstellung, welches man mit dem Snippet `fg` in die `tsconfig.json` einfügen kann:
+Weiterhin kann man nun TypeScript die korrekten Pfade aufzeigen. Eine geniale Erfindung ist die [`filesGlob`](https://github.com/TypeStrong/atom-typescript/blob/master/docs/tsconfig.md#filesglob)-Einstellung, welches man mit dem Snippet `fg` in die `tsconfig.json` einfügt:
 
-```
+```javascript
 {
   "compilerOptions": {
     "target": "es5",
@@ -195,13 +191,91 @@ Weiterhin kann man nun TypeScript die korrekten Pfade aufzeigen. Eine geniale Er
 }
 ```
 
-Das manuelle Bekanntmachen von Dateien über das `files`-Property oder über inline-Kommentare in den TS-Dateien (z.B. `/// <reference path="node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>`) ist damit Geschichte! Atom hält die Liste der Dateien für euch automatisch aktuell. Weil der `node_modules` Ordner sich innerhalb des Projektes befindet, werden auch die Typings von Angular2 gefunden. Nun stehen weitere Hilfen wie "Type information on hover", "Autocomplete", "Goto Declaration" und weitere [Features](https://github.com/TypeStrong/atom-typescript#features). zur Verfügung.
+Das manuelle Bekanntmachen von Dateien über das `files`-Property oder über inline-Kommentare in den TS-Dateien (z.B. `/// <reference path="node_modules/angular2/bundles/typings/angular2/angular2.d.ts"/>`) ist damit Geschichte! Atom hält die Liste der Dateien automatisch aktuell. Weil der `node_modules` Ordner sich innerhalb des Projektes befindet, werden auch sofoert die Typings von Angular2 gefunden. Nun stehen Hilfen wie "Type information on hover", "Autocomplete", "Goto Declaration" und eine [Reihe weiterer Features](https://github.com/TypeStrong/atom-typescript#features) zur Verfügung.
 
 ![Screenshot](img/type_information_on_hover.png)
 > Type information on hover
 
+Wer das files-Array überprüft, wird festellen, das sich dort nun ziemlich viele  doppelt vorhandene `*.d.ts`-Dateien befinden! Eine alternative Möglichkeit besteht darin, den `node_modules` Order eine Verzeichnisebene nach oben zu verschieben. Zum filesGlob-Array kann dann ein zweiter Pfad (z.B. `../node_modules/angular2/bundles/typings/**/*.ts`) hinzugefügt werden. Diese Ordnerstruktur entspräche dann dem [5 Min Quickstart](https://angular.io/docs/ts/latest/quickstart.html) Tutorial von Google.
 
-## Extra: Proxies
+
+<a name="systemjs"></a>
+# 5. Off Topic: Angular 2.0 asynchron laden
+
+Der letzte Teil dies Posts gilt nicht mehr spezifisch für Atom. Aber ich möchte die Zeile 
+```html
+<script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+```
+so nicht stehen lassen. Mit SystemJS steht uns ein vorzüglicher Module-Loader zur Verfügung. Statt Angular asynchron (bzw. später im Bundle synchron) zu laden, wird die Holzhammer-Methode per `<script>` verwendet. Das Bundle `angular2.dev.js` fasst das gesamte Framework und alle Abhängigkeiten in einer Datei zusammen - was anfangs recht praktisch ist. Die Datei lässt sich aber nicht über einen Modul-Loader bzw. Builder verwenden. Viel schöner ist es, wenn die Abhängigkeit `angular2/angular2` über SystemJS konfiguriert wird:
+
+```javascript
+<!-- index_systemjs.html -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Angular 2 Demo</title>
+
+    <script src="node_modules/systemjs/dist/system.js"></script>
+    <script src="config.js"></script>
+    <script>
+      System.import('./app/app');
+    </script>
+
+  </head>
+  <body>
+    <my-app>loading...</my-app>
+  </body>
+</html>
+```
+> index_systemjs.html
+
+Die Abhängigkeiten der Anwendung lassen sich in einer Konfigurations-Dateien beschreiben. Prinzipiell muss man nur die entsprechenden Pfade mappen (`maps`) und die Abhängigkeiten von Angular (`deps`) definieren, damit diese für Angular bereit stehen.   
+
+```javascript
+System.config({
+  paths: {
+    "npm:*": "node_modules/*",
+    "npm2:*": "node_modules/angular2/node_modules/*",
+  },
+  map: {
+    "angular2": "npm:angular2",
+    "reflect-metadata": "npm2:reflect-metadata",
+    "zone.js": "npm2:zone.js/lib/zone.js",
+    "es6-shim": "npm:es6-shim/es6-shim.js",
+    "@reactivex/rxjs": "npm2:@reactivex/rxjs",
+  },
+  meta: {
+    "angular2/angular2": {
+      "deps": ["reflect-metadata", "zone.js", "es6-shim", "@reactivex/rxjs"]
+    }
+  },
+  packages: {
+    "app": { },
+    "angular2": { },
+    "reflect-metadata": {
+        "main": "Reflect.js",
+        "map": { "crypto": "@empty" }
+    },
+    "@reactivex/rxjs": {
+        "main": "dist/cjs/Rx.js"
+    }
+  }
+});
+```
+> config.js
+
+SystemJS übernimmt nun komplett die Bereitstellung von Abhängigkeiten im Code. Dazu gehört natürlich auch das Angular-Framework an sich, welches über die `app.ts` angeforder wird. Dies hält den eigenen Code entsprechend sauber und übersichtlich. 
+
+Der ES6-Polyfill ist nicht im NPM-Paket von Angular2 definiert, daher muss er noch zusätzlich installiert werden:
+```
+npm install es6-shim
+```
+
+Solch ein Mapping für SystemJS automatisiert zu erstellen, ist die primäre Aufgabe von [JSPM](http://jspm.io/). JSPM ist ein mächtiger Paketmanager, der leider auch eine tiefere Einarbeitung verlangt. Wen dieses Thema interessiert, der sei auf folgendes auf das ["Angular2 + JSPM cheat sheet" Gist](https://gist.github.com/robwormald/429e01c6d802767441ec) verwiesen. Forschergeist und vor allem Geduld sind hier Voraussetzung. ;-)
+
+----
+
+## Off Topic: Proxies
 
 Wer mit einem Firmen-Proxy leben muss, der gibt zur Konfiguration von APM vorher noch folgendes ein:
 

@@ -2,20 +2,16 @@
   "name": "atom-typescript-angular",
   "version": "1.0.0",
   "description": "Ein Setup für Atom, TypeScript und Angular 2.0",
-  "devDependencies" : {
-      "angular2": "2.0.0-alpha.45",
-      "systemjs": "0.19.5",
-      "live-server": "^0.8.2"
-  } ,
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "dependencies": {
+    "angular2": "2.0.0-alpha.45",
+    "systemjs": "0.19.5",
+    "live-server": "^0.8.2",
+    "es6-shim": "^0.33.9"
   },
-  "keywords": [
-    "angular2",
-    "typescript",
-    "atom"
-  ],
+  "scripts": {
+    "start": "live-server"
+  },
+  "keywords": ["angular2", "typescript", "atom"],
   "author": "Johannes Hoppe",
   "license": "ISC"
 }

@@ -37,9 +37,10 @@ $ tsc --watch
 
 ## Texte
 
-* [angular-module](text/angular-module)
-* [angular-templating](text/angular-templating) ** NEU **
-* [angular-forms](text/angular-forms)
+* [angular-module](text/angular-module) - Angular 2.0 und modularer Code
+* [angular-templating](text/angular-templating) - Angular Template-Syntax 
+* [angular-forms](text/angular-forms) 
+* [atom-typescript-angular](text/atom-typescript-angular) - Atom mit TypeScript und Angular2 nutzen
 
 ## Externe Ressourcen
 
