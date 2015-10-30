@@ -200,7 +200,7 @@ Wer das files-Array überprüft, wird feststellen, das sich dort nun ziemlich vi
 
 
 <a name="systemjs"></a>
-# 5. Off Topic: Angular 2.0 asynchron laden
+## 5. Off Topic: Angular 2.0 asynchron laden
 
 Der letzte Teil dieses Posts gilt nicht mehr spezifisch für Atom. Aber ich möchte die Zeile 
 ```html
@@ -271,7 +271,7 @@ Der ES6-Polyfill ist nicht im NPM-Paket von Angular2 definiert, daher muss er no
 npm install es6-shim
 ```
 
-Es gibt auch die Möglichkeit, solch ein Mapping für SystemJS automatisiert zu erstellen. Das ist nämlich die Aufgabe von [JSPM](http://jspm.io/). JSPM ist ein mächtiger Paketmanager, der leider auch eine intensivere Einarbeitung verlangt. Wen dieses Thema interessiert, der sei auf folgendes auf das ["Angular2 + JSPM cheat sheet" Gist](https://gist.github.com/robwormald/429e01c6d802767441ec) verwiesen. 
+Es gibt auch die Möglichkeit, solch ein Mapping für SystemJS automatisiert zu erstellen. Das ist nämlich die Aufgabe von [JSPM](http://jspm.io/). JSPM ist ein mächtiger Paketmanager, der leider auch eine intensivere Einarbeitung verlangt. Wen dieses Thema interessiert, der sei auf das ["Angular2 + JSPM cheat sheet" Gist](https://gist.github.com/robwormald/429e01c6d802767441ec) verwiesen. 
 
 
 
