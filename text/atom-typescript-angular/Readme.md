@@ -145,7 +145,7 @@ npm install angular2@2.0.0-alpha.45 systemjs@0.19.5
 
 Ein wenig Bauchschmerzen macht mir übrigens die direkte Verwendung des `node_modules` Ordners. Es ist eine ewige Streitfrage, ob man diesen Ordner unter Versionsverwaltung stellt oder nicht. Den Ordner nun auch noch im Webserver verfügbar zu machen, ist eine neue Qualität. Ich bin damit noch nicht wirklich glücklich - aber das ist ein anderes Thema.
 
-Man kann nun eine lokale Kopie der beiden Frameworks verwenden. Bei dieser Gelegenheit lassen wir auch die Einstellung für die `defaultExtension: 'js'` weg, da diese für ein definiertes Paket sowieso die Standardeinstellung ist. 
+Man kann nun eine lokale Kopie der beiden Frameworks verwenden. Bei dieser Gelegenheit lassen wir auch die Einstellung für die `defaultExtension: 'js'` weg, da diese für ein definiertes Paket sowieso die Standardeinstellung ist (siehe [#759](https://github.com/systemjs/systemjs/issues/759)).
 
 ```html
 <!-- index_local.html -->
