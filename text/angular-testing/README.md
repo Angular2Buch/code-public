@@ -9,10 +9,27 @@
 In den beiden vorangegangenen Artikeln zu Angular 2.0 wurde zunächst ein modulares Setup beschrieben. Anschließend wurde anhand einer Beispielanwendung die neue Template-Syntax beschrieben. Bei dieser Betrachtung kam aber die Code-Qualität noch ein wenig zu Kurz. Es wird Zeit, der Anwendung ein Refactoring zu unterziehen und die fehlerfreie Funktionalität mit Unit-Tests zu beweisen!
 
 
+## Inversion of Control
 
+Wenn man an einer beliegen Stelle im Programmcode eine andere Funktionalität benötigt, dann liegt es zunächst nahe, jene andere Funktionalität an Ort und Stelle zu initialisieren. 
 
+```javascript
+var HelloWorld = function() {
+  this.dependency = new Dependency();
+}
+```
 
+Dieses Vorgehen ist prinzipiell einwandfrei - nur stößt man mit zunehmender Menge an Code an eine Grenze. Der Code wird zunehmend unübersichtlicher, schwerer zu Warten und verweigert sich einem einfachen Test-Setup. Das Prinzip des "Inversion of Control" kehrt die Verantwortlichkeit einfach um. Wenn man nun eine andere Funktionalität benötigt, so gibt man hierfür die Kontrolle an eine übergeordnete Instanz ab. Das Prinzip findet sich in verschiedenen Entwurfsmustern in allen Programmiersprachen wieder. AngularJS zum Beispiel verwendet das Entwurfsmuster "Dependency Injection". Ein einfaches, aber elegantes Framework im Kern von AngularJS sorgt dafür, das benötigte Abhängigkeit über den Variablennamen identifiziert wird und der Konstruktor-Funktion beim Aufruf bereit gestellt wird:
 
+```javascript
+var HelloWorld = ['dependency', function(dependency) {
+  this.dependency = dependency;
+}]
+```
+
+## Dependency Injection mit Angular 2.0
+
+Wer das DI-Framework aus AngularJs kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders ungünstig sind Namens-Kollisionen, da in Version 1 alle Abhängigkeiten ohne Namespaces bzw. ohne Typsicherheit "in einen Topf" (dem DI-Container) geworden werden. Ebenso ist die Benamung der
 
 
 <hr>
