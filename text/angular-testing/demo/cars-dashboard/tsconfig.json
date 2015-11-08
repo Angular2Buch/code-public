@@ -1,11 +1,27 @@
 {
   "compilerOptions": {
-    "target": "ES5",
+    "target": "es5",
     "module": "commonjs",
-    "sourceMap": true,
     "emitDecoratorMetadata": true,
+    "sourceMap": true,
     "experimentalDecorators": true,
-    "removeComments": false,
-    "noImplicitAny": false
-  }
+    "newLine": "LF"
+  },
+  "filesGlob": [
+    "./**/*.ts",
+    "../node_modules/angular2/bundles/typings/**/*.ts"
+  ],
+  "files": [
+    "./app/app.ts",
+    "./app/components/car/car.component.ts",
+    "./app/components/dashboard/dashboard.component.ts",
+    "./app/models/car.ts",
+    "../node_modules/angular2/bundles/typings/angular2/angular2.d.ts",
+    "../node_modules/angular2/bundles/typings/angular2/http.d.ts",
+    "../node_modules/angular2/bundles/typings/angular2/router.d.ts",
+    "../node_modules/angular2/bundles/typings/angular2/testing.d.ts",
+    "../node_modules/angular2/bundles/typings/es6-shim/es6-shim.d.ts",
+    "../node_modules/angular2/bundles/typings/jasmine/jasmine.d.ts"
+  ],
+  "exclude": []
 }

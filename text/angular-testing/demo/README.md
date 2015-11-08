@@ -1,7 +1,6 @@
 # Inhalt
 
-In diesem Verzeichnis finden sie das im Artikel gezeigte beispiel unter `src-simple/`.
-Eine Weiterentwicklung dieser Demo steht für Sie im Ordner `src/` zur Verfügung
+In diesem Verzeichnis finden Sie das im Artikel gezeigte beispiel unter `cars-dashboard/`.
 
 ## Setup & Start
 
@@ -11,4 +10,4 @@ $ npm start
 ```
 
 Nach `npm start` öffnet sich der Standard-Browser und zeigt eine Liste von Verzeichnissen an.
-Wählen Sie das entsprechende Verzeichnis (`src/` oder `src-simple`), um zum jeweiligen Beispiel zu gelangen.
+Wählen Sie das entsprechende Verzeichnis (`cars-dashboard/`), um zum jeweiligen Beispiel zu gelangen.

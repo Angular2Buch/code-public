@@ -29,7 +29,7 @@ var HelloWorld = ['dependency', function(dependency) {
 
 ## Dependency Injection mit Angular 2.0
 
-Wer das DI-Framework aus AngularJs kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders ungünstig sind Namens-Kollisionen, da in Version 1 alle Abhängigkeiten ohne Namespaces bzw. ohne Typsicherheit "in einen Topf" (dem DI-Container) geworden werden.
+Wer das DI-Framework aus AngularJs kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders ungünstig sind Namens-Kollisionen, da in Version 1 alle Abhängigkeiten ohne Namespaces bzw. ohne Typsicherheit "in einen Topf" (dem DI-Container) geworden werden. Ebenso ist die Benamung der
 
 
 <hr>
