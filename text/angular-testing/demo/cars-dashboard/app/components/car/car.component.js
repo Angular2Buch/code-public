@@ -8,14 +8,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var angular2_1 = require('angular2/angular2');
+var http_1 = require('angular2/http');
 var car_1 = require('../../models/car');
 var CarComponent = (function () {
-    function CarComponent() {
+    function CarComponent(http) {
+        this.http = http;
         this.damaged = new angular2_1.EventEmitter();
     }
     CarComponent.prototype.rockfall = function () {
         this.model.hasDamage = true;
         this.damaged.next(this.model);
+    };
+    CarComponent.prototype.refillTank = function (money) {
+        this.http.get('https://creativecommons.tankerkoenig.de/json/list.php?lat=52.52099975265203&lng=13.43803882598877&rad=4&sort=price&type=diesel&apikey=acc6ad94-2b49-9190-5fcf-94d683f66887')
+            .map(function (res) { return res.text(); })
+            .subscribe(function (data) { return console.info(data); }, function (err) { return console.error(err); }, function () { return console.log('Complete'); });
     };
     __decorate([
         angular2_1.Input(), 
@@ -26,11 +33,14 @@ var CarComponent = (function () {
         __metadata('design:type', angular2_1.EventEmitter)
     ], CarComponent.prototype, "damaged", void 0);
     CarComponent = __decorate([
-        angular2_1.Component({ selector: 'car' }),
+        angular2_1.Component({
+            selector: 'car',
+            providers: [http_1.HTTP_PROVIDERS]
+        }),
         angular2_1.View({
             template: "\n  <div class=\"panel panel-default\">\n  <div class=\"panel-heading\">ID {{ model?.id | uppercase }}</div>\n    <table class=\"table table-striped\">\n      <tr\n        [class.success]=\"model?.hasDamage == false\"\n        [class.danger]=\"model?.hasDamage == true\">\n        <td>Damaged</td>\n        <td>{{ model?.hasDamage }}</td>\n      </tr>\n      <tr\n        [class.warning]=\"model?.tankCapacity < 60\"\n        [class.danger]=\"model?.tankCapacity < 20\">\n        <td>Tank Capacity</td>\n        <td>{{ model?.tankCapacity }}</td>\n      </tr>\n      <tr>\n        <td>Driver {{ model?.driver }}</td>\n        <td>\n        <input\n          [value]=\"model?.driver\"\n          [disabled]=\"model == null\"\n          (input)=\"model.driver=$event.target.value\"\n          class=\"form-control\"\n          placeholder=\"Insert driver...\">\n        </td>\n      </tr>\n      <tr>\n        <td colspan=\"2\">\n          <button\n            (click)=\"rockfall()\"\n            [disabled]=\"model == null\"\n            class=\"btn btn-danger\">\n            Report rockfall\n          </button>\n        </td>\n      </tr>\n    </table>\n  </div>\n  "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], CarComponent);
     return CarComponent;
 })();

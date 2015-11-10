@@ -17,15 +17,26 @@ import CarModel from '../../models/car';
       *ng-for="#c of cars"
       class="row">
       <div class="col-md-4">
-        <car [model]="c" (damaged)="notifyCarDamaged($event)" var-car></car>
+        <car #car [model]="c" (damaged)="notifyCarDamaged($event)"></car>
       </div>
-      <div class="col-md-3">
-        <button
-          (click)="c.refill()"
-          [disabled]="c == null"
-          class="btn btn-primary">
-          &#x26fd; Refill
-        </button>
+      <div class="col-md-3 form-inline">
+
+          <div class="form-group">
+
+            <button
+              (click)="car.refillTank(money.value)"
+              [disabled]="c == null"
+              class="btn btn-primary form-control">
+              &#x26fd; Refill for
+            </button>
+
+            <input #money value="100" class="form-control" placeholder="amount to spend" style="width: 50px">
+
+            <label>&euro;</label>
+
+          </div>
+
+        </div>
       </div>
     </div>
   `

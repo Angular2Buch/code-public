@@ -1,7 +1,11 @@
 import { Component, View , Input, Output, EventEmitter } from 'angular2/angular2';
+import {HTTP_PROVIDERS, Http} from 'angular2/http';
 import CarModel from '../../models/car';
 
-@Component({ selector: 'car' })
+@Component({
+  selector: 'car',
+  providers: [HTTP_PROVIDERS]
+})
 @View({
   template: `
   <div class="panel panel-default">
@@ -48,8 +52,24 @@ export default class CarComponent {
   @Input() model: CarModel;
   @Output() damaged: EventEmitter = new EventEmitter();
 
+  constructor(public http: Http) {
+  }
+
   rockfall() {
     this.model.hasDamage = true;
     this.damaged.next(this.model);
+  }
+
+  refillTank(money) {
+
+
+    this.http.get('https://creativecommons.tankerkoenig.de/json/list.php?lat=52.52099975265203&lng=13.43803882598877&rad=4&sort=price&type=diesel&apikey=acc6ad94-2b49-9190-5fcf-94d683f66887')
+      .map(res => res.text())
+      .subscribe(
+        data => console.info(data),
+        err => console.error(err),
+        () => console.log('Complete')
+      );
+
   }
 }

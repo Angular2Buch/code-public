@@ -15,7 +15,7 @@ export default class Car {
     this.tankCapacity = newCapacity > 0 ? newCapacity : 0;
   }
 
-  refill() {
+  refillTank() {
     this.tankCapacity = 100;
   }
 }
