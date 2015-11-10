@@ -21,10 +21,10 @@ import CarModel from '../../models/car';
       </div>
       <div class="col-md-3">
         <button
-          (click)="car.getTankCapacity()"
+          (click)="c.refill()"
           [disabled]="c == null"
           class="btn btn-primary">
-          Get tank capacity
+          &#x26fd; Refill
         </button>
       </div>
     </div>
@@ -38,9 +38,7 @@ export default class DashboardComponent {
     this.totalDamages = 0;
     this.cars = [
       new CarModel('ng-car 1.0'),
-      new CarModel('ng-car 2.0'),
-      null,
-      undefined
+      new CarModel('ng-car 2.0')
     ]
   }
 

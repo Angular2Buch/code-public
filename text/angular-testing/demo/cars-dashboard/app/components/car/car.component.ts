@@ -52,8 +52,4 @@ export default class CarComponent {
     this.model.hasDamage = true;
     this.damaged.next(this.model);
   }
-
-  getTankCapacity() {
-    this.model.tankCapacity = Math.floor(Math.random() * 100);
-  }
 }

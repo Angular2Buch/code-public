@@ -1,13 +1,21 @@
 export default class Car {
+
   id: string;
-  driver: string;
-  tankCapacity: number;
-  hasDamage: boolean;
+  driver: string = '';
+  tankCapacity: number = 100;
+  hasDamage: boolean = false;
 
   constructor(id) {
     this.id = id;
-    this.driver = '';
+    setInterval(() => this.reduceTankCapacity(), 1000);
+  }
+
+  reduceTankCapacity() {
+    var newCapacity = this.tankCapacity - Math.floor(Math.random() * 10);
+    this.tankCapacity = newCapacity > 0 ? newCapacity : 0;
+  }
+
+  refill() {
     this.tankCapacity = 100;
-    this.hasDamage = false;
   }
 }

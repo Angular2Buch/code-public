@@ -6,7 +6,7 @@
 
 ## Einleitung
 
-In den beiden vorangegangenen Artikeln zu Angular 2.0 wurde zunächst ein modulares Setup beschrieben. Anschließend wurde anhand einer Beispielanwendung die neue Template-Syntax beschrieben. Bei dieser Betrachtung kam aber die Code-Qualität noch ein wenig zu Kurz. Es wird Zeit, der Anwendung ein Refactoring zu unterziehen und die fehlerfreie Funktionalität mit Unit-Tests zu beweisen!
+In den beiden vorangegangenen Artikeln zu Angular 2.0 wurde zunächst ein modulares Setup auf Basis von SystemJS beschrieben. In der zweiten Ausgabe haben wir Ihnen anhand einer Beispielanwendung die neue Template-Syntax vorgestellt. Bei dieser Betrachtung kam aber die Code-Qualität aber noch ein wenig zu Kurz. Es wird Zeit, der Anwendung ein Refactoring zu unterziehen und die fehlerfreie Funktionalität mit Unit-Tests zu beweisen!
 
 
 ## Inversion of Control
