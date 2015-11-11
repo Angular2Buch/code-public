@@ -12,7 +12,7 @@ var Car = (function () {
         this.tankCapacity = newCapacity > 0 ? newCapacity : 0;
     };
     Car.prototype.refillTank = function (oil) {
-        this.tankCapacity = oil;
+        this.tankCapacity = this.tankCapacity + oil;
     };
     return Car;
 })();

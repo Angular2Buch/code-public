@@ -16,6 +16,6 @@ export default class Car {
   }
 
   refillTank(oil) {
-    this.tankCapacity = oil;
+    this.tankCapacity = this.tankCapacity + oil;
   }
 }
