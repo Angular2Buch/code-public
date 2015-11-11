@@ -11,8 +11,8 @@ var Car = (function () {
         var newCapacity = this.tankCapacity - Math.floor(Math.random() * 10);
         this.tankCapacity = newCapacity > 0 ? newCapacity : 0;
     };
-    Car.prototype.refillTank = function () {
-        this.tankCapacity = 100;
+    Car.prototype.refillTank = function (oil) {
+        this.tankCapacity = oil;
     };
     return Car;
 })();

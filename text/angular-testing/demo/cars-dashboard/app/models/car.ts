@@ -5,7 +5,7 @@ export default class Car {
   tankCapacity: number = 100;
   hasDamage: boolean = false;
 
-  constructor(id) {
+  constructor(id: string) {
     this.id = id;
     setInterval(() => this.reduceTankCapacity(), 1000);
   }
@@ -15,7 +15,7 @@ export default class Car {
     this.tankCapacity = newCapacity > 0 ? newCapacity : 0;
   }
 
-  refillTank() {
-    this.tankCapacity = 100;
+  refillTank(oil) {
+    this.tankCapacity = oil;
   }
 }
