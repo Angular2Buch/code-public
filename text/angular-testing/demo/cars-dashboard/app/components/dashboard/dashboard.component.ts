@@ -1,13 +1,10 @@
 import { Component, View, NgFor, NgIf } from 'angular2/angular2';
-import {HTTP_PROVIDERS, Http} from 'angular2/http';
 
 import CarComponent from '../car/car.component';
-import CarModel from '../../models/car';
+import Car from '../../models/car';
+import GasService from '../../models/gasService';
 
-@Component({
-  selector: 'dashboard',
-  providers: [HTTP_PROVIDERS]}
-)
+@Component({selector: 'dashboard'})
 @View({
   directives: [CarComponent, NgFor, NgIf],
   template: `
@@ -53,31 +50,28 @@ import CarModel from '../../models/car';
   `
 })
 export default class DashboardComponent {
-  cars: Array<CarModel>;
+  cars: Array<Car>;
   totalDamages: number;
-  bestPrice: number
+  bestPrice: number;
 
-  constructor(public http: Http) {
+  constructor(private GasService: GasService) {
     this.totalDamages = 0;
     this.cars = [
-      new CarModel('ng-car 1.0'),
-      new CarModel('ng-car 2.0')
+      new Car('ng-car 1.0'),
+      new Car('ng-car 2.0')
     ]
   }
 
-  refillTank(car: CarModel, money: number) {
+  refillTank(car: Car, amountOfMoneyToSpend: number) {
 
-    this.http.get('https://creativecommons.tankerkoenig.de/json/list.php?lat=52.52099975265203&lng=13.43803882598877&rad=4&sort=price&type=diesel&apikey=acc6ad94-2b49-9190-5fcf-94d683f66887')
-      .map(res => res.json())
-      .subscribe(
-        data => {
-          this.bestPrice = data.stations[0].price;
-          var oil = Math.floor(money / this.bestPrice);
+    this.GasService
+      .getBestPrice()
+      .subscribe((bestPrice: number) => {
 
-          car.refillTank(oil);
-        },
-        err => console.error(err)
-      );
+        this.bestPrice = bestPrice;
+        car.refillTank(Math.floor(amountOfMoneyToSpend / bestPrice));
+      },
+      err => console.error(err));
   }
 
   notifyCarDamaged() {
