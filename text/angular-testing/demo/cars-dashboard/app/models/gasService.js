@@ -14,10 +14,10 @@ var GasService = (function () {
         this.http = http;
         this.apiUrl = 'https://creativecommons.tankerkoenig.de/json/list.php?lat=52.52099975265203&lng=13.43803882598877&rad=4&sort=price&type=diesel';
         this.apiKey = '&apikey=acc6ad94-2b49-9190-5fcf-94d683f66887';
-        this.listUrlAndKey = this.apiUrl + this.apiKey;
+        this.apiUrlAndKey = this.apiUrl + this.apiKey;
     }
     GasService.prototype.getBestPrice = function () {
-        return this.http.get(this.listUrlAndKey)
+        return this.http.get(this.apiUrlAndKey)
             .map(function (result) { return result.json().stations; })
             .map(function (stations) {
             return stations[0].price;

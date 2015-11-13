@@ -17,7 +17,7 @@ import Car from '../../models/car';
         [class.warning]="model?.tankCapacity < 60"
         [class.danger]="model?.tankCapacity < 20">
         <td>Tank Capacity</td>
-        <td>{{ model?.tankCapacity }} liter</td>
+        <td>{{ model?.tankCapacity | number:'1.2-2' }} liter</td>
       </tr>
       <tr>
         <td>Driver {{ model?.driver }}</td>
