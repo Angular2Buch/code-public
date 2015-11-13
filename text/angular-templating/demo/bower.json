@@ -1,0 +1,22 @@
+{
+  "name": "template-syntax",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Gregor Woiwode"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/Angular2Buch/template-syntax",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "google-youtube": "GoogleWebComponents/google-youtube#~1.1.2"
+  }
+}

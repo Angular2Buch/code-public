@@ -6,7 +6,7 @@ Eine Weiterentwicklung dieser Demo steht für Sie im Ordner `src/` zur Verfügun
 ## Setup & Start
 
 ```cmd
-$ npm install
+$ npm install && bower install
 $ npm start
 ```
 

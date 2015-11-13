@@ -5,34 +5,12 @@ import CarModel from '../../models/car';
 @Component({ selector: 'dashboard' })
 @View({
   directives: [CarComponent, NgFor, NgIf],
-  template: `
-    <div class="row">
-      <template [ng-if]="totalDamages > 0">
-        <div class="col-md-4">
-          <p class="lead">Reported Damages <span class="badge">{{ totalDamages }}</span></p>
-        </div>
-      </template>
-    </div>
-    <div
-      *ng-for="#c of cars"
-      class="row">
-      <div class="col-md-4">
-        <car [model]="c" (damaged)="notifyCarDamaged($event)" var-car></car>
-      </div>
-      <div class="col-md-3">
-        <button
-          (click)="car.getTankCapacity()"
-          [disabled]="c == null"
-          class="btn btn-primary">
-          Get tank capacity
-        </button>
-      </div>
-    </div>
-  `
+  templateUrl: 'app/components/dashboard/dashboard.tpl.html'
 })
 export default class DashboardComponent {
   cars: Array<CarModel>;
   totalDamages: number;
+  videoId: string;
 
   constructor() {
     this.totalDamages = 0;
@@ -41,7 +19,8 @@ export default class DashboardComponent {
       new CarModel('ng-car 2.0'),
       null,
       undefined
-    ]
+    ];
+    this.videoId = "ewxEFdMPMF0";
   }
 
   notifyCarDamaged() {

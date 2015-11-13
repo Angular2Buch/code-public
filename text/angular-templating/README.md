@@ -422,6 +422,40 @@ bootstrap(Dashboard);
 - Outputs werden mithilfe von Event-Bindings abonniert ((event)).
 - Ein Property-Binding und Event-Binding können kombiniert werden, um ein Two-Way-Binding zu beschreiben ([(twoWay)]). [[2]]
 
+# Polymer Webkomponenten nutzen
+
+In AngularJS 1.x ist Entwicklungsaufwand nötig, um Webkomponenten anderen Bibliotheken integrieren zu können. Es müssen Direktiven geschrieben werden, um Angular die Statusänderungen der "Fremdkomponenten" mitzuteilen. [[9]]
+
+Mit Angular 2.0 ist diese Arbeit nicht mehr nötig. Es wird nicht mehr unterschieden, ob es sich um ein natives Browserelement oder eine Web Component handelt. Angular hat nur Kenntnis davon, dass es an bestimmten Stellen im DOM Elemente instanzieren muss und es Eigenschaften schreiben, sowie Event-Listener erzeigen soll.
+
+Das ermöglicht Beispielsweise die direkte Verwendung der Komponente `google-youtube` aus dem Polymer-Projekt. [[10]]
+
+```html
+<google-youtube
+  #player
+  [video-id]="videoId">
+</google-youtube>
+<button (click)="player.play()"></button>
+<button (click)="player.pause()"></button>
+```
+
+```javascript
+@View({ /* … */})
+export default class DashboardComponent {
+  /* ... */
+  videoId: string;
+
+  constructor() {
+    /* ... */
+    this.videoId = "ewxEFdMPMF0";
+  }
+```
+Alle im Artikel beschriebenen Konzepte können hier nahtlos verwendet werden. Anhand der Online Dokumentation von `google-youtube` ist bekannt welche Eigenschaften und Aktionen zur Verfügung stehen [[10]]. Das Elementattribut `video-id` kann über ein Property-Binding gesetzt werden (`[video-id]`). Wird der Komponente eine gültige Id eines Videos von Youtube übergeben initialisiert sich der Video-Player selbstständig und kann verwendet werden.
+Unter Verwendung der Referenz `#player` können die Aktionen der Webkomponente von anderen Webelementen gesteuert .
+
+Angular stellt über die Template-Syntax eine einheitliche API zur Verfügung die auf jeder Web Component angewendet werden kann.
+
+
 # Fazit
 
 In Angular 2.0 wird die Template-Syntax in mehrere Konzepte aufgebrochen. Der Datenfluss zwischen Komponenten wird dadurch konkret definiert. Daher ist es mit einem Blick auf ein Template möglich, zu erkennen, wie sich eine Komponente verhält. Somit können, im Gegensatz zur Vorgängerversion AngularJS, Templates in Angular 2.0 diffiziler und genauer beschrieben werden.
@@ -454,3 +488,5 @@ Wie das alles funktioniert sehen Sie in der nächsten Ausgabe.
 [6]: http://blog.thoughtram.io/angular/2015/08/11/angular-2-template-syntax-demystified-part-1.html "Template-Syntax demystified"
 [7]: https://youtu.be/bVI5gGTEQ_U "Angular 2 Data Flow – Jeff Cross, Rob Wormald and Alex Rickabaugh"
 [8]: http://www.w3.org/TR/html-markup/syntax.html "W3C - HTML: The Markup Language (an HTML language reference)"
+[9]: https://amitgharat.wordpress.com/2013/02/03/an-approach-to-use-jquery-plugins-with-angularjs/ "jQuery Plugins mit AngularJS verwenden"
+[10]: https://elements.polymer-project.org/elements/google-youtube "google-youtube Web Component"

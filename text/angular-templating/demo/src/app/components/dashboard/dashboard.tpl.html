@@ -1,0 +1,34 @@
+<div class="row">
+    <div class="col-md-9">
+        <div class="row">
+            <template [ng-if]="totalDamages > 0">
+                <div class="col-md-4">
+                    <p class="lead">Reported Damages
+                        <span class="badge">{{ totalDamages }}</span>
+                    </p>
+                </div>
+            </template>
+        </div>
+        <div *ng-for="#c of cars" class="row">
+            <div class="col-md-8">
+                <car [model]="c" (damaged)="notifyCarDamaged($event)" var-car></car>
+            </div>
+            <div class="col-md-4">
+                <button (click)="car.getTankCapacity()" [disabled]="c == null" class="btn btn-primary">
+                    Get tank capacity
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <h3 class="text-center">Angular 2.0 Schnellstart</h3>
+        <div class="row">
+            <google-youtube
+              #player
+              [video-id]="videoId">
+            </google-youtube>
+            <button (click)="player.play()" class="btn btn-default glyphicon glyphicon-play"></button>
+            <button (click)="player.pause()" class="btn btn-default  glyphicon glyphicon-pause"></button>
+        </div>
+    </div>
+</div>
