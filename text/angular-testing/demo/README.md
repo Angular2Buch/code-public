@@ -1,13 +1,6 @@
-# Inhalt
+# Info
 
-In diesem Verzeichnis finden Sie das im Artikel gezeigte beispiel unter `cars-dashboard/`.
+Die Demo zu diesem Artikel finden Sie auf
 
-## Setup & Start
+### https://github.com/Angular2Buch/angular2-testing
 
-```cmd
-$ npm install
-$ npm start
-```
-
-Nach `npm start` öffnet sich der Standard-Browser und zeigt eine Liste von Verzeichnissen an.
-Wählen Sie das entsprechende Verzeichnis (`cars-dashboard/`), um zum jeweiligen Beispiel zu gelangen.
