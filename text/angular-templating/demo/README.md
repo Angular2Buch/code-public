@@ -1,14 +1,6 @@
-# Inhalt
+# Info
 
-In diesem Verzeichnis finden sie das im Artikel gezeigte beispiel unter `src-simple/`.
-Eine Weiterentwicklung dieser Demo steht für Sie im Ordner `src/` zur Verfügung
+Die Demo zu diesem Artikel finden Sie auf
 
-## Setup & Start
+### https://github.com/Angular2Buch/template-syntax
 
-```cmd
-$ npm install && bower install
-$ npm start
-```
-
-Nach `npm start` öffnet sich der Standard-Browser und zeigt eine Liste von Verzeichnissen an.
-Wählen Sie das entsprechende Verzeichnis (`src/` oder `src-simple`), um zum jeweiligen Beispiel zu gelangen.
