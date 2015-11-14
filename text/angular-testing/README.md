@@ -6,12 +6,12 @@
 
 ## Einleitung
 
-In den beiden vorangegangenen Artikeln zu Angular 2.0 wurde zunächst ein modulares Setup auf Basis von SystemJS beschrieben. In der zweiten Ausgabe haben wir Ihnen anhand einer Beispielanwendung die neue Template-Syntax vorgestellt. Bei dieser Betrachtung kam aber die Code-Qualität aber noch ein wenig zu Kurz. Es wird Zeit, der Anwendung ein Refactoring zu unterziehen und die fehlerfreie Funktionalität mit Unit-Tests zu beweisen!
+In den beiden vorangegangenen Artikeln zu Angular 2.0 wurde zunächst ein modulares Setup auf Basis von SystemJS beschrieben. In der zweiten Ausgabe haben wir Ihnen anhand einer Beispielanwendung die neue Template-Syntax vorgestellt. Es wird Zeit, der Anwendung neue Funktionen zu geben, professionelle Entwurfsmuster anzuwenden und Fehlerfreiheit des Codes mit Unit-Tests zu beweisen!
 
 
 ## Inversion of Control
 
-Wenn man an einer beliegen Stelle im Programmcode eine andere Funktionalität benötigt, dann liegt es zunächst nahe, jene andere Funktionalität an Ort und Stelle zu initialisieren. Zum Beispiel könnte in dem Dashboard (das Dashboard war die Demo-Anwendung aus der letzten Ausgabe) Informationen zu Benzinpreise benötigen. Ein erster Ansatz könnte wie folgt ausschauen:
+Das Dashboard war die Demo-Anwendung aus der letzten Ausgabe. Im Dashboard soll man nun Informationen zum aktuell günstigsten Benzinpreis erhalten. Wenn man an einer beliegen Stelle im Programmcode eine andere Funktionalität benötigt, dann liegt es zunächst nahe, jene andere Funktionalität an Ort und Stelle zu initialisieren. Ein erster Ansatz könnte wie folgt ausschauen:
 
 ```javascript
 var Dashboard = function() {
@@ -20,6 +20,9 @@ var Dashboard = function() {
   // gasService verwenden
 }
 ```
+
+![Screenshot](images/screenshot_refill.png)
+> Screenshot: Mit dem besten Benzinpreis die Autos betanken
 
 Dieses Vorgehen ist prinzipiell einwandfrei - nur stößt man mit zunehmender Menge an Code an eine Grenze. Der Code wird zunehmend unübersichtlicher, schwerer zu Warten und verweigert sich einem einfachen Test-Setup. Das Prinzip des "Inversion of Control" kehrt die Verantwortlichkeit einfach um. Wenn man nun eine andere Funktionalität benötigt, so gibt man hierfür die Kontrolle an eine übergeordnete Instanz ab. Das Prinzip findet sich in verschiedenen Entwurfsmustern in allen Programmiersprachen wieder. AngularJS zum Beispiel verwendet das Entwurfsmuster "Dependency Injection". Ein einfaches, aber elegantes Framework im Kern von AngularJS sorgt dafür, das benötigte Abhängigkeit über den Namen identifiziert wird und der Konstruktor-Funktion beim Aufruf bereit gestellt wird. In AngularJS 1.x muss man zunächst den Service registrieren und kann Ihn anschließend direkt anfordern:
 
@@ -32,7 +35,7 @@ var Dashboard = ['GasService', function(GasService) {
 
 ## Dependency Injection mit Angular 2.0
 
-Wer das DI-Framework aus AngularJs kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders ungünstig sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Name zu identifizieren. Dies ist doppelter Schreibaufwand, dann man muss zwei mal "GasService" schreiben. Mit der Einführung von ES6 bzw. von TypeScript wird die Bedienung nun viel vertrauter. Es können nun richtige Klassen verwendet werden. Der geübte Programmierer wird das Pattern "Constructor-Injection" sofort erkennen:
+Wer das DI-Framework aus AngularJs 1.x kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders hinderlich sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Name zu identifizieren. Dies ist doppelter Schreibaufwand. Im vorliegenden Beispiel muss man zwei mal "GasService" schreiben. Mit der Unterstützung von ECMAScript 6 bzw. von TypeScript wird die Bedienung nun viel vertrauter. So lässt sich mittels des Decorators `@Inject` die Abhängkeit in den Konstruktor injizieren:
 
 ```js
 @Component({selector: 'dashboard'})
