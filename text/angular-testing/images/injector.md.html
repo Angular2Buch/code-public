@@ -1,0 +1,43 @@
+<meta charset="utf-8">
+# Angular 2 DI
+
+*************************************************************************************************
+*                                                                                               *    
+*  .----------------.                 .----------------.                  .----------------.    *
+*  |    Injector    +---------------->|    Provider    +----------------> |   Dependency   |    *
+*  | (DI Container) |   hat viele     | (Bauanleitung) |     erzeugt      |    (Objekt)    |    *
+*  '----------------'                 '----------------'                  '----------------'    *
+*************************************************************************************************
+
+## Injector
+
+* ist der neue DI Container von Angular2 und stellt die zentrale API zur Verfügung
+* Instanziert Objekte "lazy", d.h. erst wenn Sie benötigt werden und **cached** diese anschließend
+* durch das Caching sind Abhängkeiten de-facto Singletons
+
+## Token
+
+* identifiziert eine Abhängigkeit
+* ist ein einfachter String oder ein Typ (in TypeScript)
+
+## Provider
+* eine Bauanleitung / "Rezeptur" (recipe) um Tokens zu mappen:
+  * auf einfache Werte
+  * auf zu instanzierende Klassen
+  * auf Factory Funktionen 
+
+## Dependency
+* beliege Abhägigkeiten (einfache Werte oder Instanzierte Klassen)
+* sind standartmäßig Singletons, außer Sie werden über Factories erzeugt
+
+## Quellen
+* http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
+* https://github.com/angular/angular/blob/master/modules/angular2/docs/di/di.md
+* https://angular.io/docs/ts/latest/api/core/Injector-class.html
+
+<style>
+ .markdeepFooter, .longTOC {
+   display: none;
+ }
+</style>
+<script src="markdeep.min.js"></script>
