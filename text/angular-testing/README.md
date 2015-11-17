@@ -35,7 +35,7 @@ var Dashboard = ['GasService', function(GasService) {
 
 ## Dependency Injection mit Angular 2.0
 
-Wer das DI-Framework aus AngularJs 1.x kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders hinderlich sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Name zu identifizieren. Dies ist doppelter Schreibaufwand. Im vorliegenden Beispiel muss man zwei mal "GasService" schreiben. Mit der Unterstützung von ECMAScript 6 bzw. von TypeScript wird die Bedienung nun viel vertrauter. So lässt sich mittels des Decorators `@Inject` die Abhängkeit in den Konstruktor injizieren:
+Wer das DI-Framework aus AngularJs 1.x kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders hinderlich sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Name zu identifizieren. Dies ist doppelter Schreibaufwand. Im vorliegenden Beispiel muss man zwei mal "GasService" schreiben. Mit der Unterstützung von ECMAScript 6 bzw. von TypeScript wird die Bedienung nun viel vertrauter. So lässt sich mittels des Decorators `@Inject` die Abhängigkeit in den Konstruktor injizieren:
 
 ```js
 class GasService {
@@ -49,28 +49,24 @@ class Dashboard {
 
 var injector = Injector.resolveAndCreate([Dashboard, GasService]);
 var dashboard = injector.get(Dashboard);
-);
 ```
 > Listing 1: Constructor Injection mit ES6
 
+Die Methode `resolveAndCreate()` erzeugt einen einsatzbereiten Injektor. Die Methode akzeptiert ein Array aus Typen oder Provider.
 Sofern man TypeScript einsetzt, kann man die Schreibweise noch etwas mehr vereinfachen. Durch die Verwendung von Typen, kann man auf den Decorator `@Inject` verzichten:
 
 ```js
-class GasService {
-}
-
 @Injectable()
 class Dashboard {
   constructor(gasService: GasService) {
     console.log('Dependency:', gasService)
   }
 }
-
-var injector = Injector.resolveAndCreate([Dashboard, GasService]);
-var dashboard = injector.get(Dashboard);
-);
 ```
-Damit dieses Beispiel funktioniert, muss TypeScript mit der Option `emitDecoratorMetadata` betrieben werden.
+> Listing 2: Constructor Injection mit TypeScript
+
+
+Damit dieses Beispiel funktioniert, muss TypeScript einen Hinweis dazu erhalten, dass die Konstruktor mit Dekoratoren versehen werden muss. Dies geschieht mit dem Dekorator '@Injectable()'. Das erzeugte JavaScript aus Listing 1 und Listing 2 ist prin  
 
 
 <hr>
