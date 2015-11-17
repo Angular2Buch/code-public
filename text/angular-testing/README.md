@@ -24,7 +24,7 @@ var Dashboard = function() {
 ![Screenshot](images/screenshot_refill.png)
 > Screenshot: Mit dem günstigsten Benzinpreis die Autos betanken
 
-Dieses Vorgehen ist prinzipiell einwandfrei - nur stößt man mit zunehmender Menge an Code an eine Grenze. Der Code wird zunehmend unübersichtlicher, schwerer zu Warten und verweigert sich einem einfachen Test-Setup. Das Prinzip des "Inversion of Control" kehrt die Verantwortlichkeit einfach um. Wenn man nun eine andere Funktionalität benötigt, so gibt man hierfür die Kontrolle an eine übergeordnete Instanz ab. Das Prinzip findet sich in verschiedenen Entwurfsmustern in allen Programmiersprachen wieder. AngularJS zum Beispiel verwendet das Entwurfsmuster "Dependency Injection". Ein Framework im Kern von AngularJS sorgt dafür, das die benötigte Abhängigkeit über den Namen identifiziert wird und der Konstruktor-Funktion beim Aufruf bereit gestellt wird. In AngularJS 1.x kann man einen Service wie folgt anfordern:
+Dieses Vorgehen ist prinzipiell einwandfrei - nur stößt man mit zunehmender Menge an Code an eine Grenze. Der Code wird zunehmend unübersichtlicher, schwerer zu Warten und verweigert sich einem einfachen Test-Setup. Das Prinzip des "Inversion of Control" kehrt die Verantwortlichkeit einfach um. Wenn man nun eine andere Funktionalität benötigt, so gibt man hierfür die Kontrolle an eine übergeordnete Instanz ab. Das Prinzip findet sich in verschiedenen Entwurfsmustern in allen Programmiersprachen wieder. AngularJS zum Beispiel verwendet das Entwurfsmuster "Dependency Injection". Ein Framework im Kern von AngularJS sorgt dafür, das die benötigte Abhängigkeit identifiziert wird und der Konstruktor-Funktion beim Aufruf bereit gestellt wird. In AngularJS 1.x kann man einen Service wie folgt anfordern:
 
 ```javascript
 // AngularJS 1.x 
@@ -38,16 +38,39 @@ var Dashboard = ['GasService', function(GasService) {
 Wer das DI-Framework aus AngularJs 1.x kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders hinderlich sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Name zu identifizieren. Dies ist doppelter Schreibaufwand. Im vorliegenden Beispiel muss man zwei mal "GasService" schreiben. Mit der Unterstützung von ECMAScript 6 bzw. von TypeScript wird die Bedienung nun viel vertrauter. So lässt sich mittels des Decorators `@Inject` die Abhängkeit in den Konstruktor injizieren:
 
 ```js
-@Component({selector: 'dashboard'})
-@View(/* [...] */)
-export default class DashboardComponent {
-  
-  constructor(private gasService: GasService) {
-    this.cars = [new Car('ng-car 1.0'), new Car('ng-car 2.0')]
+class GasService {
+}
+
+class Dashboard {
+  constructor(@Inject(GasService) gasService) {
+    console.log('Dependency:', gasService)
   }
 }
 
+var injector = Injector.resolveAndCreate([Dashboard, GasService]);
+var dashboard = injector.get(Dashboard);
+);
 ```
+> Listing 1: Constructor Injection mit ES6
+
+Sofern man TypeScript einsetzt, kann man die Schreibweise noch etwas mehr vereinfachen. Durch die Verwendung von Typen, kann man auf den Decorator `@Inject` verzichten:
+
+```js
+class GasService {
+}
+
+@Injectable()
+class Dashboard {
+  constructor(gasService: GasService) {
+    console.log('Dependency:', gasService)
+  }
+}
+
+var injector = Injector.resolveAndCreate([Dashboard, GasService]);
+var dashboard = injector.get(Dashboard);
+);
+```
+Damit dieses Beispiel funktioniert, muss TypeScript mit der Option `emitDecoratorMetadata` betrieben werden.
 
 
 <hr>
