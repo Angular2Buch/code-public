@@ -264,7 +264,7 @@ System.config({
       "inflight": "npm:inflight@1.0.4",
       "inherits": "npm:inherits@2.0.1",
       "minimatch": "npm:minimatch@2.0.10",
-      "once": "npm:once@1.3.2",
+      "once": "npm:once@1.3.3",
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "github:jspm/nodelibs-util@0.1.0"
@@ -273,7 +273,7 @@ System.config({
       "inherits": "npm:inherits@2.0.1"
     },
     "npm:inflight@1.0.4": {
-      "once": "npm:once@1.3.2",
+      "once": "npm:once@1.3.3",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "wrappy": "npm:wrappy@1.0.1"
     },
@@ -288,7 +288,7 @@ System.config({
       "brace-expansion": "npm:brace-expansion@1.1.1",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
-    "npm:once@1.3.2": {
+    "npm:once@1.3.3": {
       "wrappy": "npm:wrappy@1.0.1"
     },
     "npm:os-browserify@0.1.2": {

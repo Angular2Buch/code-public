@@ -118,19 +118,20 @@ und läuft somit auf allen gängigen Betriebssystemen. Erwähnenswert ist die Ta
 
 Die Installation von Karma sowie weiterer Plugins geschieht per NPM:
 ````
-npm install jasmine karma karma-chrome-launcher karma-jasmine --dev
+npm install karma karma-chrome-launcher karma-jasmine --save-dev
 npm install karma-cli -g
 ```
 
-Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. Beim Überprüfen der Datei bietet es sich an, das Start-Script auf "karma start" festzulegen. So kann man später den Testrunner per `npm test` starten:
+Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann man später per `npm install` das Setup jederzeit wieder herstellen. Die globale Installation des Karma command line interface (`karma-cli`) macht den Kommandozeilen-Befehl `karma` verfügbar. Mit `karma start` lassen sich nun die Unit-Tests starten. Beim Überprüfen der Datei `package.json` bietet es sich an, trotz der globalen Installation das Start-Script auf `karma start` festzulegen. So kann man später den Testrunner per `npm test` starten. Die Verwendung des "scripts"-Properties ist eine empfehlenswerte Konvention in der Node.js-Welt. Mit den Befehlen `npm install`, `npm start` und `npm test` sollte jeder Node.js-Entwickler vertraut sein.  
 
 ```
 {
   [...]
 
   "devDependencies": {
-    "live-server": "^0.8.2",
-    ---TODO---
+    "karma": "^0.13.15",
+    "karma-chrome-launcher": "^0.2.1",
+    "karma-jasmine": "^0.3.6"
   },
   "scripts": {
     "start": "live-server",
@@ -140,8 +141,22 @@ Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. Beim Üb
 ```
 > Listing X: Auszug aus der `package.json`
 
-Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden (siehe 1. Artikel). An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-46) noch recht holprig. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][1] von Julie Ralph, einer sehr bekannten Google-Mitarbeiterin. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien `karma.conf.js` und `karma-test-shim.js`. Die Quellcodebeispiele zu diesem Artikel 
+Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden (siehe 1. Artikel). An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-46) noch recht holprig. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][1] von Julie Ralph. Julie ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien.
  
+
+# Unit-Tests mit Jasmine
+
+Die Auswahl eines geeignete Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Gruppe  ("Suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder kurze Satz-Elypse was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion  beschreibt konkret eine Spezifikation. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu Erhöhen. Der BDD-Stil ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. X veranschaulicht die Syntax.
+
+```js
+describe("A suite", () => {
+  it("contains spec with an expectation", () => {
+    expect(true).toBe(true);
+  });
+});
+```
+> Hello World mit Jasmine
+
 
 
 
