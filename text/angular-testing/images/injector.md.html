@@ -12,23 +12,22 @@
 ## Injector
 
 * ist der neue DI Container von Angular2 und stellt die zentrale API zur Verfügung
-* Instanziert Objekte "lazy", d.h. erst wenn Sie benötigt werden und **cached** diese anschließend
-* durch das Caching sind Abhängkeiten de-facto Singletons
+* instanziiert Klassen "lazily", d.h. erst wenn Sie benötigt werden und **cached** die erzeugten Objekte anschließend
+* durch das Caching sind alle instanziierten Klassen Singletons
 
 ## Token
 
 * identifiziert eine Abhängigkeit
-* ist ein einfachter String oder ein Typ (in TypeScript)
+* ist ein einfacher String oder ein Typ
 
 ## Provider
 * eine Bauanleitung / "Rezeptur" (recipe) um Tokens zu mappen:
   * auf einfache Werte
-  * auf zu instanzierende Klassen
+  * auf zu instanziierende Klassen
   * auf Factory Funktionen 
 
 ## Dependency
-* beliege Abhägigkeiten (einfache Werte oder Instanzierte Klassen)
-* sind standartmäßig Singletons, außer Sie werden über Factories erzeugt
+* beliege Abhängigkeiten (einfache Werte oder instanziierte Klassen)
 
 ## Quellen
 * http://blog.thoughtram.io/angular/2015/05/18/dependency-injection-in-angular-2.html
