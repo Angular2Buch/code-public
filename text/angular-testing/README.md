@@ -128,7 +128,7 @@ Die Methode `resolveAndCreate()` kann man gut für ein schnelles Experiment oder
 ```javascript
 // app.ts
 import {bootstrap} from 'angular2/angular2';
-import Dashboard from './components/dashboard/dashboard.component';
+import Dashboard from './components/dashboard-component';
 
 bootstrap(Dashboard);
 ```
@@ -139,15 +139,15 @@ Als zweiten Parameter akzeptiert die Methode wiederum ein Array aus Typen oder P
 ```javascript
 // app.ts
 import {bootstrap} from 'angular2/angular2';
-import Dashboard from './components/dashboard/dashboard.component';
-import GasService from './models/gasService';
+import Dashboard from './components/dashboard-component';
+import GasService from './models/gas-service';
 
 bootstrap(Dashboard, [GasService]);
 ```
 > Listing X: Bootrapping mit Registrierung der Dependency GasService
 
 
-# Unit-Tests mit Karma
+# Karma einrichten
 
 Unit-Tests verbessern die Qualität von Software. Tests beweisen, dass die Software das tut, wofür sie konzipiert wurde. Ebenso dokumentieren Tests fachliches Wissen und den Erkenntnisstand eines Entwicklers, den er zum Zeitpunkt der Erstellung hatte. Wenn man als Entwickler das existierende Wissen nicht durch Tests ausdrückt, ist die Wahrscheinlichkeit sehr hoch, dass das Wissen über die Zeit für einen selbst, für das Team und für das Unternehmen verloren geht. Die Verwendung von Angular erweist sich hierbei als großer Vorteil, da das Framework speziell darauf ausgerichtet ist, gut testbare Module zu erstellen.
 
@@ -178,7 +178,7 @@ Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann 
 ```
 > Listing X: Auszug aus der `package.json`
 
-Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden (siehe 1. Artikel). An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-46) noch etwas unkomfortabel. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es nicht. Die Datei **`karma-test-shim.js`** lädt die Tests per SystemJS. Überprüfen Sie im Fehlerfall in dieser Datei den Befehl `System.config()`. SystemJS haben wir bereits im 1. Artikel (Ausgabe 12/2015) vorgestellt.
+Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden (siehe 1. Artikel). An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-46) noch etwas unkomfortabel. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie Ralph ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es nicht. Die Datei **`karma-test-shim.js`** lädt die Tests per SystemJS. Überprüfen Sie im Fehlerfall in dieser Datei den Befehl `System.config()`. SystemJS haben wir bereits im 1. Artikel (Ausgabe 12/2015) kennen gelernt.
  
 
 # Unit-Tests mit Jasmine
@@ -191,7 +191,7 @@ describe("A suite", () => {
   var number;
 
   beforeEach(() => {
-    number = 1 + Math.random();
+    number = 1;
   });
 
   it("contains spec with an expectation", () => {
@@ -233,10 +233,37 @@ Angular-Testing wird mit einer Reihe von neuen Matchern ausgeliefert.
 -----
 
 
-# Components testen
+# Komponenten testen
 
+Das Modul Angular-Testing bietet eine neue Methode an, welche das Setup eines Unit-Tests sehr komfortabel gestaltet. Zu der bereits bekannten Methode `beforeEach` gesellt sich nun die Methode `beforeEachProviders`. Mit dieser Methode kann man vor der eigentlichen Ausführung des Tests den Injector mit Providern befüllen bzw. bestehende Provider überschreiben. Es lassen sich hierbei auch Kern-Funktionalitäten von Angular überschreiben. Wie bei den anderen Methoden zum DI-System akzeptiert `beforeEachProviders()` ein Array aus Typen oder Providern. Der Test aus Listing X beweist zum Beispiel, dass die Dashbard-Komponente stets mit einem gefüllten Array initialisiert wird.
 
+```javascript
+import { it, describe, expect, inject, beforeEachProviders, } from 'angular2/testing';
+import { HTTP_PROVIDERS } from 'angular2/http';
 
+import DashboardComponent from '../../app/components/dashboard-component';
+import GasService from '../../app/models/gas-service';
+
+describe('dashboard component', () => {
+  beforeEachProviders(() => [DashboardComponent, GasService, HTTP_PROVIDERS]);
+
+    it('should have a predefined list of cars', inject([DashboardComponent], (dashboard: DashboardComponent) => {
+      expect(dashboard.cars.length).toBe(2);
+    }));
+});
+```
+> Listing X: Verwendung von `beforeEachProviders()` und `inject()`
+
+Beachten Sie auch die Verwendung der Methode `inject()`. Sie ist dazu gedacht, in einer `beforeEach()` oder `it()` eine Abhängigkeit anzufordern. Im den Quelltext-Dokumentation von Angular findet sich der Hinweis, dass es ggf. in Zukunft noch eine Syntax mit Decoratoren geben wird:
+
+```javascript
+// aktuell
+inject([DashboardComponent], (dashboard: DashboardComponent) => { /* [...] */ })
+
+// mögliche zukünftige Syntax
+@Inject(dashboard: DashboardComponent) => { ... }
+
+```
 
 
 <hr>
