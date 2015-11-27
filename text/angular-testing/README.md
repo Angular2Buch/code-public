@@ -178,7 +178,7 @@ Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann 
 ```
 > Listing X: Auszug aus der `package.json`
 
-Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden (siehe 1. Artikel). An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-46) noch recht holprig. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es leider nicht.
+Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden (siehe 1. Artikel). An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-46) noch etwas unkomfortabel. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es nicht. Die Datei **`karma-test-shim.js`** lädt die Tests per SystemJS. Überprüfen Sie im Fehlerfall in dieser Datei den Befehl `System.config()`. SystemJS haben wir bereits im 1. Artikel (Ausgabe 12/2015) vorgestellt.
  
 
 # Unit-Tests mit Jasmine
@@ -231,6 +231,12 @@ Angular-Testing wird mit einer Reihe von neuen Matchern ausgeliefert.
 * toContainError(expected: any)
 * toThrowErrorWith(expectedMessage: any)
 -----
+
+
+# Components testen
+
+
+
 
 
 <hr>
