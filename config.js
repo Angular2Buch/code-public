@@ -101,7 +101,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "traceur": "npm:traceur@0.0.92",
+      "traceur": "npm:traceur@0.0.93",
       "zone.js": "npm:zone.js@0.5.8"
     },
     "npm:asn1.js@2.2.1": {
@@ -120,8 +120,8 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:brace-expansion@1.1.1": {
-      "balanced-match": "npm:balanced-match@0.2.1",
+    "npm:brace-expansion@1.1.2": {
+      "balanced-match": "npm:balanced-match@0.3.0",
       "concat-map": "npm:concat-map@0.0.1"
     },
     "npm:browserify-aes@1.0.5": {
@@ -285,7 +285,7 @@ System.config({
       "brorand": "npm:brorand@1.0.5"
     },
     "npm:minimatch@2.0.10": {
-      "brace-expansion": "npm:brace-expansion@1.1.1",
+      "brace-expansion": "npm:brace-expansion@1.1.2",
       "path": "github:jspm/nodelibs-path@0.1.0"
     },
     "npm:once@1.3.3": {
@@ -390,7 +390,7 @@ System.config({
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:traceur@0.0.92": {
+    "npm:traceur@0.0.93": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.6.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",

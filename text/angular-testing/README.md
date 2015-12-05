@@ -2,7 +2,8 @@
 
 ## Dependecy Injection gute Testbarkeit waren schon immer ein Alleinstellungsmerkmal für AngularJS. Mit der neuen Version wurden viele Details verbessert.
 
-> **Hinweis** Das hier gezeigte Beispiel nutzt eine Vorschauversion von Angular 2.0. Der gezeigte Code muss für spätere Versionen wahrscheinlich angepasst werden.
+> **Hinweis** Das hier gezeigte 
+>  nutzt eine Vorschauversion von Angular 2.0. Der gezeigte Code muss für spätere Versionen wahrscheinlich angepasst werden.
 
 ## Einleitung
 
@@ -93,7 +94,7 @@ var injector = Injector.resolveAndCreate([
 ```
 Ebenso kann ein **Token** auch zu einem einfachen Wert auflösen (**`useValue`**):
 
-```js
+```javascript
 var injector = Injector.resolveAndCreate([
   provide('TEST', {useValue: 'Hello Angular2'})
 ]);
@@ -104,7 +105,7 @@ var test = injector.get('TEST');
 Wie sie sehen, kann ein Token nicht nur ein Typ, sondern auch ein einfacher String sein. 
 Ebenso findet man auch die aus Angular 1.x bekannten Factories wieder (**`useFactory`**):
 
-```
+```javascript
 // a factory can have own dependencies, too
 var factory = (gasService: GasService) => {
   
@@ -123,7 +124,7 @@ Factories bieten sich immer dann an, wenn das Objekt eine speziellere Initialisi
 
 ## Durchstarten
 
-Die Methode `resolveAndCreate()` kann man gut für ein schnelles Experiment oder in einem Unit-Test verwenden. Bei der Erstellung der eigentlichen Anwendung bedient man sich aber der bereits bekannten `boostrap` Methode. Zuvor haben wir bei dieser Methode nur den  ersten Parameter verwendet. Über den ersten Parameter erwartet Angular die Einsteigs-Komponente der Anwendung - also im vorliegenden Fall die Dashboard-Komponente.
+Die Methode `resolveAndCreate()` vom Injector kann man gut für ein schnelles Experiment oder in einem Unit-Test verwenden. Bei der Erstellung der eigentlichen Anwendung bedient man sich aber der bereits bekannten `boostrap` Methode. Zuvor haben wir bei dieser Methode nur den  ersten Parameter verwendet. Über den ersten Parameter erwartet Angular die Einsteigs-Komponente der Anwendung - also im vorliegenden Fall die Dashboard-Komponente.
 
 ```javascript
 // app.ts
@@ -146,6 +147,60 @@ bootstrap(Dashboard, [GasService]);
 ```
 > Listing X: Bootrapping mit Registrierung der Dependency GasService
 
+## Daten per AJAX laden
+
+Die Demo-Anwendung muss natürlich noch den aktuell günstigsten Benzinpreis ermitteln können. Zu diesem Zweck verwenden wir die öffentliche Schnittstelle des Verbraucherinformationsdienstes Tankerkönig.de. Der Dienst bietet eine freie JSON-API für die Kraftstoffpreise des Bundeskartellamts an. Hierfür verwenden wir die injizierbare Klasse `http`. Der Rückgabewert der `get`-Methode ist ein Observable-Objekt. Hier kommen wir in Berührung mit dem neuen Prinzip der reaktiven Programmierung, welche das Arbeiten mit asynchronen Daten sehr vereinfacht. Für die aktuelle Aufgabe reicht es aus, die eintreffenden Daten mittels `map()` zu transformieren. An anderer Stelle kann dann der ermittelte Preis per `subscribe()` abonniert werden. 
+
+
+```javascript
+// gas-service.ts
+import {Injectable} from 'angular2/core';
+import {Http} from 'angular2/http';
+import Station from './Station';
+
+@Injectable()
+export default class GasService {
+
+  apiUrl: string = 'https://creativecommons.tankerkoenig.de/json/list.php?lat=52.03&lng=13.0&rad=4&sort=price&type=diesel';
+  apiKey: string = '&apikey=XXX';
+  apiUrlAndKey: string;
+
+  constructor(private http: Http) {
+    this.apiUrlAndKey = this.apiUrl + this.apiKey
+  }
+
+  getBestPrice() {
+    return this.http.get(this.apiUrlAndKey)
+      .map(result => (<any>result).json().stations)
+      .map((stations: Array<Station>): number =>
+        stations[0].price
+      )
+  }
+}
+```
+> Listing X: Asynchrone Programmierung mit Observables
+
+
+```javascript
+// dashboard-component.ts
+export default class DashboardComponent {
+
+  constructor(private gasService: GasService) { }
+
+  refillTank(car: Car, amountOfMoneyToSpend: number) {
+
+    this.gasService
+      .getBestPrice()
+      .subscribe((bestPrice: number) => {
+        car.refillTank(amountOfMoneyToSpend / bestPrice);
+      },
+      err => console.error(err));
+  }
+}
+```
+> Listing X: Mit `subscribe` das Ergebnis abonnieren (und sparsam tanken)
+
+Damit ist der Grundstein für das neue Feature gelegt. Der aktuell günstigste Preis kann vor und kann in der Komponente verwendet werden. Es fehlen noch ein paar Anpassungen am Model und am Templating. Die vollständige Anwendung finden Sie im Codebeispiel zum Artikel.
 
 # Karma einrichten
 
