@@ -133,7 +133,7 @@ import Dashboard from './components/dashboard-component';
 
 bootstrap(Dashboard);
 ```
-> Listing X: Starten (bootstrapping) der Anwendung
+> Listing 3: Starten (bootstrapping) der Anwendung
 
 Als zweiten Parameter akzeptiert die Methode wiederum ein Array aus Typen oder Providern. Sollte die Dashboard-Komponente oder eine andere Komponente den GasService benötigen, so lässt sich dieser wie folgt registrieren:
 
@@ -145,7 +145,7 @@ import GasService from './models/gas-service';
 
 bootstrap(Dashboard, [GasService]);
 ```
-> Listing X: Bootrapping mit Registrierung der Dependency GasService
+> Listing 4: Bootrapping mit Registrierung der Dependency GasService
 
 ## Daten per AJAX laden
 
@@ -178,7 +178,7 @@ export default class GasService {
   }
 }
 ```
-> Listing X: Asynchrone Programmierung mit Observables
+> Listing 5: Asynchrone Programmierung mit Observables
 
 
 ```javascript
@@ -198,7 +198,7 @@ export default class DashboardComponent {
   }
 }
 ```
-> Listing X: Mit `subscribe` das Ergebnis abonnieren (und sparsam tanken)
+> Listing 6: Mit `subscribe` das Ergebnis abonnieren (und sparsam tanken)
 
 Damit ist der Grundstein für das neue Feature gelegt. Der aktuell günstigste Preis liegt vor und kann in der Komponente verwendet werden. Es fehlen noch ein paar Anpassungen am Model und am Templating. Die vollständige Anwendung finden Sie im Codebeispiel zum Artikel (https://github.com/Angular2Buch/angular2-testing).
 
@@ -231,14 +231,14 @@ Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann 
   }
 }
 ```
-> Listing X: Auszug aus der `package.json`
+> Listing 7: Auszug aus der `package.json`
 
 Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden. An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-48) noch etwas unkomfortabel. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie Ralph ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es nicht. Die Datei **`karma-test-shim.js`** lädt die Tests per SystemJS. Überprüfen Sie im Fehlerfall in dieser Datei den Befehl `System.config()`. SystemJS haben wir bereits im 1. Artikel (Ausgabe 12/2015) kennen gelernt.
  
 
 ## Unit-Tests mit Jasmine
 
-Die Auswahl eines geeignete Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Sammlung ("test suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder in wenigen kurzen Worten was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion stellt konkret eine Spezifikation dar. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu Erhöhen. Die eigentlichen Prüfungen geschehen durch die Funktion `expect()`. Die Funktion `beforeEach` läuft, wie der Name vermuten lässt, stets vor jeder Spezifikation ab. Hier lässt sich doppelter Code beim Initialisieren vermeiden. Der BDD-Stil von Jasmine ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. X veranschaulicht die Syntax.
+Die Auswahl eines geeignete Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Sammlung ("test suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder in wenigen kurzen Worten was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion stellt konkret eine Spezifikation dar. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu Erhöhen. Die eigentlichen Prüfungen geschehen durch die Funktion `expect()`. Die Funktion `beforeEach` läuft, wie der Name vermuten lässt, stets vor jeder Spezifikation ab. Hier lässt sich doppelter Code beim Initialisieren vermeiden. Der BDD-Stil von Jasmine ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. 8 veranschaulicht die Syntax.
 
 ```javascript
 describe("A suite", () => {
@@ -255,7 +255,7 @@ describe("A suite", () => {
 });
 
 ```
-> Listing Nr. X: Hello World mit Jasmine
+> Listing Nr. 8: Hello World mit Jasmine
 
 
 -----
@@ -268,12 +268,12 @@ describe("A suite", () => {
 
 -----
 
-Die Methoden von Jasmine (`describe()`, `it`, `expect` usw.) sind nicht neu, in jedem Unit-Test stehen diese Methoden seit jeher im globalen Gültigkeitsbereich zur Verfügung. Wir empfehlen aber, für einen Angular2-Test die globalen Methoden nicht direkt zu verwenden! Angular bietet die selben Methoden über einen import an (`angular2/testing`). Das Angular-Testing wrappt die Methoden und fügt neue Matcher hinzu. Durch diese Manipulation von Jasmine wird das Injizieren von Abhängkeiten in Tests vereinfacht und das Testen von asynchronem Code ermöglicht. Zudem erhält man auch gleich die passenden TypeScript type definitions:
+Die Methoden von Jasmine (`describe()`, `it`, `expect` usw.) sind nicht neu, in jedem Unit-Test stehen diese Methoden seit jeher im globalen Gültigkeitsbereich zur Verfügung. Wir empfehlen aber, für einen Angular2-Test die globalen Methoden nicht direkt zu verwenden! Angular bietet die selben Methoden über einen import an (`angular2/testing`). Das Angular-Testing wrappt die Methoden und fügt neue Matcher hinzu. Durch diese Manipulation von Jasmine wird das Injizieren von Abhängkeiten in Tests vereinfacht und das Testen von asynchronem Code ermöglicht. Zudem erhält man auch gleich die passenden TypeScript type definitions. Folgende Zeilte sollte demnach  in keinem Test fehlen:
 
 ```javascript
 import { it, describe, expect, inject } from 'angular2/testing';
 ```  
-Listing X: dies Zeile sollte in keinem Test fehlen
+
 
 -----
 > ## InfoBox: Neue Matcher für Jasmine
@@ -290,7 +290,7 @@ Angular-Testing wird mit einer Reihe von neuen Matchern ausgeliefert.
 
 ## Komponenten testen
 
-Das Modul Angular-Testing bietet eine neue Methode an, welche das Setup eines Unit-Tests sehr komfortabel gestaltet. Zu der bereits bekannten Methode `beforeEach` gesellt sich nun die Methode `beforeEachProviders`. Mit dieser Methode kann man vor der eigentlichen Ausführung des Tests den Injector mit Providern befüllen bzw. bestehende Provider überschreiben. Es lassen sich hierbei auch Kern-Funktionalitäten von Angular überschreiben. Wie bei den anderen Methoden zum DI-System akzeptiert `beforeEachProviders()` ein Array aus Typen oder Providern. Der Test aus Listing X beweist zum Beispiel, dass die Dashbard-Komponente stets mit einem gefüllten Array initialisiert wird.
+Das Modul Angular-Testing bietet eine neue Methode an, welche das Setup eines Unit-Tests sehr komfortabel gestaltet. Zu der bereits bekannten Methode `beforeEach` gesellt sich nun die Methode `beforeEachProviders`. Mit dieser Methode kann man vor der eigentlichen Ausführung des Tests den Injector mit Providern befüllen bzw. bestehende Provider überschreiben. Es lassen sich hierbei auch Kern-Funktionalitäten von Angular überschreiben. Wie bei den anderen Methoden zum DI-System akzeptiert `beforeEachProviders()` ein Array aus Typen oder Providern. Der Test aus Listing 9 beweist zum Beispiel, dass die Dashbard-Komponente stets mit einem gefüllten Array initialisiert wird.
 
 ```javascript
 import { it, describe, expect, inject, beforeEachProviders } from 'angular2/testing';
@@ -307,7 +307,7 @@ describe('dashboard component', () => {
     }));
 });
 ```
-> Listing X: Verwendung von `beforeEachProviders()` und `inject()`
+> Listing 9: Verwendung von `beforeEachProviders()` und `inject()`
 
 Beachten Sie auch die Verwendung der Methode `inject()`. Sie ist dazu gedacht, in einer `beforeEach()` oder `it()` eine Abhängigkeit anzufordern. Im den Quelltext-Dokumentation von Angular findet sich der Hinweis, dass es ggf. in Zukunft noch eine Syntax mit Dekoratoren geben wird:
 
@@ -317,7 +317,6 @@ inject([DashboardComponent], (dashboard: DashboardComponent) => { /* [...] */ })
 
 // mögliche zukünftige Syntax
 @Inject(dashboard: DashboardComponent) => { ... }
-
 ```
 
 ## Asynchroner Code testen
@@ -338,12 +337,12 @@ describe('async tests', () => {
     }, 500)
   });
 })
-
 ```
+Listing 10: Asynchroner Unit-Test
 
 Seit Dezember 2015 (Alpha-47) ist jedoch ein sehr interessantes Feature in Angular vorhanden. Angular-Testing verwendet "zones.js" und "Microtasks" um selbstständig festzustellen, wann die erste Phase des Unit-Test abgeschlossen ist und die Promises bzw. Observables erfüllt werden können ([#5322](https://github.com/angular/angular/issues/5322)).
 
-Ein Beispiel für einen Unit-Test für asynchronen Code ist das Listing X. Zunächst muss der Http-Service ausgemockt werden. Dies geschieht mit der bekannten Methode `provide().
+Ein Beispiel für einen Unit-Test für asynchronen Code ist das Listing 11. Zunächst muss der Http-Service ausgemockt werden. Dies geschieht mit der bekannten Methode `provide()`. Mittels `subscribe()` können wir den Output des GasService empfangen. Der GasService wird dabei nicht gegen einen echten HTTP-Endpunkt gehen, sondern die gemockte Verbindung verwenden. Es fällt auf, dass eine Aufruf des Callbacks `done()` nicht notwendig ist - dies erledigt Angular für uns.
 
 ```
 import { beforeEachProviders, describe, expect, inject, it } from 'angular2/testing';
@@ -375,12 +374,14 @@ describe('GasService', () => {
   }));
 });
 ```
-> Listing: ein asynchroner Unit-Test, der nicht mehr manuell synchronisiert werden muss
+> Listing 11: ein asynchroner Unit-Test, der nicht mehr manuell abgeschlossen werden muss
 
 
 ## Fazit
 
-Mit Version 2 hat das Angular-Team viele Schwächen von AngularJS angegangen. Das neue Konzept wirkt wie aus einem Guss: Typen und Dekoratoren durch TypeScript, modularer Code durch SystemJS und auf Basis dessen ein generalüberholtes DI-System. Das neue Prinzip leuchtet schnell ein und Die Testbarkeit profitiert von dieser neuen Umsetzung.  
+Mit Version 2 hat das Angular-Team viele technische Schwächen von AngularJS angegangen. Das neue Konzept wirkt wie aus einem Guss: Typen und Dekoratoren durch TypeScript, modularer Code durch SystemJS und auf Basis dessen ein generalüberholtes DI-System. Das neue Prinzip leuchtet schnell ein und die Testbarkeit profitiert von dieser neuen Umsetzung. Die neuen Provider begegnen uns an vielen Stellen bei der täglichen Arbeit mit Angular 2. Ein Grundverständnis der dahinterliegenden Mechanismen erleichtert den Einstieg entsprechend signifikant.
+
+In der nächsten Ausgabe der __Web und Mobile Developer__ wird es wieder mehr um sichtbare Dinge in Angular 2 gehen. Wir betrachten dann die Formularverarbeitung und Validierung von Daten mit dem neuen Framework. Das "Cars Dashboard" wir dabei langsam zu einer vollwertigen Anwendung. Seien sie gespannt.
 
 
 <hr>
