@@ -12,7 +12,7 @@ In den beiden vorangegangenen Artikeln zu Angular 2.0 wurde zunächst ein modula
 
 ## Inversion of Control
 
-Das Dashboard war die Demo-Anwendung aus der letzten Ausgabe. Im Dashboard soll man nun Informationen zum aktuell günstigsten Benzinpreis erhalten. 
+Das Dashboard ist die Demo-Anwendung aus der letzten Ausgabe. Die Anwendung soll in diesem Artikel eine neue Funktionalität erhalten. Es soll per AJAX nach dem aktuell günstigsten Benzinpreis gesucht werden. Mit dem ermittelten Preis kann man dann die verwalteten Autos auftanken.  
 
 ![Screenshot](images/screenshot_refill.png)
 > Screenshot: Mit dem günstigsten Benzinpreis die Autos betanken
@@ -29,9 +29,9 @@ var Dashboard = function() {
 ```
 
 
-Dieses Vorgehen ist prinzipiell einwandfrei - nur stößt man mit zunehmender Menge an Code an eine Grenze. Der Code wird zunehmend unübersichtlicher, schwerer zu Warten und verweigert sich einem einfachen Test-Setup. Das Problem lässt sich dadurch begegnen, dass man die Verantwortung zum Erzeugen von Abhängigkeiten an eine übergeordnete Stelle abgibt. 
+Dieses Vorgehen ist prinzipiell einwandfrei - nur stößt man mit steigender Menge an Code an eine Grenze. Der Code wird zunehmend unübersichtlicher, schwerer zu Warten und verweigert sich einem einfachen Test-Setup. Dem Problem lässt sich begegnen, in dem man die Verantwortung zum Erzeugen von Abhängigkeiten an eine übergeordnete Stelle abgibt. 
 
-Dies ist die Idee hinter dem Prinzip des **"Inversion of Control"**. Bei diesem Prinzip kehrt man die Verantwortlichkeit einfach um. Das Prinzip findet sich in verschiedenen Entwurfsmustern in allen Programmiersprachen wieder. AngularJS zum Beispiel verwendet das Entwurfsmuster **"Dependency Injection"**. Ein Framework im Kern von AngularJS sorgt dafür, dass die benötigte Abhängigkeit identifiziert wird und der Konstruktor-Funktion beim Aufruf bereitgestellt wird. In AngularJS 1.x kann man einen Service wie folgt anfordern:
+Das ist die Idee hinter dem Prinzip des **"Inversion of Control"**. Bei diesem Prinzip kehrt man die Verantwortlichkeit einfach um. Das Prinzip findet sich in verschiedenen Entwurfsmustern bei allen Programmiersprachen wieder. AngularJS zum Beispiel verwendet das Entwurfsmuster **"Dependency Injection"**. Ein Framework im Kern von AngularJS sorgt dafür, dass die benötigte Abhängigkeit identifiziert wird und der Konstruktor-Funktion beim Aufruf bereitgestellt wird. In AngularJS 1.x kann man einen Service wie folgt anfordern:
 
 ```javascript
 // AngularJS 1.x 
@@ -40,7 +40,7 @@ var Dashboard = ['GasService', function(GasService) {
 }]
 ```
 
-Wer das DI-Framework aus AngularJS 1.x kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders hinderlich sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Name zu identifizieren. Dies ist doppelter Schreibaufwand. Im vorliegenden Beispiel muss man zum Beispiel zweimal "GasService" schreiben.
+Wer das DI-Framework aus AngularJS 1.x kennt, der wird mit Sicherheit auch an dessen Grenzen gestoßen sein. Besonders hinderlich sind fehlende Namespaces und die Notwendigkeit, stets alle Abhängigkeiten per Namen zu identifizieren. Dies ist doppelter Schreibaufwand. Im vorliegenden Beispiel muss man zum Beispiel zweimal "GasService" schreiben.
 
 ## Dependency Injection in Angular 2.0
 
@@ -66,7 +66,7 @@ var dashboard = injector.get(Dashboard);
 ```
 > Listing 1: Constructor Injection mit ES6
 
-Die Methode `resolveAndCreate()` erzeugt einen einsatzbereiten Injector. Die Methode akzeptiert ein Array aus Typen oder Providern. Wird nur ein Typ übergeben, so wird ein entsprechender Provider für diesen Typ erzeugt (`useClass` - wird später erläutert). Sofern man TypeScript einsetzt, kann man die Schreibweise noch etwas mehr vereinfachen. Durch die Verwendung von Typen, kann man auf den Decorator `@Inject` verzichten:
+Die Methode `resolveAndCreate()` erzeugt einen einsatzbereiten Injector. Die Methode akzeptiert ein Array aus Typen oder Providern. Übergibt man einen Typ, so wird ein entsprechender Provider für diesen Typ erzeugt (`useClass` - wird später erläutert). Mit dem Einsatz von TypeScript, lässt sich die Schreibweise noch etwas mehr vereinfachen. Durch die Verwendung von Typen kann man auf den Decorator `@Inject` verzichten:
 
 ```javascript
 @Injectable()
@@ -79,7 +79,7 @@ class Dashboard {
 > Listing 2: Constructor Injection mit TypeScript
 
 
-Damit dieses Beispiel funktioniert, muss TypeScript einen Hinweis dazu erhalten, dass die Konstruktor mit Decoratoren versehen werden soll. Dies geschieht mit dem Decorator `@Injectable()`. Das erzeugte JavaScript aus Listing 1 und Listing 2 unterscheidet sich schlussendlich kaum voneinander. Auf die Verwendung von `@Injectable()` kann verzichtet werden, sobald ein anderer Decorator die Klasse verziert. Weitere Decoratoren sind etwa `@Component()`, `@View()` oder `@RouteConfig()`. Da Angular 2.0 stark auf einen deklarativen Stil mittels Decoratoren setzt, benötigt man `@Injectable()` eigentlich nur für eigene Service-Klassen.
+Damit dieses Beispiel funktioniert, muss TypeScript einen Hinweis dazu erhalten, dass der Konstruktor mit Decoratoren versehen werden soll. Dies geschieht mit dem Decorator `@Injectable()`. Das erzeugte JavaScript aus Listing 1 und Listing 2 unterscheidet sich schlussendlich kaum voneinander. Auf die Verwendung von `@Injectable()` kann verzichtet werden, sobald ein anderer Decorator die Klasse verziert. Weitere Decoratoren sind etwa `@Component()`, `@View()` oder `@RouteConfig()`. Da Angular 2.0 stark auf einen deklarativen Stil mittels Decoratoren setzt, benötigt man `@Injectable()` eigentlich nur für eigene Service-Klassen.
 
 Der Injector versteht eine Reihe von Bauanleitungen. Hierzu verwendet man die Methode `provide()`. Das Beispiel aus Listing 1 kann auch in einer längeren Syntax ausgedrückt werden. Soll also ein **Token** als Klasse aufgelöst werden, so verwendet man **`useClass`**:
 
@@ -92,7 +92,7 @@ var injector = Injector.resolveAndCreate([
   provide(GasService, {useClass: GasService}),
 ]);
 ```
-Ebenso kann ein **Token** auch zu einem einfachen Wert auflösen (**`useValue`**):
+Ebenso kann ein **Token** auch zu einem einfachen Wert aufgelöst werden (**`useValue`**):
 
 ```javascript
 var injector = Injector.resolveAndCreate([
@@ -214,7 +214,7 @@ npm install karma karma-chrome-launcher karma-jasmine --save-dev
 npm install karma-cli -g
 ```
 
-Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann man später per `npm install` das Setup jederzeit wieder herstellen. Die globale Installation des Karma command line interface (`karma-cli`) macht den Kommandozeilen-Befehl `karma` verfügbar. Mit `karma start` lassen sich nun die Unit-Tests starten. Beim Überprüfen der Datei `package.json` bietet es sich an, trotz der globalen Installation das Start-Script auf `karma start` festzulegen. So kann man später den Testrunner per `npm test` starten. Die Verwendung des "scripts"-Property ist eine empfehlenswerte Konvention in der Node.js-Welt. Mit den Befehlen `npm install`, `npm start` und `npm test` sollte jeder Node.js-Entwickler vertraut sein.  
+Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann man später per `npm install` das Setup jederzeit wiederherstellen. Die globale Installation des Karma command line interface (`karma-cli`) macht den Kommandozeilen-Befehl `karma` verfügbar. Mit `karma start` lassen sich nun die Unit-Tests starten. Beim Überprüfen der Datei `package.json` bietet es sich an, trotz der globalen Installation das Start-Script auf `karma start` festzulegen. So kann man später den Testrunner per `npm test` starten. Die Verwendung des "scripts"-Property ist eine empfehlenswerte Konvention in der Node.js-Welt. Mit den Befehlen `npm install`, `npm start` und `npm test` sollte jeder Node.js-Entwickler vertraut sein.  
 
 ```javascript
 {
@@ -233,12 +233,12 @@ Die Datei `package.json` wird dabei um neue "devDependencies" ergänzt. So kann 
 ```
 > Listing 7: Auszug aus der `package.json`
 
-Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch paar Pfade gemappt werden. An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-48) noch etwas unkomfortabel. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie Ralph ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus diesem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es nicht. Die Datei **`karma-test-shim.js`** lädt die Tests per SystemJS. Überprüfen Sie im Fehlerfall in dieser Datei den Befehl `System.config()`. SystemJS haben wir bereits im 1. Artikel (Ausgabe 12/2015) kennen gelernt.
+Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmäßig den Namen `karma.conf.js` trägt. Der Befehl `karma init` startet ein Kommandozeilen-Dialog, welcher bei der Erstellung der Datei hilft. Wie schon bei der Verwendung mit SystemJS/JSPM müssen anschließend noch Pfade gemappt werden. An dieser Stelle ist das Setup zum aktuellen Stand (Alpha-48) noch etwas unkomfortabel. Wir empfehlen Ihnen aktuell den ["ng2-test-seed"][2] von Julie Ralph. Julie Ralph ist eine sehr bekannte Google-Mitarbeiterin, welche auch die Hauptentwicklerin des Oberflächen-Testtools Protractor ist. Kopieren Sie sich aus dem Github-Repository die beiden Dateien **`karma.conf.js`** und **`karma-test-shim.js`**. Die Codebeispiele zum Artikel enthalten ebenso die beiden Dateien. Achten Sie auf die verwendete Ordnerstruktur, sonst funktioniert es nicht. Die Datei **`karma-test-shim.js`** lädt die Tests per SystemJS. Überprüfen Sie im Fehlerfall in der Datei den Befehl `System.config()`. SystemJS haben wir bereits im 1. Artikel (Ausgabe 12/2015) kennen gelernt.
  
 
 ## Unit-Tests mit Jasmine
 
-Die Auswahl eines geeignete Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Sammlung ("test suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder in wenigen kurzen Worten was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion stellt konkret eine Spezifikation dar. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu Erhöhen. Die eigentlichen Prüfungen geschehen durch die Funktion `expect()`. Die Funktion `beforeEach` läuft, wie der Name vermuten lässt, stets vor jeder Spezifikation ab. Hier lässt sich doppelter Code beim Initialisieren vermeiden. Der BDD-Stil von Jasmine ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. 8 veranschaulicht die Syntax.
+Die Auswahl eines geeignete Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Sammlung ("test suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder in wenigen kurzen Worten, was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion stellt konkret eine Spezifikation dar. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu erhöhen. Die eigentlichen Prüfungen geschehen durch die Funktion `expect()`. Die Funktion `beforeEach` läuft, wie der Name vermuten lässt, stets vor jeder Spezifikation ab. Hier lässt sich doppelter Code beim Initialisieren vermeiden. Der BDD-Stil von Jasmine ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. 8 veranschaulicht die Syntax.
 
 ```javascript
 describe("A suite", () => {
@@ -260,7 +260,7 @@ describe("A suite", () => {
 
 -----
 > ## Infobox: Die wichtigten Methoden in Jasmine
-* describe(description: string, specDefinitions: () => void) - Definiert eine Sammlung von Tests ("test suite")
+* describe(description: string, specDefinitions: () => void) - definiert eine Sammlung von Tests ("test suite")
 * beforeEach(action: () => void) - Setup
 * afterEach(action: () => void) - Teardown
 * it(expectation: string, assertion: () => void) - Spezifikation ("spec")
@@ -268,7 +268,7 @@ describe("A suite", () => {
 
 -----
 
-Die Methoden von Jasmine (`describe()`, `it`, `expect` usw.) sind nicht neu, in jedem Unit-Test stehen diese Methoden seit jeher im globalen Gültigkeitsbereich zur Verfügung. Wir empfehlen aber, für einen Angular2-Test die globalen Methoden nicht direkt zu verwenden! Angular bietet dieselben Methoden über einen import an (`angular2/testing`). Das Angular-Testing wrappt die Methoden und fügt neue Matcher hinzu. Durch diese Manipulation von Jasmine wird das Injizieren von Abhängkeiten in Tests vereinfacht und das Testen von asynchronem Code ermöglicht. Zudem erhält man auch gleich die passenden TypeScript type definitions. Folgende Zeile sollte demnach  in keinem Test fehlen:
+Die Methoden von Jasmine (`describe()`, `it`, `expect` usw.) sind nicht neu, in jedem Unit-Test stehen diese Methoden seit jeher im globalen Gültigkeitsbereich zur Verfügung. Wir empfehlen aber, für einen Angular2-Test die globalen Methoden nicht direkt zu verwenden! Angular bietet dieselben Methoden über einen Import an (`angular2/testing`). Das Angular-Testing wrappt die Methoden und fügt neue Matcher hinzu. Durch diese Manipulation von Jasmine wird das Injizieren von Abhängigkeiten in Tests vereinfacht und das Testen von asynchronem Code ermöglicht. Zudem erhält man auch gleich die passenden "TypeScript type definitions". Folgende Zeile sollte demnach  in keinem Test fehlen:
 
 ```javascript
 import { it, describe, expect, inject } from 'angular2/testing';
@@ -309,7 +309,7 @@ describe('dashboard component', () => {
 ```
 > Listing 9: Verwendung von `beforeEachProviders()` und `inject()`
 
-Beachten Sie auch die Verwendung der Methode `inject()`. Sie ist dazu gedacht, in einer `beforeEach()` oder `it()` eine Abhängigkeit anzufordern. Im den Quelltext-Dokumentation von Angular findet sich der Hinweis, dass es ggf. in Zukunft noch eine Syntax mit Decoratoren geben wird:
+Beachten Sie auch die Verwendung der Methode `inject()`. Sie ist dazu gedacht, in einer `beforeEach()` oder `it()` eine Abhängigkeit anzufordern. In der Quelltext-Dokumentation von Angular findet sich der Hinweis, dass es ggf. in Zukunft noch eine Syntax mit Decoratoren geben wird:
 
 ```javascript
 // aktuell
@@ -323,7 +323,7 @@ inject([DashboardComponent], (dashboard: DashboardComponent) => { /* [...] */ })
 
 Oft muss man in der JavaScript-Welt auf etwas warten. Dies kann unter anderem die Antwort auf einen AJAX-Call sein, wie es auch unsere Anwendung bei den Preisdaten tut. Um das Problem abzubilden, verwendet man üblicherweise Callbacks, Promises oder Obvervables. Allen Herangehensweisen ist gemein, dass der ausgeführte Code asynchron abläuft. Der Ansatz in Angular 1.x war es, asynchronen Code in ein synchrones Format zu pressen. Man musste dazu in Unit-Tests speziell auf den asynchronen Code Rücksicht nehmen und zum Beispiel mit `$rootScope.$digest()`, `$httpBackend.flush()` oder `$timeout.flush()` manuell die Promises zu erfüllen um anschließend das Ergebnis überprüfen zu können. Dieser Ansatz ermöglicht zunächst elegante und leicht verständliche Tests. Doch gerade dieser Ansatz kann bei komplexeren Aufgabenstellungen eine Lösung erschweren, da das eigentliche Problem hinter der "synchronen Fassade" versteckt wird.
 
-Angular 2 hat das Potential, an dieser Stelle um einiges einfacher zu werden. Eine vergleichbare "synchronen Fassade" existiert nicht mehr. Daher müsste ein Test für asychrone Methoden eigentlich stets wie folgt ausschauen:
+Angular 2 birgt das Potential, an dieser Stelle um einiges einfacher zu werden. Eine vergleichbare "synchronen Fassade" existiert nicht mehr. Daher müsste ein Test für asychrone Methoden eigentlich stets wie folgt ausschauen:
 
 ```
 describe('async tests', () => {
@@ -342,7 +342,7 @@ Listing 10: Asynchroner Unit-Test
 
 Seit Dezember 2015 (Alpha-47) ist jedoch ein sehr interessantes Feature in Angular vorhanden. Angular-Testing verwendet "zones.js" und "Microtasks" um selbstständig festzustellen, wann die erste Phase des Unit-Test abgeschlossen ist und die Promises bzw. Observables erfüllt werden können ([#5322](https://github.com/angular/angular/issues/5322)).
 
-Ein Beispiel für einen Unit-Test für asynchronen Code ist das Listing 11. Zunächst muss der Http-Service ausgemockt werden. Dies geschieht mit der bekannten Methode `provide()`. Mittels `subscribe()` können wir den Output des GasService empfangen. Der GasService wird dabei nicht gegen einen echten HTTP-Endpunkt gehen, sondern die gemockte Verbindung verwenden. Es fällt auf, dass eine Aufruf des Callbacks `done()` nicht notwendig ist - dies erledigt Angular für uns.
+Ein Beispiel für einen Unit-Test für asynchronen Code ist das Listing 11. Zunächst muss der Http-Service ausgemockt werden. Dies geschieht mit der bekannten Methode `provide()`. Mittels `subscribe()` können wir den Output des GasService empfangen. Der GasService wird dabei nicht gegen einen echten HTTP-Endpunkt gehen, sondern die gemockte Verbindung verwenden. Es fällt auf, dass ein Aufruf des Callbacks `done()` nicht notwendig ist - dies erledigt Angular für uns.
 
 ```
 import { beforeEachProviders, describe, expect, inject, it } from 'angular2/testing';
@@ -381,7 +381,7 @@ describe('GasService', () => {
 
 Mit Version 2 hat das Angular-Team viele technische Schwächen von AngularJS angegangen. Das neue Konzept wirkt wie aus einem Guss: Typen und Decoratoren durch TypeScript, modularer Code durch SystemJS und auf Basis dessen ein generalüberholtes DI-System. Das neue Prinzip leuchtet schnell ein und die Testbarkeit profitiert von dieser neuen Umsetzung. Die neuen Provider begegnen uns an vielen Stellen bei der täglichen Arbeit mit Angular 2. Ein Grundverständnis der dahinterliegenden Mechanismen erleichtert den Einstieg entsprechend signifikant.
 
-In der nächsten Ausgabe der __Web und Mobile Developer__ wird es wieder mehr um sichtbare Dinge in Angular 2 gehen. Wir betrachten dann die Formularverarbeitung und Validierung von Daten mit dem neuen Framework. Das "Cars Dashboard" wir dabei langsam zu einer vollwertigen Anwendung. Seien sie gespannt.
+In der nächsten Ausgabe der __Web und Mobile Developer__ wird es wieder mehr um sichtbare Dinge in Angular 2 gehen. Wir betrachten dann die Formularverarbeitung und Validierung von Daten mit dem neuen Framework. Das "Cars Dashboard" wir dabei langsam zu einer vollwertigen Anwendung. Seien Sie gespannt.
 
 
 <hr>
