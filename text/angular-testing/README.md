@@ -1,6 +1,6 @@
 # Dependency Injection und Unit-Testing mit Angular 2.0
 
-## Dependency Injection gute Testbarkeit waren schon immer ein Alleinstellungsmerkmal für AngularJS. Mit der neuen Version wurden viele Details verbessert.
+## DI und gute Testbarkeit waren schon immer ein Alleinstellungsmerkmal für AngularJS. Mit der neuen Version wurden viele Details verbessert.
 
 > **Hinweis** Das hier gezeigte Beispiel nutzt eine Vorschauversion von Angular 2.0. Der gezeigte Code muss für spätere Versionen wahrscheinlich angepasst werden.
 
@@ -118,7 +118,7 @@ var injector = Injector.resolveAndCreate([
     
 ```
 
-Factories bieten sich immer dann an, wenn das Objekt eine speziellere Initialisierung benötigt. An dieser Stelle sei erwähnt, dass der Injector Klassen "lazily" instanziiert. Die Objekte werden erst zu dem Zeitpunkt erzeugt, zu dem sie benötigt werden und anschließend gecacht. Durch das Caching sind alle instanziierten Klassen Singletons. Dies gilt auch für die Rückgabewerte der Factory-Funktion. Die Methode `get()` verwendet den Cache, die Methode `resolveAndInstantiate()` hingegen nicht - in dem Fall wird auch die Factory ein weiteres Mal aufgerufen. In der Dokumentation auf Angular.io wird daher auch darauf hingewiesen, welche Methoden den Cache nutzen und welche nicht. [[1][1]] Weitere Beispiele für die unterschiedlichen Verwendungen von `provide` finden Sie in den Codebeispiele zum Artikel (Datei: `Injector_tests.ts`).
+Factories bieten sich immer dann an, wenn das Objekt eine speziellere Initialisierung benötigt. An dieser Stelle sei erwähnt, dass der Injector Klassen "lazily" instanziiert. Die Objekte werden erst zu dem Zeitpunkt erzeugt, zu dem sie benötigt werden und anschließend gecacht. Durch das Caching sind alle instanziierten Klassen Singletons. Dies gilt auch für die Rückgabewerte der Factory-Funktion. Die Methode `get()` verwendet den Cache, die Methode `resolveAndInstantiate()` hingegen nicht - in dem Fall wird auch die Factory ein weiteres Mal aufgerufen. In der [Dokumentation auf Angular.io][2] wird daher auch darauf hingewiesen, welche Methoden den Cache nutzen und welche nicht. Weitere Beispiele für die unterschiedlichen Verwendungen von `provide` finden Sie in den Codebeispiele zum Artikel (Datei: `Injector_tests.ts`).
 
 
 ## Durchstarten
@@ -199,7 +199,7 @@ export default class DashboardComponent {
 ```
 > Listing 6: Mit `subscribe` das Ergebnis abonnieren (und sparsam tanken)
 
-Damit ist der Grundstein für das neue Feature gelegt. Der aktuell günstigste Preis liegt vor und kann in der Komponente verwendet werden. Es fehlen noch ein paar Anpassungen am Model und am Templating. Die vollständige Anwendung finden Sie im Codebeispiel zum Artikel (https://github.com/Angular2Buch/angular2-testing).
+Damit ist der Grundstein für das neue Feature gelegt. Der aktuell günstigste Preis liegt vor und kann in der Komponente verwendet werden. Es fehlen noch ein paar Anpassungen am Model und am Templating. Die vollständige Anwendung finden Sie im [Codebeispiel zum Artikel][1].
 
 ## Karma einrichten
 
@@ -237,7 +237,7 @@ Anschließend benötigt das Projekt eine Konfigurationsdatei, welche standardmä
 
 ## Unit-Tests mit Jasmine
 
-Die Auswahl eines geeignete Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Sammlung ("test suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder in wenigen kurzen Worten, was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion stellt konkret eine Spezifikation dar. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu erhöhen. Die eigentlichen Prüfungen geschehen durch die Funktion `expect()`. Die Funktion `beforeEach` läuft, wie der Name vermuten lässt, stets vor jeder Spezifikation ab. Hier lässt sich doppelter Code beim Initialisieren vermeiden. Der BDD-Stil von Jasmine ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. 8 veranschaulicht die Syntax.
+Die Auswahl eines geeigneten Test-Frameworks fällt aktuell sehr leicht. Derzeit wird nur Jasmine vollständig von Angular 2 unterstützt. Jasmine hat eine Syntax im Behavior Driven Development (BDD)-Stil. Die Funktion `describe()` definiert eine Sammlung ("test suite") zusammenhängender Tests. Die Funktion erwartet zwei Parameter: Der erste Parameter ist ein String und beschreibt als Wort oder in wenigen kurzen Worten, was gerade getestet wird. Der zweite Parameter ist eine Funktion, die alle Spezifikationen ("Specs") beinhaltet. Die `it()` Funktion stellt konkret eine Spezifikation dar. Auch eine Spezifikation benötigt beschreibende Worte. Describe-Methoden können beliebig tief verschachtelt werden, um die Übersichtlichkeit zu erhöhen. Die eigentlichen Prüfungen geschehen durch die Funktion `expect()`. Die Funktion `beforeEach` läuft, wie der Name vermuten lässt, stets vor jeder Spezifikation ab. Hier lässt sich doppelter Code beim Initialisieren vermeiden. Der BDD-Stil von Jasmine ermöglicht es, Tests in natürlicher Sprache zu definieren. Listing Nr. 8 veranschaulicht die Syntax.
 
 ```javascript
 describe("A suite", () => {
@@ -258,7 +258,7 @@ describe("A suite", () => {
 
 
 -----
-> ## Infobox: Die wichtigten Methoden in Jasmine
+> ## Infobox: Die wichtigsten Methoden von Jasmine
 * describe(description: string, specDefinitions: () => void) - definiert eine Sammlung von Tests ("test suite")
 * beforeEach(action: () => void) - Setup
 * afterEach(action: () => void) - Teardown
@@ -318,11 +318,19 @@ inject([DashboardComponent], (dashboard: DashboardComponent) => { /* [...] */ })
 @Inject(dashboard: DashboardComponent) => { ... }
 ```
 
-## Asynchroner Code testen
 
-Oft muss man in der JavaScript-Welt auf etwas warten. Dies kann unter anderem die Antwort auf einen AJAX-Call sein, wie es auch unsere Anwendung bei den Preisdaten tut. Um das Problem abzubilden, verwendet man üblicherweise Callbacks, Promises oder Obvervables. Allen Herangehensweisen ist gemein, dass der ausgeführte Code asynchron abläuft. Der Ansatz in Angular 1.x war es, asynchronen Code in ein synchrones Format zu pressen. Man musste dazu in Unit-Tests speziell auf den asynchronen Code Rücksicht nehmen und zum Beispiel mit `$rootScope.$digest()`, `$httpBackend.flush()` oder `$timeout.flush()` manuell die Promises zu erfüllen um anschließend das Ergebnis überprüfen zu können. Dieser Ansatz ermöglicht zunächst elegante und leicht verständliche Tests. Doch gerade dieser Ansatz kann bei komplexeren Aufgabenstellungen eine Lösung erschweren, da das eigentliche Problem hinter der "synchronen Fassade" versteckt wird.
+![Screenshot](images/screenshot_karma1.png)
+> Screenshot: Karma führt Unit-Tests aus
 
-Angular 2 birgt das Potential, an dieser Stelle um einiges einfacher zu werden. Eine vergleichbare "synchronen Fassade" existiert nicht mehr. Daher müsste ein Test für asychrone Methoden eigentlich stets wie folgt ausschauen:
+![Screenshot](images/screenshot_karma2.png)
+> Screenshot: Karma führt Unit-Tests aus
+
+
+## Asynchronen Code testen
+
+Oft muss man in der JavaScript-Welt auf etwas warten. Dies kann unter anderem die Antwort auf einen AJAX-Call sein, wie es auch unsere Anwendung bei den Preisdaten tut. Um das Problem abzubilden, verwendet man üblicherweise Callbacks, Promises oder Observables. Allen Herangehensweisen ist gemein, dass der ausgeführte Code asynchron abläuft. Der Ansatz in Angular 1.x war es, asynchronen Code in ein synchrones Format zu pressen. Man musste dazu in Unit-Tests speziell Rücksicht nehmen und zum Beispiel mit `$rootScope.$digest()`, `$httpBackend.flush()` oder `$timeout.flush()` manuell die Promises zu erfüllen um anschließend das Ergebnis überprüfen zu können. Dieser Ansatz ermöglicht zunächst elegante und leicht verständliche Tests. Doch gerade dieser Ansatz kann bei komplexeren Aufgabenstellungen eine Lösung erschweren, da das eigentliche Problem hinter der synchronen Fassade versteckt wird.
+
+Angular 2 birgt das Potential, an dieser Stelle um einiges einfacher zu werden. Eine vergleichbare synchrone Fassade existiert nicht mehr. Daher müsste ein Test für asynchrone Methoden eigentlich stets wie folgt ausschauen:
 
 ```
 describe('async tests', () => {
@@ -337,11 +345,9 @@ describe('async tests', () => {
   });
 })
 ```
-Listing 10: Asynchroner Unit-Test
+Listing 10: Normaler asynchroner Unit-Test
 
-Seit Dezember 2015 (Alpha-47) ist jedoch ein sehr interessantes Feature in Angular vorhanden. Angular-Testing verwendet "zones.js" und "Microtasks" um selbstständig festzustellen, wann die erste Phase des Unit-Test abgeschlossen ist und die Promises bzw. Observables erfüllt werden können ([#5322](https://github.com/angular/angular/issues/5322)).
-
-Ein Beispiel für einen Unit-Test für asynchronen Code ist das Listing 11. Zunächst muss der Http-Service ausgemockt werden. Dies geschieht mit der bekannten Methode `provide()`. Mittels `subscribe()` können wir den Output des GasService empfangen. Der GasService wird dabei nicht gegen einen echten HTTP-Endpunkt gehen, sondern die gemockte Verbindung verwenden. Es fällt auf, dass ein Aufruf des Callbacks `done()` nicht notwendig ist - dies erledigt Angular für uns.
+Seit Dezember 2015 (Alpha-47) ist jedoch ein sehr interessantes Feature in Angular vorhanden. Angular-Testing verwendet "zones.js" und "Microtasks" um selbstständig festzustellen, wann der Unit-Test abgeschlossen ist ([#5322](https://github.com/angular/angular/issues/5322)). Ein Beispiel für einen Unit-Test für asynchronen Code ist das Listing 11. Zunächst muss der Http-Service ausgemockt werden. Dies geschieht mit der bekannten Methode `provide()`. Mittels `subscribe()` können wir den Output des GasService empfangen. Der GasService wird dabei nicht gegen einen echten HTTP-Endpunkt gehen, sondern die gemockte Verbindung verwenden. Es fällt auf, dass ein Aufruf des Callbacks `done()` nicht notwendig ist - dies erledigt Angular für uns.
 
 ```
 import { beforeEachProviders, describe, expect, inject, it } from 'angular2/testing';
@@ -378,7 +384,7 @@ describe('GasService', () => {
 
 ## Fazit
 
-Mit Version 2 hat das Angular-Team viele technische Schwächen von AngularJS angegangen. Das neue Konzept wirkt wie aus einem Guss: Typen und Decoratoren durch TypeScript, modularer Code durch SystemJS und auf Basis dessen ein generalüberholtes DI-System. Das neue Prinzip leuchtet schnell ein und die Testbarkeit profitiert von dieser neuen Umsetzung. Die neuen Provider begegnen uns an vielen Stellen bei der täglichen Arbeit mit Angular 2. Ein Grundverständnis der dahinterliegenden Mechanismen erleichtert den Einstieg entsprechend signifikant.
+Mit Version 2 hat das Angular-Team viele technische Schwächen von AngularJS reagiert. Das neue Konzept wirkt wie aus einem Guss: Typen und Decoratoren durch TypeScript, modularer Code durch SystemJS und auf Basis dessen ein generalüberholtes DI-System. Das neue Prinzip leuchtet schnell ein und die Testbarkeit profitiert von dieser neuen Umsetzung. Die neuen Provider begegnen uns an vielen Stellen bei der täglichen Arbeit mit Angular 2. Ein Grundverständnis der dahinterliegenden Mechanismen erleichtert den Einstieg entsprechend signifikant.
 
 In der nächsten Ausgabe der __Web und Mobile Developer__ wird es wieder mehr um sichtbare Dinge in Angular 2 gehen. Wir betrachten dann die Formularverarbeitung und Validierung von Daten mit dem neuen Framework. Das "Cars Dashboard" wir dabei langsam zu einer vollwertigen Anwendung. Seien Sie gespannt.
 
@@ -388,13 +394,13 @@ In der nächsten Ausgabe der __Web und Mobile Developer__ wird es wieder mehr um
 ## Über die Autoren
 
 ![Johannes Hoppe](images/johannes-hoppe.png)
-**Johannes Hoppe** ist selbstständiger IT-Berater, Softwareentwickler und Trainer. Er arbeitet derzeit als Architekt für ein Portal auf Basis von .NET und AngularJS. Er bloggt unter http://blog.johanneshoppe.de/ .
+**Johannes Hoppe** ist selbstständiger IT-Berater und Softwareentwickler. Er arbeitet derzeit als Architekt für ein Portal auf Basis von .NET und AngularJS. Er veranstaltet Trainings zu AngularJS und bloggt unter http://blog.johanneshoppe.de/ .
 
 ![Gregor Woiwode](images/gregor-woiwode.png)
-**Gregor Woiwode** ist als Softwareentwickler im Bereich des Competitive Intelligence bzw. Enterprise Knowledge Managements für ein Softwareunternehmen in Leipzig tätig. Er veranstaltet Trainings AngularJS. Er bloggt unter http://www.woiwode.info/blog/ .
+**Gregor Woiwode** ist als AngularJS und Mac-Entwickler für ein junges Unternehmen in Karlsruhe tätig. Er veranstaltet Trainings zu AngularJS und bloggt unter http://www.woiwode.info/blog/ .
 
 <hr>
-
-[1]: https://angular.io/docs/ts/latest/api/core/Injector-class.html "Angular 2 for TypeScript: Injector"
-[2]: https://github.com/juliemr/ng2-test-seed "5 Minuten Schnellstart"
+[1]: https://github.com/Angular2Buch/angular2-testing "Codebeispiel zum Artikel"
+[2]: https://angular.io/docs/ts/latest/api/core/Injector-class.html "Angular 2 for TypeScript: Injector"
+[3]: https://github.com/juliemr/ng2-test-seed "ng2-test-seed von Julie Ralph"
 
