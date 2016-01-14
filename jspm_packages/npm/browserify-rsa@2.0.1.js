@@ -1,1 +1,1 @@
-module.exports = require("npm:browserify-rsa@2.0.1/index");
+module.exports = require("npm:browserify-rsa@2.0.1/index.js");

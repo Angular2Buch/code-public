@@ -47,8 +47,8 @@
     }
     return Promise.all(includes.map(getPromise));
   }
-  var TraceurLoader = traceur.runtime.TraceurLoader;
-  var InlineLoaderCompiler = traceur.runtime.InlineLoaderCompiler;
+  var TraceurLoader = traceur.loader.TraceurLoader;
+  var InlineLoaderCompiler = traceur.loader.InlineLoaderCompiler;
   var Options = traceur.util.Options;
   function sequencePromises(list, f) {
     var result = Promise.resolve();
@@ -67,7 +67,7 @@
     var loaderCompiler = new InlineLoaderCompiler(elements);
     var loader = new TraceurLoader(nodeLoader, basePath, loaderCompiler);
     function appendEvaluateModule(name) {
-      var normalizedName = traceur.ModuleStore.normalize(name, referrerName);
+      var normalizedName = $traceurRuntime.ModuleStore.normalize(name, referrerName);
       var moduleModule = traceur.codegeneration.module;
       var tree = moduleModule.createModuleEvaluationStatement(normalizedName);
       elements.push(tree);

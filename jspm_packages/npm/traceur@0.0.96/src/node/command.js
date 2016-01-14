@@ -62,7 +62,7 @@
   }
   commandLine.option('-v, --version', 'Show version and exit');
   commandLine.on('version', function() {
-    process.stdout.write(System.version.split('@')[1]);
+    process.stdout.write(System.version);
     processExit();
   });
   commandLine.on('--help', function() {
@@ -109,7 +109,7 @@
             console.error(err);
           });
         } else {
-          console.error(err);
+          console.error(err.stack || err);
         }
         process.exit(1);
       });

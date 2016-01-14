@@ -1,1 +1,1 @@
-module.exports = require("npm:rsvp@3.1.0/dist/rsvp");
+module.exports = require("npm:rsvp@3.1.0/dist/rsvp.js");

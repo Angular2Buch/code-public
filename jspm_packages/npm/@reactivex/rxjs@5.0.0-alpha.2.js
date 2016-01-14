@@ -1,1 +1,1 @@
-module.exports = require("npm:@reactivex/rxjs@5.0.0-alpha.2/index");
+module.exports = require("npm:@reactivex/rxjs@5.0.0-alpha.2/index.js");

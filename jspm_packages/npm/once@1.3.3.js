@@ -1,1 +1,1 @@
-module.exports = require("npm:once@1.3.3/once");
+module.exports = require("npm:once@1.3.3/once.js");

@@ -1,1 +1,1 @@
-module.exports = require("npm:cipher-base@1.0.1/index");
+module.exports = require("npm:cipher-base@1.0.1/index.js");

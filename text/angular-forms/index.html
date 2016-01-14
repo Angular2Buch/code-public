@@ -8,30 +8,322 @@
 </head>
 <body>
   <article class="markdown-body">
-<h1 id="was-uns-angular-2-bietet">Was uns Angular 2 bietet</h1>
+<h1 id="formularvalidierung-mit-angular-2-0">Formularvalidierung mit Angular 2.0</h1>
+<h2 id="das-komfortable-handling-von-formularen-ist-eine-der-wichtigsten-aufgaben-moderner-web-frameworks-angular-2-zeigt-wie-man-es-richtig-macht-">Das komfortable Handling von Formularen ist eine der wichtigsten Aufgaben moderner Web-Frameworks. Angular 2 zeigt, wie man es richtig macht.</h2>
+<p>Dies ist der vierte Artikel in unserer Reihe zu Angular 2.<br>In den vorherigen Artikeln haben wir bereits SystemJS, Templates, Dependency Injection, Unit-Testing und asynchrone HTTP-Kommunikation kennen gelernt.<br>Mit dabei ist stets das \glqq Car Dashboard&quot;, welches kontinuierlich neue Funktionen erhält.<br>In diesem Artikel soll nun die Verarbeitung von Formulardaten im Focus stehen.</p>
+<p><img src="images/screenshot_forms.png" alt="Screenshot"></p>
+<blockquote>
+<p>Screenshot: Das Cars Dashboard mit neuem Formular</p>
+</blockquote>
+<p>Als Webentwickler haben wir regelmäßig mit HTML-Formularen zu tun. Sie dienen der Gewinnung relevanter Informationen, welche weiterverarbeitet werden sollen.<br>Neben der bloßen Eingabe der Daten spielt es eine wichtige Rolle, ein adäquates visuelles Feedback an den Benutzer weiter zu geben. Fehleingaben sollen frühzeitig signalisiert werden. Auf Änderung der Eingabedaten muss ein Formular schnell reagieren können.<br>Angular 2 hilft dabei, jene Anforderungen umzusetzen.</p>
+<p>Wie gewohnt steht ein komplettes, lauffähiges Beispiel auf GitHub zur Verfügung, dass die hier besprochenen Inhalte demonstriert: <a href="https://github.com/Angular2Buch/angular2-forms">https://github.com/Angular2Buch/angular2-forms</a></p>
+<h2 id="-brigens">Übrigens</h2>
+<p>Ende Dezember 2015 hat Angular 2 den Beta-Status erreicht.<br>Die hier gezeigten Codebeispiele sollten in Zukunft kaum noch tiefgreifende Änderungen aufweisen.<br>Dies sind die wesentlichen Änderungen:</p>
 <ul>
-<li><code>Controls</code> sind Objekte die als Wrapper für <code>form</code>-Elemente dienen<ul>
-<li>Eine <code>ControlGroup</code> enthält meherer Controls</li>
+<li>Der Namensraum <code>angular2/angular2</code> existiert nicht mehr. Beispielsweise befinden sich die Dekoratoren für eine Komponente nun in <code>angular2/core</code>.</li>
+<li>Konstanten wie <code>CORE_DIREVCTIVES</code> oder <code>FORM_DIRECTIVES</code> brauchen nicht mehr explizit referenziert werden. Die Direktiven <code>*ngIf</code>, <code>ngModel</code>, usw. ... stehen nun sofort zur Verfügung.</li>
+<li>Direktiven werden nun in <code>lowerCamelCase</code> und nicht mehr in <code>kebap-case</code> geschrieben (<code>ng-model</code> wird zu <code>ngModel</code>).</li>
 </ul>
-</li>
-<li><code>Validators</code> validieren Eingabedaten</li>
-<li><code>Observers</code> informieren über Änderungen von Daten in Formularen</li>
-</ul>
-<h2 id="hinweis">Hinweis</h2>
+<p>Die Beispiele aus den vorherigen Artikeln haben wir für Sie auf neuesten Stand gebracht:</p>
 <ul>
-<li>Beim inject von <code>FORM_DIRECTIVES</code>:<ul>
-<li>formDirectives ist eine Konstante die folgende Direktiven zusammenfasst.<ul>
-<li>ng-control</li>
-<li>ng-control-group</li>
-<li>ng-form</li>
-<li>ng-model</li>
+<li><a href="https://github.com/Angular2Buch/angular2-module">https://github.com/Angular2Buch/angular2-module</a></li>
+<li><a href="https://github.com/Angular2Buch/angular2-template-syntax">https://github.com/Angular2Buch/angular2-template-syntax</a></li>
+<li><a href="https://github.com/Angular2Buch/angular2-testing">https://github.com/Angular2Buch/angular2-testing</a></li>
 </ul>
+<h2 id="controls-und-control-groups">Controls und Control Groups</h2>
+<p>Die Basis der Formularverarbeitung sind die Klassen <code>Control</code> und <code>ControlGroup</code>.<br>Um sie in einer Komponente zu verwenden müssen sie aus dem Namensraum <code>angular2/common</code> importiert werden.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {Control, ControlGroup} <span class="hljs-keyword">from</span> <span class="hljs-string">'angular2/common'</span>;
+</code></pre>
+<blockquote>
+<p>Control und ControlGroup importieren</p>
+</blockquote>
+<h2 id="control">Control</h2>
+<p>Ein <code>Control</code> wertet den Wert eines Eingabelements aus. Es erweitert das Eingabeelement um Informationen, ob dessen Wert gültig oder ungültig ist oder es bereits bearbeitet wurde.<br>Ein Control übernimmt drei optionale Parameter. Einen Wert, sowie einen Validator und asynchronen Validator.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.nameControl = <span class="hljs-keyword">new</span> Control(<span class="hljs-string">'Initialer Wert'</span>,
+<span class="hljs-comment">/* synchroner Validator -&gt; */</span> Validators.required,
+<span class="hljs-comment">/* asynchroner Validator -&gt; */</span> IdValidator.uniqueId);
+
+nameControl.value; <span class="hljs-comment">// -&gt; 'Initialer Wert'</span>
+nameControl.errors; <span class="hljs-comment">// -&gt; undefined</span>
+</code></pre>
+<blockquote>
+<p>Control initialisieren</p>
+</blockquote>
+<p>Das Control kann im HTML-Template der Komponente über die Direktive <code>ngControl</code> gebunden werden.</p>
+<pre><code class="lang-javascript">&lt;input type=<span class="hljs-string">"text"</span> ngControl=<span class="hljs-string">"nameControl"</span> required&gt;
+</code></pre>
+<blockquote>
+<p>Control im Template verwenden</p>
+</blockquote>
+<p>Je nach Zustand des Controls fügt ngControl automatisch CSS-Klassen an das jeweilige Eingabeelement hinzu.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span>
+  <span class="hljs-attribute">class</span>=<span class="hljs-value">"ng-pristine ng-valid ng-touched"</span>
+  <span class="hljs-attribute">ngcontrol</span>=<span class="hljs-value">"nameControl"</span>
+  <span class="hljs-attribute">required</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>Repräsentation des Eingabeelements im Browser</p>
+</blockquote>
+<p>Da der Status des Controls durch CSS-Klassen repräsentiert wird, kann das Element entsprechend gestaltet werden.</p>
+<pre><code class="lang-css"><span class="hljs-class">.ng-valid</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">border-left</span>:<span class="hljs-value"> <span class="hljs-number">5px</span> solid <span class="hljs-hexcolor">#42A948</span></span></span>; <span class="hljs-comment">/* -&gt; gr¨un */</span>
+}</span>
+
+<span class="hljs-class">.ng-invalid</span> <span class="hljs-rules">{
+  <span class="hljs-rule"><span class="hljs-attribute">border-left</span>:<span class="hljs-value"> <span class="hljs-number">5px</span> solid <span class="hljs-hexcolor">#a94442</span></span></span>; <span class="hljs-comment">/* -&gt; rot */</span>
+}</span>
+</code></pre>
+<blockquote>
+<p>CSS-Klassen des Controls für visuelles Feedback einsetzen</p>
+</blockquote>
+<p>So erhält der Benutzer, zu seiner getätigten Eingabe, direktes, visuelles Feedback.</p>
+<h3 id="achtung">Achtung</h3>
+<blockquote>
+<p>Die Voraussetzung für das Funktionieren eines <code>Controls</code> ist, dass es innerhalb eines Formulars verwendet wird.<br>Grund hierfür ist, dass Angular an jedes <code>&lt;form&gt;</code>-Tag eine Instanz der Klasse <code>NgForm</code> anfügt, um Daten im Formular automatisch aktualisieren zu können.<br>Das kann zu Beginn verwirren, weil dieser Vorgang hinter den Kulissen geschieht.</p>
+</blockquote>
+<ul>
+<li><strong>dirty</strong>: Der Wert wurde bearbeitet</li>
+<li><strong>pristine</strong> :Der Wert ist unberührt</li>
+<li><strong>valid</strong>: Der Wert ist gültig</li>
+<li><strong>touched</strong>: Das Control wurde verwendet/bedient</li>
+<li><strong>untouched</strong>: Das Control wurde noch nicht verwendet</li>
+<li><strong>pending</strong>: Eine asynchrone Eingabevalidierung läuft<blockquote>
+<p>Zustände eines Controls</p>
+</blockquote>
 </li>
 </ul>
-</li>
+<h2 id="controlgroup">ControlGroup</h2>
+<p>In der Regel bestehen Formulare aus einer Vielzahl von Eingabefeldern. <code>ControlGroup</code> erlaubt es, beliebig viele Controls als Schlüssel-Wert-Paar zusammenzufassen.</p>
+<pre><code class="lang-javascript"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RegisterUserComponent</span> </span>{
+  userForm: ControlGroup;
+
+  nameControl: Control;
+  emailControl: Control;
+
+  constructor() {
+    <span class="hljs-keyword">this</span>.nameControl  = <span class="hljs-keyword">new</span> Control(<span class="hljs-string">'John'</span>,        Validators.required);
+    <span class="hljs-keyword">this</span>.emailControl = <span class="hljs-keyword">new</span> Control(<span class="hljs-string">'john@doe.de'</span>, Validators.required);
+
+    <span class="hljs-keyword">this</span>.userForm = <span class="hljs-keyword">new</span> ControlGroup({
+      name  : <span class="hljs-keyword">this</span>.nameControl,
+      email : <span class="hljs-keyword">this</span>.emailControl
+    });
+  }
+}
+</code></pre>
+<blockquote>
+<p>Controls einer ControlGroup hinzufügen</p>
+</blockquote>
+<p>Auch die Controlgroup verfügt über Eigenschaften die bereits aus der Klasse Control bekannt sind.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.userForm.value; <span class="hljs-comment">// -&gt; {"name":"John","email":"john@doe.de"}</span>
+<span class="hljs-keyword">this</span>.userForm.valid; <span class="hljs-comment">// -&gt; true</span>
+</code></pre>
+<blockquote>
+<p>ControlGroup auswerten</p>
+</blockquote>
+<p>Im vorherigen Listing ist zu sehen, wie Validatoren direkt in einem Control verwendet werden (<code>Validators.required</code>).<br>Die ControlGroup kann mit der Direktive <code>ngFormModel</code> an das Template gebunden werden.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">form</span> [<span class="hljs-attribute">ngFormModel</span>]=<span class="hljs-value">"userForm"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span>
+         <span class="hljs-attribute">ngControl</span>=<span class="hljs-value">"name"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span>
+          <span class="hljs-attribute">ngControl</span>=<span class="hljs-value">"email"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">button</span> <span class="hljs-attribute">type</span>=<span class="hljs-value">"submit"</span>
+          [<span class="hljs-attribute">disabled</span>]=<span class="hljs-value">"!userForm.valid"</span>&gt;</span>
+    Registrieren
+  <span class="hljs-tag">&lt;/<span class="hljs-title">button</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>ControlGroup im Template verwenden</p>
+</blockquote>
+<p>Da aus <code>userForm</code> die Gültigkeit der Eingaben bekannt ist, kann mit Hilfe der Eigenschaft <code>valid</code> gesteuert werden, ob der Benutzer das Formular absenden kann.</p>
+<p><img src="images/benutzerformular.png" alt="Screenshot"></p>
+<blockquote>
+<p>Screenshot: Eingabeformular - Beispiel Registrierung</p>
+</blockquote>
+<h2 id="vorhandene-validatoren">Vorhandene Validatoren</h2>
+<p>Derzeit verfügt das Angular Framework über drei Validatoren, die sofort  eingesetzt werden können.<br>Diese können ebenfalls aus dem Modul <code>angular2/common</code> abgerufen werden.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {Validators} <span class="hljs-keyword">from</span> <span class="hljs-string">'angular2/common'</span>;
+</code></pre>
+<blockquote>
+<p>Validatoren importieren</p>
+</blockquote>
+<ul>
+<li>required</li>
+<li>minlength</li>
+<li>maxlength</li>
+</ul>
+<p>So kann für ein beliebiges Control beispielsweise eine Mindestlänge verlangt werden.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.nameControl = <span class="hljs-keyword">new</span> Control(<span class="hljs-string">''</span>,
+Validators.minlength(<span class="hljs-number">2</span>))
+</code></pre>
+<blockquote>
+<p>MinLength Validator</p>
+</blockquote>
+<p>Im Formular kann ein Verstoß gegen diese Regel explizit ausgegeben werden.</p>
+<pre><code><span class="hljs-tag">&lt;<span class="hljs-title">form</span> [<span class="hljs-attribute">ngFormModel</span>]=<span class="hljs-value">"userForm"</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">input</span> #<span class="hljs-attribute">name</span>=<span class="hljs-value">"ngForm"</span>
+         <span class="hljs-attribute">ngControl</span>=<span class="hljs-value">"name"</span>
+         <span class="hljs-attribute">type</span>=<span class="hljs-value">"text"</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-title">div</span> *<span class="hljs-attribute">ngIf</span>=<span class="hljs-value">"!name.valid &amp;&amp; name.errors.minlength"</span>&gt;</span>
+    Der Name muss mindestens aus zwei Buchstaben bestehen.
+  <span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- ... --&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">form</span>&gt;</span>
+</code></pre><blockquote>
+<p>MinLength verwenden</p>
+</blockquote>
+<p><img src="images/benutzerformular-validierung.png" alt="Screenshot"></p>
+<blockquote>
+<p>Screenshot: Validierung - Eingabefeld mit definierter, minimaler Länge</p>
+</blockquote>
+<p>Im Beispiel wird eine lokale Referenz auf das Control angelegt. Sie ist als <code>#name</code> bezeichnet. Dadurch wird es möglich den aktuellen Zustand des Controls in anderen Elementen zu verwenden. Mit <code>*ngIf</code> wird geprüft ob ein Fehler für die Validierungsregel <code>minlength</code> vorliegt. Trifft das zu, wird die Fehlermeldung unter dem Eingabefeld eingeblendet.</p>
+<h3 id="achtung">Achtung</h3>
+<blockquote>
+<p>Es ist erforderlich, dass bei der Prüfung auf das Fehlerobjekt <code>errors</code> vorher sichergestellt werden muss, dass das betreffende Control invalid ist.<br>Ist das Control im validen Zustand ist das Fehlerobjekt <code>undefined</code>. Ein Zugriff auf einen der Schlüssel verursacht dann einen Fehler.</p>
+</blockquote>
+<p>Zugegeben, nur drei vorhandene Validatoren sind wirklich nicht viel.<br>Weitere eingebaute Überprüfungen werden folgen, mehrere Issues sind hierzu auf Github offen (z.B. #2961, #2962 und #5411).<br>Wahrscheinlich können wir mit <code>email</code>, <code>url</code>, <code>number</code>, <code>date</code>, <code>time</code>, <code>week</code>, <code>month</code>, <code>min</code>, <code>max</code> und <code>pattern</code> (regex) rechnen. </p>
+<h2 id="validatoren-kombinieren">Validatoren kombinieren</h2>
+<p>Es ist auch möglich mehrere Validierungsregeln an ein Control zu binden. Dazu wird die Wrapper-Methode <code>Validators.compose</code> verwendet, der eine Liste beliebig vieler Validatoren übergeben werden kann.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">this</span>.nameControl = <span class="hljs-keyword">new</span> Control(<span class="hljs-string">''</span>, Validators.compose([
+  Validators.required,
+  Validators.minLength(<span class="hljs-number">2</span>)]))
+</code></pre>
+<blockquote>
+<p>Validatoren kombinieren</p>
+</blockquote>
+<h2 id="eigene-validatoren-schreiben">Eigene Validatoren schreiben</h2>
+<p>Eigene Regeln und Eingabeformate gibt es reichlich (Beispielsweise: KFZ-Kennzeichen, ISBN, Postleitzahl, ...). Für spezielle Anwendungsfälle können eigene Validatoren implementiert werden.<br>Dabei handelt es sich um Klassen die statische Methoden für die Validierung bereitstellen. Damit das Ergebnis der Überprüfung im Template ausgewertet werden kann, ist es erforderlich, dass ein Schlüssel-Wert-Paar vom Typ <code>&lt;string, boolean&gt;</code> zurückgegeben werden.<br>Um die Typsicherheit zu gewährleisten, kann für diesen Zweck ein Interface definiert werden.</p>
+<pre><code class="lang-javascript">interface ValidationResult{
+  [key:string]:boolean;
+}
+</code></pre>
+<blockquote>
+<p>Interface für ValidationResult</p>
+</blockquote>
+<p>Als Beispiel wird ein Validator implementiert, der prüft ob ein deutsches Datumsformat vorliegt. Der Methode <code>germanDate</code> wird ein Control übergeben, dessen Wert mit einem regulären Ausdruck überprüft wird. Liegt kein Datum im korrekten Format vor, wird für das Fehlerobjekt des Controls der Eintrag <code>&quot;germanDate&quot;: true</code> erzeugt.<br>Wird kein Fehler gefunden wird <code>null</code> zurückgegeben.</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {Control} <span class="hljs-keyword">from</span> <span class="hljs-string">'angular2/common'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DateValidator</span> </span>{
+  static germanDate(control: Control): ValidationResult {
+    <span class="hljs-keyword">let</span> germanDatePattern = <span class="hljs-regexp">/^\d{1,2}\.\d{1,2}\.\d{4}$/</span>;
+
+    <span class="hljs-keyword">if</span> (!control.value.match(germanDatePattern))
+      <span class="hljs-keyword">return</span> { <span class="hljs-string">"germanDate"</span>: <span class="hljs-literal">true</span> };
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  }
+}
+</code></pre>
+<blockquote>
+<p>Implementierung eines Validators</p>
+</blockquote>
+<p>Der eigene Validator kann nun in der Komponente verwendet werden.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/* ... */</span>
+<span class="hljs-keyword">import</span> {DateValidator} <span class="hljs-keyword">from</span> <span class="hljs-string">'date.validator.ts'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RegisterUserComponent</span> </span>{
+  <span class="hljs-comment">/* ... */</span>
+
+  bithdateControl: Control;
+
+  constructor() {
+    <span class="hljs-comment">/* ... */</span>
+    <span class="hljs-keyword">this</span>.bithdateControl: <span class="hljs-keyword">new</span> Control(<span class="hljs-string">''</span>, DateValidator.germanDate);;
+
+    <span class="hljs-keyword">this</span>.userForm = <span class="hljs-keyword">new</span> ControlGroup({
+      <span class="hljs-comment">/* ... */</span>
+      birthDate: <span class="hljs-keyword">this</span>.birthdateControl
+    });
+  }
+}
+</code></pre>
+<blockquote>
+<p>Validator in einer Komponente verwenden</p>
+</blockquote>
+<p>Im Template der Komponente kann ebenfalls eine Fehlernachricht ausgegeben werden. Hierbei ist es wichtig, dass der exakte Schlüsselname des Validators verwendet wird.</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-title">div</span> *<span class="hljs-attribute">ngIf</span>=<span class="hljs-value">"!birthdate.valid &amp;&amp; birthdate.errors.germanDate"</span>&gt;</span>
+    Geben Sie ein Datum ein.
+    Beispiel: 01.01.1970
+<span class="hljs-tag">&lt;/<span class="hljs-title">div</span>&gt;</span>
+</code></pre>
+<blockquote>
+<p>Validierungsergebnisse im Template ausgeben</p>
+</blockquote>
+<h2 id="asynchrone-validatoren">Asynchrone Validatoren</h2>
+<p>Um die Validität von Eingaben zu prüfen, ist es manchmal erforderlich einen externen Dienst anzufragen.<br>Bei der Vergabe von neuen E-Mail-Adressen oder eindeutigen Benutzernamen ist dieser Vorgang unabdinglich.<br>Für solche Szenarien eignen sich asynchrone Validatoren. Sie zeichnen sich dadurch aus, dass sie eine <code>Promise</code> zurückgeben, in dem das Ergebnis der Überprüfung enthalten ist.</p>
+<p>Das folgende Beispiel skizziert den Zeitversatz durch die asynchrone Prüfung anhand der Methode <code>setTimeout</code>.<br>Es wird geprüft, ob eine Id eindeutig ist oder nicht.<br>Ist dies nicht der Fall, so wird erneut ein Eintrag für das Fehlerobjekt des Controls erstellt (<code>&quot;uniqueId&quot;: true</code>).</p>
+<pre><code class="lang-javascript"><span class="hljs-keyword">import</span> {Control} <span class="hljs-keyword">from</span> <span class="hljs-string">'angular2/common'</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DateValidator</span> </span>{
+  static germanDate(control: Control): ValidationResult {
+    <span class="hljs-keyword">let</span> germanDatePattern = <span class="hljs-regexp">/^\d{1,2}\.\d{1,2}\.\d{4}$/</span>;
+
+    <span class="hljs-keyword">if</span> (!control.value.match(germanDatePattern))
+      <span class="hljs-keyword">return</span> { <span class="hljs-string">"germanDate"</span>: <span class="hljs-literal">true</span> };
+
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">null</span>;
+  }
+}
+</code></pre>
+<blockquote>
+<p>Implementierung eines asynchronen Validators</p>
+</blockquote>
+<p>Bei der Verwendung asynchroner Validatoren ist lediglich zu Beachten, dass sie als dritter Parameter im Konstruktor des Ziel-Controls referenziert werden.</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/* ... */</span>
+<span class="hljs-keyword">import</span> {IdValidator} <span class="hljs-keyword">from</span> <span class="hljs-string">'id.validator.ts'</span>;
+
+<span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">RegisterUserComponent</span> </span>{
+  <span class="hljs-comment">/* ... */</span>
+  id: Control;
+
+  constructor() {
+    <span class="hljs-comment">/* ... */</span>
+    <span class="hljs-keyword">this</span>.id: <span class="hljs-keyword">new</span> Control(<span class="hljs-string">''</span>, Validators.required,
+                             IdValidator.uniqueId);;
+
+    <span class="hljs-keyword">this</span>.userForm = <span class="hljs-keyword">new</span> ControlGroup({
+      <span class="hljs-comment">/* ... */</span>
+      id: <span class="hljs-keyword">this</span>.id
+    });
+  }
+}
+</code></pre>
+<blockquote>
+<p>Asynchronen Validator in Komponente verwenden</p>
+</blockquote>
+<p>Für die Bindung im Template bieten asynchrone Validatoren eine komfortable Hilfe. Solange die Validierung läuft wird im Control die Eigenschaft <code>pending</code> auf <code>true</code> gesetzt.<br>Das ermöglicht visuelles Feedback für den Benutzer des Formulars und signalisert, dass die Verarbeitung im Gang ist.<br>Beispielsweise ist ein rotierender Indikator so mittels CSS3 schnell implementiert.<br>Das ungekürzte Beispiel mit der kompletten Verarbeitungslogik finden Sie auf GitHub.</p>
+<pre><code class="lang-javascript">&lt;div *ngIf="id.pending"&gt;
+  Überprüfe Verfügbarkeit...
+&lt;/div&gt;
+
+&lt;div *ngIf="!id.valid &amp;&amp; !id.pending &amp;&amp; id.errors.uniqueId"&gt;
+  Diese Id exisitert bereist.
+&lt;/div&gt;
+</code></pre>
+<blockquote>
+<p>Validierungserbenisse im Template ausgeben</p>
+</blockquote>
+<h2 id="fazit-und-ausblick">Fazit und Ausblick</h2>
+<p>Angular 2 ermöglicht es einen Großteil des Verhaltens eines Formulars in der Komponente zu definieren.<br>Templates enthalten somit wenig Validierungslogik als noch in Angular 1.<br>Das bereinigt das Template und ermöglicht es, die Validierung mehr in Richtung der Domänenlogik anzusiedeln.<br>Dies ist ein gute Entscheidung.<br>Eigene Validierungslogik kann schnell selbst entwickelt und in die Anwendung integriert werden.<br>Sobald das Konzept der Controls, ControlGroups und Validatoren verstanden ist, ergibt sich ein geradliniger Entwicklungsprozess zum Erstellen und Erweitern von Webformularen. Wir wünschen viel Spaß beim Ausprobieren.</p>
+<p>Nun hat unsere Anwendung mitlerweile viele Funktionen bekommen.<br>Es wird eng auf dem zur Verfügung stehenden Bildschirm. In der nächsten Ausgabe der <strong>Web und Mobile Developer</strong> wird es um den Router von Angular 2 gehen. Wir werden Ihnen zeigen, wie Sie zwischen einzelnen Komponenten navigieren können und dabei anschauliche und für Suchmaschinen optimiere URLs erhalten. Seien Sie gespannt.</p>
+<hr>
+
+<h2 id="-ber-die-autoren">Über die Autoren</h2>
+<p><img src="images/johannes-hoppe.png" alt="Johannes Hoppe"><br><strong>Johannes Hoppe</strong> ist selbstständiger IT-Berater und Softwareentwickler. Er arbeitet derzeit als Architekt für ein Portal auf Basis von .NET und AngularJS. Er veranstaltet Trainings zu AngularJS und bloggt unter <a href="http://blog.johanneshoppe.de/">http://blog.johanneshoppe.de/</a> .</p>
+<p><img src="images/gregor-woiwode.png" alt="Gregor Woiwode"><br><strong>Gregor Woiwode</strong> ist als AngularJS und Mac-Entwickler für ein junges Unternehmen in Karlsruhe tätig. Er veranstaltet Trainings zu AngularJS und bloggt unter <a href="http://www.woiwode.info/blog/">http://www.woiwode.info/blog/</a> .</p>
+<h2 id="quellen">Quellen</h2>
+<ul>
+<li><a href="https://github.com/Angular2Buch/angular2-forms">https://github.com/Angular2Buch/angular2-forms</a> - Vollständiges Beispiel</li>
+<li><a href="https://github.com/angular/angular/">https://github.com/angular/angular/</a> - Offizielles Angular 2.0 Repository</li>
+<li><a href="https://github.com/angular/angular-cli">https://github.com/angular/angular-cli</a> - Das neue Kommandozeilentool für Angular</li>
+<li><a href="https://medium.com/@daviddentoom/angular-2-form-validation-9b26f73fcb81">https://medium.com/@daviddentoom/angular-2-form-validation-9b26f73fcb81</a> - Weiterführende Informationen</li>
+<li><a href="https://angular.io/docs/ts/latest/guide/forms.html">https://angular.io/docs/ts/latest/guide/forms.html</a> - Dokumentation von Angular zur Formularverarbeitung</li>
 </ul>
       <br>
-      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2015-12-11T00:19:22.202Z</small>
+      <div style="border-top: 1px solid #eee; font-size: 13px; color:silver;">Build on: 2016-01-14T20:07:46.022Z</small>
     </article>
 
     <span id="forkongithub">
