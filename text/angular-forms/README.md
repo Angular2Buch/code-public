@@ -4,7 +4,7 @@
 
 Dies ist der vierte Artikel in unserer Reihe zu Angular 2.
 In den vorherigen Artikeln haben wir bereits SystemJS, Templates, Dependency Injection, Unit-Testing und asynchrone HTTP-Kommunikation kennen gelernt.
-Mit dabei ist stets das \glqq Car Dashboard", welches kontinuierlich neue Funktionen erhält.
+Mit dabei ist stets das "Car Dashboard", welches kontinuierlich neue Funktionen erhält.
 In diesem Artikel soll nun die Verarbeitung von Formulardaten im Focus stehen.
 
 ![Screenshot](images/screenshot_forms.png)

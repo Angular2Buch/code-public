@@ -101,7 +101,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "reflect-metadata": "npm:reflect-metadata@0.1.2",
-      "traceur": "npm:traceur@0.0.96",
+      "traceur": "npm:traceur@0.0.102",
       "zone.js": "npm:zone.js@0.5.8"
     },
     "npm:asn1.js@2.2.1": {
@@ -356,7 +356,7 @@ System.config({
     "npm:rsvp@3.1.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
-    "npm:semver@2.3.2": {
+    "npm:semver@4.3.2": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:sha.js@2.4.4": {
@@ -390,7 +390,7 @@ System.config({
     "npm:string_decoder@0.10.31": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0"
     },
-    "npm:traceur@0.0.96": {
+    "npm:traceur@0.0.102": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
       "commander": "npm:commander@2.6.0",
       "fs": "github:jspm/nodelibs-fs@0.1.2",
@@ -399,7 +399,7 @@ System.config({
       "path": "github:jspm/nodelibs-path@0.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "rsvp": "npm:rsvp@3.1.0",
-      "semver": "npm:semver@2.3.2",
+      "semver": "npm:semver@4.3.2",
       "source-map-support": "npm:source-map-support@0.2.10",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0",
       "vm": "github:jspm/nodelibs-vm@0.1.0"
