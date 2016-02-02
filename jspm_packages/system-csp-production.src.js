@@ -1,5 +1,5 @@
 /*
- * SystemJS v0.19.17
+ * SystemJS v0.19.18
  */
 (function() {
 function bootstrap() {(function(__global) {
@@ -995,6 +995,137 @@ function applyPaths(paths, name) {
 function LoaderProto() {}
 LoaderProto.prototype = Loader.prototype;
 SystemLoader.prototype = new LoaderProto();
+  var fetchTextFromURL;
+  if (typeof XMLHttpRequest != 'undefined') {
+    fetchTextFromURL = function(url, authorization, fulfill, reject) {
+      var xhr = new XMLHttpRequest();
+      var sameDomain = true;
+      var doTimeout = false;
+      if (!('withCredentials' in xhr)) {
+        // check if same domain
+        var domainCheck = /^(\w+:)?\/\/([^\/]+)/.exec(url);
+        if (domainCheck) {
+          sameDomain = domainCheck[2] === window.location.host;
+          if (domainCheck[1])
+            sameDomain &= domainCheck[1] === window.location.protocol;
+        }
+      }
+      if (!sameDomain && typeof XDomainRequest != 'undefined') {
+        xhr = new XDomainRequest();
+        xhr.onload = load;
+        xhr.onerror = error;
+        xhr.ontimeout = error;
+        xhr.onprogress = function() {};
+        xhr.timeout = 0;
+        doTimeout = true;
+      }
+      function load() {
+        fulfill(xhr.responseText);
+      }
+      function error() {
+        reject(new Error('XHR error' + (xhr.status ? ' (' + xhr.status + (xhr.statusText ? ' ' + xhr.statusText  : '') + ')' : '') + ' loading ' + url));
+      }
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          // in Chrome on file:/// URLs, status is 0
+          if (xhr.status == 0) {
+            if (xhr.responseText) {
+              load();
+            }
+            else {
+              // when responseText is empty, wait for load or error event
+              // to inform if it is a 404 or empty file
+              xhr.addEventListener('error', error);
+              xhr.addEventListener('load', load);
+            }
+          }
+          else if (xhr.status === 200) {
+            load();
+          }
+          else {
+            error();
+          }
+        }
+      };
+      xhr.open("GET", url, true);
+
+      if (xhr.setRequestHeader) {
+        xhr.setRequestHeader('Accept', 'application/x-es-module, */*');
+        // can set "authorization: true" to enable withCredentials only
+        if (authorization) {
+          if (typeof authorization == 'string')
+            xhr.setRequestHeader('Authorization', authorization);
+          xhr.withCredentials = true;
+        }
+      }
+
+      if (doTimeout) {
+        setTimeout(function() {
+          xhr.send();
+        }, 0);
+      } else {
+        xhr.send(null);
+      }
+    };
+  }
+  else if (typeof require != 'undefined' && typeof process != 'undefined') {
+    var fs;
+    fetchTextFromURL = function(url, authorization, fulfill, reject) {
+      if (url.substr(0, 8) != 'file:///')
+        throw new Error('Unable to fetch "' + url + '". Only file URLs of the form file:/// allowed running in Node.');
+      fs = fs || require('fs');
+      if (isWindows)
+        url = url.replace(/\//g, '\\').substr(8);
+      else
+        url = url.substr(7);
+      return fs.readFile(url, function(err, data) {
+        if (err) {
+          return reject(err);
+        }
+        else {
+          // Strip Byte Order Mark out if it's the leading char
+          var dataString = data + '';
+          if (dataString[0] === '\ufeff')
+            dataString = dataString.substr(1);
+
+          fulfill(dataString);
+        }
+      });
+    };
+  }
+  else if (typeof self != 'undefined' && typeof self.fetch != 'undefined') {
+    fetchTextFromURL = function(url, authorization, fulfill, reject) {
+      var opts = {
+        headers: {'Accept': 'application/x-es-module, */*'}
+      };
+
+      if (authorization) {
+        if (typeof authorization == 'string')
+          opts.headers['Authorization'] = authorization;
+        opts.credentials = 'include';
+      }
+
+      fetch(url, opts)
+        .then(function (r) {
+          if (r.ok) {
+            return r.text();
+          } else {
+            throw new Error('Fetch error: ' + r.status + ' ' + r.statusText);
+          }
+        })
+        .then(fulfill, reject);
+    }
+  }
+  else {
+    throw new TypeError('No environment fetch API available.');
+  }
+
+  SystemLoader.prototype.fetch = function(load) {
+    return new Promise(function(resolve, reject) {
+      fetchTextFromURL(load.address, undefined, resolve, reject);
+    });
+  };
 // SystemJS Loader Class and Extension helpers
 
 function SystemJSLoader() {
@@ -1169,8 +1300,9 @@ hookConstructor(function(constructor) {
     // support baseURL
     this.baseURL = baseURI.substr(0, baseURI.lastIndexOf('/') + 1);
 
-    // support map
+    // support map and paths
     this.map = {};
+    this.paths = {};
 
     // global behaviour flags
     this.warnings = false;
@@ -1455,11 +1587,10 @@ SystemJSLoader.prototype.config = function(cfg) {
       if (typeof v !== 'string') {
         objMaps += (objMaps.length ? ', ' : '') + '"' + p + '"';
 
-        var prop = loader.decanonicalize(p + (p[p.length - 1] != '/' ? '/' : ''));
-
-        // allow trailing '/' in package config
-        if (prop[prop.length - 1] == '/')
-          prop = prop.substr(0, prop.length - 1);
+        var defaultJSExtension = loader.defaultJSExtensions && p.substr(p.length - 3, 3) != '.js';
+        var prop = loader.decanonicalize(p);
+        if (defaultJSExtension && prop.substr(prop.length - 3, 3) == '.js')
+          prop = prop.substr(0, prop.length - 3);
 
         // if a package main, revert it
         var pkgMatch = '';
@@ -1488,9 +1619,11 @@ SystemJSLoader.prototype.config = function(cfg) {
     for (var i = 0; i < cfg.packageConfigPaths.length; i++) {
       var path = cfg.packageConfigPaths[i];
       var packageLength = Math.max(path.lastIndexOf('*') + 1, path.lastIndexOf('/'));
-      var normalized = loader.decanonicalize(path.substr(0, packageLength) + '/');
-      normalized = normalized.substr(0, normalized.length - 1) + path.substr(packageLength);
-      packageConfigPaths[i] = normalized;
+      var defaultJSExtension = loader.defaultJSExtensions && path.substr(packageLength - 3, 3) != '.js';
+      var normalized = loader.decanonicalize(path.substr(0, packageLength));
+      if (defaultJSExtension && normalized.substr(normalized.length - 3, 3) == '.js')
+        normalized = normalized.substr(0, normalized.length - 3);
+      packageConfigPaths[i] = normalized + path.substr(packageLength);
     }
     loader.packageConfigPaths = packageConfigPaths;
   }
@@ -1498,8 +1631,13 @@ SystemJSLoader.prototype.config = function(cfg) {
   if (cfg.bundles) {
     for (var p in cfg.bundles) {
       var bundle = [];
-      for (var i = 0; i < cfg.bundles[p].length; i++)
-        bundle.push(loader.decanonicalize(cfg.bundles[p][i]));
+      for (var i = 0; i < cfg.bundles[p].length; i++) {
+        var defaultJSExtension = loader.defaultJSExtensions && cfg.bundles[p][i].substr(cfg.bundles[p][i].length - 3, 3) != '.js';
+        var normalizedBundleDep = loader.decanonicalize(cfg.bundles[p][i]);
+        if (defaultJSExtension && normalizedBundleDep.substr(normalizedBundleDep.length - 3, 3) == '.js')
+          normalizedBundleDep = normalizedBundleDep.substr(0, normalizedBundleDep.length - 3);
+        bundle.push(normalizedBundleDep);
+      }
       loader.bundles[p] = bundle;
     }
   }
@@ -1509,13 +1647,12 @@ SystemJSLoader.prototype.config = function(cfg) {
       if (p.match(/^([^\/]+:)?\/\/$/))
         throw new TypeError('"' + p + '" is not a valid package name.');
 
-      // trailing slash allows paths matches here
-      // NB deprecate this to just remove trailing / 
-      //    as decanonicalize doesn't respond to trailing / 
-      //    and paths wildcards should deprecate
-      var prop = loader.decanonicalize(p + (p[p.length - 1] != '/' ? '/' : ''));
+      var defaultJSExtension = loader.defaultJSExtensions && p.substr(p.length - 3, 3) != '.js';
+      var prop = loader.decanonicalize(p);
+      if (defaultJSExtension && prop.substr(prop.length - 3, 3) == '.js')
+        prop = prop.substr(0, prop.length - 3);
 
-      // allow trailing '/' in package config
+      // allow trailing slash in packages
       if (prop[prop.length - 1] == '/')
         prop = prop.substr(0, prop.length - 1);
 
@@ -1554,12 +1691,19 @@ SystemJSLoader.prototype.config = function(cfg) {
 
       for (var p in v) {
         // base-level wildcard meta does not normalize to retain catch-all quality
-        if (c == 'meta' && p[0] == '*')
+        if (c == 'meta' && p[0] == '*') {
           loader[c][p] = v[p];
-        else if (normalizeProp)
-          loader[c][loader.decanonicalize(p)] = v[p];
-        else
+        }
+        else if (normalizeProp) {
+          var defaultJSExtension = loader.defaultJSExtensions && p.substr(p.length - 3, 3) != '.js';
+          var prop = loader.decanonicalize(p);
+          if (defaultJSExtension && prop.substr(prop.length - 3, 3) == '.js')
+            prop = prop.substr(0, prop.length - 3);
+          loader[c][prop] = v[p];
+        }
+        else {
           loader[c][p] = v[p];
+        }
       }
     }
   }
@@ -1666,7 +1810,7 @@ SystemJSLoader.prototype.config = function(cfg) {
     return function() {
       constructor.call(this);
       this.packages = {};
-      this.packageConfigPaths = {};
+      this.packageConfigPaths = [];
     };
   });
 
@@ -1891,7 +2035,16 @@ SystemJSLoader.prototype.config = function(cfg) {
     
       var pkgName = getPackage(this, decanonicalized);
 
-      var defaultExtension = name[name.length - 1] == '/' ? false : pkgName && this.packages[pkgName].defaultExtension;
+      var pkg = this.packages[pkgName];
+      var defaultExtension = pkg && pkg.defaultExtension;
+
+      if (defaultExtension == undefined && pkg && pkg.meta)
+        getMetaMatches(pkg.meta, decanonicalized.substr(pkgName), function(metaPattern, matchMeta, matchDepth) {
+          if (matchDepth == 0 || metaPattern.lastIndexOf('*') != metaPattern.length - 1) {
+            defaultExtension = false;
+            return true;
+          }
+        });
       
       if ((defaultExtension === false || defaultExtension && defaultExtension != '.js') && name.substr(name.length - 3, 3) != '.js' && decanonicalized.substr(decanonicalized.length - 3, 3) == '.js')
         decanonicalized = decanonicalized.substr(0, decanonicalized.length - 3);
@@ -2287,7 +2440,7 @@ SystemJSLoader.prototype.config = function(cfg) {
     return function(load) {
       var loader = this;
 
-      if (!load.metadata.scriptLoad || (!isBrowser && !isWorker))
+      if (load.metadata.format == 'json' || !load.metadata.scriptLoad || (!isBrowser && !isWorker))
         return fetch.call(this, load);
 
       if (isWorker)
@@ -3199,7 +3352,11 @@ hookConstructor(function(constructor) {
 
       // commonjs require
       else if (typeof names == 'string') {
-        var module = loader.get(loader.decanonicalize(names, referer));
+        var defaultJSExtension = loader.defaultJSExtensions && names.substr(names.length - 3, 3) != '.js';
+        var normalized = loader.decanonicalize(names, referer);
+        if (defaultJSExtension && normalized.substr(normalized.length - 3, 3) == '.js')
+          normalized = normalized.substr(0, normalized.length - 3);
+        var module = loader.get(normalized);
         if (!module)
           throw new Error('Module not already loaded loading "' + names + '" from "' + referer + '".');
         return module.__useDefault ? module['default'] : module;
@@ -4089,7 +4246,7 @@ hook('fetch', function(fetch) {
 });System = new SystemJSLoader();
 
 __global.SystemJS = System;
-System.version = '0.19.17 CSP';
+System.version = '0.19.18 CSP';
   // -- exporting --
 
   if (typeof exports === 'object')
