@@ -151,7 +151,51 @@ Damit wären schon fast alle Änderungen durchgeführt. Nun muss das Routing nur
 import {bootstrap} from 'angular2/platform/browser';
 import {ROUTER_PROVIDERS} from 'angular2/router';
 
-bootstrap(DahsboarApp, [ROUTER_PROVIDERS]);
+bootstrap(DashboardApp, [ROUTER_PROVIDERS]);
+```
+
+
+## Routen verlinken
+
+Benutzbar wird das Routing natürlich erst mit klickbaren Links innerhalb der Anwendung. Wichtig ist hierbei, dass Verlinkungen zwischen den Zuständen nicht manuell gesetzt, sondern automatisch erstellt werden! Das hat den Vorteil, dass die tatsächliche URL nicht vom Entwickler fest einprogrammiert werden muss. Ebenso wird so sicher gestellt, das die aktuelle Strategie verwendet wird. Bei der Verwendung der HTML5 History API wird z.B. nicht wirklich eine neue Seite aufgerufen sondern lediglich der Browser-Verlauf manipuliert.
+
+Wir verwenden hierzu die Direktive `RouterLink` aus dem Modul `angular2/router`. In der Direktive geben wir an, welche Route verlinkt werden soll. Die Notation erfolgt als Liste: das sogenannte `Link-Parameter-Array`.
+
+```html
+<a [routerLink]="['/Dashboard']">zum Dashboard</a>
+```
+
+Im ersten Element des Arrays geben wir die zu ladende Route an. Wir müssen hier den Namen verwenden, den wir bei der Routen-Konfiguration in der Komponente festgelegt haben. Wichtig ist, dass sich ein Link immer relativ zur aktuelle Komponente ist! Das gilt es zu berücksichtigen, wenn wir mehrere Komponenten verschachteln und die Routen vererben. Das Array hat im vorherigen Beispiel nur ein Element. Es kann aber beliebig viele Elemente haben, die jeweils auf weitere Kind-Routen verweisen. Möchten wir mit einer Route weitere Werte übergeben, so verwenden wir als letztes Element im Array ein Objekt mit Routen-Parametern. Zur Komponente `DriverDetails` wechselt man zum Beispiel mit folgenden Link:
+
+```html
+<a [routerLink]="['/Drivers', 'Create', { forCarId: car.id }]">Fahrer ändern</a>
+```
+
+Klicken wir auf den generierten Link, so wird die Adresszeile auf `http://example.org/drivers/create/ng-car1` aktualisiert. Dank der HTML5 History AI verursacht der Wechsel kein echtes Neuladen der Seite. 
+
+Es kann aber jederzeit vorkommen, das die sichtbare Adresse per Reload oder per Bookmark aufgerufen wird. Dieser Fall wird von Angular ohne Probleme berücksichtigt. Es muss aber sicher gestellt werden, dass auch der Webserver bereit für eine Single-Page Anwendung ist. Bei einer unbekannten Adresse wie z.B. `drivers/create/ng-car1` darf er nicht mit einem Fehler 404 antworten. Der Webserver muss so administriert werden, dass statt eines Fehlers stets die `index.html` ausgeliefert wird. Dort biegt folgende Angabe alle relativen Pfade wieder zurecht:
+
+```
+<-- index.html -->
+<base href="/">
+```
+
+
+## Routen-Parameter empfangen
+
+Wenn wir mittels Routen-Parameter Werte übertragen, so muss man diese natürlich auch empfangen können. Dazu dient die Klasse `RouteParams`, welche wir in den Konstruktor injizieren und damit in der Komponente bekannt machen können. Die Instanz von `RouteParams` ist stets mit den jeweiligen Parametern der Route befüllt. Über die Methode `RouteParams.get()` können wir nun einen Parameter abrufen. Als Argument übergeben wir den Bezeichner, den wir bei der Routen-Konfiguration festgelegt haben (__Listing 3__).
+
+```
+import {RouteParams} from 'angular2/router';
+
+@Component({ /* [...] */ })
+export class DriverDetails {
+  constructor(private params: RouteParams) {
+    
+    var id = params.get('forCarId');
+    console.log("Fahrer für Auto_", id);
+  }
+}
 ```
 
 
@@ -173,8 +217,7 @@ Seine Schwerpunkte liegen auf Webanwendungen mit AngularJS und Node.js.
 
 
 ## Quellen
-* https://github.com/Angular2Buch/angular2-forms - Vollständiges Beispiel
+* https://github.com/Angular2Buch/angular2-routing - Vollständiges Beispiel
 * https://github.com/angular/angular/ - Offizielles Angular 2.0 Repository
 * https://github.com/angular/angular-cli - Das neue Kommandozeilentool für Angular
-* https://medium.com/@daviddentoom/angular-2-form-validation-9b26f73fcb81 - Weiterführende Informationen
-* https://angular.io/docs/ts/latest/guide/forms.html - Dokumentation von Angular zur Formularverarbeitung
+* https://angular.io/docs/ts/latest/guide/router.html - Dokumentation von Angular zu Routing und Navigation
