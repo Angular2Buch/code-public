@@ -115,7 +115,7 @@ export class Drivers {}
 Um das Beispiel noch ein wenig zu komplettieren, haben wir eine weitere Komponente eingebunden. Sie soll die Details zu einem Fahrer anzeigen (`DriverDetails`). Die neue Hierarchie der Komponenten sehen wir in _Bild 2_.
 
 ![Bild2](images/loesung.png)
-> Bild 2: Mittels Routing sind nun drei Komponenten erreichbar
+> Bild 2: Mittels Routing sind nun alle Komponenten erreichbar
 
 ## 2. Komponenten anzeigen
 
@@ -129,7 +129,7 @@ Die Komponente `DashboardApp` hat folgendes Template:
 <router-outlet></router-outlet>
 ```
 
-Die Überschrift bleibt dadurch permanent in der Anwendung sichtbar. Darunter wird dann die jeweils angeforderte Komponenten eingefügt. Auch die Kind-Komponente `Drivers` benötigt die Direktive im Template. Da es sich um ein denkbar kurzes Templat handelt, bietet es sich an alles direkt im Quelltext zu konfigurieren:
+Die Überschrift bleibt dadurch permanent in der Anwendung sichtbar. Darunter wird dann die jeweils angeforderte Komponenten eingefügt. Auch die Kind-Komponente `Drivers` benötigt die Direktive im Template. Da es sich um ein denkbar kurzes Template handelt, bietet es sich an alles direkt im Quelltext zu konfigurieren:
 
 ```javascript
 @Component({})
@@ -190,19 +190,45 @@ import {RouteParams} from 'angular2/router';
 
 @Component({ /* [...] */ })
 export class DriverDetails {
-  constructor(private params: RouteParams) {
+  constructor(params: RouteParams) {
     
     var id = params.get('forCarId');
-    console.log("Fahrer für Auto_", id);
+    console.log("Fahrer für Auto", id);
   }
 }
 ```
-
+> Listing 3: RouteParams enthält die alle Routen-Parameter 
 
 
 ## Fazit und Ausblick
 
-[TODO]
+Die wichtigsten Bestandteile des Routings haben wir hiermit kennen gelernt. Unsere Anwendung "Cars Dashboard" ist nun voll funktionsfähig. Ganz selbstverständlich haben wir dabei ein RouterOutlet im RouterOutlet verwendet. Solche verschachtelten Views war in AngularJS 1 noch nicht mit Boardmitteln realisierbar. Die Verwendung des AngularUI Router war daher die de-facto Lösung für komplexere Szenarien. Der neue Router in Angular 2 ist zwar weiterhin nicht ganz so mächtig, deckt aber viel mehr Anwendungsfälle ab. Dies ist eine gute Entwicklung des Frameworks. Die Belance zwischen einer einfachen Verwendung und vielen Funktionen bleibt unserer Ansicht nach gut gewahrt.
+
+Mit diesem Artikel wollen wir unsere Reihe zum neuen Framework von Google abschließen. Mittels der vorgestellten Themen über 5 Ausgaben der __Web und Mobile Developer__ lässt sich bereits ein Most-Valuable-Product erstellen. Die Github-Repositories haben wir alle auf den neuesten Stand (zum Redaktionsschluss Beta.2) gebracht. Viele weitere Aspekte von Angular 2 gilt es zu erforschen. Wir – das sind Johannes Hoppe, Danny Koppenhagen, Ferdinand Malcher und Gregor Woiwode – laden Sie gerne zu einer längeren Entdeckungsreise ein. Mit Erscheinungsdatum der finalen Version von Angular 2 werden wir ein deutschsprachiges Buch zum Framework veröffentlichen.
+
+<hr>
+
+## Alle Angular 2-Artikel im Überblick
+
+* Teil 1 – Modularer Code mit SystemJS und jspm  
+Web und Mobile Developer Ausgabe 12/2015  
+Codebeispiele: https://github.com/Angular2Buch/angular2-module  
+
+* Teil 2 – Templatesyntax und Web Components  
+Web und Mobile Developer Ausgabe 01/2016  
+Codebeispiele: https://github.com/Angular2Buch/angular2-template-syntax  
+
+* Teil 3 – Dependency Injection und Unit-Testing  
+Web und Mobile Developer Ausgabe 02/2016  
+Codebeispiele: https://github.com/Angular2Buch/angular2-testing  
+
+* Teil 4 – Formularverarbeitung und Validierung  
+Web und Mobile Developer Ausgabe 03/2016  
+Codebeispiele: https://github.com/Angular2Buch/angular2-forms  
+
+* Teil 5 – Routing  
+aktuelle Ausgabe 04/2016  
+Codebeispiele: https://github.com/Angular2Buch/angular2-routing  
 
 <hr>
 
@@ -217,7 +243,6 @@ Seine Schwerpunkte liegen auf Webanwendungen mit AngularJS und Node.js.
 
 
 ## Quellen
-* https://github.com/Angular2Buch/angular2-routing - Vollständiges Beispiel
 * https://github.com/angular/angular/ - Offizielles Angular 2.0 Repository
 * https://github.com/angular/angular-cli - Das neue Kommandozeilentool für Angular
 * https://angular.io/docs/ts/latest/guide/router.html - Dokumentation von Angular zu Routing und Navigation
