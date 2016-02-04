@@ -2,10 +2,7 @@
 
 ## Eine Single-Page Anwendung ist erst dann richtig vollständig, wenn man zwischen verschiedenen Ansichten hin- und her navigieren kann. Der Nutzer profitiert dabei von Seitenwechseln ohne merkbaren Ladevorgang. Das Routing wurde in Angular 2 intensiv ausgebaut und deckt nun auch fortgeschrittene Anwendungsfälle ab.
 
-Dies ist der fünfte und letzte Artikel aus unserer Reihe zu Angular 2.
-In den vorherigen Artikeln haben wir bereits SystemJS, Templates, Dependency Injection, Unit-Testing, HTTP-Kommunikation und die Verarbeitung von Formulardaten kennengelernt.
-Mit dabei ist stets das "Car Dashboard", welches kontinuierlich um neue Funktionen erweitert wird.
-In diesem Artikel wollen wir alle Bereiche der Anwendung über die neue Routing-Engine miteinander kombinieren.
+Dies ist der fünfte und letzte Artikel aus unserer Reihe zu Angular 2. In den vorherigen Artikeln haben wir bereits SystemJS, Templates, Dependency Injection, Unit-Testing, HTTP-Kommunikation und die Verarbeitung von Formulardaten kennengelernt. Mit dabei ist stets das "Car Dashboard", welches kontinuierlich um neue Funktionen erweitert wird. In diesem Artikel wollen wir alle Bereiche der Anwendung über die neue Routing-Engine miteinander kombinieren.
 
 
 ![Screenshot](images/screenshot_dashboard.png)
@@ -18,7 +15,7 @@ Wie gewohnt steht ein komplettes, lauffähiges Beispiel auf GitHub zur Verfügun
 
 ## Komponenten
 
-Zugegeben, in der letzten Ausgabe mussten wir ein wenig schummeln. Wir haben neben der Komponente "Dashboard" eine zweite Komponente namens "DriverForm" vorgestellt und anhand dieser die Formularverarbeitung erläutert. Das Problem war: Beide Komponenten waren jeweils einzeln in die Website eingebunden:
+Zugegeben, in der letzten Ausgabe mussten wir ein wenig schummeln. Wir haben neben der Komponente "Dashboard" eine zweite Komponente namens "DriverForm" vorgestellt und anhand dieser die Formularverarbeitung erläutert. Das Problem war: Beide Komponenten waren jeweils einzeln in die Website eingebunden (_Listing 1_). 
 
 ```html
 <!-- index.html -->
@@ -45,14 +42,14 @@ export class Dashboard { }
 @View({templateUrl: 'app/components/driver-form/driver-form.html'})
 export class DriverForm { }
 ```
-> Pseudo-Code zum Einbinden der Root-Component in die Website
+> Listing 1: Pseudo-Code zum Einbinden der Root-Component in die Website
 
 Die hierarchische Anordnung der Komponenten aus der letzten Ausgabe sehen wir in _Bild 1_.
 
 ![Bild1](images/problem.png)
 > Bild 1: Ohne Routing kommt man hier nicht weiter
 
-Nun wollen wir natürlich auch in der Lage sein, beide Ansichten gleichzeitig zu verwenden, damit wir durch die Anwendung navigieren können. Hier kommt das Prinzip des *Routings* in Spiel. Als Routing bezeichnen wir das Laden von Bereichen der Anwendung abhängig vom Zustand. Im  Prinzip geschieht dasselbe, was wir auch manuell gemacht haben: Komponenten werden ausgetauscht. Der Dienst, der den Zustand der Angular-Anwendung verwaltet, nennt sich __Router__. Mittels Routing wollen wir nun Dashboard, Registrierungs-Formular und eine Detailansicht erreichbar machen. Alle Ansichten sollen vom Nutzer über verschiedene URLs aufrufbar sein.
+Nun wollen wir natürlich auch in der Lage sein, beide Ansichten gleichzeitig zu verwenden, damit wir durch die Anwendung navigieren können. Hier kommt das Prinzip des __Routings__ in Spiel. Als Routing bezeichnen wir das Laden von Bereichen der Anwendung abhängig vom Zustand. Im  Prinzip geschieht dasselbe, was wir auch manuell gemacht haben: Komponenten werden ausgetauscht. Der Dienst, der den Zustand der Angular-Anwendung verwaltet, nennt sich __Router__. Mittels Routing wollen wir nun Dashboard, Registrierungs-Formular und eine Detailansicht erreichbar machen. Alle Ansichten sollen vom Nutzer über verschiedene URLs aufrufbar sein.
 
 
 ## Routing
@@ -81,7 +78,7 @@ Dem Decorator `RouteConfig` wird eine also Liste von Routen übergeben, die für
 
 Der Routen-Name ist ein Bezeichner, den wir später verwenden, um die Route zu identifizieren. Es spricht nichts dagegen, die Namen der Komponente (als String) zu verwenden. Verwendet man eine Komponente im Routing mehrmals, muss man sich einen Namen ausdenken - denn er muss eindeutig sein.
 
-Wir erzeugen also eine neue Komponente, die wir `DashboardApp` nennen (siehe _Listing 1_).
+Wir erzeugen also eine neue Komponente, die wir `DashboardApp` nennen (siehe _Listing 2_).
 
 ```javascript
 @RouteConfig([
@@ -95,11 +92,11 @@ Wir erzeugen also eine neue Komponente, die wir `DashboardApp` nennen (siehe _Li
 })
 export class DashboardApp { }
 ```
-> Listing 1: Neue Komponente DashboardApp mit Routing-Konfiguration
+> Listing 2: Neue Komponente DashboardApp mit Routing-Konfiguration
 
 Mit dem Schlüssel `useAsDefault` können wir eine Standardroute festlegen, die geladen wird, falls keine Route vom Nutzer aufgerufen wird.
 
-Wenn wir das _Listing 1_ betrachten, so fällt auf, dass für die Komponente `DriverForm` gar keine Route definiert wurde. Stattdessen sieht man eine Notation mit drei Punkten (`...`). Der Component-Router von Angular 2 geht Hand in Hand mit dem Konzept der Komponenten und ermöglicht die Vererbung von Routen. Das bedeutet, dass eine durch das Routing geladene Komponente weitere Routen-Konfigurationen besitzen kann, usw. Die Komponenten lassen sich beliebig tief verschachteln. So bleibt alles übersichtlich: Eine Komponente ist jeweils für die Verwaltung ihrer eigenen Routen zuständig und gibt die Verantwortlichkeit für Kind-Routen an die Kind-Komponente ab (_Listing 2_). Damit bleibt unsere Anwendung modular und die Komponenten haben definierte Schnittstellen, um mit anderen Teilen der Anwendung zu kommunizieren.
+Wenn wir das _Listing 2_ betrachten, so fällt auf, dass für die Komponente `DriverForm` gar keine Route definiert wurde. Stattdessen sieht man eine Notation mit drei Punkten (`...`). Der Component-Router von Angular 2 geht Hand in Hand mit dem Konzept der Komponenten und ermöglicht die Vererbung von Routen. Das bedeutet, dass eine durch das Routing geladene Komponente weitere Routen-Konfigurationen besitzen kann, usw. Die Komponenten lassen sich beliebig tief verschachteln. So bleibt alles übersichtlich: Eine Komponente ist jeweils für die Verwaltung ihrer eigenen Routen zuständig und gibt die Verantwortlichkeit für Kind-Routen an die Kind-Komponente ab (_Listing 3_). Damit bleibt unsere Anwendung modular und die Komponenten haben definierte Schnittstellen, um mit anderen Teilen der Anwendung zu kommunizieren.
 
 ```javascript
 @Component({})
@@ -112,7 +109,7 @@ Wenn wir das _Listing 1_ betrachten, so fällt auf, dass für die Komponente `Dr
 ])
 export class Drivers {}
 ```
-> Listing 2: Kind-Komponente `Drivers` definiert Unter-Routen
+> Listing 3: Kind-Komponente `Drivers` definiert Unter-Routen
 
 Um das Beispiel noch ein wenig zu komplettieren, haben wir eine weitere Komponente eingebunden. Sie soll die Details zu einem Fahrer anzeigen (`DriverDetails`). Die neue Hierarchie der Komponenten sehen wir in _Bild 2_.
 
@@ -178,11 +175,8 @@ Möchten wir mit einer Route weitere Werte übergeben, so verwenden wir als letz
 
 Klicken wir auf den generierten Link, so wird die Adresszeile auf `http://example.org/drivers/create/ng-car1` aktualisiert. Dank der HTML5 History API verursacht der Wechsel kein echtes Neuladen der Seite.
 
-Es kann aber jederzeit vorkommen, dass die sichtbare Adresse per Reload oder per Bookmark aufgerufen wird. Dieser Fall wird von Angular ohne Probleme berücksichtigt. Es muss aber sichergestellt werden, dass auch der Webserver bereit für eine Single-Page-Anwendung ist.
-Bei einer Route handelt es sich nicht um einen echten Verzeichnispfad auf dem Server.
-Bei einer unbekannten Adresse wie z.B. `drivers/create/ng-car1` darf der Server allerdings nicht mit einem Fehler 404 antworten. Er muss so konfiguriert werden, dass für jeden Aufruf stets die `index.html` ausgeliefert wird.
-Dieses Verhalten kann im Apache mit dem Modul `mod_rewrite` erreicht werden.
-Dabei gilt zu beachten, dass nur Routen-Aufrufe auf die HTML-Seite verwiesen werden dürfen, nicht aber die Anwendung und statische Elemente (Bilder, etc.).
+Es kann aber jederzeit vorkommen, dass die sichtbare Adresse per Reload oder per Bookmark aufgerufen wird. Dieser Fall wird von Angular ohne Probleme berücksichtigt. Es muss aber sichergestellt werden, dass auch der Webserver bereit für eine Single-Page-Anwendung ist. Bei einer Route handelt es sich nicht um einen echten Verzeichnispfad auf dem Server. Bei einer unbekannten Adresse wie z.B. `drivers/create/ng-car1` darf der Server allerdings nicht mit einem Fehler 404 antworten. Er muss so konfiguriert werden, dass für jeden Aufruf stets die `index.html` ausgeliefert wird.
+Dieses Verhalten kann im Apache mit dem Modul `mod_rewrite` erreicht werden. Dabei gilt zu beachten, dass nur Routen-Aufrufe auf die HTML-Seite verwiesen werden dürfen, nicht aber die Anwendung und statische Elemente (Bilder, etc.).
 
 In der `index.html` biegt folgende Angabe alle relativen Pfade wieder zurecht:
 
@@ -194,7 +188,7 @@ In der `index.html` biegt folgende Angabe alle relativen Pfade wieder zurecht:
 
 ## Routen-Parameter empfangen
 
-Wenn man mittels Routen-Parametern Werte an die Komponente übergibt, so muss man diese natürlich auch empfangen können. Dazu dient die Klasse `RouteParams`, die wir in den Konstruktor injizieren und damit in der Komponente bekanntmachen können. Die Instanz von `RouteParams` ist stets mit den jeweiligen Parametern der Route befüllt. Über die Methode `RouteParams.get()` können wir nun einen Parameter abrufen. Als Argument übergeben wir den Bezeichner, den wir bei der Definition des Links festgelegt haben (__Listing 3__).
+Wenn man mittels Routen-Parametern Werte an die Komponente übergibt, so muss man diese natürlich auch empfangen können. Dazu dient die Klasse `RouteParams`, die wir in den Konstruktor injizieren und damit in der Komponente bekanntmachen können. Die Instanz von `RouteParams` ist stets mit den jeweiligen Parametern der Route befüllt. Über die Methode `RouteParams.get()` können wir nun einen Parameter abrufen. Als Argument übergeben wir den Bezeichner, den wir bei der Definition des Links festgelegt haben (_Listing 4_).
 
 ```javascript
 import {RouteParams} from 'angular2/router';
@@ -208,7 +202,7 @@ export class DriverDetails {
   }
 }
 ```
-> Listing 3: RouteParams enthält alle Routen-Parameter
+> Listing 4: RouteParams enthält alle Routen-Parameter
 
 
 ## Fazit und Ausblick
@@ -249,11 +243,10 @@ Codebeispiele: https://github.com/Angular2Buch/angular2-routing
 **Johannes Hoppe** ist selbstständiger IT-Berater und Softwareentwickler. Er arbeitet derzeit als Architekt für ein Portal auf Basis von .NET und AngularJS. Er veranstaltet Trainings zu AngularJS und bloggt unter http://blog.johanneshoppe.de/ .
 
 ![Ferdinand Malcher](images/ferdinand-malcher_mini.png)
-**Ferdinand Malcher** ist selbständiger Softwareentwickler und Mediengestalter aus Leipzig.
-Seine Schwerpunkte liegen auf Webanwendungen mit Angular und Node.js.
+**Ferdinand Malcher** ist selbständiger Softwareentwickler und Mediengestalter aus Leipzig. Seine Schwerpunkte liegen auf Webanwendungen mit Angular und Node.js.
 
 
-## Quellen
+## Links zum Thema
 * https://github.com/angular/angular/ - Offizielles Angular 2 Repository
 * https://github.com/angular/angular-cli - Das neue Kommandozeilentool für Angular
 * https://angular.io/docs/ts/latest/guide/router.html - Dokumentation von Angular zu Routing und Navigation
