@@ -1,6 +1,6 @@
 # Routing mit Angular 2.0
 
-## Eine Single-Page Anwendung ist erst dann richtig vollständig, wenn man zwischen den Zuständen hin- und her navigieren kann. Der Nutzer profitiert dabei von Seitenwechseln ohne merkbaren Ladevorgang. Das Routing wurde in Angular 2 intensiv ausgebaut und deckt nun auch fortgeschrittene Anwendungsfälle ab.
+## Eine Single-Page Anwendung ist erst dann richtig vollständig, wenn man zwischen verschiedenen Ansichten hin- und her navigieren kann. Der Nutzer profitiert dabei von Seitenwechseln ohne merkbaren Ladevorgang. Das Routing wurde in Angular 2 intensiv ausgebaut und deckt nun auch fortgeschrittene Anwendungsfälle ab.
 
 Dies ist der fünfte und letzte Artikel aus unserer Reihe zu Angular 2.
 In den vorherigen Artikeln haben wir bereits SystemJS, Templates, Dependency Injection, Unit-Testing, HTTP-Kommunikation und die Verarbeitung von Formulardaten kennengelernt.
@@ -12,7 +12,7 @@ In diesem Artikel wollen wir alle Bereiche der Anwendung über die neue Routing-
 > 1. Komponente: Das Cars Dashboard ("Dashboard")
 
 ![Screenshot](images/screenshot_driver-form.png)
-> 2. Komponente: Formular zum Eintragen der Fahrerdaten ("DriverForm")
+> 2 . Komponente: Formular zum Eintragen der Fahrerdaten ("DriverForm")
 
 Wie gewohnt steht ein komplettes, lauffähiges Beispiel auf GitHub zur Verfügung. Sie finden alle besprochenen Inhalte unter: __https://github.com/Angular2Buch/angular2-routing__
 
@@ -52,7 +52,7 @@ Die hierarchische Anordnung der Komponenten aus der letzten Ausgabe sehen wir in
 ![Bild1](images/problem.png)
 > Bild 1: Ohne Routing kommt man hier nicht weiter
 
-Nun wollen wir natürlich auch in der Lage sein, beide Ansichten gleichzeitig zu verwenden, damit wir durch die Anwendung navigieren können. Hier kommt das Prinzip des *Routings* in Spiel. Als Routing bezeichnen wir das Laden von Bereichen der Anwendung abhängig vom Zustand. Im  Prinzip geschieht das selbe, was wir auch manuell gemacht haben: Komponenten werden ausgetauscht. Der Dienst, der den Zustand der Angular-Anwendung verwaltet, nennt sich __Router__. Mittels Routing wollen wir nun Dashboard, Registrierungs-Formular und eine Detailansicht erreichbar machen. Alle Ansichten sollen vom Nutzer über verschiedene URLs aufrufbar sein.
+Nun wollen wir natürlich auch in der Lage sein, beide Ansichten gleichzeitig zu verwenden, damit wir durch die Anwendung navigieren können. Hier kommt das Prinzip des *Routings* in Spiel. Als Routing bezeichnen wir das Laden von Bereichen der Anwendung abhängig vom Zustand. Im  Prinzip geschieht dasselbe, was wir auch manuell gemacht haben: Komponenten werden ausgetauscht. Der Dienst, der den Zustand der Angular-Anwendung verwaltet, nennt sich __Router__. Mittels Routing wollen wir nun Dashboard, Registrierungs-Formular und eine Detailansicht erreichbar machen. Alle Ansichten sollen vom Nutzer über verschiedene URLs aufrufbar sein.
 
 
 ## Routing
