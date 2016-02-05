@@ -67,7 +67,7 @@ Vorausgesetzt, es ist bereits eine Grundstruktur der Anwendung mit mehreren Komp
 
 Routen-Konfigurationen werden in Angular mithilfe des Decorators `RouteConfig` aus dem Modul `angular2/router` vorgenommen. Anders als noch in AngularJS 1 muss die Routenkonfiguration nicht mehr zentral für die gesamte Anwendung definiert werden. Verzweigungen können am "Ort des Geschehens", also bei der jeweiligen Komponente bestimmt werden. Die erste Komponente, die beim Bootstrapping der Anwendung geladen wird, ist der Einstiegspunkt des Routers. Sie wird __Root-Komponente__ genannt.
 
-Dem Decorator `RouteConfig` wird eine also Liste von Routen übergeben, die für die Anwendung registriert werden sollen. Eine solche Route ist folgendermaßen aufgebaut:
+Dem Decorator `RouteConfig` wird also eine Liste von Routen übergeben, die für die Anwendung registriert werden sollen. Eine solche Route ist folgendermaßen aufgebaut:
 ```javascript
 { path: '/path', name: 'MyRoute', component: MyComponent }
 ```
@@ -173,7 +173,7 @@ Möchten wir mit einer Route weitere Werte übergeben, so verwenden wir als letz
 <a [routerLink]="['/Drivers', 'Details', { forCarId: car.id }]">Fahrer anzeigen</a>
 ```
 
-Klicken wir auf den generierten Link, so wird die Adresszeile auf `http://example.org/drivers/create/ng-car1` aktualisiert. Dank der HTML5 History API verursacht der Wechsel kein echtes Neuladen der Seite.
+Klicken wir auf den generierten Link, so wird die Adresszeile auf `http://example.org/drivers/details/ng-car1` aktualisiert. Dank der HTML5 History API verursacht der Wechsel kein echtes Neuladen der Seite.
 
 Es kann aber jederzeit vorkommen, dass die sichtbare Adresse per Reload oder per Bookmark aufgerufen wird. Dieser Fall wird von Angular ohne Probleme berücksichtigt. Es muss aber sichergestellt werden, dass auch der Webserver bereit für eine Single-Page-Anwendung ist. Bei einer Route handelt es sich nicht um einen echten Verzeichnispfad auf dem Server. Bei einer unbekannten Adresse wie z.B. `drivers/create/ng-car1` darf der Server allerdings nicht mit einem Fehler 404 antworten. Er muss so konfiguriert werden, dass für jeden Aufruf stets die `index.html` ausgeliefert wird.
 Dieses Verhalten kann im Apache mit dem Modul `mod_rewrite` erreicht werden. Dabei gilt zu beachten, dass nur Routen-Aufrufe auf die HTML-Seite verwiesen werden dürfen, nicht aber die Anwendung und statische Elemente (Bilder, etc.).
